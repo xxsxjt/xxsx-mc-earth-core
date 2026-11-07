@@ -31,6 +31,35 @@ public class IronworkingAnvilBlock extends Block {
     }
 
     @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
+                                               Player player, BlockHitResult hitResult) {
+        InteractionHand workpieceHand = player.getItemInHand(InteractionHand.MAIN_HAND)
+                .has(EarthDataComponents.FORGING_PROCESS.get()) ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND;
+        ItemStack workpiece = player.getItemInHand(workpieceHand);
+        ForgingProcess process = workpiece.get(EarthDataComponents.FORGING_PROCESS.get());
+        if (process == null) return InteractionResult.PASS;
+        if (player.isShiftKeyDown()) {
+            ForgingProcess switched = process.withTarget(process.targetForm().next());
+            if (!level.isClientSide()) {
+                workpiece.set(EarthDataComponents.FORGING_PROCESS.get(), switched);
+                player.sendOverlayMessage(forgingDashboard(workpiece, switched,
+                        (int) switched.currentTemperatureK(level.getGameTime(), sampleNearbyTemperatureK(level, pos))));
+            }
+            return InteractionResult.SUCCESS;
+        }
+        int sourceK = sampleNearbyTemperatureK(level, pos);
+        if (sourceK >= ForgingProcess.MIN_HOT_WORK_K) {
+            ForgingProcess heated = process.reheated(level.getGameTime(), sourceK);
+            if (!level.isClientSide()) {
+                workpiece.set(EarthDataComponents.FORGING_PROCESS.get(), heated);
+                player.sendOverlayMessage(forgingDashboard(workpiece, heated, sourceK));
+            }
+            return InteractionResult.SUCCESS;
+        }
+        return InteractionResult.PASS;
+    }
+
+    @Override
     protected InteractionResult useItemOn(ItemStack hammer, BlockState state, Level level, BlockPos pos,
                                           Player player, InteractionHand hand, BlockHitResult hitResult) {
         InteractionHand hammerHand = hand;

@@ -1136,12 +1136,16 @@ public final class SpecItems {
             case "earth_on_minecraft:tool_quality" -> props.component(EarthDataComponents.TOOL_QUALITY.get(),
                     ToolQualityComponent.DEFAULT) != null
                     ? EarthMedicalAndWeaponSupport.applyWeaponAttributes(entry.id(),
-                            props.component(EarthDataComponents.TOOL_QUALITY.get(), ToolQualityComponent.DEFAULT))
+                            props.component(EarthDataComponents.TOOL_QUALITY.get(), ToolQualityComponent.DEFAULT)
+                                    .component(EarthDataComponents.FORGING_PROCESS.get(),
+                                            com.xxsx.earthonminecraft.component.ForgingProcess.DEFAULT))
                     : props;
             case "earth_on_minecraft:material_batch" -> props.component(EarthDataComponents.MATERIAL_BATCH.get(),
                     MaterialBatch.defaultFor(entry.id()));
             case "earth_on_minecraft:metal_batch" -> props.component(EarthDataComponents.METAL_BATCH.get(),
-                    MetalBatch.defaultFor(entry.componentValue()));
+                    MetalBatch.defaultFor(entry.componentValue()))
+                    .component(EarthDataComponents.FORGING_PROCESS.get(),
+                            com.xxsx.earthonminecraft.component.ForgingProcess.DEFAULT);
             default -> {
                 if (entry.nutrition() > 0 || entry.drink()) {
                     yield props;
