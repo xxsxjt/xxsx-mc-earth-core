@@ -36,6 +36,8 @@ public final class EarthDataComponents {
             register("material_batch", MaterialBatch.CODEC);
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<MetalBatch>> METAL_BATCH =
             register("metal_batch", MetalBatch.CODEC);
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<ForgingProcess>> FORGING_PROCESS =
+            register("forging_process", ForgingProcess.CODEC);
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> STERILE =
             registerSynced("sterile", Codec.BOOL, ByteBufCodecs.BOOL);
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<OpticalGlassComponent>> OPTICAL_GLASS =

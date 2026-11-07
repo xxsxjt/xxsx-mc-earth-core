@@ -44,4 +44,16 @@ final class EarthOnMinecraftTooltips {
         MaterialChemistry.addDetails(stack, event.getToolTip()::add, event.getFlags());
         RouteGuide.addRouteTips(stack, event.getToolTip()::add);
     }
+
+    static void addForgingDetails(ItemStack stack, java.util.function.Consumer<Component> lines) {
+        com.xxsx.earthonminecraft.component.ForgingProcess process = stack.get(
+                com.xxsx.earthonminecraft.component.EarthDataComponents.FORGING_PROCESS.get());
+        if (process != null) {
+            lines.accept(Component.literal("锻造工艺：折叠x" + process.foldCount()
+                    + " · 塑形 " + Math.round(process.shapingProgress() * 100) + "% · 锋锐度 "
+                    + Math.round(process.edgeSharpness() * 100) + "% · 淬火 "
+                    + process.quenchState().getSerializedName() + " · 回火 "
+                    + process.temperState().getSerializedName()).withStyle(ChatFormatting.GOLD));
+        }
+    }
 }

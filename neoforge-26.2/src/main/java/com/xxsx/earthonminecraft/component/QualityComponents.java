@@ -62,6 +62,10 @@ public final class QualityComponents {
         if (alloyName != null) {
             properties = properties.component(EarthDataComponents.METAL_BATCH.get(), defaultMetalBatchForItem(id));
         }
+        if (alloyName != null || id.endsWith("sword") || id.endsWith("axe") || id.endsWith("pickaxe")
+                || Set.of("dagger", "spear", "war_hammer", "battle_axe").contains(id)) {
+            properties = properties.component(EarthDataComponents.FORGING_PROCESS.get(), ForgingProcess.DEFAULT);
+        }
         if (TOOL_QUALITY_ITEMS.contains(id)) {
             properties = properties.component(EarthDataComponents.TOOL_QUALITY.get(), ToolQualityComponent.DEFAULT);
         }
@@ -175,6 +179,17 @@ public final class QualityComponents {
                 lines.accept(sourceLine(tool.smith()));
             }
         }
+        ForgingProcess forging = stack.get(EarthDataComponents.FORGING_PROCESS.get());
+        if (forging != null) {
+            lines.accept(Component.translatable("tooltip.earth_on_minecraft.forging.process",
+                    forging.foldCount(), Math.round(forging.shapingProgress() * 100.0),
+                    Math.round(forging.edgeSharpness() * 100.0), forging.targetForm().getSerializedName(),
+                    forging.quenchState().getSerializedName(), forging.temperState().getSerializedName())
+                    .withStyle(ChatFormatting.GOLD));
+            lines.accept(Component.translatable("tooltip.earth_on_minecraft.forging.potential",
+                    String.format(Locale.ROOT, "%.0f%%", forging.substratePotential() * 100.0))
+                    .withStyle(ChatFormatting.LIGHT_PURPLE));
+        }
         MaterialBatch batch = stack.get(EarthDataComponents.MATERIAL_BATCH.get());
         if (batch == null && food == null && herb == null && pharmaceutical == null && gem == null && tool == null) {
             batch = resolveMaterialBatch(stack).orElse(null);
@@ -209,6 +224,14 @@ public final class QualityComponents {
                 lines.accept(Component.translatable("tooltip.earth_on_minecraft.assay.composition",
                         Component.literal(assay)).withStyle(ChatFormatting.DARK_GRAY));
             }
+            lines.accept(Component.translatable("tooltip.earth_on_minecraft.forging.elements",
+                    Component.literal("Fe " + formatPercent(metal.fractionOf("Fe")) + "% · C " + formatPercent(metal.carbonContent())
+                            + "% · Slag " + formatPercent(metal.slagContent()) + "% · S " + formatPercent(metal.sulfurContent())
+                            + "% · P " + formatPercent(metal.phosphorusContent()) + "%"))
+                    .withStyle(ChatFormatting.DARK_AQUA));
+            lines.accept(Component.translatable("tooltip.earth_on_minecraft.forging.substrate",
+                    String.format(Locale.ROOT, "%.0f%%", metal.substratePotential() * 100.0))
+                    .withStyle(ChatFormatting.LIGHT_PURPLE));
         } else if (com.xxsx.earthonminecraft.LoreIntegration.knowsClient(
                 com.xxsx.earthonminecraft.LoreIntegration.NODE_ANALYTICAL_CHEMISTRY)) {
             Identifier id = BuiltInRegistries.ITEM.getKey(stack.getItem());

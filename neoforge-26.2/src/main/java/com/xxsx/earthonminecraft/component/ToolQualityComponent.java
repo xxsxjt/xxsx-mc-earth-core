@@ -51,4 +51,9 @@ public record ToolQualityComponent(int schemaVersion, Grade grade, String smith,
             case HEIRLOOM -> 1.30;
         };
     }
+
+    /** Continuous quality score used by weapon/tool attributes and addon APIs. */
+    public double continuousScore() {
+        return Math.max(0.0, Math.min(1.0, (grade.tier() / 4.0) * 0.85 + rolls * 0.15));
+    }
 }

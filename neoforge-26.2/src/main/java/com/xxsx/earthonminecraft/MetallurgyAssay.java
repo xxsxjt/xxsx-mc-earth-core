@@ -1,6 +1,7 @@
 package com.xxsx.earthonminecraft;
 
 import com.xxsx.earthonminecraft.component.EarthDataComponents;
+import com.xxsx.earthonminecraft.component.ForgingProcess;
 import com.xxsx.earthonminecraft.component.Grade;
 import com.xxsx.earthonminecraft.component.MaterialBatch;
 import com.xxsx.earthonminecraft.component.MetalBatch;
@@ -37,6 +38,7 @@ public final class MetallurgyAssay {
                 .orElseGet(() -> MaterialBatch.defaultFor(itemPath(workpiece)));
         MetalBatch inputMetal = QualityComponents.resolveMetalBatch(workpiece).orElse(null);
         int effectiveTempK = Math.max(envTempK, inputBatch.temperatureK());
+        ForgingProcess process = workpiece.getOrDefault(EarthDataComponents.FORGING_PROCESS.get(), ForgingProcess.DEFAULT);
         Grade hammerGrade = Optional.ofNullable(hammer.get(EarthDataComponents.TOOL_QUALITY.get()))
                 .map(ToolQualityComponent::grade)
                 .orElse(Grade.COMMON);
@@ -71,6 +73,7 @@ public final class MetallurgyAssay {
 
             ItemStack out = new ItemStack(EarthOnMinecraft.WROUGHT_IRON.get());
             out.set(EarthDataComponents.METAL_BATCH.get(), forgedMetal);
+            out.set(EarthDataComponents.FORGING_PROCESS.get(), processForRefined(process, effectiveTempK));
             out.set(EarthDataComponents.MATERIAL_BATCH.get(), new MaterialBatch(
                     1, "earth_on_minecraft:wrought_iron", MaterialBatch.Phase.SOLID,
                     finalGrade, newFe, 0.0, 1000, Math.max(293, effectiveTempK - 80)));
@@ -103,6 +106,7 @@ public final class MetallurgyAssay {
                     || inputBatch.grade() != Grade.FINE;
             if (customized) {
                 out.set(EarthDataComponents.METAL_BATCH.get(), forgedMetal);
+                out.set(EarthDataComponents.FORGING_PROCESS.get(), processForRefined(process, effectiveTempK));
                 out.set(EarthDataComponents.MATERIAL_BATCH.get(), new MaterialBatch(
                         1, "earth_on_minecraft:iron_ingot", MaterialBatch.Phase.SOLID,
                         finalGrade, newFe, 0.0, 1000, Math.max(293, effectiveTempK - 80)));
@@ -141,6 +145,7 @@ public final class MetallurgyAssay {
 
             ItemStack out = new ItemStack(SpecItems.BY_ID.get("steel").get());
             out.set(EarthDataComponents.METAL_BATCH.get(), forgedMetal);
+            out.set(EarthDataComponents.FORGING_PROCESS.get(), processForRefined(process, effectiveTempK));
             out.set(EarthDataComponents.MATERIAL_BATCH.get(), new MaterialBatch(
                     1, "earth_on_minecraft:steel", MaterialBatch.Phase.SOLID,
                     finalGrade, newFe + newC + newMn, 0.0, 1000, Math.max(293, effectiveTempK - 80)));
@@ -169,6 +174,7 @@ public final class MetallurgyAssay {
             Grade finalGrade = upgraded.min(foldedMetal.maxGradeCap());
             ItemStack out = new ItemStack(steelItem);
             out.set(EarthDataComponents.METAL_BATCH.get(), foldedMetal);
+            out.set(EarthDataComponents.FORGING_PROCESS.get(), processForRefined(process, effectiveTempK));
             out.set(EarthDataComponents.MATERIAL_BATCH.get(), new MaterialBatch(
                     1, "earth_on_minecraft:steel", MaterialBatch.Phase.SOLID,
                     finalGrade, Math.min(0.9995, newFe + newC + newMn), 0.0, 1000, Math.max(293, effectiveTempK - 60)));
@@ -176,6 +182,30 @@ public final class MetallurgyAssay {
         }
 
         return Optional.empty();
+    }
+
+    public static Optional<ItemStack> finalizeForgedTool(ItemStack workpiece, ForgingProcess process, int temperatureK) {
+        String id = switch (process.targetForm()) {
+            case SWORD_BLADE -> "steel_sword";
+            case AXE_HEAD -> "steel_axe";
+            case PICKAXE_HEAD -> "steel_pickaxe";
+            case SPEAR_TIP -> "spear";
+            case DAGGER_BLADE -> "dagger";
+            case HAMMER_HEAD -> "war_hammer";
+            case INGOT_REFINING -> "";
+        };
+        var holder = SpecItems.BY_ID.get(id);
+        if (holder == null) return Optional.empty();
+        ItemStack out = new ItemStack(holder.get());
+        QualityComponents.resolveMetalBatch(workpiece).ifPresent(m -> out.set(EarthDataComponents.METAL_BATCH.get(), m));
+        QualityComponents.resolveMaterialBatch(workpiece).ifPresent(m -> out.set(EarthDataComponents.MATERIAL_BATCH.get(), m));
+        Grade grade = QualityComponents.resolveMetalBatch(workpiece).map(MetalBatch::maxGradeCap).orElse(Grade.COMMON);
+        double roll = Math.min(1.0, 0.50 + process.foldCount() * 0.035 + process.edgeSharpness() * 0.25
+                + (process.temperState() == ForgingProcess.TemperState.TEMPERED ? 0.12 : 0.0));
+        out.set(EarthDataComponents.TOOL_QUALITY.get(), new ToolQualityComponent(1, grade, "anvil_forged_" + temperatureK + "K", roll));
+        out.set(EarthDataComponents.FORGING_PROCESS.get(), process);
+        EarthMedicalAndWeaponSupport.stampDynamicAttributes(out);
+        return Optional.of(out);
     }
 
     /**
@@ -261,6 +291,16 @@ public final class MetallurgyAssay {
             String smith = effectiveTempK >= 1150 ? "hot_forged_" + effectiveTempK + "K" : "cold_forged";
             out.set(EarthDataComponents.TOOL_QUALITY.get(),
                     new ToolQualityComponent(1, metalGrade, smith, clampedRoll));
+            ForgingProcess inputProcess = primaryInput.getOrDefault(EarthDataComponents.FORGING_PROCESS.get(), ForgingProcess.DEFAULT);
+            double potential = inMetal == null ? inputProcess.substratePotential()
+                    : Math.max(inputProcess.substratePotential(), inMetal.substratePotential());
+            out.set(EarthDataComponents.FORGING_PROCESS.get(), new ForgingProcess(
+                    1, 0L, Math.max(ForgingProcess.AMBIENT_K, effectiveTempK - 120.0), 8.0,
+                    Math.min(12, inputProcess.foldCount()), 1.0, inputProcess.targetForm(),
+                    inputProcess.targetForm() == ForgingProcess.TargetForm.SWORD_BLADE
+                            || inputProcess.targetForm() == ForgingProcess.TargetForm.DAGGER_BLADE ? 1.0 : inputProcess.edgeSharpness(),
+                    inputProcess.quenchState(), inputProcess.temperState(), inputProcess.microcracks(),
+                    inputProcess.decarburization(), Math.min(1.0, potential + clampedRoll * 0.15)));
             return;
         }
 
@@ -362,6 +402,14 @@ public final class MetallurgyAssay {
             return 0.5;
         }
         return 0.0;
+    }
+
+    private static ForgingProcess processForRefined(ForgingProcess process, int tempK) {
+        double potential = Math.min(1.0, process.substratePotential() + 0.08 + process.foldCount() * 0.015);
+        return new ForgingProcess(1, 0L, Math.max(ForgingProcess.AMBIENT_K, tempK - 80.0), 8.0,
+                Math.min(12, process.foldCount() + 1), 1.0, process.targetForm(),
+                process.edgeSharpness(), process.quenchState(), process.temperState(),
+                process.microcracks(), process.decarburization(), potential);
     }
 
     private static boolean hasNonDefaultAssay(ItemStack stack) {

@@ -20,6 +20,7 @@ public class GuidedMaterialItem extends Item {
         lines.accept(Component.translatable("tooltip.earth_on_minecraft.material.header").withStyle(ChatFormatting.GOLD));
         EarthOnMinecraftTooltips.addMaterialDetails(stack, lines, flag);
         QualityComponents.appendTooltip(stack, lines);
+        EarthOnMinecraftTooltips.addForgingDetails(stack, lines);
         EarthOnMinecraftTooltips.addRouteTips(stack, lines);
         lines.accept(Component.translatable("tooltip.earth_on_minecraft.material.notebook").withStyle(ChatFormatting.DARK_GRAY));
     }

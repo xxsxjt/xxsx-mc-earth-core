@@ -40,6 +40,7 @@ public class SpecItem extends Item {
                                 Consumer<Component> lines, TooltipFlag flag) {
         EarthMedicalAndWeaponSupport.appendHoverText(this, lines);
         QualityComponents.appendTooltip(stack, lines);
+        EarthOnMinecraftTooltips.addForgingDetails(stack, lines);
         EarthOnMinecraftTooltips.addMaterialDetails(stack, lines, flag);
         EarthOnMinecraftTooltips.addRouteTips(stack, lines);
     }

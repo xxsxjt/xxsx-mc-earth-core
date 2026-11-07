@@ -3,6 +3,8 @@ package com.xxsx.earthonminecraft;
 import com.xxsx.earthonminecraft.component.EarthDataComponents;
 import com.xxsx.earthonminecraft.component.Grade;
 import com.xxsx.earthonminecraft.component.ToolQualityComponent;
+import com.xxsx.earthonminecraft.component.ForgingProcess;
+import com.xxsx.earthonminecraft.component.MetalBatch;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
@@ -154,6 +156,49 @@ public final class EarthMedicalAndWeaponSupport {
                     EquipmentSlotGroup.MAINHAND);
         }
         return props.stacksTo(1).attributes(builder.build());
+    }
+
+    /** Computes continuous material/process multipliers for API consumers and tool stamping. */
+    public static DynamicWeaponAttributes dynamicAttributes(ItemStack stack, double baseDamage, double baseSpeed, int baseDurability) {
+        MetalBatch metal = com.xxsx.earthonminecraft.component.QualityComponents.resolveMetalBatch(stack).orElse(MetalBatch.DEFAULT);
+        ToolQualityComponent quality = stack.getOrDefault(EarthDataComponents.TOOL_QUALITY.get(), ToolQualityComponent.DEFAULT);
+        ForgingProcess process = stack.getOrDefault(EarthDataComponents.FORGING_PROCESS.get(), ForgingProcess.DEFAULT);
+        double carbon = Math.min(1.0, metal.carbonContent() / 0.012);
+        double purity = 1.0 - Math.min(1.0, metal.slagContent() * 5.0 + metal.sulfurContent() * 12.0 + metal.phosphorusContent() * 10.0);
+        double quench = switch (process.quenchState()) {
+            case WATER_QUENCHED -> 0.16;
+            case OIL_OR_BRINE_QUENCHED -> 0.12;
+            case OVERQUENCHED_CRACKED -> -0.20;
+            case UNQUENCHED -> 0.0;
+        };
+        double temper = process.temperState() == ForgingProcess.TemperState.TEMPERED ? 0.10 : 0.0;
+        double processScore = Math.max(-0.20, Math.min(0.45,
+                process.foldCount() * 0.018 + process.edgeSharpness() * 0.16 + quench + temper
+                        - process.microcracks() * 0.30 - process.decarburization() * 0.18));
+        double damageMultiplier = Math.max(0.80, Math.min(1.45,
+                0.80 + carbon * 0.18 + purity * 0.15 + quality.continuousScore() * 0.12 + processScore));
+        double speedDelta = Math.max(-0.20, Math.min(0.20, (purity - 0.5) * 0.18 + process.edgeSharpness() * 0.06));
+        double durabilityMultiplier = Math.max(0.80, Math.min(2.50,
+                0.80 + purity * 0.45 + process.foldCount() * 0.045 + temper * 0.80
+                        - process.microcracks() * 0.45));
+        return new DynamicWeaponAttributes(baseDamage * damageMultiplier, baseSpeed + speedDelta,
+                (int) Math.max(1, Math.round(baseDurability * durabilityMultiplier)), damageMultiplier, durabilityMultiplier);
+    }
+
+    public record DynamicWeaponAttributes(double attackDamage, double attackSpeed, int maxDurability,
+                                          double damageMultiplier, double durabilityMultiplier) { }
+
+    public static void stampDynamicAttributes(ItemStack stack) {
+        Identifier id = BuiltInRegistries.ITEM.getKey(stack.getItem());
+        WeaponSpec spec = id == null ? null : WEAPONS.get(id.getPath());
+        if (spec == null) return;
+        DynamicWeaponAttributes values = dynamicAttributes(stack, spec.attackDamageBonus(), spec.attackSpeedDelta(), 1000);
+        ItemAttributeModifiers.Builder builder = ItemAttributeModifiers.builder()
+                .add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, values.attackDamage(), AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                .add(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, values.attackSpeed(), AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND);
+        if (spec.reachBonus() > 0.0D) builder.add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(WEAPON_REACH_ID, spec.reachBonus(), AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND);
+        stack.set(net.minecraft.core.component.DataComponents.ATTRIBUTE_MODIFIERS, builder.build());
+        stack.set(net.minecraft.core.component.DataComponents.MAX_DAMAGE, values.maxDurability());
     }
 
     public static boolean isAnvilHammer(ItemStack stack) {

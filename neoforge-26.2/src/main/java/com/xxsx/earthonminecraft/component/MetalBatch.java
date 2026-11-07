@@ -111,6 +111,13 @@ public record MetalBatch(int schemaVersion, Alloy alloy, Map<String, Double> com
         return fractionOf("Slag") + fractionOf("SiO2");
     }
 
+    public double substratePotential() {
+        double purity = fractionOf("Fe") + fractionOf("Cu") + fractionOf("Ni") + fractionOf("Al") + fractionOf("Ti") + fractionOf("Au");
+        double alloying = fractionOf("Mn") + fractionOf("Cr") + fractionOf("Ni") + fractionOf("Cu") + fractionOf("Sn");
+        double impurityPenalty = Math.min(1.0, slagContent() * 4.0 + sulfurContent() * 18.0 + phosphorusContent() * 14.0);
+        return Math.max(0.0, Math.min(1.0, purity * 0.62 + Math.min(0.18, alloying * 2.0) - impurityPenalty));
+    }
+
     public boolean isFerrous() {
         return fractionOf("Fe") >= 0.50;
     }
