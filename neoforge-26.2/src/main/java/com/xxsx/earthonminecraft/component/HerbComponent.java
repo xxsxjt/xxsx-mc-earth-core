@@ -57,6 +57,13 @@ public record HerbComponent(int schemaVersion, String species, Part part, Nature
         return Grade.HEIRLOOM;
     }
 
+    public HerbComponent withPreparation(int newToxicity, Prepared newPrepared, double newPotency, Grade newGrade,
+                                         String newBatchId) {
+        return new HerbComponent(schemaVersion, species, part, nature, flavor,
+                Math.max(0, Math.min(3, newToxicity)), newPrepared,
+                Math.max(0.5, Math.min(1.5, newPotency)), newGrade, newBatchId);
+    }
+
     public enum Part implements StringRepresentable {
         ROOT, RHIZOME, STEM, LEAF, FLOWER, FRUIT, SEED, BARK, RESIN, MINERAL, ANIMAL;
 

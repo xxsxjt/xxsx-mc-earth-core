@@ -3,9 +3,11 @@ package com.xxsx.earthonminecraft;
 import com.xxsx.earthonminecraft.component.EarthDataComponents;
 import com.xxsx.earthonminecraft.component.ForgingProcess;
 import com.xxsx.earthonminecraft.component.Grade;
+import com.xxsx.earthonminecraft.component.HerbComponent;
 import com.xxsx.earthonminecraft.component.MaterialBatch;
 import com.xxsx.earthonminecraft.component.MetalBatch;
 import com.xxsx.earthonminecraft.component.OpticalGlassComponent;
+import com.xxsx.earthonminecraft.component.PharmaceuticalComponent;
 import com.xxsx.earthonminecraft.component.QualityComponents;
 import com.xxsx.earthonminecraft.component.ToolQualityComponent;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -24,6 +26,11 @@ import java.util.Optional;
  * Metallurgical composition, impurity window, temperature response and forging upgrade rules.
  */
 public final class MetallurgyAssay {
+    private static final java.util.Set<String> DYNAMIC_PHARMACEUTICALS = java.util.Set.of(
+            "antibiotic_ointment", "burn_ointment", "aspirin", "vitamin_tablet",
+            "activated_charcoal_tablet", "oral_rehydration_salts", "saline_solution",
+            "plaster", "splint", "bandage");
+
     private MetallurgyAssay() {
     }
 
@@ -226,8 +233,10 @@ public final class MetallurgyAssay {
         boolean hasCustomSecondary = secondarySlots.stream().anyMatch(s -> !s.isEmpty() && hasNonDefaultAssay(s));
         boolean isToolForging = kind == ProcessingMachineBlock.Kind.ANVIL
                 && rawOutputs.stream().anyMatch(s -> s.has(EarthDataComponents.TOOL_QUALITY.get()));
+        boolean isHerbalOrPharmaceutical = kind == ProcessingMachineBlock.Kind.HERB_PROCESSING_TABLE
+                || kind == ProcessingMachineBlock.Kind.TABLET_PRESS;
 
-        if (!hasCustomPrimary && !hasCustomSecondary && !isToolForging && !isOpticalGlass) {
+        if (!hasCustomPrimary && !hasCustomSecondary && !isToolForging && !isOpticalGlass && !isHerbalOrPharmaceutical) {
             return rawOutputs;
         }
 
@@ -252,6 +261,19 @@ public final class MetallurgyAssay {
                 .orElse(MaterialBatch.DEFAULT);
         MetalBatch inMetal = QualityComponents.resolveMetalBatch(primaryInput).orElse(null);
         int effectiveTempK = Math.max(machineTempK, inBatch.temperatureK());
+
+        if (kind == ProcessingMachineBlock.Kind.HERB_PROCESSING_TABLE) {
+            applyHerbAssay(primaryInput, secondarySlots, recipe, effectiveTempK, out);
+            applyPharmaceuticalAssay(primaryInput, secondarySlots, recipe, effectiveTempK, out);
+            if (out.has(EarthDataComponents.HERB.get()) || out.has(EarthDataComponents.PHARMACEUTICAL.get())) {
+                return;
+            }
+        } else if (kind == ProcessingMachineBlock.Kind.TABLET_PRESS) {
+            applyPharmaceuticalAssay(primaryInput, secondarySlots, recipe, effectiveTempK, out);
+            if (out.has(EarthDataComponents.PHARMACEUTICAL.get())) {
+                return;
+            }
+        }
 
         // 1. Anvil tool forging: propagate metal batch quality, carbon window & forging temperature into TOOL_QUALITY
         if (out.getItem() == EarthOnMinecraft.OPTICAL_GLASS.get()) {
@@ -356,6 +378,90 @@ public final class MetallurgyAssay {
             out.set(EarthDataComponents.MATERIAL_BATCH.get(),
                     defaultOut.withPurityAndGrade(newPurity, newGrade).withTemperatureK(Math.max(293, effectiveTempK)));
         }
+    }
+
+    private static void applyHerbAssay(ItemStack primaryInput, List<ItemStack> secondarySlots,
+                                       ProcessingMachineBlock.Recipe recipe, int machineTempK, ItemStack out) {
+        HerbComponent outputHerb = out.get(EarthDataComponents.HERB.get());
+        if (outputHerb == null) {
+            return;
+        }
+        HerbComponent inputHerb = firstHerb(primaryInput, secondarySlots);
+        if (inputHerb == null) {
+            inputHerb = outputHerb;
+        }
+        double fit = temperatureFit(machineTempK, recipe.requiredTemperatureK(), 120.0);
+        double potency = clamp(inputHerb.potency() + 0.15 + 0.30 * fit, 1.15, 1.45);
+        int toxicity = Math.max(0, (int) Math.round(inputHerb.toxicity() * (1.0 - (0.50 + 0.25 * fit))));
+        HerbComponent.Prepared prepared = preparedState(recipe.note(), outputHerb.prepared(), inputHerb.prepared());
+        Grade grade = HerbComponent.gradeFor(potency, prepared).max(inputHerb.grade());
+        out.set(EarthDataComponents.HERB.get(), outputHerb.withPreparation(toxicity, prepared, potency, grade,
+                batchId("herb", primaryInput, machineTempK)));
+    }
+
+    private static void applyPharmaceuticalAssay(ItemStack primaryInput, List<ItemStack> secondarySlots,
+                                                  ProcessingMachineBlock.Recipe recipe, int machineTempK, ItemStack out) {
+        String id = itemPath(out);
+        PharmaceuticalComponent output = out.get(EarthDataComponents.PHARMACEUTICAL.get());
+        if (output == null && !DYNAMIC_PHARMACEUTICALS.contains(id)) {
+            return;
+        }
+        if (output == null) {
+            output = new PharmaceuticalComponent(1, id, Grade.COMMON, 0.90, 100,
+                    pharmaceuticalForm(id), "", "");
+        }
+        HerbComponent herb = firstHerb(primaryInput, secondarySlots);
+        double chemicalPurity = QualityComponents.resolveMaterialBatch(primaryInput)
+                .map(MaterialBatch::purity).orElse(0.90);
+        double sourceQuality = herb == null ? chemicalPurity
+                : clamp(0.55 * herb.potency() / 1.45 + 0.45 * (herb.prepared() == HerbComponent.Prepared.RAW ? 0.70 : 1.0), 0.0, 1.0);
+        double fit = temperatureFit(machineTempK, recipe.requiredTemperatureK(), 120.0);
+        double purity = clamp(0.55 * output.purity() + 0.25 * chemicalPurity + 0.20 * sourceQuality
+                + 0.12 * fit, 0.70, 0.999);
+        Grade grade = PharmaceuticalComponent.gradeForPurity(purity).max(output.grade());
+        out.set(EarthDataComponents.PHARMACEUTICAL.get(), new PharmaceuticalComponent(
+                output.schemaVersion(), output.drug(), grade, purity, output.doseMg(), output.form(),
+                batchId("pharma", primaryInput, machineTempK), "machine_fit=" + String.format(java.util.Locale.ROOT, "%.2f", fit)));
+    }
+
+    private static HerbComponent firstHerb(ItemStack primaryInput, List<ItemStack> secondarySlots) {
+        HerbComponent herb = primaryInput.get(EarthDataComponents.HERB.get());
+        if (herb != null) return herb;
+        for (ItemStack stack : secondarySlots) {
+            herb = stack.get(EarthDataComponents.HERB.get());
+            if (herb != null) return herb;
+        }
+        return null;
+    }
+
+    private static HerbComponent.Prepared preparedState(String note, HerbComponent.Prepared output, HerbComponent.Prepared input) {
+        String text = note == null ? "" : note.toLowerCase(java.util.Locale.ROOT);
+        if (text.contains("wine") || text.contains("酒")) return HerbComponent.Prepared.WINE;
+        if (text.contains("vinegar") || text.contains("醋")) return HerbComponent.Prepared.VINEGAR;
+        if (text.contains("honey") || text.contains("蜜")) return HerbComponent.Prepared.HONEY;
+        if (text.contains("steam") || text.contains("蒸")) return HerbComponent.Prepared.STEAMED;
+        if (text.contains("calcine") || text.contains("煅")) return HerbComponent.Prepared.CALCINED;
+        return output != HerbComponent.Prepared.RAW ? output : (input != HerbComponent.Prepared.RAW ? input : HerbComponent.Prepared.STEAMED);
+    }
+
+    private static PharmaceuticalComponent.Form pharmaceuticalForm(String id) {
+        if (id.contains("ointment")) return PharmaceuticalComponent.Form.OINTMENT;
+        if (id.equals("saline_solution")) return PharmaceuticalComponent.Form.INJECTION;
+        if (id.equals("bandage") || id.equals("splint") || id.equals("plaster")) return PharmaceuticalComponent.Form.POWDER;
+        return PharmaceuticalComponent.Form.TABLET;
+    }
+
+    private static double temperatureFit(int actual, int target, double window) {
+        if (target <= 293) return 1.0;
+        return clamp(1.0 - Math.abs(actual - target) / window, 0.0, 1.0);
+    }
+
+    private static double clamp(double value, double min, double max) {
+        return Math.max(min, Math.min(max, value));
+    }
+
+    private static String batchId(String prefix, ItemStack input, int temperatureK) {
+        return prefix + ":" + itemPath(input) + ":" + temperatureK;
     }
 
     /**

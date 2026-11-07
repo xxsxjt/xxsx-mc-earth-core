@@ -6,6 +6,7 @@ import com.xxsx.earthonminecraft.component.Grade;
 import com.xxsx.earthonminecraft.component.HerbComponent;
 import com.xxsx.earthonminecraft.component.MaterialBatch;
 import com.xxsx.earthonminecraft.component.MetalBatch;
+import com.xxsx.earthonminecraft.component.PharmaceuticalComponent;
 import com.xxsx.earthonminecraft.component.QualityComponents;
 import com.xxsx.earthonminecraft.component.ToolQualityComponent;
 import net.minecraft.world.food.FoodProperties;
@@ -32,7 +33,7 @@ public final class SpecItems {
             new Entry("acetylsalicylic_acid", 64, 0, 0.0F, false, "", ""),
             new Entry("aconite", 64, 0, 0.0F, false, "earth_on_minecraft:herb", "root"),
             new Entry("aconitum", 64, 0, 0.0F, false, "earth_on_minecraft:herb", "root"),
-            new Entry("activated_charcoal_tablet", 64, 0, 0.0F, false, "", ""),
+            new Entry("activated_charcoal_tablet", 64, 0, 0.0F, false, "earth_on_minecraft:pharmaceutical", "tablet"),
             new Entry("adzuki_bean", 64, 2, 0.7F, false, "", ""),
             new Entry("agarwood", 64, 0, 0.0F, false, "earth_on_minecraft:herb", "bark"),
             new Entry("agrimony", 64, 0, 0.0F, false, "earth_on_minecraft:herb", "root"),
@@ -55,7 +56,7 @@ public final class SpecItems {
             new Entry("animal_power", 64, 0, 0.0F, false, "", ""),
             new Entry("anode_copper", 64, 0, 0.0F, false, "earth_on_minecraft:material_batch", ""),
             new Entry("antacid_tablet", 64, 0, 0.0F, false, "", ""),
-            new Entry("antibiotic_ointment", 64, 0, 0.0F, false, "", ""),
+            new Entry("antibiotic_ointment", 64, 0, 0.0F, false, "earth_on_minecraft:pharmaceutical", "ointment"),
             new Entry("anticoagulant", 64, 0, 0.0F, false, "", ""),
             new Entry("anticonvulsant", 64, 0, 0.0F, false, "", ""),
             new Entry("antidepressant", 64, 0, 0.0F, false, "", ""),
@@ -78,7 +79,7 @@ public final class SpecItems {
             new Entry("artemisia_annua", 64, 0, 0.0F, false, "earth_on_minecraft:herb", "root"),
             new Entry("artemisia_capillaris", 64, 0, 0.0F, false, "earth_on_minecraft:herb", "root"),
             new Entry("asparagus", 64, 2, 0.4F, false, "", ""),
-            new Entry("aspirin", 64, 0, 0.0F, false, "", ""),
+            new Entry("aspirin", 64, 0, 0.0F, false, "earth_on_minecraft:pharmaceutical", "tablet"),
             new Entry("astragalus", 64, 0, 0.0F, false, "earth_on_minecraft:herb", "root"),
             new Entry("atractylodes", 64, 0, 0.0F, false, "earth_on_minecraft:herb", "rhizome"),
             new Entry("atractylodes_lancea", 64, 0, 0.0F, false, "earth_on_minecraft:herb", "rhizome"),
@@ -97,7 +98,7 @@ public final class SpecItems {
             new Entry("bamboo_raft", 64, 0, 0.0F, false, "", ""),
             new Entry("bamboo_shoot", 64, 2, 0.5F, false, "", ""),
             new Entry("banana", 64, 4, 2.0F, false, "", ""),
-            new Entry("bandage", 64, 0, 0.0F, false, "", ""),
+            new Entry("bandage", 64, 0, 0.0F, false, "earth_on_minecraft:pharmaceutical", "powder"),
             new Entry("banknote", 64, 0, 0.0F, false, "", ""),
             new Entry("banner", 64, 0, 0.0F, false, "", ""),
             new Entry("baozi", 64, 7, 8.4F, false, "", ""),
@@ -180,7 +181,7 @@ public final class SpecItems {
             new Entry("bunk_bed", 64, 0, 0.0F, false, "", ""),
             new Entry("bupleurum", 64, 0, 0.0F, false, "earth_on_minecraft:herb", "root"),
             new Entry("burger", 64, 8, 12.0F, false, "", ""),
-            new Entry("burn_ointment", 64, 0, 0.0F, false, "", ""),
+            new Entry("burn_ointment", 64, 0, 0.0F, false, "earth_on_minecraft:pharmaceutical", "ointment"),
             new Entry("butane", 64, 0, 0.0F, false, "", ""),
             new Entry("butter", 64, 2, 2.0F, false, "", ""),
             new Entry("butter_tea", 64, 0, 0.0F, true, "", ""),
@@ -691,7 +692,7 @@ public final class SpecItems {
             new Entry("onion", 64, 2, 0.6F, false, "", ""),
             new Entry("oolong_tea", 64, 0, 0.0F, true, "", ""),
             new Entry("operating_table", 64, 0, 0.0F, false, "", ""),
-            new Entry("oral_rehydration_salts", 64, 0, 0.0F, false, "", ""),
+            new Entry("oral_rehydration_salts", 64, 0, 0.0F, false, "earth_on_minecraft:pharmaceutical", "powder"),
             new Entry("orange_liqueur", 64, 0, 0.0F, true, "", ""),
             new Entry("ore_scanner", 64, 0, 0.0F, false, "earth_on_minecraft:tool_quality", ""),
             new Entry("ox_cart", 64, 0, 0.0F, false, "", ""),
@@ -740,7 +741,7 @@ public final class SpecItems {
             new Entry("plane", 64, 0, 0.0F, false, "", ""),
             new Entry("plank", 64, 0, 0.0F, false, "", ""),
             new Entry("plantago", 64, 0, 0.0F, false, "earth_on_minecraft:herb", "seed"),
-            new Entry("plaster", 64, 0, 0.0F, false, "", ""),
+            new Entry("plaster", 64, 0, 0.0F, false, "earth_on_minecraft:pharmaceutical", "powder"),
             new Entry("plate_armor", 64, 0, 0.0F, false, "earth_on_minecraft:tool_quality", ""),
             new Entry("platinum", 64, 0, 0.0F, false, "", ""),
             new Entry("platycodon", 64, 0, 0.0F, false, "earth_on_minecraft:herb", "root"),
@@ -838,7 +839,7 @@ public final class SpecItems {
             new Entry("sailboat", 64, 0, 0.0F, false, "", ""),
             new Entry("sake", 64, 0, 0.0F, true, "", ""),
             new Entry("salicylic_acid", 64, 0, 0.0F, false, "", ""),
-            new Entry("saline_solution", 64, 0, 0.0F, false, "", ""),
+            new Entry("saline_solution", 64, 0, 0.0F, false, "earth_on_minecraft:pharmaceutical", "injection"),
             new Entry("salt", 64, 0, 0.0F, false, "", ""),
             new Entry("salvia_miltiorrhiza", 64, 0, 0.0F, false, "earth_on_minecraft:herb", "root"),
             new Entry("sample_bag", 64, 0, 0.0F, false, "", ""),
@@ -925,7 +926,7 @@ public final class SpecItems {
             new Entry("spice_cabinet", 64, 0, 0.0F, false, "", ""),
             new Entry("spinach", 64, 2, 0.5F, false, "", ""),
             new Entry("spirit_level", 64, 0, 0.0F, false, "earth_on_minecraft:tool_quality", ""),
-            new Entry("splint", 64, 0, 0.0F, false, "", ""),
+            new Entry("splint", 64, 0, 0.0F, false, "earth_on_minecraft:pharmaceutical", "powder"),
             new Entry("stable", 64, 0, 0.0F, false, "", ""),
             new Entry("stage", 64, 0, 0.0F, false, "", ""),
             new Entry("stainless_steel", 64, 0, 0.0F, false, "", ""),
@@ -1031,7 +1032,7 @@ public final class SpecItems {
             new Entry("vermouth", 64, 0, 0.0F, true, "", ""),
             new Entry("vet_kit", 64, 0, 0.0F, false, "", ""),
             new Entry("vinegar", 64, 0, 0.0F, false, "", ""),
-            new Entry("vitamin_tablet", 64, 0, 0.0F, false, "", ""),
+            new Entry("vitamin_tablet", 64, 0, 0.0F, false, "earth_on_minecraft:pharmaceutical", "tablet"),
             new Entry("vodka", 64, 0, 0.0F, true, "", ""),
             new Entry("walking_stick", 64, 0, 0.0F, false, "", ""),
             new Entry("war_hammer", 64, 0, 0.0F, false, "earth_on_minecraft:tool_quality", ""),
@@ -1129,6 +1130,9 @@ public final class SpecItems {
                     new HerbComponent(1, entry.id(), herbPart(entry.componentValue()),
                             HerbComponent.Nature.NEUTRAL, List.of(), 0, HerbComponent.Prepared.RAW,
                             1.0, Grade.COMMON, ""));
+            case "earth_on_minecraft:pharmaceutical" -> props.component(EarthDataComponents.PHARMACEUTICAL.get(),
+                    new PharmaceuticalComponent(1, entry.id(), Grade.COMMON, 0.90, 100,
+                            pharmaceuticalForm(entry.componentValue()), "", ""));
             case "earth_on_minecraft:gem" -> props.component(EarthDataComponents.GEM.get(),
                     new GemComponent(1, entry.id(), "", Grade.COMMON, GemComponent.Clarity.TRANSLUCENT,
                             GemComponent.ColorGrade.MEDIUM, 1.0, GemComponent.Treatment.NONE,
@@ -1171,6 +1175,17 @@ public final class SpecItems {
             case "mineral" -> HerbComponent.Part.MINERAL;
             case "animal" -> HerbComponent.Part.ANIMAL;
             default -> HerbComponent.Part.ROOT;
+        };
+    }
+
+    private static PharmaceuticalComponent.Form pharmaceuticalForm(String id) {
+        return switch (id) {
+            case "ointment" -> PharmaceuticalComponent.Form.OINTMENT;
+            case "injection" -> PharmaceuticalComponent.Form.INJECTION;
+            case "powder" -> PharmaceuticalComponent.Form.POWDER;
+            case "capsule" -> PharmaceuticalComponent.Form.CAPSULE;
+            case "syrup" -> PharmaceuticalComponent.Form.SYRUP;
+            default -> PharmaceuticalComponent.Form.TABLET;
         };
     }
 }

@@ -64,31 +64,31 @@ public class ProcessingJeiCategory implements IRecipeCategory<ProcessingMachineB
     public void setRecipe(IRecipeLayoutBuilder builder, ProcessingMachineBlock.Recipe recipe, IFocusGroup focuses) {
         int slotIndex = 0;
         for (ItemStack input : recipe.inputStacks()) {
-            builder.addSlot(RecipeIngredientRole.INPUT, 4 + (slotIndex % 2) * 20, 22 + (slotIndex / 2) * 20)
+            builder.addSlot(RecipeIngredientRole.INPUT, 4 + (slotIndex % 2) * 20, 26 + (slotIndex / 2) * 20)
                     .add(input)
                     .setStandardSlotBackground();
             slotIndex++;
         }
         // Mixed-input routes need both their item ingredients and the fluids consumed by the tank.
         for (ProcessingMachineBlock.FluidInput fluid : recipe.fluidInputs()) {
-            builder.addSlot(RecipeIngredientRole.INPUT, 4 + (slotIndex % 2) * 20, 22 + (slotIndex / 2) * 20)
+            builder.addSlot(RecipeIngredientRole.INPUT, 4 + (slotIndex % 2) * 20, 26 + (slotIndex / 2) * 20)
                     .add(NeoForgeTypes.FLUID_STACK, new FluidStack(fluid.fluid(), fluid.amount()))
                     .setStandardSlotBackground();
             slotIndex++;
         }
         if (recipe.requiresCoke()) {
-            builder.addSlot(RecipeIngredientRole.INPUT, 4 + (slotIndex % 2) * 20, 22 + (slotIndex / 2) * 20)
+            builder.addSlot(RecipeIngredientRole.INPUT, 4 + (slotIndex % 2) * 20, 26 + (slotIndex / 2) * 20)
                     .add(new net.minecraft.world.item.ItemStack(EarthOnMinecraft.COKE.get()))
                     .setStandardSlotBackground();
             slotIndex++;
         }
         if (recipe.hasCatalyst()) {
-            builder.addSlot(RecipeIngredientRole.INPUT, 44, 18)
+            builder.addSlot(RecipeIngredientRole.INPUT, 44, 26)
                     .add(recipe.catalystStack())
                     .setStandardSlotBackground();
         }
         int x = 72;
-        int y = 12;
+        int y = 26;
         int index = 0;
         for (var stack : recipe.outputStacks()) {
             builder.addSlot(RecipeIngredientRole.OUTPUT, x + (index % 4) * 22, y + (index / 4) * 22)
@@ -114,7 +114,7 @@ public class ProcessingJeiCategory implements IRecipeCategory<ProcessingMachineB
         graphics.text(font, Component.translatable(kind.displayNameKey()), 5, 3, 0xFFF4F4F4);
         String processLine = localized(kind.processFamily().labelKey()) + " | " + localized(kind.setpointKey());
         graphics.text(font, fit(processLine, 158), 5, 16, accent);
-        graphics.text(font, "->", 44, 31, 0xFFF2E4B6);
+        graphics.text(font, "->", 44, 30, 0xFFF2E4B6);
         graphics.text(font, fit(localized(kind.powerMode().labelKey()), 158), 5, 51, 0xFFFFD782);
         String specLine = Component.translatable("jei.earth_on_minecraft.processing.spec",
                 Math.max(1, (recipe.processTicks() + 19) / 20), recipe.energyPerTickEffective()).getString();
