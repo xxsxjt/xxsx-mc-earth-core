@@ -43,5 +43,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.che.water_chemistry",
-  "desc_key": "lore.earth_on_minecraft.che.water_chemistry.desc"
+  "desc_key": "lore.earth_on_minecraft.che.water_chemistry.desc",
+  "icon": "earth_on_minecraft:distilled_water"
 }

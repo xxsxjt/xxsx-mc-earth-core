@@ -40,5 +40,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.med.nursing",
-  "desc_key": "lore.earth_on_minecraft.med.nursing.desc"
+  "desc_key": "lore.earth_on_minecraft.med.nursing.desc",
+  "icon": "earth_on_minecraft:sickbed"
 }

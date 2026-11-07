@@ -77,5 +77,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.agr.brewing",
-  "desc_key": "lore.earth_on_minecraft.agr.brewing.desc"
+  "desc_key": "lore.earth_on_minecraft.agr.brewing.desc",
+  "icon": "earth_on_minecraft:beer"
 }

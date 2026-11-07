@@ -46,5 +46,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.papermaking",
-  "desc_key": "lore.earth_on_minecraft.mat.papermaking.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.papermaking.desc",
+  "icon": "earth_on_minecraft:book"
 }

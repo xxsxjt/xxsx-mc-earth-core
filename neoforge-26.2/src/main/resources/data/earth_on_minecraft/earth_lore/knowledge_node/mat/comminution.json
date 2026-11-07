@@ -52,5 +52,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.comminution",
-  "desc_key": "lore.earth_on_minecraft.mat.comminution.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.comminution.desc",
+  "icon": "earth_on_minecraft:book"
 }

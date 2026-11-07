@@ -46,5 +46,6 @@
     "sky_blocked"
   ],
   "name_key": "lore.earth_on_minecraft.geo.meteorology",
-  "desc_key": "lore.earth_on_minecraft.geo.meteorology.desc"
+  "desc_key": "lore.earth_on_minecraft.geo.meteorology.desc",
+  "icon": "earth_on_minecraft:thermometer"
 }

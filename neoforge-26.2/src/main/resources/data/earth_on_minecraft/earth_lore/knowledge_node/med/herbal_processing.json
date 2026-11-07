@@ -110,5 +110,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.med.herbal_processing",
-  "desc_key": "lore.earth_on_minecraft.med.herbal_processing.desc"
+  "desc_key": "lore.earth_on_minecraft.med.herbal_processing.desc",
+  "icon": "earth_on_minecraft:prepared_licorice"
 }

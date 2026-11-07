@@ -238,5 +238,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.materials_basics",
-  "desc_key": "lore.earth_on_minecraft.mat.materials_basics.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.materials_basics.desc",
+  "icon": "earth_on_minecraft:wooden_pickaxe"
 }

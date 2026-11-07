@@ -42,5 +42,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.heat_treatment",
-  "desc_key": "lore.earth_on_minecraft.mat.heat_treatment.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.heat_treatment.desc",
+  "icon": "earth_on_minecraft:steel"
 }

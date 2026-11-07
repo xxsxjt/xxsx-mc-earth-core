@@ -110,5 +110,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.textiles",
-  "desc_key": "lore.earth_on_minecraft.mat.textiles.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.textiles.desc",
+  "icon": "earth_on_minecraft:linen"
 }

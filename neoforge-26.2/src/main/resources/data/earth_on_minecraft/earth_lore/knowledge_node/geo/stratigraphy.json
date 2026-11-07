@@ -34,5 +34,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.geo.stratigraphy",
-  "desc_key": "lore.earth_on_minecraft.geo.stratigraphy.desc"
+  "desc_key": "lore.earth_on_minecraft.geo.stratigraphy.desc",
+  "icon": "earth_on_minecraft:sample_bag"
 }

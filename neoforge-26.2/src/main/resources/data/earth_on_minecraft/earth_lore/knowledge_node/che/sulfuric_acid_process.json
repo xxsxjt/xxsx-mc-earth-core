@@ -38,5 +38,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.che.sulfuric_acid_process",
-  "desc_key": "lore.earth_on_minecraft.che.sulfuric_acid_process.desc"
+  "desc_key": "lore.earth_on_minecraft.che.sulfuric_acid_process.desc",
+  "icon": "earth_on_minecraft:glass_bottle"
 }

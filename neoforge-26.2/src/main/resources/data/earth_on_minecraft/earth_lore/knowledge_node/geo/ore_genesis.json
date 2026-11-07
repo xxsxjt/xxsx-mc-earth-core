@@ -41,5 +41,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.geo.ore_genesis",
-  "desc_key": "lore.earth_on_minecraft.geo.ore_genesis.desc"
+  "desc_key": "lore.earth_on_minecraft.geo.ore_genesis.desc",
+  "icon": "earth_on_minecraft:sample_bag"
 }

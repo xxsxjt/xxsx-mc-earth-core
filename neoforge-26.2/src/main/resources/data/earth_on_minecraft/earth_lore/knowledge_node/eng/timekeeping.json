@@ -43,5 +43,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.eng.timekeeping",
-  "desc_key": "lore.earth_on_minecraft.eng.timekeeping.desc"
+  "desc_key": "lore.earth_on_minecraft.eng.timekeeping.desc",
+  "icon": "earth_on_minecraft:clock"
 }

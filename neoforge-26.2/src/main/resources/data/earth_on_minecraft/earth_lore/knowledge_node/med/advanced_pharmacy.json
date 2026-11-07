@@ -54,5 +54,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.med.advanced_pharmacy",
-  "desc_key": "lore.earth_on_minecraft.med.advanced_pharmacy.desc"
+  "desc_key": "lore.earth_on_minecraft.med.advanced_pharmacy.desc",
+  "icon": "earth_on_minecraft:ibuprofen"
 }

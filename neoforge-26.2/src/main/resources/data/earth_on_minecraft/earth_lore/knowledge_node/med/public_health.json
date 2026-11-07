@@ -43,5 +43,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.med.public_health",
-  "desc_key": "lore.earth_on_minecraft.med.public_health.desc"
+  "desc_key": "lore.earth_on_minecraft.med.public_health.desc",
+  "icon": "earth_on_minecraft:vaccine"
 }

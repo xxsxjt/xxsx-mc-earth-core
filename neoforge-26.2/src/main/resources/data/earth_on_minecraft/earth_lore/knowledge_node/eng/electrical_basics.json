@@ -49,5 +49,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.eng.electrical_basics",
-  "desc_key": "lore.earth_on_minecraft.eng.electrical_basics.desc"
+  "desc_key": "lore.earth_on_minecraft.eng.electrical_basics.desc",
+  "icon": "earth_on_minecraft:drill"
 }

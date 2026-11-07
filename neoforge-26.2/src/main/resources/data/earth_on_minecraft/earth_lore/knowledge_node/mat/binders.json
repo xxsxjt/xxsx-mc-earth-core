@@ -61,5 +61,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.binders",
-  "desc_key": "lore.earth_on_minecraft.mat.binders.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.binders.desc",
+  "icon": "earth_on_minecraft:lime"
 }

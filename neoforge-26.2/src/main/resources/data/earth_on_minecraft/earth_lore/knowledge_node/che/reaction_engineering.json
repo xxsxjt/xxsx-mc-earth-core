@@ -41,5 +41,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.che.reaction_engineering",
-  "desc_key": "lore.earth_on_minecraft.che.reaction_engineering.desc"
+  "desc_key": "lore.earth_on_minecraft.che.reaction_engineering.desc",
+  "icon": "earth_on_minecraft:glass_bottle"
 }

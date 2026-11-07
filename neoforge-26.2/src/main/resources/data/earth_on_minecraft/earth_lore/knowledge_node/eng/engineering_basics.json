@@ -217,5 +217,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.eng.engineering_basics",
-  "desc_key": "lore.earth_on_minecraft.eng.engineering_basics.desc"
+  "desc_key": "lore.earth_on_minecraft.eng.engineering_basics.desc",
+  "icon": "earth_on_minecraft:wheelbarrow"
 }

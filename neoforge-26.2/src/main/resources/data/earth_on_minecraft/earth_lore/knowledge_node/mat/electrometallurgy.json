@@ -57,5 +57,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.electrometallurgy",
-  "desc_key": "lore.earth_on_minecraft.mat.electrometallurgy.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.electrometallurgy.desc",
+  "icon": "earth_on_minecraft:aluminium"
 }

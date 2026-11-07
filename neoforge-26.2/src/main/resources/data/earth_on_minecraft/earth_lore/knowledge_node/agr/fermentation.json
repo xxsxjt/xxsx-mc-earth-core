@@ -55,5 +55,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.agr.fermentation",
-  "desc_key": "lore.earth_on_minecraft.agr.fermentation.desc"
+  "desc_key": "lore.earth_on_minecraft.agr.fermentation.desc",
+  "icon": "earth_on_minecraft:vinegar"
 }

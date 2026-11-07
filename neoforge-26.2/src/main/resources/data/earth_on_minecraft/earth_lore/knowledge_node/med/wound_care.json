@@ -54,5 +54,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.med.wound_care",
-  "desc_key": "lore.earth_on_minecraft.med.wound_care.desc"
+  "desc_key": "lore.earth_on_minecraft.med.wound_care.desc",
+  "icon": "earth_on_minecraft:styptic_powder"
 }

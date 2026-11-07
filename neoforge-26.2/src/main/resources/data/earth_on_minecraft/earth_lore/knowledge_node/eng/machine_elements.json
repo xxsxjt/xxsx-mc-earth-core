@@ -49,5 +49,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.eng.machine_elements",
-  "desc_key": "lore.earth_on_minecraft.eng.machine_elements.desc"
+  "desc_key": "lore.earth_on_minecraft.eng.machine_elements.desc",
+  "icon": "earth_on_minecraft:ox_cart"
 }

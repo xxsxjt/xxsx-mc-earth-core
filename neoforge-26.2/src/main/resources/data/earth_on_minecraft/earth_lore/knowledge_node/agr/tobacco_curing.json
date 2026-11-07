@@ -71,5 +71,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.agr.tobacco_curing",
-  "desc_key": "lore.earth_on_minecraft.agr.tobacco_curing.desc"
+  "desc_key": "lore.earth_on_minecraft.agr.tobacco_curing.desc",
+  "icon": "earth_on_minecraft:cured_tobacco"
 }

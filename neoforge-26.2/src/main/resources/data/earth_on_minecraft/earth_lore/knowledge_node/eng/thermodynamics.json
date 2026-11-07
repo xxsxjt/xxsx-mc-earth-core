@@ -28,5 +28,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.eng.thermodynamics",
-  "desc_key": "lore.earth_on_minecraft.eng.thermodynamics.desc"
+  "desc_key": "lore.earth_on_minecraft.eng.thermodynamics.desc",
+  "icon": "earth_on_minecraft:book"
 }

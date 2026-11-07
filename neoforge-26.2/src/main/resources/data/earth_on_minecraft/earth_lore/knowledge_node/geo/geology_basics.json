@@ -130,5 +130,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.geo.geology_basics",
-  "desc_key": "lore.earth_on_minecraft.geo.geology_basics.desc"
+  "desc_key": "lore.earth_on_minecraft.geo.geology_basics.desc",
+  "icon": "earth_on_minecraft:sample_bag"
 }

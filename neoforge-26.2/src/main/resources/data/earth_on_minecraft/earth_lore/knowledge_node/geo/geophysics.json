@@ -39,5 +39,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.geo.geophysics",
-  "desc_key": "lore.earth_on_minecraft.geo.geophysics.desc"
+  "desc_key": "lore.earth_on_minecraft.geo.geophysics.desc",
+  "icon": "earth_on_minecraft:ore_scanner"
 }

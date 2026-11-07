@@ -13,12 +13,6 @@
       "all": "earth_on_minecraft:med/sulfa_drugs"
     },
     {
-      "all": "earth_on_minecraft:med/serum_therapy"
-    },
-    {
-      "all": "earth_on_minecraft:med/anesthesia_basics"
-    },
-    {
       "all": "earth_on_minecraft:med/nursing"
     },
     {
@@ -57,5 +51,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.med.pharmacy_mastery",
-  "desc_key": "lore.earth_on_minecraft.med.pharmacy_mastery.desc"
+  "desc_key": "lore.earth_on_minecraft.med.pharmacy_mastery.desc",
+  "icon": "earth_on_minecraft:aspirin"
 }

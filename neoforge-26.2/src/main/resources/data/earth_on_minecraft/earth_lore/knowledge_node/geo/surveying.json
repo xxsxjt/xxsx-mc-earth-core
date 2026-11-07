@@ -54,5 +54,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.geo.surveying",
-  "desc_key": "lore.earth_on_minecraft.geo.surveying.desc"
+  "desc_key": "lore.earth_on_minecraft.geo.surveying.desc",
+  "icon": "earth_on_minecraft:compass"
 }

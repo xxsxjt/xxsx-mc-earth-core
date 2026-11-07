@@ -53,5 +53,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.pyrometallurgy",
-  "desc_key": "lore.earth_on_minecraft.mat.pyrometallurgy.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.pyrometallurgy.desc",
+  "icon": "earth_on_minecraft:book"
 }

@@ -37,5 +37,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.agr.apiculture_sericulture",
-  "desc_key": "lore.earth_on_minecraft.agr.apiculture_sericulture.desc"
+  "desc_key": "lore.earth_on_minecraft.agr.apiculture_sericulture.desc",
+  "icon": "earth_on_minecraft:beehive"
 }

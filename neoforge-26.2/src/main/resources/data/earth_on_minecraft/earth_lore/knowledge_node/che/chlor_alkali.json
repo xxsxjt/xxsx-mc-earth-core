@@ -39,5 +39,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.che.chlor_alkali",
-  "desc_key": "lore.earth_on_minecraft.che.chlor_alkali.desc"
+  "desc_key": "lore.earth_on_minecraft.che.chlor_alkali.desc",
+  "icon": "earth_on_minecraft:salt"
 }

@@ -45,5 +45,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.med.sulfa_drugs",
-  "desc_key": "lore.earth_on_minecraft.med.sulfa_drugs.desc"
+  "desc_key": "lore.earth_on_minecraft.med.sulfa_drugs.desc",
+  "icon": "earth_on_minecraft:sulfanilamide"
 }

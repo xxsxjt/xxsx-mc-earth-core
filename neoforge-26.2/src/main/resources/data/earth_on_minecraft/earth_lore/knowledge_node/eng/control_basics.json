@@ -48,5 +48,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.eng.control_basics",
-  "desc_key": "lore.earth_on_minecraft.eng.control_basics.desc"
+  "desc_key": "lore.earth_on_minecraft.eng.control_basics.desc",
+  "icon": "earth_on_minecraft:book"
 }

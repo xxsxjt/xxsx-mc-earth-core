@@ -92,5 +92,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.glassmaking",
-  "desc_key": "lore.earth_on_minecraft.mat.glassmaking.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.glassmaking.desc",
+  "icon": "earth_on_minecraft:window_frame"
 }

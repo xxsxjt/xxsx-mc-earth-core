@@ -10,9 +10,6 @@
       "all": "earth_on_minecraft:che/ammonia_and_fertilizer"
     },
     {
-      "all": "earth_on_minecraft:che/polymer_chemistry"
-    },
-    {
       "all": "earth_on_minecraft:che/water_chemistry"
     },
     {
@@ -20,9 +17,6 @@
     },
     {
       "all": "earth_on_minecraft:che/analytical_chemistry"
-    },
-    {
-      "all": "earth_on_minecraft:che/radiochemistry"
     }
   ],
   "item_requires": [],
@@ -54,5 +48,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.che.chemical_systems",
-  "desc_key": "lore.earth_on_minecraft.che.chemical_systems.desc"
+  "desc_key": "lore.earth_on_minecraft.che.chemical_systems.desc",
+  "icon": "earth_on_minecraft:book"
 }

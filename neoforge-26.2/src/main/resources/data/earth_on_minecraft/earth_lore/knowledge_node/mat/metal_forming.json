@@ -41,5 +41,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.metal_forming",
-  "desc_key": "lore.earth_on_minecraft.mat.metal_forming.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.metal_forming.desc",
+  "icon": "earth_on_minecraft:steel"
 }

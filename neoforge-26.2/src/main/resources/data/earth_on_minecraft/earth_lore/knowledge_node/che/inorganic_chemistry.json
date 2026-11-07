@@ -67,5 +67,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.che.inorganic_chemistry",
-  "desc_key": "lore.earth_on_minecraft.che.inorganic_chemistry.desc"
+  "desc_key": "lore.earth_on_minecraft.che.inorganic_chemistry.desc",
+  "icon": "earth_on_minecraft:iodine"
 }

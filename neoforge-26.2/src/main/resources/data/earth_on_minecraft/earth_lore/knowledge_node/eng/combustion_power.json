@@ -38,5 +38,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.eng.combustion_power",
-  "desc_key": "lore.earth_on_minecraft.eng.combustion_power.desc"
+  "desc_key": "lore.earth_on_minecraft.eng.combustion_power.desc",
+  "icon": "earth_on_minecraft:book"
 }

@@ -31,5 +31,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.agr.seed_selection",
-  "desc_key": "lore.earth_on_minecraft.agr.seed_selection.desc"
+  "desc_key": "lore.earth_on_minecraft.agr.seed_selection.desc",
+  "icon": "earth_on_minecraft:book"
 }

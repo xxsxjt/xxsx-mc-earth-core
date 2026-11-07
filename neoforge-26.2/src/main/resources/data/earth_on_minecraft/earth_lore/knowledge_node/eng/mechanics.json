@@ -30,5 +30,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.eng.mechanics",
-  "desc_key": "lore.earth_on_minecraft.eng.mechanics.desc"
+  "desc_key": "lore.earth_on_minecraft.eng.mechanics.desc",
+  "icon": "earth_on_minecraft:book"
 }

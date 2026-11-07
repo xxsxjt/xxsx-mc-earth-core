@@ -120,5 +120,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.med.basic_pharmacy",
-  "desc_key": "lore.earth_on_minecraft.med.basic_pharmacy.desc"
+  "desc_key": "lore.earth_on_minecraft.med.basic_pharmacy.desc",
+  "icon": "earth_on_minecraft:salicylic_acid"
 }

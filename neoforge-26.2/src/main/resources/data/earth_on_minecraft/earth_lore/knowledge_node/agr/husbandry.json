@@ -62,5 +62,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.agr.husbandry",
-  "desc_key": "lore.earth_on_minecraft.agr.husbandry.desc"
+  "desc_key": "lore.earth_on_minecraft.agr.husbandry.desc",
+  "icon": "earth_on_minecraft:chicken_coop"
 }

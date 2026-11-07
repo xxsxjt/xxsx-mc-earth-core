@@ -39,5 +39,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.geo.jade_carving",
-  "desc_key": "lore.earth_on_minecraft.geo.jade_carving.desc"
+  "desc_key": "lore.earth_on_minecraft.geo.jade_carving.desc",
+  "icon": "earth_on_minecraft:gem_carving_tool"
 }

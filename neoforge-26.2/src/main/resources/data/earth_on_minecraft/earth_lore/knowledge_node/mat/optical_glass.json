@@ -36,5 +36,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.optical_glass",
-  "desc_key": "lore.earth_on_minecraft.mat.optical_glass.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.optical_glass.desc",
+  "icon": "earth_on_minecraft:book"
 }

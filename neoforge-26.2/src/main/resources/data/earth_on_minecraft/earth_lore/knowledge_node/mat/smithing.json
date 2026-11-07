@@ -109,5 +109,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.smithing",
-  "desc_key": "lore.earth_on_minecraft.mat.smithing.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.smithing.desc",
+  "icon": "earth_on_minecraft:copper_pickaxe"
 }

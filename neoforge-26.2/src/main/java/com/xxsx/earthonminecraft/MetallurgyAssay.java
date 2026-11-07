@@ -417,10 +417,12 @@ public final class MetallurgyAssay {
                 : clamp(0.55 * herb.potency() / 1.45 + 0.45 * (herb.prepared() == HerbComponent.Prepared.RAW ? 0.70 : 1.0), 0.0, 1.0);
         double fit = temperatureFit(machineTempK, recipe.requiredTemperatureK(), 120.0);
         double purity = clamp(0.55 * output.purity() + 0.25 * chemicalPurity + 0.20 * sourceQuality
-                + 0.12 * fit, 0.70, 0.999);
+                + 0.12 * fit, 0.65, 0.99);
         Grade grade = PharmaceuticalComponent.gradeForPurity(purity).max(output.grade());
+        int doseMg = (int) Math.round(clamp(output.doseMg()
+                * (0.65 + 0.55 * sourceQuality + 0.25 * fit), 1.0, 2000.0));
         out.set(EarthDataComponents.PHARMACEUTICAL.get(), new PharmaceuticalComponent(
-                output.schemaVersion(), output.drug(), grade, purity, output.doseMg(), output.form(),
+                output.schemaVersion(), output.drug(), grade, purity, doseMg, output.form(),
                 batchId("pharma", primaryInput, machineTempK), "machine_fit=" + String.format(java.util.Locale.ROOT, "%.2f", fit)));
     }
 

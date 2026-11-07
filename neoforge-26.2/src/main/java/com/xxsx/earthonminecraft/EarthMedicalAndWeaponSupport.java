@@ -5,6 +5,7 @@ import com.xxsx.earthonminecraft.component.Grade;
 import com.xxsx.earthonminecraft.component.ToolQualityComponent;
 import com.xxsx.earthonminecraft.component.ForgingProcess;
 import com.xxsx.earthonminecraft.component.MetalBatch;
+import com.xxsx.earthonminecraft.component.PharmaceuticalComponent;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
@@ -30,6 +31,7 @@ import net.minecraft.world.level.Level;
 
 import java.lang.reflect.Method;
 import java.util.Map;
+import java.util.Locale;
 import java.util.function.Consumer;
 
 /**
@@ -78,34 +80,34 @@ public final class EarthMedicalAndWeaponSupport {
 
     private static final Map<String, MedicineSpec> MEDICINES = Map.ofEntries(
             Map.entry("splint", new MedicineSpec(
-                    3.0D, 0.72D, 0.0D, 0.0D, 0.0D, false, false, -1, 4,
+                    3.0D, 0.72D, 0.0D, 0.0D, 0.0D, false, false, -1, 15,
                     "tooltip.earth_on_minecraft.medicine.splint")),
             Map.entry("plaster", new MedicineSpec(
-                    4.0D, 0.85D, 0.0D, 0.0D, -5.0D, false, false, -1, 6,
+                    4.0D, 0.85D, 0.0D, 0.0D, -5.0D, false, false, -1, 25,
                     "tooltip.earth_on_minecraft.medicine.plaster")),
             Map.entry("bandage", new MedicineSpec(
-                    3.5D, 0.35D, 0.0D, 0.0D, 0.0D, false, false, -1, 5,
+                    3.5D, 0.35D, 0.0D, 0.0D, 0.0D, false, false, -1, 20,
                     "tooltip.earth_on_minecraft.medicine.bandage")),
             Map.entry("antibiotic_ointment", new MedicineSpec(
-                    5.0D, 0.30D, 0.0D, 0.0D, -8.0D, true, true, -1, 8,
+                    5.0D, 0.30D, 0.0D, 0.0D, -8.0D, true, true, -1, 45,
                     "tooltip.earth_on_minecraft.medicine.antibiotic_ointment")),
             Map.entry("aspirin", new MedicineSpec(
-                    2.0D, 0.15D, 0.0D, 0.0D, -18.0D, true, false, 0, 4,
+                    2.0D, 0.15D, 0.0D, 0.0D, -18.0D, true, false, 0, 18,
                     "tooltip.earth_on_minecraft.medicine.aspirin")),
             Map.entry("burn_ointment", new MedicineSpec(
-                    4.0D, 0.20D, 15.0D, 0.0D, -10.0D, true, false, 0, 6,
+                    4.0D, 0.20D, 15.0D, 0.0D, -10.0D, true, false, 0, 30,
                     "tooltip.earth_on_minecraft.medicine.burn_ointment")),
             Map.entry("oral_rehydration_salts", new MedicineSpec(
-                    2.0D, 0.0D, 0.0D, 45.0D, -25.0D, true, false, -1, 4,
+                    2.0D, 0.0D, 0.0D, 45.0D, -25.0D, true, false, -1, 15,
                     "tooltip.earth_on_minecraft.medicine.oral_rehydration_salts")),
             Map.entry("saline_solution", new MedicineSpec(
-                    3.5D, 0.15D, 20.0D, 38.0D, -20.0D, true, false, -1, 5,
+                    3.5D, 0.15D, 20.0D, 38.0D, -20.0D, true, false, -1, 30,
                     "tooltip.earth_on_minecraft.medicine.saline_solution")),
             Map.entry("activated_charcoal_tablet", new MedicineSpec(
-                    2.5D, 0.0D, 55.0D, 0.0D, -8.0D, false, true, -1, 3,
+                    2.5D, 0.0D, 55.0D, 0.0D, -8.0D, false, true, -1, 20,
                     "tooltip.earth_on_minecraft.medicine.activated_charcoal_tablet")),
             Map.entry("vitamin_tablet", new MedicineSpec(
-                    3.0D, 0.15D, 25.0D, 10.0D, -22.0D, false, false, 0, 6,
+                    3.0D, 0.15D, 25.0D, 10.0D, -22.0D, false, false, 0, 30,
                     "tooltip.earth_on_minecraft.medicine.vitamin_tablet"))
     );
 
@@ -241,10 +243,11 @@ public final class EarthMedicalAndWeaponSupport {
         if (id == null) {
             return InteractionResult.PASS;
         }
-        MedicineSpec spec = MEDICINES.get(id.getPath());
-        if (spec == null) {
+        MedicineSpec baseSpec = MEDICINES.get(id.getPath());
+        if (baseSpec == null) {
             return InteractionResult.PASS;
         }
+        MedicineSpec spec = qualityAdjustedSpec(baseSpec, stack);
         if (player.getCooldowns().isOnCooldown(stack)) {
             return InteractionResult.FAIL;
         }
@@ -324,7 +327,7 @@ public final class EarthMedicalAndWeaponSupport {
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, spec.regenSeconds() * 20, 0, false, false, true));
         }
         if (spec.absorptionAmplifier() >= 0) {
-            player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 20 * 90, spec.absorptionAmplifier(), false, false, true));
+            player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, durationTicks(spec), spec.absorptionAmplifier(), false, false, true));
         }
         if (spec.clearToxins()) {
             player.removeEffect(MobEffects.POISON);
@@ -406,7 +409,8 @@ public final class EarthMedicalAndWeaponSupport {
         }
     }
 
-    public static void appendHoverText(Item item, Consumer<Component> lines) {
+    public static void appendHoverText(ItemStack stack, Consumer<Component> lines) {
+        Item item = stack.getItem();
         Identifier id = BuiltInRegistries.ITEM.getKey(item);
         if (id == null) {
             return;
@@ -417,8 +421,43 @@ public final class EarthMedicalAndWeaponSupport {
         }
         MedicineSpec med = MEDICINES.get(id.getPath());
         if (med != null) {
+            PharmaceuticalComponent pharmaceutical = stack.get(EarthDataComponents.PHARMACEUTICAL.get());
+            MedicineSpec adjusted = qualityAdjustedSpec(med, stack);
             lines.accept(Component.translatable(med.tooltipKey()).withStyle(ChatFormatting.GREEN));
+            if (pharmaceutical != null) {
+                lines.accept(Component.literal(String.format(Locale.ROOT,
+                        "Purity %.1f%% | active dose %d mg | effect %.2fx",
+                        pharmaceutical.purity() * 100.0, pharmaceutical.doseMg(),
+                        qualityMultiplier(pharmaceutical))).withStyle(ChatFormatting.LIGHT_PURPLE));
+            }
+            lines.accept(Component.literal(String.format(Locale.ROOT,
+                    "Body treatment %.2f | fracture recovery %.2f | duration %.1fs",
+                    adjusted.partHeal(), adjusted.fractureRelief(), adjusted.regenSeconds()))
+                    .withStyle(ChatFormatting.GREEN));
             lines.accept(Component.translatable("tooltip.earth_on_minecraft.medicine.use_hint").withStyle(ChatFormatting.AQUA));
         }
+    }
+
+    private static MedicineSpec qualityAdjustedSpec(MedicineSpec base, ItemStack stack) {
+        PharmaceuticalComponent pharmaceutical = stack.get(EarthDataComponents.PHARMACEUTICAL.get());
+        if (pharmaceutical == null) {
+            return base;
+        }
+        double multiplier = qualityMultiplier(pharmaceutical);
+        int seconds = Math.max(15, Math.min(45, (int) Math.round(base.regenSeconds() * multiplier)));
+        return new MedicineSpec(base.partHeal() * multiplier, base.fractureRelief() * multiplier,
+                base.lungAirRestore() * multiplier, base.hydrationDelta() * multiplier,
+                base.fatigueDelta() * multiplier, base.normalizeTemperature(), base.clearToxins(),
+                base.absorptionAmplifier(), seconds, base.tooltipKey());
+    }
+
+    private static double qualityMultiplier(PharmaceuticalComponent pharmaceutical) {
+        double purityScore = Math.max(0.0, Math.min(1.0, (pharmaceutical.purity() - 0.65) / 0.34));
+        double doseScore = Math.max(0.0, Math.min(1.0, pharmaceutical.doseMg() / 100.0));
+        return Math.max(0.70, Math.min(1.65, 0.70 + purityScore * 0.70 + doseScore * 0.25));
+    }
+
+    private static int durationTicks(MedicineSpec spec) {
+        return Math.max(300, Math.min(900, spec.regenSeconds() * 20));
     }
 }

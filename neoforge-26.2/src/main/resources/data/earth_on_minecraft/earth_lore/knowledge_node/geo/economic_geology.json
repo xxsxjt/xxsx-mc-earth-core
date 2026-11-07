@@ -39,5 +39,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.geo.economic_geology",
-  "desc_key": "lore.earth_on_minecraft.geo.economic_geology.desc"
+  "desc_key": "lore.earth_on_minecraft.geo.economic_geology.desc",
+  "icon": "earth_on_minecraft:sample_bag"
 }

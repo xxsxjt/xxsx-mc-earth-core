@@ -33,7 +33,7 @@ class EarthLoreIntegrationTest {
     private static final Path RESOURCES = Path.of("src", "main", "resources");
 
     @Test
-    void all107NodesValidateAndAreReachable() throws IOException {
+    void all100NodesValidateAndAreReachable() throws IOException {
         Path nodeRoot = RESOURCES.resolve(Path.of("data", "earth_on_minecraft", "earth_lore", "knowledge_node"));
         assertTrue(Files.isDirectory(nodeRoot), "knowledge_node directory must exist");
 
@@ -91,16 +91,16 @@ class EarthLoreIntegrationTest {
             }
         }
 
-        assertEquals(107, defs.size(), "Earth on Minecraft must ship exactly 107 knowledge nodes");
+        assertEquals(100, defs.size(), "Earth on Minecraft must ship exactly 100 knowledge nodes");
 
         GraphValidator.Result validation = GraphValidator.validate(
                 defs, disciplines, (owner, other) -> owner.equals(other) || "earth_lore".equals(other));
         assertEquals(Map.of(), validation.rejected(), "Zero nodes may be rejected by GraphValidator");
-        assertEquals(107, validation.accepted().size(), "All 107 nodes must be accepted");
+        assertEquals(100, validation.accepted().size(), "All 100 nodes must be accepted");
 
         Reachability.Report reach = Reachability.compute(validation.accepted());
         assertEquals(Set.of(), reach.unreachable(), "Zero nodes may be unreachable in standalone Earth + Lore");
-        assertEquals(107, reach.learnable().size(), "All 107 nodes must be learnable");
+        assertEquals(100, reach.learnable().size(), "All 100 nodes must be learnable");
 
         // Validate teaching data map against loaded nodes and tier 1..2 rule
         Path teachingPath = RESOURCES.resolve(

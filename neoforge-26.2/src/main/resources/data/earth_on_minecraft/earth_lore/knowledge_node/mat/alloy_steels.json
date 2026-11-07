@@ -59,5 +59,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.alloy_steels",
-  "desc_key": "lore.earth_on_minecraft.mat.alloy_steels.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.alloy_steels.desc",
+  "icon": "earth_on_minecraft:stainless_steel"
 }

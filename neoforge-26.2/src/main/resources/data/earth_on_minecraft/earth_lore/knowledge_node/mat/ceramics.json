@@ -64,5 +64,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.ceramics",
-  "desc_key": "lore.earth_on_minecraft.mat.ceramics.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.ceramics.desc",
+  "icon": "earth_on_minecraft:brick"
 }

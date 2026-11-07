@@ -34,5 +34,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.agr.aquaculture",
-  "desc_key": "lore.earth_on_minecraft.agr.aquaculture.desc"
+  "desc_key": "lore.earth_on_minecraft.agr.aquaculture.desc",
+  "icon": "earth_on_minecraft:fish_pond"
 }

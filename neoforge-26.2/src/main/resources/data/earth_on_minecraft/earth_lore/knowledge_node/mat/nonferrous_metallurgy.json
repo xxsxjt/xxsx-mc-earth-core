@@ -58,5 +58,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.nonferrous_metallurgy",
-  "desc_key": "lore.earth_on_minecraft.mat.nonferrous_metallurgy.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.nonferrous_metallurgy.desc",
+  "icon": "earth_on_minecraft:bronze"
 }

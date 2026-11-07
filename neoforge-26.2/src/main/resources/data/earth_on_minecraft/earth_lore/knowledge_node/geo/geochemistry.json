@@ -31,5 +31,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.geo.geochemistry",
-  "desc_key": "lore.earth_on_minecraft.geo.geochemistry.desc"
+  "desc_key": "lore.earth_on_minecraft.geo.geochemistry.desc",
+  "icon": "earth_on_minecraft:sample_bag"
 }

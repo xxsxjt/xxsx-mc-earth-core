@@ -37,5 +37,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.eng.measurement",
-  "desc_key": "lore.earth_on_minecraft.eng.measurement.desc"
+  "desc_key": "lore.earth_on_minecraft.eng.measurement.desc",
+  "icon": "earth_on_minecraft:tape_measure"
 }

@@ -62,5 +62,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.ironmaking_steelmaking",
-  "desc_key": "lore.earth_on_minecraft.mat.ironmaking_steelmaking.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.ironmaking_steelmaking.desc",
+  "icon": "earth_on_minecraft:steel"
 }

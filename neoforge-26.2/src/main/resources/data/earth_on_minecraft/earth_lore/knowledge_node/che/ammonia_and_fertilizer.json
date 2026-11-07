@@ -41,5 +41,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.che.ammonia_and_fertilizer",
-  "desc_key": "lore.earth_on_minecraft.che.ammonia_and_fertilizer.desc"
+  "desc_key": "lore.earth_on_minecraft.che.ammonia_and_fertilizer.desc",
+  "icon": "earth_on_minecraft:glass_bottle"
 }

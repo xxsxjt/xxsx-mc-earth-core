@@ -55,5 +55,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.beneficiation",
-  "desc_key": "lore.earth_on_minecraft.mat.beneficiation.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.beneficiation.desc",
+  "icon": "earth_on_minecraft:book"
 }

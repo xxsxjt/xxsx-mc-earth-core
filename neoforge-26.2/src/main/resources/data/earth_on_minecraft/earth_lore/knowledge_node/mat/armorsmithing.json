@@ -55,5 +55,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.armorsmithing",
-  "desc_key": "lore.earth_on_minecraft.mat.armorsmithing.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.armorsmithing.desc",
+  "icon": "earth_on_minecraft:copper_armor"
 }

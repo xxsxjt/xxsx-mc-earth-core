@@ -154,5 +154,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.agr.cooking",
-  "desc_key": "lore.earth_on_minecraft.agr.cooking.desc"
+  "desc_key": "lore.earth_on_minecraft.agr.cooking.desc",
+  "icon": "earth_on_minecraft:bread"
 }

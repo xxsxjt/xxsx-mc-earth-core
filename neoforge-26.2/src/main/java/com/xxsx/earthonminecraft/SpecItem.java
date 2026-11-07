@@ -38,7 +38,7 @@ public class SpecItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display,
                                 Consumer<Component> lines, TooltipFlag flag) {
-        EarthMedicalAndWeaponSupport.appendHoverText(this, lines);
+        EarthMedicalAndWeaponSupport.appendHoverText(stack, lines);
         QualityComponents.appendTooltip(stack, lines);
         EarthOnMinecraftTooltips.addForgingDetails(stack, lines);
         EarthOnMinecraftTooltips.addMaterialDetails(stack, lines, flag);

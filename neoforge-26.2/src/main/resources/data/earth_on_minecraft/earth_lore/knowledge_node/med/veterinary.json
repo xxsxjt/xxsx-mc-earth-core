@@ -37,5 +37,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.med.veterinary",
-  "desc_key": "lore.earth_on_minecraft.med.veterinary.desc"
+  "desc_key": "lore.earth_on_minecraft.med.veterinary.desc",
+  "icon": "earth_on_minecraft:vet_kit"
 }

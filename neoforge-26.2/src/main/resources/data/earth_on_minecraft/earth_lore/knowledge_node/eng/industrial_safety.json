@@ -40,5 +40,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.eng.industrial_safety",
-  "desc_key": "lore.earth_on_minecraft.eng.industrial_safety.desc"
+  "desc_key": "lore.earth_on_minecraft.eng.industrial_safety.desc",
+  "icon": "earth_on_minecraft:goggles"
 }

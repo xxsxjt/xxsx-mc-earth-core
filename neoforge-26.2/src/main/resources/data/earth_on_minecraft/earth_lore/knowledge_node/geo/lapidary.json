@@ -45,5 +45,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.geo.lapidary",
-  "desc_key": "lore.earth_on_minecraft.geo.lapidary.desc"
+  "desc_key": "lore.earth_on_minecraft.geo.lapidary.desc",
+  "icon": "earth_on_minecraft:gem_cut"
 }

@@ -367,5 +367,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.geo.gemology",
-  "desc_key": "lore.earth_on_minecraft.geo.gemology.desc"
+  "desc_key": "lore.earth_on_minecraft.geo.gemology.desc",
+  "icon": "earth_on_minecraft:gem_rough"
 }

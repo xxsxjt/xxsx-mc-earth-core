@@ -7,16 +7,7 @@
       "all": "earth_on_minecraft:eng/combustion_power"
     },
     {
-      "all": "earth_on_minecraft:eng/internal_combustion"
-    },
-    {
       "all": "earth_on_minecraft:eng/energy_storage"
-    },
-    {
-      "all": "earth_on_minecraft:eng/nuclear_engineering"
-    },
-    {
-      "all": "earth_on_minecraft:eng/robotics"
     },
     {
       "all": "earth_on_minecraft:eng/civil_engineering"
@@ -57,5 +48,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.eng.systems_engineering",
-  "desc_key": "lore.earth_on_minecraft.eng.systems_engineering.desc"
+  "desc_key": "lore.earth_on_minecraft.eng.systems_engineering.desc",
+  "icon": "earth_on_minecraft:steel"
 }

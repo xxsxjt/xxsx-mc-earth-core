@@ -34,5 +34,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.agr.soil_science",
-  "desc_key": "lore.earth_on_minecraft.agr.soil_science.desc"
+  "desc_key": "lore.earth_on_minecraft.agr.soil_science.desc",
+  "icon": "earth_on_minecraft:book"
 }

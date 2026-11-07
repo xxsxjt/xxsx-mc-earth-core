@@ -31,5 +31,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.che.electrochemistry",
-  "desc_key": "lore.earth_on_minecraft.che.electrochemistry.desc"
+  "desc_key": "lore.earth_on_minecraft.che.electrochemistry.desc",
+  "icon": "earth_on_minecraft:salt"
 }

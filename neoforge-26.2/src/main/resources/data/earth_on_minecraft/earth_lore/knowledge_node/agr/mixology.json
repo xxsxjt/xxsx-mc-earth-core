@@ -83,5 +83,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.agr.mixology",
-  "desc_key": "lore.earth_on_minecraft.agr.mixology.desc"
+  "desc_key": "lore.earth_on_minecraft.agr.mixology.desc",
+  "icon": "earth_on_minecraft:highball"
 }

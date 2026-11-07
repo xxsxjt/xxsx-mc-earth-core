@@ -77,5 +77,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.agr.beverages",
-  "desc_key": "lore.earth_on_minecraft.agr.beverages.desc"
+  "desc_key": "lore.earth_on_minecraft.agr.beverages.desc",
+  "icon": "earth_on_minecraft:sparkling_water"
 }

@@ -74,5 +74,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.agr.distilling",
-  "desc_key": "lore.earth_on_minecraft.agr.distilling.desc"
+  "desc_key": "lore.earth_on_minecraft.agr.distilling.desc",
+  "icon": "earth_on_minecraft:baijiu"
 }

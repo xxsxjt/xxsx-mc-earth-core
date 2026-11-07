@@ -44,5 +44,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.eng.steam_power",
-  "desc_key": "lore.earth_on_minecraft.eng.steam_power.desc"
+  "desc_key": "lore.earth_on_minecraft.eng.steam_power.desc",
+  "icon": "earth_on_minecraft:steam_locomotive"
 }

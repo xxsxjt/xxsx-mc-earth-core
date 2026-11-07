@@ -39,5 +39,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.geo.mineral_identification",
-  "desc_key": "lore.earth_on_minecraft.geo.mineral_identification.desc"
+  "desc_key": "lore.earth_on_minecraft.geo.mineral_identification.desc",
+  "icon": "earth_on_minecraft:sample_bag"
 }

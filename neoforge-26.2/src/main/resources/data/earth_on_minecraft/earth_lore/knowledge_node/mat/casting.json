@@ -44,5 +44,6 @@
   },
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.casting",
-  "desc_key": "lore.earth_on_minecraft.mat.casting.desc"
+  "desc_key": "lore.earth_on_minecraft.mat.casting.desc",
+  "icon": "earth_on_minecraft:coin"
 }
