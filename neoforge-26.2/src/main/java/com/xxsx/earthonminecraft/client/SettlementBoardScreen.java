@@ -29,6 +29,8 @@ public class SettlementBoardScreen extends AbstractContainerScreen<SettlementBoa
 
     private int tab;
     private final List<Button> tabButtons = new ArrayList<>();
+    private Button travelButton;
+    private int travelIndex;
 
     public SettlementBoardScreen(SettlementBoardMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
@@ -44,11 +46,18 @@ public class SettlementBoardScreen extends AbstractContainerScreen<SettlementBoa
         tabButtons.add(addRenderableWidget(tabButton("screen.earth_on_minecraft.settlement_board.tab.overview", leftPos + 8, tabY, 0)));
         tabButtons.add(addRenderableWidget(tabButton("screen.earth_on_minecraft.settlement_board.tab.people", leftPos + 62, tabY, 1)));
         tabButtons.add(addRenderableWidget(tabButton("screen.earth_on_minecraft.settlement_board.tab.facilities", leftPos + 116, tabY, 2)));
+        travelButton = addRenderableWidget(Button.builder(travelLabel(), button -> travelToSelectedSettlement())
+                .bounds(leftPos + 8, topPos + 146, 132, 14).build());
+        addRenderableWidget(Button.builder(Component.literal("<"), button -> cycleTravel(-1))
+                .bounds(leftPos + 138, topPos + 146, 14, 14).build());
+        addRenderableWidget(Button.builder(Component.literal(">"), button -> cycleTravel(1))
+                .bounds(leftPos + 154, topPos + 146, 14, 14).build());
+        travelButton.active = !menu.destinations().isEmpty();
         addRenderableWidget(Button.builder(Component.empty(), button -> {
                     this.onClose();
                     EarthOnMinecraftClient.openNotebook();
                 })
-                .bounds(leftPos + 154, topPos + 146, 14, 14)
+                .bounds(leftPos + 154, topPos + 4, 14, 14)
                 .tooltip(Tooltip.create(Component.translatable("screen.earth_on_minecraft.button.notebook.tooltip")))
                 .build());
         refreshTabButtons();
@@ -96,6 +105,27 @@ public class SettlementBoardScreen extends AbstractContainerScreen<SettlementBoa
                             snapshot.tier(), Component.translatable(snapshot.tierProgressKey())),
                     Component.translatable("screen.earth_on_minecraft.settlement_board.security.tooltip")
             ), mouseX, mouseY);
+        }
+    }
+
+    private Component travelLabel() {
+        if (menu.destinations().isEmpty()) {
+            return Component.translatable("screen.earth_on_minecraft.settlement_board.travel.none");
+        }
+        return Component.translatable("screen.earth_on_minecraft.settlement_board.travel",
+                Component.translatable(menu.destinations().get(Math.min(travelIndex, menu.destinations().size() - 1)).nameKey()));
+    }
+
+    private void cycleTravel(int delta) {
+        if (menu.destinations().isEmpty()) return;
+        travelIndex = Math.floorMod(travelIndex + delta, menu.destinations().size());
+        travelButton.setMessage(travelLabel());
+    }
+
+    private void travelToSelectedSettlement() {
+        if (!menu.destinations().isEmpty() && net.minecraft.client.Minecraft.getInstance().gameMode != null) {
+            net.minecraft.client.Minecraft.getInstance().gameMode.handleInventoryButtonClick(
+                    menu.containerId, SettlementBoardMenu.BUTTON_TRAVEL_BASE + Math.min(travelIndex, menu.destinations().size() - 1));
         }
     }
 

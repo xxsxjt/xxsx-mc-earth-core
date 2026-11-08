@@ -33,9 +33,9 @@ import java.util.Optional;
  * few outcrop blocks of the lode itself. A signal therefore always sits over ore that exists.</p>
  */
 public final class LodeSurfaceSignalFeature extends Feature<NoneFeatureConfiguration> {
-    public static final int MIN_BLOCKS = 18;
+    public static final int MIN_BLOCKS = 8;
     public static final int MAX_SIGNALS = 1;
-    public static final float SIGNAL_CHANCE = 0.40F;
+    public static final float SIGNAL_CHANCE = 0.75F;
     public static final int MIN_SURFACE_BLOCKS = 2;
     public static final int MAX_SURFACE_BLOCKS = 3;
 

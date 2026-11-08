@@ -57,12 +57,20 @@ repositories {
         }
     }
     mavenCentral()
+    maven {
+        url = uri('https://api.modrinth.com/maven')
+        content {
+            includeGroup 'maven.modrinth'
+        }
+    }
 }
 
 dependencies {
     implementation files('../../earth_lore/neoforge-26.1.2/build/libs/earth-lore-neoforge-26.1.2-0.1.0.jar')
     compileOnly 'mezz.jei:jei-26.1.2-common-api:29.53.0.112'
     compileOnly 'mezz.jei:jei-26.1.2-neoforge-api:29.53.0.112'
+    // Optional integration: the core remains loadable without Waystones.
+    compileOnly 'maven.modrinth:waystones:26.1.2.16+neoforge-26.1.2'
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.10.2'

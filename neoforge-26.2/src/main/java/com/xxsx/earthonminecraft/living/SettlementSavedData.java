@@ -97,6 +97,13 @@ public final class SettlementSavedData extends SavedData {
         return Optional.ofNullable(settlements.get(id)).map(this::snapshot);
     }
 
+    public List<SettlementSnapshot> snapshots() {
+        return settlements.values().stream().map(this::snapshot)
+                .sorted(Comparator.comparing(SettlementSnapshot::dimension)
+                        .thenComparing(SettlementSnapshot::nameKey).thenComparing(SettlementSnapshot::id))
+                .toList();
+    }
+
     public Optional<BlockPos> nearestFacility(ServerLevel level, BlockPos pos, String facilityId, int radius) {
         long radiusSq = (long) radius * radius;
         return nearestRecord(level.dimension().identifier().toString(), pos, DEFAULT_SETTLEMENT_RADIUS)

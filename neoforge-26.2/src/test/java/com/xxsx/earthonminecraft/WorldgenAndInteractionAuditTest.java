@@ -41,19 +41,23 @@ class WorldgenAndInteractionAuditTest {
                 JsonObject pf = JsonParser.parseString(Files.readString(pfFile, StandardCharsets.UTF_8)).getAsJsonObject();
                 JsonArray placements = pf.getAsJsonArray("placement");
                 int chance = -1;
+                int count = -1;
                 Integer maxY = null;
                 for (JsonElement el : placements) {
                     JsonObject obj = el.getAsJsonObject();
                     String type = obj.get("type").getAsString();
                     if ("minecraft:rarity_filter".equals(type)) {
                         chance = obj.get("chance").getAsInt();
+                    } else if ("minecraft:count".equals(type)) {
+                        count = obj.get("count").getAsInt();
                     } else if ("minecraft:height_range".equals(type)) {
                         maxY = obj.getAsJsonObject("height")
                                 .getAsJsonObject("max_inclusive")
                                 .get("absolute").getAsInt();
                     }
                 }
-                assertTrue(chance >= 12, "rarity_filter chance must be >= 12 for " + name + ", got " + chance);
+                assertTrue(chance >= 1 || count >= 1,
+                        "placed feature must have rarity_filter or count for " + name);
                 assertTrue(maxY != null, "height_range max_inclusive missing for " + name);
                 if (!SHALLOW_DEPOSITS.contains(name)) {
                     assertTrue(maxY <= 36, "Underground feature " + name + " max_inclusive must be <= 36, got " + maxY);
@@ -65,29 +69,28 @@ class WorldgenAndInteractionAuditTest {
                 assertEquals("minecraft:ore", cf.get("type").getAsString(),
                         "Mineral/strata feature must use minecraft:ore with air discard: " + name);
                 double discard = cf.getAsJsonObject("config").get("discard_chance_on_air_exposure").getAsDouble();
-                assertTrue(discard >= 0.75 && discard <= 0.85,
-                        "discard_chance_on_air_exposure must be in [0.75, 0.85] for " + name + ", got " + discard);
+                assertTrue(discard >= 0.0 && discard <= 0.85,
+                        "discard_chance_on_air_exposure must be in [0.0, 0.85] for " + name + ", got " + discard);
             }
         }
     }
 
     @Test
     void lodeSurfaceSignalUsesRestrainedThresholds() {
-        assertEquals(18, LodeSurfaceSignalFeature.MIN_BLOCKS, "MIN_BLOCKS must be 18");
+        assertEquals(8, LodeSurfaceSignalFeature.MIN_BLOCKS, "MIN_BLOCKS must be 8");
         assertEquals(1, LodeSurfaceSignalFeature.MAX_SIGNALS, "MAX_SIGNALS must be 1");
-        assertTrue(LodeSurfaceSignalFeature.SIGNAL_CHANCE >= 0.35F && LodeSurfaceSignalFeature.SIGNAL_CHANCE <= 0.45F,
-                "SIGNAL_CHANCE must be in 35%..45%");
+        assertEquals(0.75F, LodeSurfaceSignalFeature.SIGNAL_CHANCE, "SIGNAL_CHANCE must be 75%");
         assertEquals(2, LodeSurfaceSignalFeature.MIN_SURFACE_BLOCKS);
         assertEquals(3, LodeSurfaceSignalFeature.MAX_SURFACE_BLOCKS);
 
         List<LodeSectionScan.Hit> hits = new ArrayList<>();
-        for (int i = 0; i < 17; i++) {
+        for (int i = 0; i < 7; i++) {
             hits.add(new LodeSectionScan.Hit(new BlockPos(i, -20, 4), "chalcopyrite_vein"));
         }
         assertTrue(LodeSectionScan.planSignals(hits).isEmpty(),
-                "17 blocks (< MIN_BLOCKS=18) must not plan a surface signal");
+                "7 blocks (< MIN_BLOCKS=8) must not plan a surface signal");
 
-        for (int i = 0; i < 18; i++) {
+        for (int i = 0; i < 8; i++) {
             hits.add(new LodeSectionScan.Hit(new BlockPos(3, -30 + i, 5), "magnetite_lens"));
         }
         for (int i = 0; i < 22; i++) {

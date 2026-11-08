@@ -20,6 +20,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -28,6 +30,8 @@ import org.jetbrains.annotations.Nullable;
 
 public class SettlementBoardBlock extends Block implements EntityBlock {
     public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
+    public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
+    public static final EnumProperty<BoardStyle> STYLE = EnumProperty.create("style", BoardStyle.class);
     private static final VoxelShape NORTH_SOUTH_SHAPE = Shapes.or(
             Block.box(2, 0, 2, 14, 2, 14),
             Block.box(7, 2, 7, 9, 10, 9),
@@ -39,17 +43,37 @@ public class SettlementBoardBlock extends Block implements EntityBlock {
 
     public SettlementBoardBlock(Properties properties) {
         super(properties);
-        registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH));
+        registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH)
+                .setValue(HALF, DoubleBlockHalf.LOWER).setValue(STYLE, BoardStyle.AGRICULTURAL));
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+        BlockPos pos = context.getClickedPos();
+        Level level = context.getLevel();
+        if (pos.getY() >= level.getMaxY() - 1 || !level.getBlockState(pos.above()).canBeReplaced(context)) {
+            return null;
+        }
+        return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite())
+                .setValue(HALF, DoubleBlockHalf.LOWER).setValue(STYLE, styleForLevel(level, pos));
+    }
+
+    private static BoardStyle styleForLevel(Level level, BlockPos pos) {
+        return level.getBiome(pos).unwrapKey().map(key -> {
+            String biome = key.identifier().getPath();
+            if (biome.contains("desert") || biome.contains("badlands")) return BoardStyle.ARID;
+            if (biome.contains("snow") || biome.contains("taiga") || biome.contains("frozen")) return BoardStyle.BOREAL;
+            if (biome.contains("jungle") || biome.contains("swamp")) return BoardStyle.TROPICAL;
+            return BoardStyle.AGRICULTURAL;
+        }).orElse(BoardStyle.AGRICULTURAL);
     }
 
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
+        if (!level.isClientSide()) {
+            level.setBlock(pos.above(), state.setValue(HALF, DoubleBlockHalf.UPPER), Block.UPDATE_ALL);
+        }
         if (!level.isClientSide() && level.getBlockEntity(pos) instanceof SettlementBoardBlockEntity board) {
             board.initialize();
         }
@@ -73,7 +97,33 @@ public class SettlementBoardBlock extends Block implements EntityBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
+        builder.add(FACING, HALF, STYLE);
+    }
+
+    @Override
+    protected BlockState updateShape(BlockState state, net.minecraft.world.level.LevelReader level,
+                                     net.minecraft.world.level.ScheduledTickAccess ticks, BlockPos pos,
+                                     Direction direction, BlockPos neighborPos, BlockState neighborState,
+                                     net.minecraft.util.RandomSource random) {
+        DoubleBlockHalf half = state.getValue(HALF);
+        if (direction.getAxis() == Direction.Axis.Y
+                && (half == DoubleBlockHalf.LOWER) == (direction == Direction.UP)
+                && (!neighborState.is(this) || neighborState.getValue(HALF) == half)) {
+            return net.minecraft.world.level.block.Blocks.AIR.defaultBlockState();
+        }
+        return super.updateShape(state, level, ticks, pos, direction, neighborPos, neighborState, random);
+    }
+
+    @Override
+    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        if (!level.isClientSide()) {
+            BlockPos otherPos = state.getValue(HALF) == DoubleBlockHalf.LOWER ? pos.above() : pos.below();
+            BlockState other = level.getBlockState(otherPos);
+            if (other.is(this) && other.getValue(HALF) != state.getValue(HALF)) {
+                level.destroyBlock(otherPos, false);
+            }
+        }
+        return super.playerWillDestroy(level, pos, state, player);
     }
 
     @Override
@@ -95,11 +145,21 @@ public class SettlementBoardBlock extends Block implements EntityBlock {
         if (level.isClientSide()) {
             return InteractionResult.SUCCESS;
         }
+        if (level.getBlockState(pos).getValue(HALF) == DoubleBlockHalf.UPPER) {
+            pos = pos.below();
+        }
         if (player instanceof ServerPlayer serverPlayer
                 && level.getBlockEntity(pos) instanceof SettlementBoardBlockEntity board) {
             board.initialize();
             serverPlayer.openMenu(board, board::writeOpenData);
         }
         return InteractionResult.SUCCESS_SERVER;
+    }
+
+    public enum BoardStyle implements net.minecraft.util.StringRepresentable {
+        AGRICULTURAL("agricultural"), ARID("arid"), BOREAL("boreal"), TROPICAL("tropical");
+        private final String name;
+        BoardStyle(String name) { this.name = name; }
+        @Override public String getSerializedName() { return name; }
     }
 }

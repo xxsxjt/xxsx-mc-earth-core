@@ -52,3 +52,10 @@ type="optional"
 versionRange="[29.53.0.112,)"
 ordering="AFTER"
 side="CLIENT"
+
+[[dependencies.earth_on_minecraft]]
+modId="waystones"
+type="optional"
+versionRange="[26.1.2.16,)"
+ordering="AFTER"
+side="BOTH"

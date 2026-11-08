@@ -59,22 +59,7 @@
     ],
     "minecraft:farmer": [
       {
-        "node": "earth_on_minecraft:agr/tillage"
-      },
-      {
-        "node": "earth_on_minecraft:agr/soil_science"
-      },
-      {
-        "node": "earth_on_minecraft:agr/irrigation"
-      },
-      {
-        "node": "earth_on_minecraft:agr/apiculture_sericulture"
-      },
-      {
-        "node": "earth_on_minecraft:agr/fermentation"
-      },
-      {
-        "node": "earth_on_minecraft:agr/sugar_and_oil"
+        "node": "earth_on_minecraft:mat/woodworking"
       }
     ],
     "minecraft:fisherman": [

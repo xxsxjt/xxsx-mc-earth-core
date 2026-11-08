@@ -81,7 +81,8 @@ public class SettlementBoardBlockEntity extends BlockEntity implements MenuProvi
     }
 
     public void writeOpenData(RegistryFriendlyByteBuf buf) {
-        SettlementBoardMenu.writePayload(buf, worldPosition, snapshot());
+        SettlementSavedData data = level instanceof ServerLevel serverLevel ? SettlementSavedData.get(serverLevel) : null;
+        SettlementBoardMenu.writePayload(buf, worldPosition, snapshot(), data == null ? java.util.List.of() : data.snapshots());
     }
 
     @Override

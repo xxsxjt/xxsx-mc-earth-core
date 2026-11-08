@@ -151,6 +151,7 @@ public class EarthOnMinecraft {
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.STONE)
                     .strength(3.0F, 6.0F)
+                    .noOcclusion()
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.STONE));
 
@@ -589,6 +590,7 @@ public class EarthOnMinecraft {
                 () -> BlockBehaviour.Properties.of()
                         .mapColor(color)
                         .strength(strength, strength * 2.0F)
+                        .noOcclusion()
                         .lightLevel(state -> state.getValue(ControlPanelBlock.ACTIVE) ? 5 : 0)
                         .requiresCorrectToolForDrops()
                         .sound(SoundType.METAL));
@@ -663,6 +665,7 @@ public class EarthOnMinecraft {
                 () -> BlockBehaviour.Properties.of()
                         .mapColor(MapColor.METAL)
                         .strength(4.0F, 8.0F)
+                        .noOcclusion()
                         .requiresCorrectToolForDrops()
                         .sound(SoundType.METAL));
         String hintKey = id.equals("steam_turbine_generator")

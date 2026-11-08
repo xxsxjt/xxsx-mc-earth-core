@@ -148,7 +148,14 @@ public final class SettlementFacilities {
                 : savedData.byId(settlementId).orElseGet(() -> savedData.getOrCreate(level, boardPos, targetProfile, nameKey));
         String activeId = current.id();
 
-        placeSupportedBlock(level, boardPos, EarthOnMinecraft.SETTLEMENT_BOARD.get().defaultBlockState(), Blocks.COBBLESTONE);
+        BlockState boardState = EarthOnMinecraft.SETTLEMENT_BOARD.get().defaultBlockState();
+        placeSupportedBlock(level, boardPos, boardState, Blocks.COBBLESTONE);
+        // Compound construction bypasses BlockItem placement hooks, so explicitly
+        // materialize the upper half of the two-block notice board here as well.
+        placeSupportedBlock(level, boardPos.above(),
+                boardState.setValue(SettlementBoardBlock.HALF,
+                        net.minecraft.world.level.block.state.properties.DoubleBlockHalf.UPPER),
+                Blocks.COBBLESTONE);
         registerBoard(level, boardPos, activeId);
 
         Block foundation = switch (clampedTier) {
@@ -197,6 +204,8 @@ public final class SettlementFacilities {
             }
         }
 
+        placeVanillaWorkstations(level, boardPos, clampedTier);
+
         // Place tier supply chest at offset (1, 0, -2) with custom chest loot table
         BlockPos chestPos = boardPos.offset(1, 0, -2);
         placeSupportedBlock(level, chestPos, Blocks.CHEST.defaultBlockState(), foundation);
@@ -214,6 +223,35 @@ public final class SettlementFacilities {
         BlockState state = block.defaultBlockState();
         placeSupportedBlock(level, pos, state, foundation);
         registerFacility(level, pos, state, settlementId);
+    }
+
+    /**
+     * Seed a compound with real vanilla POI blocks so ordinary village AI can
+     * claim workstations for the resident professions.  This is intentionally
+     * additive: existing structures and player-built blocks are left alone.
+     */
+    private static void placeVanillaWorkstations(ServerLevel level, BlockPos boardPos, int tier) {
+        Block[][] stationsByTier = {
+                {Blocks.COMPOSTER, Blocks.BARREL},
+                {Blocks.CARTOGRAPHY_TABLE, Blocks.SMITHING_TABLE, Blocks.BLAST_FURNACE},
+                {Blocks.LECTERN, Blocks.CAULDRON, Blocks.FLETCHING_TABLE},
+                {Blocks.COMPOSTER, Blocks.BARREL, Blocks.CARTOGRAPHY_TABLE, Blocks.SMITHING_TABLE,
+                        Blocks.LECTERN, Blocks.CAULDRON}
+        };
+        Block[] stations = stationsByTier[Math.max(0, Math.min(stationsByTier.length - 1, tier - 1))];
+        BlockPos[] positions = {
+                boardPos.offset(-4, 0, 0), boardPos.offset(-4, 0, 2), boardPos.offset(-4, 0, -2),
+                boardPos.offset(4, 0, 0), boardPos.offset(4, 0, 2), boardPos.offset(4, 0, -2)
+        };
+        for (int i = 0; i < stations.length && i < positions.length; i++) {
+            BlockPos pos = positions[i];
+            if (!level.getBlockState(pos).canBeReplaced()) continue;
+            BlockPos below = pos.below();
+            if (level.getBlockState(below).isAir()) {
+                level.setBlock(below, Blocks.COBBLESTONE.defaultBlockState(), 3);
+            }
+            level.setBlock(pos, stations[i].defaultBlockState(), 3);
+        }
     }
 
     private static void placeSupportedBlock(ServerLevel level, BlockPos pos, BlockState state, Block foundation) {

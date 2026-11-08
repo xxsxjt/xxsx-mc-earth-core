@@ -2567,6 +2567,8 @@
   "screen.earth_on_minecraft.machine.pressure.readout": "Pressure: %s kPa",
   "screen.earth_on_minecraft.settlement_board.tier": "Tier %s",
   "screen.earth_on_minecraft.settlement_board.tier_progress": "Tier %s · %s",
+  "screen.earth_on_minecraft.settlement_board.travel": "Travel: %s",
+  "screen.earth_on_minecraft.settlement_board.travel.none": "No other settlements",
   "settlement.earth_on_minecraft.tier.1.short": "Tier 1 Primitive",
   "settlement.earth_on_minecraft.tier.2.short": "Tier 2 Mining",
   "settlement.earth_on_minecraft.tier.3.short": "Tier 3 Industrial",

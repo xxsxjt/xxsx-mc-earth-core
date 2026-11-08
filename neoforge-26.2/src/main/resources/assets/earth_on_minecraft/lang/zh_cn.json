@@ -2567,6 +2567,8 @@
   "screen.earth_on_minecraft.machine.pressure.readout": "工况压力：%s kPa",
   "screen.earth_on_minecraft.settlement_board.tier": "聚落层级 T%s",
   "screen.earth_on_minecraft.settlement_board.tier_progress": "T%s · %s",
+  "screen.earth_on_minecraft.settlement_board.travel": "前往：%s",
+  "screen.earth_on_minecraft.settlement_board.travel.none": "暂无其他聚落",
   "settlement.earth_on_minecraft.tier.1.short": "一阶原始聚落",
   "settlement.earth_on_minecraft.tier.2.short": "二阶采矿聚落",
   "settlement.earth_on_minecraft.tier.3.short": "三阶工业城镇",

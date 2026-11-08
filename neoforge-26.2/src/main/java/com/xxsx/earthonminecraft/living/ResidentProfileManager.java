@@ -22,6 +22,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.villager.Villager;
+import net.minecraft.world.entity.npc.villager.VillagerProfession;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -180,6 +181,14 @@ public final class ResidentProfileManager {
         data.putBoolean(OWNS_CUSTOM_NAME_KEY, ownsCustomName);
 
         savedData.registerResident(level, villager.blockPosition(), uuid, roleId, nameKey, skill);
+        // Unemployed and nitwit villagers must retain vanilla's no-trade behaviour.  Calling
+        // addOffers for either profession opens a merchant screen whose server-side offer list
+        // is immediately invalidated by the villager container sync.
+        if (villager.getVillagerData().profession().is(VillagerProfession.NONE)
+                || villager.getVillagerData().profession().is(VillagerProfession.NITWIT)) {
+            villager.getOffers().clear();
+            return profile;
+        }
         addRoleTrades(villager, roleSelection, settlement, skill, residentSeed);
         return profile;
     }
@@ -249,7 +258,10 @@ public final class ResidentProfileManager {
 
     private static void addRoleTrades(Villager villager, SettlementDataManager.RoleSelection roleSelection,
                                       SettlementSavedData.SettlementSnapshot settlement, int skill, long residentSeed) {
-        if (villager.isBaby()) {
+        if (villager.isBaby()
+                || villager.getVillagerData().profession().is(VillagerProfession.NONE)
+                || villager.getVillagerData().profession().is(VillagerProfession.NITWIT)) {
+            villager.getOffers().clear();
             return;
         }
         var tradeRole = roleSelection.role();
