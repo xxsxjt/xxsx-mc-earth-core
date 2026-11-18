@@ -88,6 +88,14 @@ public class BatteryBoxBlockEntity extends BaseContainerBlockEntity implements E
         return extracted;
     }
 
+    /** Supplies a small continuous charge when an optional Create kinetic source is adjacent. */
+    public void tickCreateKineticPower() {
+        if (level != null && !level.isClientSide()
+                && CreateKineticCompat.hasAdjacentCreateKineticPower(level, worldPosition)) {
+            receiveEnergy(12, false);
+        }
+    }
+
     @Override
     public int getContainerSize() {
         return SLOT_COUNT;

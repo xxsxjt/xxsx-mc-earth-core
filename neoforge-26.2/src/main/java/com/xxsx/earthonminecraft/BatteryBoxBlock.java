@@ -16,6 +16,8 @@ import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
@@ -45,7 +47,8 @@ public class BatteryBoxBlock extends Block implements EntityBlock {
 
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if ((stack.getItem() instanceof HandCrankItem || Ae2CrankCompat.isAe2CrankItem(stack))
+        if ((stack.getItem() instanceof HandCrankItem || Ae2CrankCompat.isAe2CrankItem(stack)
+                || CreateKineticCompat.isCreateCrankItem(stack))
                 && level.getBlockEntity(pos) instanceof BatteryBoxBlockEntity battery
                 && battery.getEnergyStored() < battery.getEnergyCapacity()) {
             if (!level.isClientSide()) {
@@ -71,6 +74,16 @@ public class BatteryBoxBlock extends Block implements EntityBlock {
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new BatteryBoxBlockEntity(pos, state);
+    }
+
+    @Override
+    @org.jetbrains.annotations.Nullable
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
+        if (level.isClientSide() || blockEntityType != EarthOnMinecraft.BATTERY_BOX_BLOCK_ENTITY.get()) {
+            return null;
+        }
+        return (tickerLevel, pos, tickerState, blockEntity) ->
+                ((BatteryBoxBlockEntity) blockEntity).tickCreateKineticPower();
     }
 
     @Override
