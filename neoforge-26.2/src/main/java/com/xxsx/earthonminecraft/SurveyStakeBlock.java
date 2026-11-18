@@ -49,12 +49,12 @@ public final class SurveyStakeBlock extends Block {
             String key = groups.isEmpty()
                     ? "message.earth_on_minecraft.survey_stake.category_none"
                     : "message.earth_on_minecraft.survey_stake.category_present";
-            serverPlayer.sendSystemMessage(Component.translatable(key).withStyle(ChatFormatting.YELLOW));
+            serverPlayer.sendOverlayMessage(Component.translatable(key).withStyle(ChatFormatting.YELLOW));
             return InteractionResult.SUCCESS_SERVER;
         }
 
         if (groups.isEmpty()) {
-            serverPlayer.sendSystemMessage(Component.translatable(
+            serverPlayer.sendOverlayMessage(Component.translatable(
                     "message.earth_on_minecraft.survey_stake.none").withStyle(ChatFormatting.GRAY));
             return InteractionResult.SUCCESS_SERVER;
         }
@@ -63,7 +63,7 @@ public final class SurveyStakeBlock extends Block {
         ProspectingSurvey.Bearing bearing = ProspectingSurvey.bearing(pos, nearest.nearest());
         int horizDist = ProspectingSurvey.roundToFive(ProspectingSurvey.horizontalDistance(pos, nearest.nearest()));
         Component height = ProspectingSurvey.heightText(ProspectingSurvey.roundedHeight(pos, nearest.nearest()));
-        serverPlayer.sendSystemMessage(Component.translatable(
+        serverPlayer.sendOverlayMessage(Component.translatable(
                 "message.earth_on_minecraft.survey_stake.detail",
                 ProspectingSurvey.lodeName(nearest.lodeId()),
                 Component.translatable(bearing.translationKey()),
