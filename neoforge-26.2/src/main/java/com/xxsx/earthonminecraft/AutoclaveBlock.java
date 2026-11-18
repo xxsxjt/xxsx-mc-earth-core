@@ -80,7 +80,7 @@ public class AutoclaveBlock extends Block implements EntityBlock {
             return InteractionResult.PASS;
         }
         if (!stack.is(STERILIZABLE)) {
-            player.sendSystemMessage(Component.translatable("message.earth_on_minecraft.autoclave.not_sterilizable")
+            player.sendOverlayMessage(Component.translatable("message.earth_on_minecraft.autoclave.not_sterilizable")
                     .withStyle(ChatFormatting.RED));
             return InteractionResult.FAIL;
         }
@@ -106,7 +106,7 @@ public class AutoclaveBlock extends Block implements EntityBlock {
                 }
                 return InteractionResult.SUCCESS_SERVER;
             }
-            player.sendSystemMessage(autoclave.statusMessage());
+            player.sendOverlayMessage(autoclave.statusMessage());
             return InteractionResult.SUCCESS_SERVER;
         }
         return InteractionResult.PASS;
