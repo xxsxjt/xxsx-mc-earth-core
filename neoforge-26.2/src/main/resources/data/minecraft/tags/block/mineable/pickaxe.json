@@ -152,6 +152,7 @@
     "earth_on_minecraft:depleted_sedimentary_sandstone_bed",
     "earth_on_minecraft:depleted_sphalerite_lens",
     "earth_on_minecraft:depleted_tuff_volcanic_belt",
-    "earth_on_minecraft:depleted_uraninite_lens"
+    "earth_on_minecraft:depleted_uraninite_lens",
+    "earth_on_minecraft:surface_ore_pebble"
   ]
 }
