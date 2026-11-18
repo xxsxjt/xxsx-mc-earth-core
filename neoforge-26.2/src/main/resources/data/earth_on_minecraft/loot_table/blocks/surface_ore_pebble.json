@@ -1,0 +1,198 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "earth_on_minecraft:magnetite_chunk",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "earth_on_minecraft:surface_ore_pebble",
+                  "properties": {
+                    "mineral": "magnetite"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1.0,
+                    "max": 2.0
+                  }
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "earth_on_minecraft:chalcopyrite_chunk",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "earth_on_minecraft:surface_ore_pebble",
+                  "properties": {
+                    "mineral": "chalcopyrite"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1.0,
+                    "max": 2.0
+                  }
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "earth_on_minecraft:cassiterite_dust",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "earth_on_minecraft:surface_ore_pebble",
+                  "properties": {
+                    "mineral": "cassiterite"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1.0,
+                    "max": 2.0
+                  }
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:coal",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "earth_on_minecraft:surface_ore_pebble",
+                  "properties": {
+                    "mineral": "coal"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1.0,
+                    "max": 2.0
+                  }
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "earth_on_minecraft:galena_dust",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "earth_on_minecraft:surface_ore_pebble",
+                  "properties": {
+                    "mineral": "galena"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1.0,
+                    "max": 2.0
+                  }
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "earth_on_minecraft:auriferous_quartz_chunk",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "earth_on_minecraft:surface_ore_pebble",
+                  "properties": {
+                    "mineral": "auriferous_quartz"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1.0,
+                    "max": 2.0
+                  }
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "earth_on_minecraft:calcite_dust",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "earth_on_minecraft:surface_ore_pebble",
+                  "properties": {
+                    "mineral": "limestone"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "min": 1.0,
+                    "max": 2.0
+                  }
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "random_sequence": "earth_on_minecraft:blocks/surface_ore_pebble"
+}
