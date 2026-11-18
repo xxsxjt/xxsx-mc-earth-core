@@ -38,22 +38,13 @@ public class HandCrankItem extends Item {
         Level level = context.getLevel();
         BlockPos pos = context.getClickedPos();
         Player player = context.getPlayer();
-        BlockEntity be = level.getBlockEntity(pos);
-        if (be instanceof ProcessingMachineBlockEntity machine && machine.canCrankTurn()) {
-            if (!level.isClientSide()) {
-                machine.applyCrankTurn(CRANK_WORK_TICKS);
-                MachineFeedback.emitManualCrank(level, pos, level.getBlockState(pos), machine.kind());
-                if (player != null) {
-                    context.getItemInHand().hurtAndBreak(1, player, context.getHand());
-                    player.swing(context.getHand(), true);
-                    player.sendOverlayMessage(Component.translatable(
-                            "message.earth_on_minecraft.hand_crank.turned",
-                            machine.getDisplayName(),
-                            machine.manualWorkTicks()).withStyle(ChatFormatting.GREEN));
-                }
-            }
-            return InteractionResult.SUCCESS;
+        if (context.getClickedFace().getAxis() != net.minecraft.core.Direction.Axis.Y
+                && context.getClickedFace().getAxis().isHorizontal()) {
+            // Battery charging is a side-mounted crank interaction only.
+        } else {
+            return InteractionResult.PASS;
         }
+        BlockEntity be = level.getBlockEntity(pos);
         if (be instanceof BatteryBoxBlockEntity battery && battery.getEnergyStored() < battery.getEnergyCapacity()) {
             if (!level.isClientSide()) {
                 int accepted = battery.receiveEnergy(CRANK_ENERGY_EOU, false);

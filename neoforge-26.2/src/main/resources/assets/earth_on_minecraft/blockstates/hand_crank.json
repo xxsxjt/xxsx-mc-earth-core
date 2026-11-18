@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "mount_face=down": { "model": "earth_on_minecraft:block/hand_crank", "x": 90 },
+    "mount_face=up": { "model": "earth_on_minecraft:block/hand_crank", "x": 270 },
+    "mount_face=north": { "model": "earth_on_minecraft:block/hand_crank", "x": 0 },
+    "mount_face=south": { "model": "earth_on_minecraft:block/hand_crank", "x": 0, "y": 180 },
+    "mount_face=west": { "model": "earth_on_minecraft:block/hand_crank", "x": 0, "y": 270 },
+    "mount_face=east": { "model": "earth_on_minecraft:block/hand_crank", "x": 0, "y": 90 }
+  }
+}
