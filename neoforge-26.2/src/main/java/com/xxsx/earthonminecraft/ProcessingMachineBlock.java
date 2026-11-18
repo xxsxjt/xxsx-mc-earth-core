@@ -18,6 +18,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -34,6 +35,8 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -75,20 +78,21 @@ public class ProcessingMachineBlock extends Block implements EntityBlock {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (player.isShiftKeyDown() && this.kind.powerMode().manualFallback()
-                && level.getBlockEntity(pos) instanceof ProcessingMachineBlockEntity machine) {
-            if (!level.isClientSide()) {
-                machine.triggerManualWork(40);
-                MachineFeedback.emitManualCrank(level, pos, state, this.kind);
-                player.swing(InteractionHand.MAIN_HAND, true);
-            }
-            return InteractionResult.SUCCESS;
-        }
         return openMachine(level, pos, player);
     }
 
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+        if (CreateKineticCompat.isWrenchItem(stack)) {
+            if (!level.isClientSide()) {
+                if (player.isShiftKeyDown()) {
+                    level.destroyBlock(pos, true, player);
+                } else {
+                    level.setBlock(pos, state.rotate(Rotation.CLOCKWISE_90), Block.UPDATE_ALL);
+                }
+            }
+            return InteractionResult.SUCCESS;
+        }
         if (!stack.isEmpty() && level.getBlockEntity(pos) instanceof ProcessingMachineBlockEntity machine) {
             if (machine.tryInteractWithFluidItem(player, hand, stack)) {
                 if (!level.isClientSide()) {
@@ -96,8 +100,8 @@ public class ProcessingMachineBlock extends Block implements EntityBlock {
                 }
                 return InteractionResult.SUCCESS;
             }
-            if (((stack.getItem() instanceof HandCrankItem || Ae2CrankCompat.isAe2CrankItem(stack))
-                    && machine.canCrankTurn())
+            boolean crankItem = Ae2CrankCompat.isAe2CrankItem(stack) || CreateKineticCompat.isCreateCrankItem(stack);
+            if ((crankItem && hitResult.getDirection().getAxis().isHorizontal() && machine.canCrankTurn())
                     || (this.kind == Kind.ANVIL && EarthMedicalAndWeaponSupport.isAnvilHammer(stack))) {
                 if (!level.isClientSide()) {
                     machine.applyCrankTurn(HandCrankItem.CRANK_WORK_TICKS);
@@ -109,19 +113,15 @@ public class ProcessingMachineBlock extends Block implements EntityBlock {
                     player.sendOverlayMessage(net.minecraft.network.chat.Component.translatable(
                             "message.earth_on_minecraft.hand_crank.turned",
                             machine.getDisplayName(),
-                            machine.manualWorkTicks()).withStyle(net.minecraft.ChatFormatting.GREEN));
+                            machine.getDisplayName()).withStyle(net.minecraft.ChatFormatting.GREEN));
                 }
                 return InteractionResult.SUCCESS;
             }
-        }
-        if (player.isShiftKeyDown() && this.kind.powerMode().manualFallback()
-                && level.getBlockEntity(pos) instanceof ProcessingMachineBlockEntity machine) {
-            if (!level.isClientSide()) {
-                machine.triggerManualWork(40);
-                MachineFeedback.emitManualCrank(level, pos, state, this.kind);
-                player.swing(hand, true);
+            if (crankItem && hitResult.getDirection().getAxis().isHorizontal() && !level.isClientSide()) {
+                player.sendOverlayMessage(net.minecraft.network.chat.Component.translatable(
+                        "message.earth_on_minecraft.hand_crank.no_recipe"));
+                return InteractionResult.SUCCESS;
             }
-            return InteractionResult.SUCCESS;
         }
         return openMachine(level, pos, player);
     }
@@ -183,6 +183,11 @@ public class ProcessingMachineBlock extends Block implements EntityBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(ACTIVE, FAULT, FACING);
+    }
+
+    @Override
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return ProcessingMachineShapes.get(kind, state.getValue(FACING));
     }
 
     @Override

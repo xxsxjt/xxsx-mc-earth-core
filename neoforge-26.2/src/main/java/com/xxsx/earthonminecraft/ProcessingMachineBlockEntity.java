@@ -537,39 +537,7 @@ public class ProcessingMachineBlockEntity extends BaseContainerBlockEntity imple
         changed = true;
 
         if (machine.progress >= recipe.processTicks()) {
-            ItemStack primarySnapshot = input.copy();
-            List<ItemStack> secondarySnapshots = new java.util.ArrayList<>(SECONDARY_INPUT_SLOTS);
-            for (int i = 0; i < SECONDARY_INPUT_SLOTS; i++) {
-                secondarySnapshots.add(machine.items.get(SLOT_SECONDARY_START + i).copy());
-            }
-            ItemStack reagentSnapshot = reagent.copy();
-            List<ItemStack> evaluatedOutputs = MetallurgyAssay.evaluateMachineOutputs(
-                    kind, recipe, primarySnapshot, secondarySnapshots, reagentSnapshot, machine.temperatureK);
-            List<ItemStack> cappedOutputs = new java.util.ArrayList<>(evaluatedOutputs.size());
-            for (ItemStack rawOut : evaluatedOutputs) {
-                ItemStack capped = LoreIntegration.capMachineOutput(machine, rawOut, state.getBlock());
-                cappedOutputs.add(capped);
-                LoreIntegration.awardMachineProduct(machine, capped);
-            }
-            evaluatedOutputs = cappedOutputs;
-            if (recipe.requiresCoke()) {
-                reagent.shrink(1);
-                if (reagent.isEmpty()) {
-                    machine.items.set(SLOT_REAGENT, ItemStack.EMPTY);
-                }
-            }
-            machine.consumeSecondaryInputs(recipe);
-            machine.consumeFluidInputs(recipe);
-            if (!input.isEmpty()) {
-                input.shrink(recipe.primaryCount());
-            }
-            if (input.isEmpty()) {
-                machine.items.set(SLOT_INPUT, ItemStack.EMPTY);
-            }
-            machine.insertOutputs(evaluatedOutputs);
-            machine.produceFluidOutputs(recipe);
-            machine.progress = 0;
-            MachineFeedback.playComplete(level, pos, kind);
+            machine.completeRecipe(level, pos, state, recipe);
         }
 
         machine.finishTick(level, pos, state, changed);
@@ -581,6 +549,36 @@ public class ProcessingMachineBlockEntity extends BaseContainerBlockEntity imple
      */
     private boolean hasSecondaryInputs(ProcessingMachineBlock.Recipe recipe) {
         return countAvailable(recipe) >= requiredSecondaryCount(recipe);
+    }
+
+    private void completeRecipe(Level level, BlockPos pos, BlockState state, ProcessingMachineBlock.Recipe recipe) {
+        ItemStack input = items.get(SLOT_INPUT);
+        ItemStack reagent = items.get(SLOT_REAGENT);
+        ItemStack primarySnapshot = input.copy();
+        List<ItemStack> secondarySnapshots = new java.util.ArrayList<>(SECONDARY_INPUT_SLOTS);
+        for (int i = 0; i < SECONDARY_INPUT_SLOTS; i++) {
+            secondarySnapshots.add(items.get(SLOT_SECONDARY_START + i).copy());
+        }
+        List<ItemStack> evaluatedOutputs = MetallurgyAssay.evaluateMachineOutputs(
+                kind(), recipe, primarySnapshot, secondarySnapshots, reagent.copy(), temperatureK);
+        List<ItemStack> cappedOutputs = new java.util.ArrayList<>(evaluatedOutputs.size());
+        for (ItemStack rawOut : evaluatedOutputs) {
+            ItemStack capped = LoreIntegration.capMachineOutput(this, rawOut, state.getBlock());
+            cappedOutputs.add(capped);
+            LoreIntegration.awardMachineProduct(this, capped);
+        }
+        if (recipe.requiresCoke()) {
+            reagent.shrink(1);
+            if (reagent.isEmpty()) items.set(SLOT_REAGENT, ItemStack.EMPTY);
+        }
+        consumeSecondaryInputs(recipe);
+        consumeFluidInputs(recipe);
+        if (!input.isEmpty()) input.shrink(recipe.primaryCount());
+        if (input.isEmpty()) items.set(SLOT_INPUT, ItemStack.EMPTY);
+        insertOutputs(cappedOutputs);
+        produceFluidOutputs(recipe);
+        progress = 0;
+        MachineFeedback.playComplete(level, pos, kind());
     }
 
     /** True when the tank holds every fluid the route consumes. */
@@ -1072,11 +1070,7 @@ public class ProcessingMachineBlockEntity extends BaseContainerBlockEntity imple
     }
 
     public void triggerManualWork(int ticks) {
-        if (!kind().powerMode().manualFallback()) {
-            return;
-        }
-        this.manualWorkTicks = Math.min(160, Math.max(0, this.manualWorkTicks) + Math.max(1, ticks));
-        setChanged();
+        applyCrankTurn(ticks);
     }
 
     public boolean supportsCrankAttachment() {
@@ -1084,29 +1078,45 @@ public class ProcessingMachineBlockEntity extends BaseContainerBlockEntity imple
     }
 
     public boolean canCrankTurn() {
-        if (kind().powerMode().manualFallback() && this.manualWorkTicks < 160) {
-            return true;
+        if (!kind().powerMode().manualFallback()) {
+            return false;
         }
-        return energyCapacity() > 0 && this.energyStored < energyCapacity();
+        ProcessingMachineBlock.Recipe recipe = activeRecipe != null ? activeRecipe : selectedRecipe();
+        return recipe != null && hasRequiredInputs(recipe);
     }
 
     public void applyCrankTurn(int ticks) {
-        boolean updated = false;
-        if (kind().powerMode().manualFallback()) {
-            this.manualWorkTicks = Math.min(160, Math.max(0, this.manualWorkTicks) + Math.max(1, ticks));
-            updated = true;
+        if (!canCrankTurn()) {
+            manualWorkTicks = 0;
+            return;
         }
-        if (energyCapacity() > 0 && this.energyStored < energyCapacity()) {
-            this.energyStored = Math.min(energyCapacity(), Math.max(0, this.energyStored) + Math.max(1, ticks * 3));
-            updated = true;
+        ProcessingMachineBlock.Recipe recipe = activeRecipe != null ? activeRecipe : selectedRecipe();
+        activeRecipe = recipe;
+        progress = Math.min(recipe.processTicks(), progress + Math.max(1, ticks));
+        manualWorkTicks = 0;
+        driveState = DriveState.MANUAL_ACTIVE;
+        if (progress >= recipe.processTicks() && level != null) {
+            completeRecipe(level, worldPosition, getBlockState(), recipe);
         }
-        if (updated) {
-            setChanged();
-        }
+        setChanged();
+    }
+
+    private boolean hasRequiredInputs(ProcessingMachineBlock.Recipe recipe) {
+        ItemStack input = items.get(SLOT_INPUT);
+        ItemStack reagent = items.get(SLOT_REAGENT);
+        return (!recipe.hasItemInput() || input.getCount() >= Math.max(1, recipe.primaryCount()))
+                && (!recipe.hasSecondaryInput() || hasSecondaryInputs(recipe))
+                && hasFluidInputs(recipe)
+                && (!recipe.requiresCoke() || (!reagent.isEmpty() && reagent.getItem() == EarthOnMinecraft.COKE.get()))
+                && hasRequiredCatalyst(recipe, reagent)
+                && canStoreFluidOutputs(recipe);
     }
 
     public boolean hasKineticDrive(Level level, BlockPos pos) {
         if (isKineticDriveItem(items.get(SLOT_FUEL))) {
+            return true;
+        }
+        if (CreateKineticCompat.hasAdjacentCreateKineticPower(level, pos)) {
             return true;
         }
         for (Direction dir : Direction.values()) {
@@ -1125,6 +1135,9 @@ public class ProcessingMachineBlockEntity extends BaseContainerBlockEntity imple
     public static boolean isKineticDriveItem(ItemStack stack) {
         if (stack.isEmpty()) {
             return false;
+        }
+        if (CreateKineticCompat.isCreateKineticItem(stack)) {
+            return true;
         }
         var key = BuiltInRegistries.ITEM.getKey(stack.getItem());
         if (key == null || !EarthOnMinecraft.MODID.equals(key.getNamespace())) {

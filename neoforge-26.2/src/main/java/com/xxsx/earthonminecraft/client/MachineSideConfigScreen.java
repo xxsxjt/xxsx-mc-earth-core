@@ -19,9 +19,9 @@ final class MachineSideConfigScreen extends Screen {
     private static final int PANEL_HEIGHT = 148;
     private static final int BUTTON_WIDTH = 36;
     private static final int BUTTON_HEIGHT = 18;
-    private static final int PAPER = 0xFFC6C6C6;
-    private static final int EDGE_DARK = 0xFF555555;
-    private static final int EDGE_LIGHT = 0xFFFFFFFF;
+    private static final int PAPER = 0xFF28353B;
+    private static final int EDGE_DARK = 0xFF11191D;
+    private static final int EDGE_LIGHT = 0xFF536168;
 
     private final ProcessingMachineMenu menu;
     private final Map<Direction, Button> sideButtons = new EnumMap<>(Direction.class);
@@ -67,10 +67,10 @@ final class MachineSideConfigScreen extends Screen {
         g.fill(0, 0, width, height, 0xB0000000);
         int left = panelLeft();
         int top = panelTop();
-        g.fill(left, top, left + PANEL_WIDTH, top + PANEL_HEIGHT, EDGE_DARK);
-        g.fill(left + 1, top + 1, left + PANEL_WIDTH - 1, top + PANEL_HEIGHT - 1, EDGE_LIGHT);
-        g.fill(left + 3, top + 3, left + PANEL_WIDTH - 2, top + PANEL_HEIGHT - 2, PAPER);
-        g.fill(left + 7, top + 34, left + PANEL_WIDTH - 7, top + 35, 0xFF8B8B8B);
+        EarthGuiSupport.drawInset(g, left, top, PANEL_WIDTH, PANEL_HEIGHT);
+        g.fill(left + 3, top + 3, left + PANEL_WIDTH - 3, top + PANEL_HEIGHT - 3, EDGE_DARK);
+        g.fill(left + 6, top + 6, left + PANEL_WIDTH - 6, top + PANEL_HEIGHT - 6, PAPER);
+        g.fill(left + 7, top + 34, left + PANEL_WIDTH - 7, top + 35, EarthGuiSupport.POWER);
         g.centeredText(font, EarthGuiSupport.trim(font, title, PANEL_WIDTH - 20),
                 left + PANEL_WIDTH / 2, top + 8, EarthGuiSupport.TEXT);
         g.centeredText(font, EarthGuiSupport.trim(font,
@@ -103,6 +103,7 @@ final class MachineSideConfigScreen extends Screen {
     }
 
     private void drawLegendEntry(GuiGraphicsExtractor g, int x, int y, int color, String key) {
+        g.fill(x - 2, y - 2, x + 37, y + 10, 0xFF172126);
         g.fill(x, y + 2, x + 6, y + 8, color);
         g.text(font, Component.translatable(key), x + 9, y, EarthGuiSupport.TEXT, false);
     }

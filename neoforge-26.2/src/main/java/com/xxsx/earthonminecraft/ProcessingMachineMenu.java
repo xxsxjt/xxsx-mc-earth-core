@@ -22,7 +22,6 @@ public class ProcessingMachineMenu extends AbstractContainerMenu {
     public static final int BUTTON_REDSTONE_REQUIRE_SIGNAL = 1;
     public static final int BUTTON_REDSTONE_REQUIRE_NO_SIGNAL = 2;
     public static final int BUTTON_ROUTE_NEXT = 10;
-    public static final int BUTTON_MANUAL_STEP = 11;
     public static final int BUTTON_SIDE_BASE = 20;
     private static final int PLAYER_INV_START = ProcessingMachineBlockEntity.SLOT_COUNT;
     private static final int PLAYER_INV_END = PLAYER_INV_START + 27;
@@ -37,6 +36,7 @@ public class ProcessingMachineMenu extends AbstractContainerMenu {
     private final ContainerData data;
     private final BlockPos pos;
     private final ProcessingMachineBlock.Kind kind;
+    private final MachineGuiProfile guiProfile;
 
     public ProcessingMachineMenu(int containerId, Inventory inventory, RegistryFriendlyByteBuf buf) {
         this(containerId, inventory, buf.readBlockPos());
@@ -52,6 +52,16 @@ public class ProcessingMachineMenu extends AbstractContainerMenu {
         this(containerId, inventory, machine, data, machine.getBlockPos(), machine.kind());
     }
 
+    static int[][] outputSlotPositions(MachineGuiProfile guiProfile) {
+        if (guiProfile.visibleOutputSlots() <= 2) {
+            return new int[][] {{116, 44}, {142, 44}, {116, 24}, {142, 24}, {116, 64}, {142, 64}, {142, 82}};
+        }
+        if (guiProfile.visibleOutputSlots() <= 4) {
+            return new int[][] {{116, 33}, {140, 33}, {116, 57}, {140, 57}, {116, 75}, {140, 75}, {158, 75}};
+        }
+        return new int[][] {{112, 33}, {132, 33}, {152, 33}, {112, 55}, {132, 55}, {152, 55}, {152, 75}};
+    }
+
     private ProcessingMachineMenu(int containerId, Inventory inventory, Container container, ContainerData data,
                                   BlockPos pos, ProcessingMachineBlock.Kind kind) {
         super(EarthOnMinecraft.PROCESSING_MACHINE_MENU.get(), containerId);
@@ -61,15 +71,21 @@ public class ProcessingMachineMenu extends AbstractContainerMenu {
         this.data = data;
         this.pos = pos;
         this.kind = kind;
+        this.guiProfile = MachineGuiProfile.forKind(kind);
 
         this.container.startOpen(inventory.player);
-        addSlot(new Slot(container, ProcessingMachineBlockEntity.SLOT_INPUT, 38, 35) {
+        addSlot(new Slot(container, ProcessingMachineBlockEntity.SLOT_INPUT,
+                guiProfile.secondarySlotCount() > 0 ? 28 : (guiProfile.usesFuelOrDriveSlot() ? 38 : 38),
+                guiProfile.secondarySlotCount() > 0 ? 30 : (guiProfile.usesFuelOrDriveSlot() ? 30 : 44)) {
             @Override
             public boolean mayPlace(ItemStack stack) {
                 return ProcessingMachineBlock.acceptsInput(ProcessingMachineMenu.this.kind, stack);
             }
         });
-        addSlot(new Slot(container, ProcessingMachineBlockEntity.SLOT_FUEL, 38, 57) {
+        addSlot(new Slot(container, ProcessingMachineBlockEntity.SLOT_FUEL,
+                guiProfile.secondarySlotCount() > 0 ? 28 : 38,
+                guiProfile.secondarySlotCount() == 1 ? 58 : (guiProfile.secondarySlotCount() > 0 ? 70 : 62)) {
+            @Override public boolean isActive() { return guiProfile.usesFuelOrDriveSlot() || !getItem().isEmpty(); }
             @Override
             public boolean mayPlace(ItemStack stack) {
                 if (ProcessingMachineMenu.this.kind.acceptsLocalFuel()
@@ -80,25 +96,26 @@ public class ProcessingMachineMenu extends AbstractContainerMenu {
                         && ProcessingMachineBlockEntity.isKineticDriveItem(stack);
             }
         });
-        int[][] secondarySlots = {{8, 76}, {26, 76}, {44, 76}, {62, 76}};
+        int[][] secondarySlots = {{48, 30}, {28, 50}, {48, 50}, {48, 70}};
         for (int i = 0; i < secondarySlots.length; i++) {
             int slot = ProcessingMachineBlockEntity.SLOT_SECONDARY_START + i;
             addSlot(new Slot(container, slot, secondarySlots[i][0], secondarySlots[i][1]) {
+                @Override public boolean isActive() { return guiProfile.activeMachineSlot(slot) || !getItem().isEmpty(); }
                 @Override
                 public boolean mayPlace(ItemStack stack) {
                     return ProcessingMachineMenu.this.acceptsSecondaryInput(stack);
                 }
             });
         }
-        int[][] outputSlots = {
-                {102, 20}, {120, 20}, {138, 20}, {156, 20},
-                {111, 42}, {129, 42}, {147, 42}
-        };
+        int[][] outputSlots = outputSlotPositions(guiProfile);
         for (int i = 0; i < outputSlots.length; i++) {
             int slot = ProcessingMachineBlockEntity.SLOT_OUTPUT_START + i;
-            addSlot(new OutputSlot(container, slot, outputSlots[i][0], outputSlots[i][1]));
+            addSlot(new OutputSlot(container, slot, outputSlots[i][0], outputSlots[i][1]) {
+                @Override public boolean isActive() { return guiProfile.activeMachineSlot(slot) || !getItem().isEmpty(); }
+            });
         }
-        addSlot(new Slot(container, ProcessingMachineBlockEntity.SLOT_REAGENT, 80, 76) {
+        addSlot(new Slot(container, ProcessingMachineBlockEntity.SLOT_REAGENT, 80, 66) {
+            @Override public boolean isActive() { return guiProfile.usesReagentSlot() || !getItem().isEmpty(); }
             @Override
             public boolean mayPlace(ItemStack stack) {
                 return (ProcessingMachineMenu.this.kind == ProcessingMachineBlock.Kind.REDUCTION_FURNACE
@@ -133,15 +150,6 @@ public class ProcessingMachineMenu extends AbstractContainerMenu {
         }
         if (container instanceof ProcessingMachineBlockEntity machine && id == BUTTON_ROUTE_NEXT) {
             machine.cycleSelectedRoute();
-            return true;
-        }
-        if (container instanceof ProcessingMachineBlockEntity machine && id == BUTTON_MANUAL_STEP) {
-            machine.triggerManualWork(40);
-            if (machine.getLevel() != null) {
-                MachineFeedback.emitManualCrank(
-                        machine.getLevel(), machine.getBlockPos(), machine.getBlockState(), machine.kind());
-            }
-            player.swing(net.minecraft.world.InteractionHand.MAIN_HAND, true);
             return true;
         }
         if (container instanceof ProcessingMachineBlockEntity machine
@@ -220,6 +228,8 @@ public class ProcessingMachineMenu extends AbstractContainerMenu {
     public ProcessingMachineBlock.Kind kind() {
         return kind;
     }
+
+    public MachineGuiProfile guiProfile() { return guiProfile; }
 
     public BlockPos pos() {
         return pos;
