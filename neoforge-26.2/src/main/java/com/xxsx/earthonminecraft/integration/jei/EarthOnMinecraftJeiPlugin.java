@@ -68,6 +68,7 @@ public class EarthOnMinecraftJeiPlugin implements IModPlugin {
         registerLivingWorldInfo(registration);
         registerMachineInfo(registration);
         registerEnergyInfo(registration);
+        registerHandCrankInfo(registration);
         registerRouteInfo(registration);
     }
 
@@ -316,6 +317,14 @@ public class EarthOnMinecraftJeiPlugin implements IModPlugin {
                 lineKey("tooltip.earth_on_minecraft.energy.battery", ChatFormatting.GOLD),
                 lineKey("jei.earth_on_minecraft.energy.battery.0", JEI_BODY),
                 lineKey("jei.earth_on_minecraft.energy.battery.1", ChatFormatting.AQUA));
+    }
+
+    private static void registerHandCrankInfo(IRecipeRegistration registration) {
+        registration.addItemStackInfo(new ItemStack(EarthOnMinecraft.HAND_CRANK.get()),
+                lineKey("jei.earth_on_minecraft.hand_crank.0", ChatFormatting.GOLD),
+                lineKey("jei.earth_on_minecraft.hand_crank.1", JEI_BODY),
+                lineKey("jei.earth_on_minecraft.hand_crank.2", ChatFormatting.AQUA),
+                lineKey("jei.earth_on_minecraft.hand_crank.3", JEI_HINT));
     }
 
     private static void registerRouteInfo(IRecipeRegistration registration) {
