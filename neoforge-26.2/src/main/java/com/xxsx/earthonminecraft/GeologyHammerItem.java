@@ -59,6 +59,9 @@ public class GeologyHammerItem extends Item {
         int readout = player instanceof ServerPlayer sp ? LoreApi.readoutLevel(sp, this) : 1;
         List<Component> lines = new ArrayList<>();
         BlockState state = level.getBlockState(clicked);
+        if (state.getBlock() instanceof SurfaceOrePebbleBlock) {
+            lines.add(SurfaceOrePebbleBlock.clueComponent(state.getValue(SurfaceOrePebbleBlock.MINERAL)));
+        }
         if (readout > 0 && level.getBlockEntity(clicked) instanceof DepositBlockEntity deposit) {
             DepositReserve reserve = deposit.reserve();
             lines.add(Component.translatable("message.earth_on_minecraft.geology_hammer.assay",
@@ -67,7 +70,12 @@ public class GeologyHammerItem extends Item {
         }
         List<ProspectingSurvey.Group> surveyed = survey(level, clicked);
         lines.addAll(readout <= 0 ? reportCategoryOnly(surveyed) : report(clicked, surveyed));
-        lines.forEach(player::sendSystemMessage);
+        Component summary = Component.empty();
+        for (int i = 0; i < lines.size(); i++) {
+            if (i > 0) summary = summary.copy().append(Component.literal("\n"));
+            summary = summary.copy().append(lines.get(i));
+        }
+        player.sendOverlayMessage(summary);
 
         stack.hurtAndBreak(1, player, context.getHand());
         player.getCooldowns().addCooldown(stack, COOLDOWN_TICKS);

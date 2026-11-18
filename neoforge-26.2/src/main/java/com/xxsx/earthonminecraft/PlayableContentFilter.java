@@ -155,7 +155,7 @@ public final class PlayableContentFilter {
 
         // 4. Prospector & kinetic hand tools
         set.addAll(Set.of(
-                "survey_stake", "geology_hammer", "hand_lens", "ore_scanner",
+                "survey_stake", "surface_ore_pebble", "geology_hammer", "hand_lens", "ore_scanner",
                 "field_geology_notebook", "sample_bag", "hand_crank", "wrench"
         ));
 

@@ -15,10 +15,13 @@ import com.xxsx.earthonminecraft.component.MaterialBatch;
 import com.xxsx.earthonminecraft.component.QualityComponents;
 import com.xxsx.earthonminecraft.component.ToolQualityComponent;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.villager.Villager;
@@ -34,6 +37,7 @@ import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
@@ -42,6 +46,7 @@ import java.util.UUID;
 public final class ResidentProfileManager {
     private static final int PROFILE_VERSION = 1;
     private static final String PREFIX = "EarthOnMinecraftResident";
+    public static final String JOB_BOOTSTRAPPED_KEY = "EarthOnMinecraftJobBootstrapped";
     private static final String VERSION_KEY = PREFIX + "Version";
     private static final String NAME_KEY = PREFIX + "NameKey";
     private static final String ROLE_ID_KEY = PREFIX + "RoleId";
@@ -59,18 +64,94 @@ public final class ResidentProfileManager {
     private static final String EXTERNAL_ANCHOR_Z_KEY = "EarthOnMinecraftSettlementAnchorZ";
     private static final String EXTERNAL_ROLE_KEY = "EarthOnMinecraftResidentRole";
     private static final Map<String, Identifier> ADDON_ROLE_IDS = Map.of(
-            "fantasy_earth:hedge_witch", EarthOnMinecraft.id("fantasy_hedge_witch"),
-            "fantasy_earth:goblin_appraiser", EarthOnMinecraft.id("fantasy_goblin_appraiser"),
-            "fantasy_earth:academy_researcher", EarthOnMinecraft.id("fantasy_academy_researcher"),
-            "xuanhuan_earth:wandering_merchant", EarthOnMinecraft.id("xuanhuan_wandering_merchant"),
-            "xuanhuan_earth:spirit_spring_keeper", EarthOnMinecraft.id("xuanhuan_spirit_spring_keeper"),
-            "xuanhuan_earth:sect_steward", EarthOnMinecraft.id("xuanhuan_sect_steward"));
+            "fantasy_earth:hedge_witch", modId("fantasy_hedge_witch"),
+            "fantasy_earth:goblin_appraiser", modId("fantasy_goblin_appraiser"),
+            "fantasy_earth:academy_researcher", modId("fantasy_academy_researcher"),
+            "xuanhuan_earth:wandering_merchant", modId("xuanhuan_wandering_merchant"),
+            "xuanhuan_earth:spirit_spring_keeper", modId("xuanhuan_spirit_spring_keeper"),
+            "xuanhuan_earth:sect_steward", modId("xuanhuan_sect_steward"));
 
     private static final Set<String> TOOL_SUPPLY_IDS = Set.of(
             "geology_hammer", "ore_scanner", "steel_pickaxe", "steel_axe", "steel_sword",
             "iron_pickaxe", "copper_pickaxe", "stone_pickaxe", "wooden_pickaxe", "wrench");
 
+    private static final Set<String> INDUSTRIAL_SETTLEMENT_PROFILES = Set.of(
+            "earth_on_minecraft:mining_settlement",
+            "earth_on_minecraft:resource_village",
+            "earth_on_minecraft:industrial_town",
+            "earth_on_minecraft:mechanized_town",
+            "earth_on_minecraft:mechanized_city");
+
+    private static final List<ResourceKey<VillagerProfession>> INDUSTRIAL_BOOTSTRAP_PROFESSIONS = List.of(
+            vanillaProfessionKey("mason"),
+            vanillaProfessionKey("mason"),
+            vanillaProfessionKey("mason"),
+            vanillaProfessionKey("toolsmith"),
+            vanillaProfessionKey("toolsmith"),
+            vanillaProfessionKey("armorer"),
+            vanillaProfessionKey("weaponsmith"),
+            vanillaProfessionKey("cartographer"),
+            vanillaProfessionKey("librarian"),
+            vanillaProfessionKey("cleric"));
+
+    private static final List<ResourceKey<VillagerProfession>> GENERAL_BOOTSTRAP_PROFESSIONS = List.of(
+            vanillaProfessionKey("farmer"),
+            vanillaProfessionKey("farmer"),
+            vanillaProfessionKey("butcher"),
+            vanillaProfessionKey("shepherd"),
+            vanillaProfessionKey("fletcher"),
+            vanillaProfessionKey("mason"),
+            vanillaProfessionKey("toolsmith"),
+            vanillaProfessionKey("cartographer"),
+            vanillaProfessionKey("cleric"),
+            vanillaProfessionKey("fisherman"));
+
     private ResidentProfileManager() {
+    }
+
+    private static Identifier modId(String path) {
+        return Identifier.fromNamespaceAndPath("earth_on_minecraft", path);
+    }
+
+    private static long mixSeed(long value) {
+        value ^= value >>> 33;
+        value *= 0xFF51AFD7ED558CCDL;
+        value ^= value >>> 33;
+        value *= 0xC4CEB9FE1A85EC53L;
+        return value ^ value >>> 33;
+    }
+
+    public static ResourceKey<VillagerProfession> vanillaProfessionKey(String path) {
+        return ResourceKey.create(Registries.VILLAGER_PROFESSION, Identifier.withDefaultNamespace(path));
+    }
+
+    public static long residentSeed(UUID uuid) {
+        return mixSeed(uuid.getMostSignificantBits()
+                ^ Long.rotateLeft(uuid.getLeastSignificantBits(), 29));
+    }
+
+    /** Deterministic ~80% employment bootstrap gate; ~20% remain free unemployed residents. */
+    public static boolean shouldBootstrapProfession(long residentSeed) {
+        return Math.floorMod(residentSeed, 5) != 0;
+    }
+
+    /**
+     * Picks a settlement-appropriate vanilla profession for an adult unemployed villager, or
+     * {@link Optional#empty()} for the ~20% kept as recruitable {@code minecraft:none} residents.
+     */
+    public static Optional<ResourceKey<VillagerProfession>> chooseBootstrapProfession(
+            String settlementProfileId, long residentSeed) {
+        if (!shouldBootstrapProfession(residentSeed)) {
+            return Optional.empty();
+        }
+        List<ResourceKey<VillagerProfession>> pool = settlementProfileId != null
+                && INDUSTRIAL_SETTLEMENT_PROFILES.contains(settlementProfileId)
+                ? INDUSTRIAL_BOOTSTRAP_PROFESSIONS
+                : GENERAL_BOOTSTRAP_PROFESSIONS;
+        long mixed = mixSeed(residentSeed ^ 0x9E3779B97F4A7C15L
+                ^ (settlementProfileId == null ? 0L : settlementProfileId.hashCode()));
+        int index = Math.floorMod((int) mixed, pool.size());
+        return Optional.of(pool.get(index));
     }
 
     public static void onEntityJoin(EntityJoinLevelEvent event) {
@@ -120,13 +201,30 @@ public final class ResidentProfileManager {
 
         CompoundTag data = villager.getPersistentData();
         UUID uuid = villager.getUUID();
-        long residentSeed = SettlementDataManager.mix(uuid.getMostSignificantBits()
-                ^ Long.rotateLeft(uuid.getLeastSignificantBits(), 29));
+        long residentSeed = residentSeed(uuid);
 
         SettlementSavedData savedData = SettlementSavedData.get(level);
         String storedSettlementId = data.getStringOr(SETTLEMENT_ID_KEY, "");
         SettlementSavedData.SettlementSnapshot settlement = savedData.byId(storedSettlementId)
                 .orElseGet(() -> savedData.getOrCreate(level, villager.blockPosition()));
+
+        if (!villager.isBaby()
+                && villager.getVillagerData().profession().is(VillagerProfession.NONE)
+                && !data.getBooleanOr(JOB_BOOTSTRAPPED_KEY, false)) {
+            data.putBoolean(JOB_BOOTSTRAPPED_KEY, true);
+            chooseBootstrapProfession(settlement.profileId(), residentSeed).ifPresent(profKey ->
+                    resolveProfessionHolder(level, profKey).ifPresent(profHolder -> {
+                        int targetLevel = Math.max(1, villager.getVillagerData().level());
+                        villager.setVillagerData(villager.getVillagerData()
+                                .withProfession(profHolder)
+                                .withLevel(targetLevel));
+                        if (villager.getVillagerXp() <= 0) {
+                            villager.setVillagerXp(1);
+                        }
+                        villager.setOffers(null);
+                        villager.refreshBrain(level);
+                    }));
+        }
 
         String nameKey = data.getStringOr(NAME_KEY, "");
         if (nameKey.isBlank()) {
@@ -191,6 +289,17 @@ public final class ResidentProfileManager {
         }
         addRoleTrades(villager, roleSelection, settlement, skill, residentSeed);
         return profile;
+    }
+
+    private static Optional<? extends Holder<VillagerProfession>> resolveProfessionHolder(
+            ServerLevel level, ResourceKey<VillagerProfession> profKey) {
+        Optional<? extends Holder<VillagerProfession>> fromLevel = level.registryAccess()
+                .lookup(Registries.VILLAGER_PROFESSION)
+                .flatMap(reg -> reg.get(profKey));
+        if (fromLevel.isPresent()) {
+            return fromLevel;
+        }
+        return BuiltInRegistries.VILLAGER_PROFESSION.get(profKey.identifier());
     }
 
     private static void ensureAddonResident(ServerLevel level, Entity entity) {
@@ -265,8 +374,10 @@ public final class ResidentProfileManager {
             return;
         }
         var tradeRole = roleSelection.role();
+        String currentProf = professionId(villager);
         if (!tradeRole.settlementProfiles().isEmpty()
-                && !tradeRole.settlementProfiles().contains(settlement.profileId())) {
+                && !tradeRole.settlementProfiles().contains(settlement.profileId())
+                && !tradeRole.vanillaProfessions().contains(currentProf)) {
             return;
         }
         MerchantOffers offers = villager.getOffers();
@@ -301,6 +412,10 @@ public final class ResidentProfileManager {
                     resultStack, trade.maxUses(), trade.xp(), trade.priceMultiplier()));
         }
         addRoleTeachingOffers(offers, roleSelection.id(), effectiveTradeLevel);
+        if (offers.isEmpty() && villager.level() instanceof ServerLevel serverLevel) {
+            villager.setOffers(null);
+            villager.getOffers();
+        }
     }
 
     private static void addRoleTeachingOffers(MerchantOffers offers, Identifier roleId, int effectiveTradeLevel) {

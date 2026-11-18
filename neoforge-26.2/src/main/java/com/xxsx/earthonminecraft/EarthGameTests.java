@@ -489,8 +489,8 @@ final class EarthGameTests {
         helper.assertValueEqual(manualMachine.driveState(), ProcessingMachineBlockEntity.DriveState.MANUAL_WAIT,
                 "unmanned manual machine must report MANUAL_WAIT");
         manualMachine.triggerManualWork(10);
-        ProcessingMachineBlockEntity.serverTick(helper.getLevel(), manualPos, helper.getLevel().getBlockState(manualPos), manualMachine);
-        helper.assertValueEqual(manualMachine.data().get(0), 1, "manually cranked machine must advance progress");
+        helper.assertValueEqual(manualMachine.manualWorkTicks(), 0, "manual drive must not accumulate a mechanical buffer");
+        helper.assertValueEqual(manualMachine.data().get(0), 10, "manual crank must advance progress immediately");
 
         // 2. Kinetic station must NOT advance without kinetic drive, and MUST advance with waterwheel drive.
         BlockPos kineticPos = origin.offset(3, 1, 1);
@@ -930,15 +930,19 @@ final class EarthGameTests {
         helper.assertValueEqual(LodeSurfaceSignalFeature.planSignals(hits).size(),
                 LodeSurfaceSignalFeature.MAX_SIGNALS, "at most one signal per chunk");
 
-        helper.assertTrue(LodeSurfaceSignalFeature.isNaturalSurface(Blocks.GRASS_BLOCK.defaultBlockState()), "grass");
-        helper.assertTrue(LodeSurfaceSignalFeature.isNaturalSurface(Blocks.PODZOL.defaultBlockState()), "podzol");
-        helper.assertTrue(LodeSurfaceSignalFeature.isNaturalSurface(Blocks.DIRT.defaultBlockState()), "dirt");
-        helper.assertTrue(LodeSurfaceSignalFeature.isNaturalSurface(Blocks.STONE.defaultBlockState()), "stone");
-        helper.assertTrue(LodeSurfaceSignalFeature.isNaturalSurface(Blocks.GRAVEL.defaultBlockState()), "gravel");
+        helper.assertFalse(LodeSurfaceSignalFeature.isRockyOutcropSurface(Blocks.GRASS_BLOCK.defaultBlockState()), "grass must not be replaced by halo");
+        helper.assertFalse(LodeSurfaceSignalFeature.isRockyOutcropSurface(Blocks.PODZOL.defaultBlockState()), "podzol must not be replaced by halo");
+        helper.assertFalse(LodeSurfaceSignalFeature.isRockyOutcropSurface(Blocks.DIRT.defaultBlockState()), "dirt must not be replaced by halo");
+        helper.assertTrue(LodeSurfaceSignalFeature.isPebbleHostSurface(Blocks.GRASS_BLOCK.defaultBlockState()), "grass hosts surface pebbles above");
+        helper.assertTrue(LodeSurfaceSignalFeature.isPebbleHostSurface(Blocks.DIRT.defaultBlockState()), "dirt hosts surface pebbles above");
+        helper.assertTrue(LodeSurfaceSignalFeature.isRockyOutcropSurface(Blocks.STONE.defaultBlockState()), "stone allows rocky outcrop");
+        helper.assertTrue(LodeSurfaceSignalFeature.isRockyOutcropSurface(Blocks.GRAVEL.defaultBlockState()), "gravel allows rocky outcrop");
         for (Block kept : List.of(Blocks.WATER, Blocks.ICE, Blocks.SNOW_BLOCK, Blocks.OAK_LOG, Blocks.OAK_LEAVES,
-                Blocks.COBBLESTONE, Blocks.OAK_PLANKS)) {
-            helper.assertFalse(LodeSurfaceSignalFeature.isNaturalSurface(kept.defaultBlockState()),
+                Blocks.COBBLESTONE, Blocks.OAK_PLANKS, Blocks.DIRT_PATH, Blocks.FARMLAND)) {
+            helper.assertFalse(LodeSurfaceSignalFeature.isRockyOutcropSurface(kept.defaultBlockState()),
                     kept + " must not be replaced by a surface signal");
+            helper.assertFalse(LodeSurfaceSignalFeature.isPebbleHostSurface(kept.defaultBlockState()),
+                    kept + " must not host surface ore pebbles");
         }
         helper.succeed();
     }

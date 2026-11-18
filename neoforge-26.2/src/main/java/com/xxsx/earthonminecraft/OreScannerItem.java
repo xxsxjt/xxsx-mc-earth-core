@@ -53,7 +53,7 @@ public final class OreScannerItem extends Item {
         }
         if (player.isSecondaryUseActive()) {
             ProspectingCatalog.Filter filter = cycleFilter(stack);
-            player.sendSystemMessage(Component.translatable("message.earth_on_minecraft.ore_scanner.filter_set",
+            player.sendOverlayMessage(Component.translatable("message.earth_on_minecraft.ore_scanner.filter_set",
                     Component.translatable(filter.translationKey())).withStyle(ChatFormatting.YELLOW));
             return InteractionResult.SUCCESS_SERVER;
         }
@@ -64,7 +64,7 @@ public final class OreScannerItem extends Item {
         Component filterName = Component.translatable(filter.translationKey());
         player.getCooldowns().addCooldown(stack, COOLDOWN_TICKS);
         if (groups.isEmpty()) {
-            player.sendSystemMessage(Component.translatable(
+            player.sendOverlayMessage(Component.translatable(
                     "message.earth_on_minecraft.ore_scanner.none", filterName).withStyle(ChatFormatting.GRAY));
             return InteractionResult.SUCCESS_SERVER;
         }
@@ -73,7 +73,7 @@ public final class OreScannerItem extends Item {
         BlockPos target = nearest.nearest();
         int blocks = groups.stream().mapToInt(ProspectingSurvey.Group::blocks).sum();
         int reserve = groups.stream().mapToInt(ProspectingSurvey.Group::remaining).sum();
-        player.sendSystemMessage(Component.translatable("message.earth_on_minecraft.ore_scanner.found",
+        player.sendOverlayMessage(Component.translatable("message.earth_on_minecraft.ore_scanner.found",
                 filterName, ProspectingSurvey.lodeName(nearest.lodeId()),
                 offset(target.getX() - origin.getX(), "east", "west", "ew_zero"),
                 offset(target.getY() - origin.getY(), "up", "down", "ud_zero"),
@@ -83,7 +83,7 @@ public final class OreScannerItem extends Item {
                 .sorted(Comparator.comparingInt(ProspectingSurvey.Group::remaining).reversed()
                         .thenComparing(ProspectingSurvey.Group::lodeId))
                 .limit(MAX_RESULTS)
-                .forEach(group -> player.sendSystemMessage(Component.translatable(
+                .forEach(group -> player.sendOverlayMessage(Component.translatable(
                         "message.earth_on_minecraft.ore_scanner.entry",
                         ProspectingSurvey.lodeName(group.lodeId()), group.blocks(), group.remaining())
                         .withStyle(ChatFormatting.GRAY)));

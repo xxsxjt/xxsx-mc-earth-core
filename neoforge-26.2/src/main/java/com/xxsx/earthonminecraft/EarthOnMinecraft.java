@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.xxsx.earthonminecraft.client.EarthOnMinecraftClient;
 import com.xxsx.earthonminecraft.component.EarthDataComponents;
 import com.xxsx.earthonminecraft.component.QualityComponents;
+import com.xxsx.earthonminecraft.compat.EarthCompatFactory;
 import com.xxsx.earthonminecraft.living.ResidentProfileManager;
 import com.xxsx.earthonminecraft.living.SettlementDataManager;
 import net.minecraft.core.registries.Registries;
@@ -24,6 +25,7 @@ import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
@@ -259,7 +261,24 @@ public class EarthOnMinecraft {
     public static final DeferredItem<Item> SPONGE_IRON = item("sponge_iron");
     public static final DeferredItem<Item> WROUGHT_IRON = item("wrought_iron");
     public static final DeferredItem<GeologyHammerItem> GEOLOGY_HAMMER = item("geology_hammer", GeologyHammerItem::new);
-    public static final DeferredItem<HandCrankItem> HAND_CRANK = customItem("hand_crank", HandCrankItem::new);
+    public static final DeferredBlock<HandCrankBlock> HAND_CRANK_BLOCK = BLOCKS.registerBlock("hand_crank", HandCrankBlock::new,
+            () -> BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).noOcclusion().sound(SoundType.WOOD));
+    public static final DeferredItem<net.minecraft.world.item.BlockItem> HAND_CRANK = ITEMS.registerItem("hand_crank",
+            props -> new net.minecraft.world.item.BlockItem(HAND_CRANK_BLOCK.get(), props.durability(HandCrankItem.DURABILITY)),
+            props -> props);
+    static {
+        TAB_ITEMS.add(HAND_CRANK);
+    }
+    public static final DeferredBlock<SurfaceOrePebbleBlock> SURFACE_ORE_PEBBLE = BLOCKS.registerBlock(
+            "surface_ore_pebble", SurfaceOrePebbleBlock::new,
+            () -> BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.STONE)
+                    .strength(0.25F, 0.5F)
+                    .noOcclusion()
+                    .pushReaction(PushReaction.DESTROY)
+                    .sound(SoundType.STONE));
+    public static final DeferredItem<?> SURFACE_ORE_PEBBLE_ITEM = itemForBlock(
+            "surface_ore_pebble", SURFACE_ORE_PEBBLE, "tooltip.earth_on_minecraft.surface_ore_pebble");
     public static final DeferredItem<?> IRONWORKING_ANVIL_ITEM = itemForBlock(
             "ironworking_anvil", IRONWORKING_ANVIL, "tooltip.earth_on_minecraft.ironworking_anvil");
     public static final DeferredItem<Item> COPPER_CONCENTRATE = item("copper_concentrate");
@@ -482,7 +501,8 @@ public class EarthOnMinecraft {
     public static final DeferredItem<Item> CRUSHED_MAGNETITE = item("crushed_magnetite");
     public static final DeferredItem<FieldGeologyNotebookItem> FIELD_GEOLOGY_NOTEBOOK = notebookItem("field_geology_notebook");
 
-    public EarthOnMinecraft(IEventBus modBus) {
+    public EarthOnMinecraft(IEventBus modBus, ModContainer modContainer) {
+        EarthCompatFactory.register(NeoForge.EVENT_BUS, modContainer.getEventBus());
         LoreIntegration.init();
         EarthDataComponents.COMPONENTS.register(modBus);
         SpecItems.register();
@@ -527,7 +547,6 @@ public class EarthOnMinecraft {
     private void registerCapabilities(RegisterCapabilitiesEvent event) {
         event.registerBlockEntity(Capabilities.Fluid.BLOCK, PROCESSING_MACHINE_BLOCK_ENTITY.get(),
                 (machine, side) -> machine.tank());
-        Ae2CrankCompat.register(event);
     }
 
     private static void addLegacyAliases() {

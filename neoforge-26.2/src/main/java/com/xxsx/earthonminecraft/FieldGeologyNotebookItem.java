@@ -36,18 +36,12 @@ public class FieldGeologyNotebookItem extends Item {
     }
 
     public static void sendGuide(Player player) {
-        player.sendSystemMessage(Component.translatable("guide.earth_on_minecraft.line0").withStyle(ChatFormatting.GOLD));
-        player.sendSystemMessage(Component.translatable("guide.earth_on_minecraft.line1").withStyle(ChatFormatting.WHITE));
-        player.sendSystemMessage(Component.translatable("guide.earth_on_minecraft.line2").withStyle(ChatFormatting.GRAY));
-        player.sendSystemMessage(Component.translatable("guide.earth_on_minecraft.line3").withStyle(ChatFormatting.GRAY));
-        player.sendSystemMessage(Component.translatable("guide.earth_on_minecraft.line4").withStyle(ChatFormatting.AQUA));
-        player.sendSystemMessage(Component.translatable("guide.earth_on_minecraft.line5").withStyle(ChatFormatting.RED));
-        player.sendSystemMessage(Component.translatable("guide.earth_on_minecraft.line6").withStyle(ChatFormatting.YELLOW));
-        player.sendSystemMessage(Component.translatable("guide.earth_on_minecraft.line7").withStyle(ChatFormatting.GREEN));
-        player.sendSystemMessage(Component.translatable("guide.earth_on_minecraft.line8").withStyle(ChatFormatting.DARK_GRAY));
-        player.sendSystemMessage(Component.translatable("guide.earth_on_minecraft.line9").withStyle(ChatFormatting.GOLD));
-        player.sendSystemMessage(Component.translatable("guide.earth_on_minecraft.line10").withStyle(ChatFormatting.AQUA));
-        player.sendSystemMessage(Component.translatable("guide.earth_on_minecraft.line11").withStyle(ChatFormatting.GREEN));
+        Component guide = Component.translatable("guide.earth_on_minecraft.line0").withStyle(ChatFormatting.GOLD);
+        for (int index = 1; index <= 11; index++) {
+            guide = guide.copy().append(Component.literal("\n")).append(
+                    Component.translatable("guide.earth_on_minecraft.line" + index));
+        }
+        player.sendOverlayMessage(guide);
     }
 
     private static boolean openClientNotebookScreen() {

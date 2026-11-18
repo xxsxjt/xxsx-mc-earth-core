@@ -179,7 +179,7 @@ public class IronworkingAnvilBlock extends Block {
         if (result.isEmpty()) {
             if (!level.isClientSide()) {
                 player.swing(hammerHand, true);
-                player.sendSystemMessage(Component.translatable("message.earth_on_minecraft.anvil.invalid_workpiece"));
+                player.sendOverlayMessage(Component.translatable("message.earth_on_minecraft.anvil.invalid_workpiece"));
             }
             return InteractionResult.SUCCESS;
         }
@@ -212,7 +212,7 @@ public class IronworkingAnvilBlock extends Block {
                     4, 0.12D, 0.05D, 0.12D, 0.02D);
         }
         player.swing(hammerHand, true);
-        player.sendSystemMessage(Component.translatable("message.earth_on_minecraft.anvil.forged",
+        player.sendOverlayMessage(Component.translatable("message.earth_on_minecraft.anvil.forged",
                 output.getHoverName()));
         return InteractionResult.SUCCESS;
     }

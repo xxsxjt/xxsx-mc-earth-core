@@ -53,7 +53,7 @@ public final class HandLensItem extends SpecItem {
                 .orElse("tooltip.earth_on_minecraft.chem.detail.mineral");
 
         if (readout <= 0) {
-            serverPlayer.sendSystemMessage(Component.translatable(
+            serverPlayer.sendOverlayMessage(Component.translatable(
                     "message.earth_on_minecraft.hand_lens.category_only",
                     Component.translatable(categoryKey)).withStyle(ChatFormatting.YELLOW));
             return InteractionResult.SUCCESS_SERVER;
@@ -61,7 +61,7 @@ public final class HandLensItem extends SpecItem {
 
         Optional<MaterialBatch> batchOpt = QualityComponents.resolveMaterialBatch(sample);
         if (batchOpt.isEmpty()) {
-            serverPlayer.sendSystemMessage(Component.translatable(
+            serverPlayer.sendOverlayMessage(Component.translatable(
                     "message.earth_on_minecraft.hand_lens.detail_plain",
                     sample.getHoverName(),
                     Component.translatable(categoryKey)).withStyle(ChatFormatting.AQUA));
@@ -69,7 +69,7 @@ public final class HandLensItem extends SpecItem {
         }
 
         MaterialBatch batch = batchOpt.get();
-        serverPlayer.sendSystemMessage(Component.translatable(
+        serverPlayer.sendOverlayMessage(Component.translatable(
                 "message.earth_on_minecraft.hand_lens.detail",
                 sample.getHoverName(),
                 Component.translatable(categoryKey),

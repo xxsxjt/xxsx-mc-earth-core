@@ -4,6 +4,9 @@ import com.xxsx.earthonminecraft.ProcessingMachineBlockEntity;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.inventory.Slot;
+
+import java.util.List;
 
 final class EarthGuiSupport {
     static final int TEXT = 0xFF404040;
@@ -67,6 +70,34 @@ final class EarthGuiSupport {
         g.fill(x + 4, y + 4, x + 7, y + 10, 0xFF6B3D2A);
         g.fill(x + 2, y + 2, x + 9, y + 5, head);
         g.fill(x + 4, y + 1, x + 7, y + 3, glow);
+    }
+
+    static void drawInventoryArmor(GuiGraphicsExtractor g, int leftPos, int topPos,
+                                   int imageWidth, int imageHeight, List<Slot> slots, int accent) {
+        g.fill(leftPos, topPos, leftPos + imageWidth, topPos + imageHeight, 0xFF172126);
+        g.fill(leftPos + 2, topPos + 2, leftPos + imageWidth - 2, topPos + imageHeight - 2, 0xFF536168);
+        g.fill(leftPos + 4, topPos + 4, leftPos + imageWidth - 4, topPos + imageHeight - 4, 0xFF28353B);
+        g.fill(leftPos + 6, topPos + 6, leftPos + imageWidth - 6, topPos + 18, 0xFF34444C);
+        g.fill(leftPos + 7, topPos + 18, leftPos + imageWidth - 7, topPos + 19, accent);
+        g.fill(leftPos + 7, topPos + 70, leftPos + imageWidth - 7, topPos + 80, 0xFF1D292E);
+        g.fill(leftPos + 7, topPos + 80, leftPos + imageWidth - 7, topPos + 81, accent);
+        for (Slot slot : slots) {
+            int x = leftPos + slot.x;
+            int y = topPos + slot.y;
+            g.fill(x - 1, y - 1, x + 17, y + 17, 0xFF11191D);
+            g.fill(x, y, x + 16, y + 16, 0xFF536168);
+            g.fill(x + 1, y + 1, x + 15, y + 15, 0xFF202C32);
+            g.fill(x + 1, y + 1, x + 15, y + 2, 0xFF35444B);
+        }
+    }
+
+    static void drawSideTab(GuiGraphicsExtractor g, int x, int y, int accent, boolean hovered) {
+        g.fill(x - 2, y + 3, x + 2, y + 17, 0xFF536168);
+        g.fill(x, y, x + 20, y + 20, hovered ? accent : 0xFF172126);
+        g.fill(x + 1, y + 1, x + 19, y + 19, 0xFF536168);
+        g.fill(x + 2, y + 2, x + 18, y + 18, 0xFF28353B);
+        g.fill(x + 18, y + 3, x + 19, y + 17, accent);
+        drawNotebookGlyph(g, x + 5, y + 5);
     }
 
     static Component trim(Font font, Component text, int width) {

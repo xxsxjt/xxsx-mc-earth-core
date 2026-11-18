@@ -17,13 +17,13 @@ import java.util.Map;
 public class SettlementBoardScreen extends AbstractContainerScreen<SettlementBoardMenu> {
     private static final int WIDTH = 176;
     private static final int HEIGHT = 166;
-    private static final int PAPER = 0xFFF0E5C7;
-    private static final int PAPER_DARK = 0xFFD4C39D;
-    private static final int WOOD = 0xFF6D4C2D;
-    private static final int INK = 0xFF2E2A24;
-    private static final int MUTED = 0xFF665E51;
-    private static final int ACCENT = 0xFF2E6F62;
-    private static final int WARNING = 0xFFA85C32;
+    private static final int PAPER = 0xFF28353B;
+    private static final int PAPER_DARK = 0xFF536168;
+    private static final int WOOD = 0xFF11191D;
+    private static final int INK = 0xFFE5EDF0;
+    private static final int MUTED = 0xFF9AAAB1;
+    private static final int ACCENT = 0xFF31A9C9;
+    private static final int WARNING = 0xFFE07A4F;
     private static final int SECURITY_Y = 124;
     private static final int BOTTOM_DIVIDER_Y = 144;
 
@@ -66,8 +66,8 @@ public class SettlementBoardScreen extends AbstractContainerScreen<SettlementBoa
     @Override
     public void extractBackground(GuiGraphicsExtractor g, int mouseX, int mouseY, float delta) {
         super.extractBackground(g, mouseX, mouseY, delta);
-        g.fill(leftPos, topPos, leftPos + WIDTH, topPos + HEIGHT, WOOD);
-        g.fill(leftPos + 3, topPos + 3, leftPos + WIDTH - 3, topPos + HEIGHT - 3, PAPER_DARK);
+        EarthGuiSupport.drawInset(g, leftPos, topPos, WIDTH, HEIGHT);
+        g.fill(leftPos + 3, topPos + 3, leftPos + WIDTH - 3, topPos + HEIGHT - 3, WOOD);
         g.fill(leftPos + 6, topPos + 6, leftPos + WIDTH - 6, topPos + HEIGHT - 6, PAPER);
         g.fill(leftPos + 7, topPos + 26, leftPos + WIDTH - 7, topPos + 27, WOOD);
         g.fill(leftPos + 7, topPos + 46, leftPos + WIDTH - 7, topPos + 47, PAPER_DARK);
