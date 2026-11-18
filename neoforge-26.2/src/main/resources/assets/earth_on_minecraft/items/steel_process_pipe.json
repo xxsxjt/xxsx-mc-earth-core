@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "earth_on_minecraft:item/steel_process_pipe"
+    "model": "earth_on_minecraft:block/steel_process_pipe"
   }
 }
