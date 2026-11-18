@@ -22,7 +22,7 @@ Earth Reality Rules × Hardcore Full-Chain Industry × Earth Series Core Foundat
   在输出原版兼容成品的同时，通过版本化地质/材料/能源 API 与统一标签契约，为《Earth Human》《Earth Online: Magic（魔幻）》《地球 Online：玄幻》及未来科幻星际扩展提供统一的现实物质与物理法则底座。
 '''
 authors="xxsx"
-logoFile="earth_on_minecraft.png"
+logoFile="logo.png"
 logoBlur=false
 
 [[dependencies.earth_on_minecraft]]
@@ -57,5 +57,12 @@ side="CLIENT"
 modId="waystones"
 type="optional"
 versionRange="[26.1.2.16,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.earth_on_minecraft]]
+modId="occultism"
+type="optional"
+versionRange="[1.150.0,)"
 ordering="AFTER"
 side="BOTH"
