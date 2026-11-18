@@ -75,7 +75,7 @@ public class MinerBlock extends Block implements EntityBlock {
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
                                                Player player, BlockHitResult hitResult) {
         if (!level.isClientSide() && level.getBlockEntity(pos) instanceof MinerBlockEntity miner) {
-            player.sendSystemMessage(Component.translatable(
+            player.sendOverlayMessage(Component.translatable(
                     "screen.earth_on_minecraft.miner.status",
                     miner.reserveCount(), miner.outputCount(), miner.scannedCount()));
             return InteractionResult.SUCCESS_SERVER;

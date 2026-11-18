@@ -65,7 +65,7 @@ public class QuarryBlock extends Block implements EntityBlock {
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
                                                Player player, BlockHitResult hitResult) {
         if (!level.isClientSide() && level.getBlockEntity(pos) instanceof QuarryBlockEntity quarry) {
-            player.sendSystemMessage(Component.translatable(
+            player.sendOverlayMessage(Component.translatable(
                     "screen.earth_on_minecraft.quarry.status", quarry.outputCount()));
             return InteractionResult.SUCCESS_SERVER;
         }
