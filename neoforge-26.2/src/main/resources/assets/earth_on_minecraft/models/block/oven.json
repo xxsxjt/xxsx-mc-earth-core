@@ -1,6 +1,173 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/block",
   "textures": {
-    "all": "earth_on_minecraft:block/oven"
-  }
+    "particle": "earth_on_minecraft:block/craft_firebrick",
+    "body": "earth_on_minecraft:block/craft_firebrick",
+    "brick": "earth_on_minecraft:block/craft_firebrick_top",
+    "hot": "earth_on_minecraft:block/craft_firebrick_top",
+    "fire": "earth_on_minecraft:block/craft_firebrick_top",
+    "trim": "earth_on_minecraft:block/craft_firebrick_top"
+  },
+  "elements": [
+    {
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "to": [
+        15,
+        12,
+        15
+      ],
+      "faces": {
+        "down": {
+          "texture": "#body"
+        },
+        "up": {
+          "texture": "#body"
+        },
+        "north": {
+          "texture": "#body"
+        },
+        "south": {
+          "texture": "#body"
+        },
+        "west": {
+          "texture": "#body"
+        },
+        "east": {
+          "texture": "#body"
+        }
+      }
+    },
+    {
+      "from": [
+        3,
+        12,
+        2
+      ],
+      "to": [
+        13,
+        16,
+        14
+      ],
+      "faces": {
+        "down": {
+          "texture": "#brick"
+        },
+        "up": {
+          "texture": "#brick"
+        },
+        "north": {
+          "texture": "#brick"
+        },
+        "south": {
+          "texture": "#brick"
+        },
+        "west": {
+          "texture": "#brick"
+        },
+        "east": {
+          "texture": "#brick"
+        }
+      }
+    },
+    {
+      "from": [
+        3,
+        2,
+        0
+      ],
+      "to": [
+        13,
+        10,
+        3
+      ],
+      "faces": {
+        "down": {
+          "texture": "#hot"
+        },
+        "up": {
+          "texture": "#hot"
+        },
+        "north": {
+          "texture": "#hot"
+        },
+        "south": {
+          "texture": "#hot"
+        },
+        "west": {
+          "texture": "#hot"
+        },
+        "east": {
+          "texture": "#hot"
+        }
+      }
+    },
+    {
+      "from": [
+        5,
+        3,
+        3
+      ],
+      "to": [
+        11,
+        8,
+        5
+      ],
+      "faces": {
+        "down": {
+          "texture": "#fire"
+        },
+        "up": {
+          "texture": "#fire"
+        },
+        "north": {
+          "texture": "#fire"
+        },
+        "south": {
+          "texture": "#fire"
+        },
+        "west": {
+          "texture": "#fire"
+        },
+        "east": {
+          "texture": "#fire"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        2,
+        16
+      ],
+      "faces": {
+        "down": {
+          "texture": "#trim"
+        },
+        "up": {
+          "texture": "#trim"
+        },
+        "north": {
+          "texture": "#trim"
+        },
+        "south": {
+          "texture": "#trim"
+        },
+        "west": {
+          "texture": "#trim"
+        },
+        "east": {
+          "texture": "#trim"
+        }
+      }
+    }
+  ]
 }
