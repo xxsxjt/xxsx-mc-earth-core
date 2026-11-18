@@ -431,7 +431,7 @@ public final class EarthMedicalAndWeaponSupport {
                         qualityMultiplier(pharmaceutical))).withStyle(ChatFormatting.LIGHT_PURPLE));
             }
             lines.accept(Component.literal(String.format(Locale.ROOT,
-                    "Body treatment %.2f | fracture recovery %.2f | duration %.1fs",
+                    "Body treatment %.2f | fracture recovery %.2f | duration %ds",
                     adjusted.partHeal(), adjusted.fractureRelief(), adjusted.regenSeconds()))
                     .withStyle(ChatFormatting.GREEN));
             lines.accept(Component.translatable("tooltip.earth_on_minecraft.medicine.use_hint").withStyle(ChatFormatting.AQUA));
