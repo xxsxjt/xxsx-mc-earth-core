@@ -12,7 +12,7 @@ from collections import Counter
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 JAVA_ROOT = ROOT / "neoforge-26.2/src/main/java"
 OUTPUT = ROOT / "docs/quality/spec-coverage.json"
-DEFAULT_SPEC = pathlib.Path(r"D:\Codex\WORKSPACES\Projects\mc-agent\spec\eom")
+DEFAULT_SPEC = pathlib.Path(r"D:\AGENT\WORKSPACES\Projects\mc-agent\spec\eom")
 
 
 def load(name: str, root: pathlib.Path):

@@ -19,6 +19,7 @@ ASSETS = RES / "assets" / "earth_on_minecraft"
 JAVA_ENTRYPOINT = ROOT / "neoforge-26.2" / "src" / "main" / "java" / "com" / "xxsx" / "earthonminecraft" / "EarthOnMinecraft.java"
 JAVA_SPEC_ITEMS = ROOT / "neoforge-26.2" / "src" / "main" / "java" / "com" / "xxsx" / "earthonminecraft" / "SpecItems.java"
 BUILD_GRADLE = ROOT / "neoforge-26.2" / "build.gradle"
+GRADLE_PROPERTIES = ROOT / "neoforge-26.2" / "gradle.properties"
 JAVA_ROOT = ROOT / "neoforge-26.2" / "src" / "main" / "java" / "com" / "xxsx" / "earthonminecraft"
 MACHINE_PROFILES = RES / "data" / "earth_on_minecraft" / "earth" / "quality" / "machine_profiles.json"
 UI_STATE_MATRIX = ROOT / "docs" / "quality" / "ui-state-matrix.json"
@@ -467,13 +468,54 @@ def validate_player_facing_text() -> int:
     return count
 
 
-def validate_release_note_sha() -> int:
+def gradle_properties() -> dict:
+    if not GRADLE_PROPERTIES.exists():
+        fail(f"missing {GRADLE_PROPERTIES.relative_to(ROOT)}")
+    values = {}
+    for raw in GRADLE_PROPERTIES.read_text(encoding="utf-8-sig").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.partition("=")
+        values[key.strip()] = value.strip()
+    return values
+
+
+def validate_version_sources() -> int:
+    props = gradle_properties()
+    for key in ("mod_id", "mod_version", "minecraft_version", "neo_version", "mod_license", "mod_authors"):
+        if not props.get(key):
+            fail(f"gradle.properties must define {key}")
+    metadata = MODS_TOML.read_text(encoding="utf-8")
+    pairs = (
+        ("modId", "mod_id"),
+        ("version", "mod_version"),
+        ("license", "mod_license"),
+        ("authors", "mod_authors"),
+    )
+    for toml_key, prop_key in pairs:
+        expected = re.escape(props[prop_key])
+        if not re.search(rf'(?m)^{toml_key}\s*=\s*"{expected}"\s*$', metadata):
+            fail(f'neoforge.mods.toml {toml_key} must match gradle.properties {prop_key}="{props[prop_key]}"')
+    if not re.search(rf'(?m)^versionRange\s*=\s*"\[{re.escape(props["neo_version"])}', metadata):
+        fail(f'neoforge.mods.toml neoforge versionRange must start with neo_version="{props["neo_version"]}"')
+    if not re.search(rf'(?m)^versionRange\s*=\s*"\[{re.escape(props["minecraft_version"])}\]"', metadata):
+        fail(f'neoforge.mods.toml minecraft versionRange must equal minecraft_version="{props["minecraft_version"]}"')
     build_text = BUILD_GRADLE.read_text(encoding="utf-8-sig")
-    version_match = re.search(r"^version\s*=\s*['\"]([^'\"]+)['\"]", build_text, re.MULTILINE)
-    if version_match is None:
-        fail(f"cannot determine project version from {BUILD_GRADLE.relative_to(ROOT)}")
-    version = version_match.group(1)
-    current_jar = ROOT / "neoforge-26.2" / "build" / "libs" / f"earth-on-minecraft-neoforge-26.1.2-{version}.jar"
+    if re.search(r"(?m)^version\s*=\s*['\"]", build_text):
+        fail("build.gradle must read mod_version from gradle.properties instead of hardcoding it")
+    if re.search(r"(?m)^\s{4}version\s*=\s*['\"]", build_text):
+        fail("build.gradle must read neo_version from gradle.properties instead of hardcoding it")
+    return 1
+
+
+def validate_release_note_sha() -> int:
+    props = gradle_properties()
+    version = props.get("mod_version", "")
+    minecraft_version = props.get("minecraft_version", "")
+    if not version or not minecraft_version:
+        fail("cannot determine project version from gradle.properties")
+    current_jar = ROOT / "neoforge-26.2" / "build" / "libs" / f"earth-on-minecraft-neoforge-{minecraft_version}-{version}.jar"
     current_release_notes = ROOT / "docs" / f"release-notes-{version}-beta.md"
     if not current_release_notes.exists():
         return 0
@@ -958,6 +1000,7 @@ def main() -> None:
     machine_profile_count, device_profile_count, ui_state_count, feedback_count, api_count = validate_quality_foundation()
     player_text_count = validate_player_facing_text()
     iron_bootstrap_count = validate_first_iron_bootstrap()
+    version_source_count = validate_version_sources()
     release_note_count = validate_release_note_sha()
     print(
         f"OK json={json_count} png={png_count} modIcons={mod_icon_count} connectedOres={connected_ore_count} models={model_count} refs={ref_count} "
@@ -968,7 +1011,7 @@ def main() -> None:
         f"vanillaOreSuppression={vanilla_ore_suppression_count} machineProfiles={machine_profile_count} "
         f"deviceProfiles={device_profile_count} "
         f"uiStates={ui_state_count} feedback={feedback_count} apiV1={api_count} playerText={player_text_count} "
-        f"ironBootstrap={iron_bootstrap_count} releaseNotes={release_note_count}"
+        f"ironBootstrap={iron_bootstrap_count} versionSources={version_source_count} releaseNotes={release_note_count}"
     )
 
 
