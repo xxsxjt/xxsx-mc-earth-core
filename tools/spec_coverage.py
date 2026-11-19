@@ -45,9 +45,31 @@ def main() -> None:
     def covered(record: dict) -> bool:
         return record["id"].split(":", 1)[1] in known
 
-    item_missing = [r["id"].split(":", 1)[1] for r in items if not covered(r)]
-    block_missing = [r["id"].split(":", 1)[1] for r in blocks if not covered(r)]
-    machine_missing = [r["id"].split(":", 1)[1] for r in machines if not covered(r)]
+    def local_id(record: dict) -> str:
+        return record["id"].split(":", 1)[1]
+
+    def classify(records: list) -> dict:
+        """Split unimplemented spec entries by intent so gaps are not miscounted as bugs.
+
+        - superseded: the entry was merged into another id and must never be registered.
+        - planned:    the entry is a future implementation target, not a regression.
+        - missing:    the entry claims to exist but is absent from the source tree.
+        """
+        superseded, planned, missing = [], [], []
+        for record in records:
+            if covered(record):
+                continue
+            if record.get("superseded_by"):
+                superseded.append(local_id(record))
+            elif record.get("state") in {"planned", "specified", "transcribed"}:
+                planned.append(local_id(record))
+            else:
+                missing.append(local_id(record))
+        return {"superseded": superseded, "planned": planned, "missing": missing}
+
+    item_gap = classify(items)
+    block_gap = classify(blocks)
+    machine_gap = classify(machines)
 
     def recipe_ready(record: dict) -> bool:
         refs = [entry.get("item") for entry in (record.get("inputs") or []) + (record.get("outputs") or [])
@@ -67,9 +89,27 @@ def main() -> None:
     report = {
         "schema_version": 1,
         "spec": str(spec),
-        "items": {"spec": len(items), "registered": len(items) - len(item_missing), "missing": item_missing},
-        "blocks": {"spec": len(blocks), "registered": len(blocks) - len(block_missing), "missing": block_missing},
-        "machines": {"spec": len(machines), "registered": len(machines) - len(machine_missing), "missing": machine_missing},
+        "items": {
+            "spec": len(items),
+            "registered": len(items) - len(item_gap["missing"]) - len(item_gap["planned"]) - len(item_gap["superseded"]),
+            "missing": item_gap["missing"],
+            "planned": item_gap["planned"],
+            "superseded": item_gap["superseded"],
+        },
+        "blocks": {
+            "spec": len(blocks),
+            "registered": len(blocks) - len(block_gap["missing"]) - len(block_gap["planned"]) - len(block_gap["superseded"]),
+            "missing": block_gap["missing"],
+            "planned": block_gap["planned"],
+            "superseded": block_gap["superseded"],
+        },
+        "machines": {
+            "spec": len(machines),
+            "registered": len(machines) - len(machine_gap["missing"]) - len(machine_gap["planned"]) - len(machine_gap["superseded"]),
+            "missing": machine_gap["missing"],
+            "planned": machine_gap["planned"],
+            "superseded": machine_gap["superseded"],
+        },
         "vanilla_recipes": {"spec": len(vanilla_recipes), "item_ready": sum(recipe_ready(r) for r in vanilla_recipes)},
         "machine_recipes": {
             "spec": len(machine_recipes),
