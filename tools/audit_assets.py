@@ -13,9 +13,9 @@ from PIL import Image
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-RESOURCES = ROOT / "neoforge-26.2" / "src" / "main" / "resources"
-ASSETS = RESOURCES / "assets" / "earth_on_minecraft"
-PROFILES = RESOURCES / "data" / "earth_on_minecraft" / "earth" / "quality" / "machine_profiles.json"
+RESOURCES = ROOT / "neoforge-26.1.2" / "src" / "main" / "resources"
+ASSETS = RESOURCES / "assets" / "earth_core"
+PROFILES = RESOURCES / "data" / "earth_core" / "earth" / "quality" / "machine_profiles.json"
 UI_MATRIX = ROOT / "docs" / "quality" / "ui-state-matrix.json"
 OUTPUT = ROOT / "output" / "quality"
 
@@ -27,7 +27,7 @@ def local_model_textures(model_path: pathlib.Path) -> tuple[pathlib.Path, ...]:
     paths: list[pathlib.Path] = []
     for texture_id in data.get("textures", {}).values():
         namespace, separator, texture_path = str(texture_id).partition(":")
-        if separator and namespace == "earth_on_minecraft":
+        if separator and namespace == "earth_core":
             paths.append(ASSETS / "textures" / f"{texture_path}.png")
     return tuple(dict.fromkeys(paths))
 
@@ -77,7 +77,7 @@ def inventory() -> tuple[list[dict[str, object]], list[str], dict[str, int]]:
     sounds = json.loads((ASSETS / "sounds.json").read_text(encoding="utf-8")) if (ASSETS / "sounds.json").exists() else {}
     for group, profile in profiles:
         machine_id = str(profile["id"])
-        event = str(profile["sound_event"]).removeprefix("earth_on_minecraft:")
+        event = str(profile["sound_event"]).removeprefix("earth_core:")
         sound_file = ASSETS / "sounds" / group / machine_id / "run.ogg"
         particle_id = f"{group}_{machine_id}_process"
         idle_model = ASSETS / "models" / "block" / f"{machine_id}.json"

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    "ICI",
+    "BBB"
+  ],
+  "key": {
+    "S": "earth_core:steel_bloom",
+    "I": "minecraft:iron_ingot",
+    "C": "earth_core:copper_wire",
+    "B": "minecraft:stone"
+  },
+  "result": {
+    "id": "earth_core:quarry",
+    "count": 1
+  }
+}

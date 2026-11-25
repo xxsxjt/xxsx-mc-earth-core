@@ -1,0 +1,73 @@
+{
+  "title_key": "resident.earth_core.role.geologist",
+  "identity_key": "resident.earth_core.identity.specialist",
+  "vanilla_professions": [
+    "minecraft:cartographer",
+    "minecraft:librarian"
+  ],
+  "settlement_profiles": [
+    "earth_core:primitive_hamlet",
+    "earth_core:agricultural_village",
+    "earth_core:mining_settlement",
+    "earth_core:resource_village",
+    "earth_core:industrial_town",
+    "earth_core:mechanized_city"
+  ],
+  "weight": 2,
+  "trades": [
+    {
+      "level": 1,
+      "input": "minecraft:charcoal",
+      "input_count": 6,
+      "output": "earth_core:field_geology_notebook",
+      "output_count": 1,
+      "max_uses": 8,
+      "xp": 2
+    },
+    {
+      "level": 1,
+      "input": "minecraft:coal",
+      "input_count": 6,
+      "output": "earth_core:geology_hammer",
+      "output_count": 1,
+      "max_uses": 8,
+      "xp": 4
+    },
+    {
+      "level": 2,
+      "input": "earth_core:calcite_dust",
+      "input_count": 8,
+      "output": "earth_core:lime_dust",
+      "output_count": 6,
+      "max_uses": 12,
+      "xp": 10
+    },
+    {
+      "level": 2,
+      "input": "earth_core:sulfur_dust",
+      "input_count": 6,
+      "output": "earth_core:copper_concentrate",
+      "output_count": 3,
+      "max_uses": 12,
+      "xp": 10
+    },
+    {
+      "level": 3,
+      "input": "earth_core:coke",
+      "input_count": 6,
+      "output": "earth_core:ore_scanner",
+      "output_count": 1,
+      "max_uses": 6,
+      "xp": 20
+    },
+    {
+      "level": 3,
+      "input": "earth_core:copper_concentrate",
+      "input_count": 4,
+      "output": "earth_core:auriferous_quartz_chunk",
+      "output_count": 3,
+      "max_uses": 8,
+      "xp": 20
+    }
+  ]
+}

@@ -8,7 +8,7 @@ import re
 from PIL import Image, ImageDraw
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-TEX = ROOT / "neoforge-26.2/src/main/resources/assets/earth_on_minecraft/textures/item"
+TEX = ROOT / "neoforge-26.1.2/src/main/resources/assets/earth_core/textures/item"
 SCRIPT = ROOT / "tools/generate_gemini_art.py"
 OUT = ROOT / "output/quality/gemini-art-only.png"
 

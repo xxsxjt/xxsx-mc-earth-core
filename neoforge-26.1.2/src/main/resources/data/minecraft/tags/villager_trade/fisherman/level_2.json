@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:resident/water_operator/level_2_3",
+    "earth_core:resident/water_operator/level_2_4"
+  ]
+}

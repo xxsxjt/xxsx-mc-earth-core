@@ -1,0 +1,2912 @@
+{
+  "schema_version": 1,
+  "source": "D:\\Codex\\WORKSPACES\\Projects\\mc-agent\\spec\\eom",
+  "routes": [
+    {
+      "id": "crop/adzuki_bean",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:adzuki_bean",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:adzuki_bean",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/amaranth",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:amaranth",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:amaranth",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/apple",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:apple",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/arrowhead",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:grass_fiber",
+          "count": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:arrowhead",
+          "count": 2
+        }
+      ],
+      "ticks": 200,
+      "energy": 0,
+      "note": "foraged: cleaned and bundled at the herb table"
+    },
+    {
+      "id": "crop/asparagus",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:asparagus",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:asparagus",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/avocado",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:avocado",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/bamboo_shoot",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:grass_fiber",
+          "count": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:bamboo_shoot",
+          "count": 2
+        }
+      ],
+      "ticks": 200,
+      "energy": 0,
+      "note": "foraged: cleaned and bundled at the herb table"
+    },
+    {
+      "id": "crop/banana",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:banana",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/barley",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:barley",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:barley",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/beet",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:beet",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:beet",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/bell_pepper",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:bell_pepper",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:bell_pepper",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/berry",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:berry",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:berry",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/betel_leaf",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:betel_leaf",
+          "count": 2
+        }
+      ],
+      "ticks": 300,
+      "energy": 0,
+      "note": "tree by-product: harvested from felled timber"
+    },
+    {
+      "id": "crop/betel_nut",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:betel_nut",
+          "count": 2
+        }
+      ],
+      "ticks": 300,
+      "energy": 0,
+      "note": "tree by-product: harvested from felled timber"
+    },
+    {
+      "id": "crop/bitter_melon",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:bitter_melon",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:bitter_melon",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/black_bean",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:black_bean",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:black_bean",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/blackcurrant",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:blackcurrant",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/blueberry",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:blueberry",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/broad_bean",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:broad_bean",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:broad_bean",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/broccoli",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:broccoli",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:broccoli",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/buckwheat",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:buckwheat",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:buckwheat",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/cabbage",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:cabbage",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:cabbage",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/carrot",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:carrot",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:carrot",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/cassava",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:cassava",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:cassava",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/cauliflower",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:cauliflower",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:cauliflower",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/celery",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:celery",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:celery",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/celtuce",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:celtuce",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:celtuce",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/chickpea",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:chickpea",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:chickpea",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/chili",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:chili",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:chili",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/chrysanthemum_greens",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:grass_fiber",
+          "count": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:chrysanthemum_greens",
+          "count": 2
+        }
+      ],
+      "ticks": 200,
+      "energy": 0,
+      "note": "foraged: cleaned and bundled at the herb table"
+    },
+    {
+      "id": "crop/cinnamon",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:cinnamon",
+          "count": 2
+        }
+      ],
+      "ticks": 300,
+      "energy": 0,
+      "note": "tree by-product: harvested from felled timber"
+    },
+    {
+      "id": "crop/citrus",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:citrus",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/clove",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:clove",
+          "count": 2
+        }
+      ],
+      "ticks": 300,
+      "energy": 0,
+      "note": "tree by-product: harvested from felled timber"
+    },
+    {
+      "id": "crop/coca_leaf",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:coca_leaf",
+          "count": 2
+        }
+      ],
+      "ticks": 300,
+      "energy": 0,
+      "note": "tree by-product: harvested from felled timber"
+    },
+    {
+      "id": "crop/coconut",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:coconut",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/cotton_raw",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:cotton_raw",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:cotton_raw",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/crab",
+      "machine": "smokehouse",
+      "inputs": [
+        {
+          "item": "earth_core:hay",
+          "count": 2
+        },
+        {
+          "item": "earth_core:bran",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:crab",
+          "count": 2
+        }
+      ],
+      "ticks": 400,
+      "energy": 0,
+      "note": "barn produce: fed livestock yields this"
+    },
+    {
+      "id": "crop/cucumber",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:cucumber",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:cucumber",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/date",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:date",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/duck_egg",
+      "machine": "smokehouse",
+      "inputs": [
+        {
+          "item": "earth_core:hay",
+          "count": 2
+        },
+        {
+          "item": "earth_core:bran",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:duck_egg",
+          "count": 2
+        }
+      ],
+      "ticks": 400,
+      "energy": 0,
+      "note": "barn produce: fed livestock yields this"
+    },
+    {
+      "id": "crop/egg",
+      "machine": "smokehouse",
+      "inputs": [
+        {
+          "item": "earth_core:hay",
+          "count": 2
+        },
+        {
+          "item": "earth_core:bran",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:egg",
+          "count": 2
+        }
+      ],
+      "ticks": 400,
+      "energy": 0,
+      "note": "barn produce: fed livestock yields this"
+    },
+    {
+      "id": "crop/eggplant",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:eggplant",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:eggplant",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/fig",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:fig",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/garlic",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:garlic",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:garlic",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/ginger",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:ginger",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:ginger",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/goat_milk",
+      "machine": "smokehouse",
+      "inputs": [
+        {
+          "item": "earth_core:hay",
+          "count": 2
+        },
+        {
+          "item": "earth_core:bran",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:goat_milk",
+          "count": 2
+        }
+      ],
+      "ticks": 400,
+      "energy": 0,
+      "note": "barn produce: fed livestock yields this"
+    },
+    {
+      "id": "crop/goose_egg",
+      "machine": "smokehouse",
+      "inputs": [
+        {
+          "item": "earth_core:hay",
+          "count": 2
+        },
+        {
+          "item": "earth_core:bran",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:goose_egg",
+          "count": 2
+        }
+      ],
+      "ticks": 400,
+      "energy": 0,
+      "note": "barn produce: fed livestock yields this"
+    },
+    {
+      "id": "crop/grape",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:grape",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/hawthorn",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:hawthorn",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/honey",
+      "machine": "smokehouse",
+      "inputs": [
+        {
+          "item": "earth_core:hay",
+          "count": 2
+        },
+        {
+          "item": "earth_core:bran",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:honey",
+          "count": 2
+        }
+      ],
+      "ticks": 400,
+      "energy": 0,
+      "note": "barn produce: fed livestock yields this"
+    },
+    {
+      "id": "crop/insect_protein",
+      "machine": "smokehouse",
+      "inputs": [
+        {
+          "item": "earth_core:hay",
+          "count": 2
+        },
+        {
+          "item": "earth_core:bran",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:insect_protein",
+          "count": 2
+        }
+      ],
+      "ticks": 400,
+      "energy": 0,
+      "note": "barn produce: fed livestock yields this"
+    },
+    {
+      "id": "crop/job_tears",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:grass_fiber",
+          "count": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:job_tears",
+          "count": 2
+        }
+      ],
+      "ticks": 200,
+      "energy": 0,
+      "note": "foraged: cleaned and bundled at the herb table"
+    },
+    {
+      "id": "crop/kelp",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:grass_fiber",
+          "count": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:kelp",
+          "count": 2
+        }
+      ],
+      "ticks": 200,
+      "energy": 0,
+      "note": "foraged: cleaned and bundled at the herb table"
+    },
+    {
+      "id": "crop/kiwi",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:kiwi",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/konjac",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:konjac",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:konjac",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/leek",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:leek",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:leek",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/lemon",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:lemon",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/lentil",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:lentil",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:lentil",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/lettuce",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:lettuce",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:lettuce",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/longan",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:longan",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/lotus_root",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:grass_fiber",
+          "count": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:lotus_root",
+          "count": 2
+        }
+      ],
+      "ticks": 200,
+      "energy": 0,
+      "note": "foraged: cleaned and bundled at the herb table"
+    },
+    {
+      "id": "crop/luffa",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:luffa",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:luffa",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/lupin",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:lupin",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:lupin",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/lychee",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:lychee",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/maize",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:maize",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:maize",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/mango",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:mango",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/milk",
+      "machine": "smokehouse",
+      "inputs": [
+        {
+          "item": "earth_core:hay",
+          "count": 2
+        },
+        {
+          "item": "earth_core:bran",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:milk",
+          "count": 2
+        }
+      ],
+      "ticks": 400,
+      "energy": 0,
+      "note": "barn produce: fed livestock yields this"
+    },
+    {
+      "id": "crop/millet",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:millet",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:millet",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/mulberry",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:mulberry",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/mung_bean",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:mung_bean",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:mung_bean",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/mushroom",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:grass_fiber",
+          "count": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:mushroom",
+          "count": 2
+        }
+      ],
+      "ticks": 200,
+      "energy": 0,
+      "note": "foraged: cleaned and bundled at the herb table"
+    },
+    {
+      "id": "crop/nori",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:grass_fiber",
+          "count": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:nori",
+          "count": 2
+        }
+      ],
+      "ticks": 200,
+      "energy": 0,
+      "note": "foraged: cleaned and bundled at the herb table"
+    },
+    {
+      "id": "crop/nutmeg",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:nutmeg",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:nutmeg",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/oat",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:oat",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:oat",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/okra",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:okra",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:okra",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/olive",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:olive",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/onion",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:onion",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:onion",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/papaya",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:papaya",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/pea",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:pea",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:pea",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/peach",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:peach",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/peanut",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:peanut",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:peanut",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/pear",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:pear",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/pepper",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:pepper",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:pepper",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/persimmon",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:persimmon",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/pineapple",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:pineapple",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/pomegranate",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:pomegranate",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/pomelo",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:pomelo",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/potato",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:potato",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:potato",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/proso_millet",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:proso_millet",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:proso_millet",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/pumpkin",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:pumpkin",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:pumpkin",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/quinoa",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:quinoa",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:quinoa",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/radish",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:radish",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:radish",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/raspberry",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:raspberry",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/raw_beef",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:raw_beef",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:raw_beef",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/raw_chicken",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:raw_chicken",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:raw_chicken",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/raw_fish",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:raw_fish",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:raw_fish",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/raw_mutton",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:raw_mutton",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:raw_mutton",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/raw_pork",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:raw_pork",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:raw_pork",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/raw_rabbit",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:raw_rabbit",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:raw_rabbit",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/rice",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:rice",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:rice",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/rice_paddy",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:rice_paddy",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:rice_paddy",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/rock_salt",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:rock_salt",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:rock_salt",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/rye",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:rye",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:rye",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/sea_buckthorn",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:sea_buckthorn",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/sea_salt",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:sea_salt",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:sea_salt",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/shellfish",
+      "machine": "smokehouse",
+      "inputs": [
+        {
+          "item": "earth_core:hay",
+          "count": 2
+        },
+        {
+          "item": "earth_core:bran",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:shellfish",
+          "count": 2
+        }
+      ],
+      "ticks": 400,
+      "energy": 0,
+      "note": "barn produce: fed livestock yields this"
+    },
+    {
+      "id": "crop/shrimp",
+      "machine": "smokehouse",
+      "inputs": [
+        {
+          "item": "earth_core:hay",
+          "count": 2
+        },
+        {
+          "item": "earth_core:bran",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:shrimp",
+          "count": 2
+        }
+      ],
+      "ticks": 400,
+      "energy": 0,
+      "note": "barn produce: fed livestock yields this"
+    },
+    {
+      "id": "crop/sichuan_pepper",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:sichuan_pepper",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:sichuan_pepper",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/sorghum",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:sorghum",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:sorghum",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/soybean",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:soybean",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:soybean",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/spinach",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:spinach",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:spinach",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/strawberry",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:strawberry",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/sweet_corn",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:sweet_corn",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:sweet_corn",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/sweet_potato",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:sweet_potato",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:sweet_potato",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/taro",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:taro",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:taro",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/teff",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:teff",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:teff",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/tobacco_leaf",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:tobacco_leaf",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:tobacco_leaf",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/tomato",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:tomato",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:tomato",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/turmeric",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:turmeric",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:turmeric",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/turnip",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:turnip",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:turnip",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/water_chestnut",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:grass_fiber",
+          "count": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:water_chestnut",
+          "count": 2
+        }
+      ],
+      "ticks": 200,
+      "energy": 0,
+      "note": "foraged: cleaned and bundled at the herb table"
+    },
+    {
+      "id": "crop/water_spinach",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:grass_fiber",
+          "count": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:water_spinach",
+          "count": 2
+        }
+      ],
+      "ticks": 200,
+      "energy": 0,
+      "note": "foraged: cleaned and bundled at the herb table"
+    },
+    {
+      "id": "crop/waxberry",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:waxberry",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/wheat",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:wheat",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:wheat",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/wild_rice",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:grass_fiber",
+          "count": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:wild_rice",
+          "count": 2
+        }
+      ],
+      "ticks": 200,
+      "energy": 0,
+      "note": "foraged: cleaned and bundled at the herb table"
+    },
+    {
+      "id": "crop/winter_melon",
+      "machine": "carpentry_bench",
+      "inputs": [
+        {
+          "item": "earth_core:timber_beam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:potash",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:winter_melon",
+          "count": 2
+        }
+      ],
+      "ticks": 600,
+      "energy": 0,
+      "note": "orchard: pruned timber yields fruit"
+    },
+    {
+      "id": "crop/wool",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:wool",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:wool",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/yam",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:yam",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:yam",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    },
+    {
+      "id": "crop/zucchini",
+      "machine": "herb_processing_table",
+      "inputs": [
+        {
+          "item": "earth_core:zucchini",
+          "count": 1
+        },
+        {
+          "item": "earth_core:bone_meal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "earth_core:zucchini",
+          "count": 2
+        }
+      ],
+      "ticks": 240,
+      "energy": 0,
+      "note": "seed crop: propagate a cutting on a bone meal bed"
+    }
+  ],
+  "counts": {
+    "total": 129
+  }
+}

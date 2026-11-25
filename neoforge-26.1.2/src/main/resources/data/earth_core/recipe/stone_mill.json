@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " S ",
+    "SIS",
+    " S "
+  ],
+  "key": {
+    "S": "minecraft:stone",
+    "I": "minecraft:stick"
+  },
+  "result": {
+    "id": "earth_core:stone_mill",
+    "count": 1
+  }
+}

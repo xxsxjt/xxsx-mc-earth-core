@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:resident/electrician/level_2_3",
+    "earth_core:resident/electrician/level_2_4",
+    "earth_core:resident/geologist/level_2_3",
+    "earth_core:resident/geologist/level_2_4"
+  ]
+}

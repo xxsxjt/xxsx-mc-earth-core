@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " H ",
+    "ICI",
+    " W "
+  ],
+  "key": {
+    "H": "minecraft:hopper",
+    "I": "minecraft:iron_ingot",
+    "C": "earth_core:industrial_machine_casing",
+    "W": "earth_core:copper_wire"
+  },
+  "result": {
+    "id": "earth_core:machine_input_interface",
+    "count": 2
+  }
+}

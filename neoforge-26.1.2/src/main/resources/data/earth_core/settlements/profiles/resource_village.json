@@ -1,0 +1,23 @@
+{
+  "tier": 2,
+  "display_name_key": "settlement.earth_core.profile.resource_village",
+  "scale_key": "settlement.earth_core.scale.village",
+  "technology_key": "settlement.earth_core.technology.mechanized",
+  "name_keys": [
+    "settlement.earth_core.name.bluestone",
+    "settlement.earth_core.name.redcliff"
+  ],
+  "industry_keys": [
+    "settlement.earth_core.industry.mining",
+    "settlement.earth_core.industry.quarrying"
+  ],
+  "demand_keys": [
+    "settlement.earth_core.material.support_timber",
+    "settlement.earth_core.material.lighting"
+  ],
+  "supply_keys": [
+    "settlement.earth_core.material.ore_samples",
+    "settlement.earth_core.material.aggregate"
+  ],
+  "weight": 3
+}

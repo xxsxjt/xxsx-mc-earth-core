@@ -1,0 +1,123 @@
+{
+  "variants": {
+    "mineral=magnetite": [
+      {
+        "model": "earth_core:block/surface_ore_pebble_magnetite"
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_magnetite",
+        "y": 90
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_magnetite",
+        "y": 180
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_magnetite",
+        "y": 270
+      }
+    ],
+    "mineral=chalcopyrite": [
+      {
+        "model": "earth_core:block/surface_ore_pebble_chalcopyrite"
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_chalcopyrite",
+        "y": 90
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_chalcopyrite",
+        "y": 180
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_chalcopyrite",
+        "y": 270
+      }
+    ],
+    "mineral=cassiterite": [
+      {
+        "model": "earth_core:block/surface_ore_pebble_cassiterite"
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_cassiterite",
+        "y": 90
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_cassiterite",
+        "y": 180
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_cassiterite",
+        "y": 270
+      }
+    ],
+    "mineral=coal": [
+      {
+        "model": "earth_core:block/surface_ore_pebble_coal"
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_coal",
+        "y": 90
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_coal",
+        "y": 180
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_coal",
+        "y": 270
+      }
+    ],
+    "mineral=galena": [
+      {
+        "model": "earth_core:block/surface_ore_pebble_galena"
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_galena",
+        "y": 90
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_galena",
+        "y": 180
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_galena",
+        "y": 270
+      }
+    ],
+    "mineral=auriferous_quartz": [
+      {
+        "model": "earth_core:block/surface_ore_pebble_auriferous_quartz"
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_auriferous_quartz",
+        "y": 90
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_auriferous_quartz",
+        "y": 180
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_auriferous_quartz",
+        "y": 270
+      }
+    ],
+    "mineral=limestone": [
+      {
+        "model": "earth_core:block/surface_ore_pebble_limestone"
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_limestone",
+        "y": 90
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_limestone",
+        "y": 180
+      },
+      {
+        "model": "earth_core:block/surface_ore_pebble_limestone",
+        "y": 270
+      }
+    ]
+  }
+}

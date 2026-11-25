@@ -1,0 +1,46 @@
+{
+  "discipline": "earth_lore:che",
+  "tier": 2,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:che/inorganic_chemistry"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:chemical_reactor"
+    },
+    {
+      "block": "earth_core:chemical_reactor"
+    },
+    {
+      "item": "earth_core:crystallizer"
+    },
+    {
+      "block": "earth_core:crystallizer"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:glass_bottle",
+        "count": 4
+      },
+      {
+        "ingredient": "earth_core:salt",
+        "count": 4
+      }
+    ],
+    "ticks": 1200
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.che.reaction_engineering",
+  "desc_key": "lore.earth_core.che.reaction_engineering.desc",
+  "icon": "earth_core:glass_bottle"
+}

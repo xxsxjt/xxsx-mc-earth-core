@@ -10,7 +10,7 @@ from __future__ import annotations
 import pathlib
 import re
 
-ROOT = pathlib.Path("neoforge-26.2/src/main/java/com/xxsx/earthonminecraft")
+ROOT = pathlib.Path("neoforge-26.1.2/src/main/java/com/xxsx/earth/core")
 
 DYE = {
     "white": "WHITE_DYE",

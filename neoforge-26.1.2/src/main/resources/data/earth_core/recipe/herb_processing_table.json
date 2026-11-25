@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PPP",
+    "P P",
+    "S S"
+  ],
+  "key": {
+    "P": "minecraft:oak_slab",
+    "S": "minecraft:stick"
+  },
+  "result": {
+    "id": "earth_core:herb_processing_table",
+    "count": 1
+  }
+}

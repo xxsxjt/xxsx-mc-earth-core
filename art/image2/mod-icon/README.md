@@ -1,9 +1,9 @@
 # Earth on Minecraft Mod Icon
 
 - Model workflow: Image-2 high-resolution generation, followed by deterministic alpha cleanup and resizing with `tools/prepare_mod_icon.py`.
-- Raw master: `earth_on_minecraft_icon_raw.png`.
-- Runtime asset: `neoforge-26.2/src/main/resources/earth_on_minecraft.png` at `1024x1024`.
-- CurseForge upload asset: `earth_on_minecraft_logo_transparent.png`; this is the true-alpha export. Do not upload the raw master, whose checkerboard is painted into the pixels.
+- Raw master: `earth_core_icon_raw.png`.
+- Runtime asset: `neoforge-26.1.2/src/main/resources/earth_core.png` at `1024x1024`.
+- CurseForge upload asset: `earth_core_logo_transparent.png`; this is the true-alpha export. Do not upload the raw master, whose checkerboard is painted into the pixels.
 - Small-size evidence: `output/quality/mod-icon-contact-sheet.png` at 256, 128, 64, and 32 pixels on light and dark backgrounds.
 
 ## Art Brief

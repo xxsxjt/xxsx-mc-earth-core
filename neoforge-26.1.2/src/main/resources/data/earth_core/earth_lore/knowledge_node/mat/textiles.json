@@ -1,0 +1,115 @@
+{
+  "discipline": "earth_lore:mat",
+  "tier": 1,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:mat/materials_basics"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:linen"
+    },
+    {
+      "item": "earth_core:cotton_cloth"
+    },
+    {
+      "item": "earth_core:wool_cloth"
+    },
+    {
+      "item": "earth_core:silk"
+    },
+    {
+      "item": "earth_core:leather"
+    },
+    {
+      "item": "earth_core:fur"
+    },
+    {
+      "item": "earth_core:rope"
+    },
+    {
+      "item": "earth_core:felt"
+    },
+    {
+      "item": "earth_core:waxed_canvas"
+    },
+    {
+      "item": "earth_core:down"
+    },
+    {
+      "item": "earth_core:flax_thread"
+    },
+    {
+      "item": "earth_core:cotton_thread"
+    },
+    {
+      "item": "earth_core:silk_thread"
+    },
+    {
+      "item": "earth_core:broadcloth"
+    },
+    {
+      "item": "earth_core:canvas"
+    },
+    {
+      "item": "earth_core:fishing_net"
+    },
+    {
+      "item": "earth_core:straw_hat"
+    },
+    {
+      "item": "earth_core:bamboo_hat"
+    },
+    {
+      "item": "earth_core:rain_cape"
+    },
+    {
+      "item": "earth_core:boots"
+    },
+    {
+      "item": "earth_core:clogs"
+    },
+    {
+      "item": "earth_core:gloves"
+    },
+    {
+      "item": "earth_core:apron"
+    },
+    {
+      "item": "earth_core:belt"
+    },
+    {
+      "item": "earth_core:cloak"
+    },
+    {
+      "item": "earth_core:headscarf"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "minecraft:shepherd",
+    "minecraft:leatherworker"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "minecraft:string",
+        "count": 8
+      },
+      {
+        "ingredient": "minecraft:white_wool",
+        "count": 4
+      }
+    ],
+    "ticks": 600
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.mat.textiles",
+  "desc_key": "lore.earth_core.mat.textiles.desc",
+  "icon": "earth_core:linen"
+}

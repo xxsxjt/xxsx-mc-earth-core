@@ -1,0 +1,63 @@
+{
+  "discipline": "earth_lore:mat",
+  "tier": 2,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:mat/smithing"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:copper_sword"
+    },
+    {
+      "item": "earth_core:iron_sword"
+    },
+    {
+      "item": "earth_core:steel_sword"
+    },
+    {
+      "item": "earth_core:diamond_sword"
+    },
+    {
+      "item": "earth_core:dagger"
+    },
+    {
+      "item": "earth_core:spear"
+    },
+    {
+      "item": "earth_core:battle_axe"
+    },
+    {
+      "item": "earth_core:war_hammer"
+    },
+    {
+      "item": "earth_core:crossbow"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "minecraft:weaponsmith"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "minecraft:iron_ingot",
+        "count": 6
+      },
+      {
+        "ingredient": "minecraft:stick",
+        "count": 4
+      }
+    ],
+    "ticks": 1200
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.mat.weaponsmithing",
+  "desc_key": "lore.earth_core.mat.weaponsmithing.desc",
+  "icon": "earth_core:copper_sword"
+}

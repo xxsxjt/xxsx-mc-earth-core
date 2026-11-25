@@ -1,0 +1,18 @@
+{
+  "deposit": "earth_core:kimberlite_pipe",
+  "shape": "pipe",
+  "y": [
+    -64,
+    64
+  ],
+  "composition": [
+    {
+      "block": "earth_core:kimberlite",
+      "weight": 92
+    },
+    {
+      "block": "earth_core:diamondiferous_kimberlite",
+      "weight": 8
+    }
+  ]
+}

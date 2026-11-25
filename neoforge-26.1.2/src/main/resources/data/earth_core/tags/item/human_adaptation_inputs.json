@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:salt_dust",
+    "earth_core:brine_crystal",
+    "earth_core:oxygen_gas_cell",
+    "earth_core:activated_carbon_filter",
+    "earth_core:softened_water",
+    "earth_core:neutral_salt"
+  ]
+}

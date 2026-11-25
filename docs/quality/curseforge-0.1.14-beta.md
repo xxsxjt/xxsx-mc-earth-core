@@ -3,10 +3,10 @@
 - Submitted: 2026-07-20 01:29:50 +08:00
 - Project: `Earth on Minecraft`
 - Project ID: `1616714`
-- Project URL: <https://www.curseforge.com/minecraft/mc-mods/earth-on-minecraft>
+- Project URL: <https://www.curseforge.com/minecraft/mc-mods/earth-core>
 - File ID: `8466397`
 - Display name: `Earth on Minecraft 0.1.14 TEST BETA - MC 26.2 NeoForge`
-- Artifact: `earth-on-minecraft-neoforge-26.2-0.1.14.jar`
+- Artifact: `earth-core-neoforge-26.1.2-0.1.14.jar`
 - SHA256: `953EC52046A23AC33D94612869B056744EAE999AEC3D8A63BD5747928E3DE46D`
 - Source commit at submission: `e3290fd774d92a233454e180cafc45cafbc02875`
 - Release type: `beta`

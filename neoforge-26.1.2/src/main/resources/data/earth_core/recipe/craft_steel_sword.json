@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "W",
+    "W",
+    "S"
+  ],
+  "key": {
+    "W": "earth_core:steel",
+    "S": "minecraft:stick"
+  },
+  "result": {
+    "id": "earth_core:steel_sword",
+    "count": 1
+  }
+}

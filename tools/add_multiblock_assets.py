@@ -15,7 +15,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 TOOLS = ROOT / "tools"
 PROFILES = (
     ROOT
-    / "neoforge-26.2/src/main/resources/data/earth_on_minecraft/earth/quality/machine_profiles.json"
+    / "neoforge-26.1.2/src/main/resources/data/earth_core/earth/quality/machine_profiles.json"
 )
 
 MULTIBLOCKS = [

@@ -12,7 +12,7 @@ import json
 import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-PROFILES = ROOT / "neoforge-26.2/src/main/resources/data/earth_on_minecraft/earth/quality/machine_profiles.json"
+PROFILES = ROOT / "neoforge-26.1.2/src/main/resources/data/earth_core/earth/quality/machine_profiles.json"
 
 FACES = {
     "bloomery_controller": ("tuyere and slag notch", "bellows linkage", "charging mouth", "tap arch", "flue opening", "ash pit"),
@@ -251,7 +251,7 @@ def build(machine_id: str) -> dict[str, object]:
         "idle_cue": idle,
         "running_cue": running,
         "fault_cue": fault,
-        "sound_event": f"earth_on_minecraft:machine.{machine_id}.run",
+        "sound_event": f"earth_core:machine.{machine_id}.run",
         "particle_profile": PARTICLES[machine_id],
     }
 

@@ -41,6 +41,6 @@
 - No client, server or GameTest process was launched while producing this build. Runtime behaviour of the bore head, quarry, depletion and the new chains is **unverified in game**.
 - In-world survival timing and balance were not measured for this build.
 
-Artifact: `earth-on-minecraft-neoforge-26.1.2-0.1.16.jar`
+Artifact: `earth-core-neoforge-26.1.2-0.1.16.jar`
 
 SHA256: `6F61DD1083F4A7614C3E6CCBA152EF6A7507D03600185E41335680F09ACE2B9F`

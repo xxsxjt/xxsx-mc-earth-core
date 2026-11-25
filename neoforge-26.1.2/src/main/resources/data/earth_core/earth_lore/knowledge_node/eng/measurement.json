@@ -1,0 +1,42 @@
+{
+  "discipline": "earth_lore:eng",
+  "tier": 1,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:eng/engineering_basics"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:tape_measure"
+    },
+    {
+      "item": "earth_core:spirit_level"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "earth_core:mechanic"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "minecraft:stick",
+        "count": 4
+      },
+      {
+        "ingredient": "minecraft:paper",
+        "count": 4
+      }
+    ],
+    "ticks": 600
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.eng.measurement",
+  "desc_key": "lore.earth_core.eng.measurement.desc",
+  "icon": "earth_core:tape_measure"
+}

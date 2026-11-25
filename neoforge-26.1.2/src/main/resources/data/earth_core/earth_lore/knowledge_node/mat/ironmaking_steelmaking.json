@@ -1,0 +1,67 @@
+{
+  "discipline": "earth_lore:mat",
+  "tier": 2,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:mat/pyrometallurgy"
+    }
+  ],
+  "item_requires": [
+    {
+      "made": "earth_core:wrought_iron"
+    }
+  ],
+  "unlocks": [
+    {
+      "item": "earth_core:smelter"
+    },
+    {
+      "block": "earth_core:smelter"
+    },
+    {
+      "item": "earth_core:converter"
+    },
+    {
+      "block": "earth_core:converter"
+    },
+    {
+      "item": "earth_core:shaft_furnace_controller"
+    },
+    {
+      "block": "earth_core:shaft_furnace_controller"
+    },
+    {
+      "item": "earth_core:steel"
+    },
+    {
+      "item": "earth_core:high_carbon_steel"
+    },
+    {
+      "item": "earth_core:cast_iron"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "minecraft:armorer"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:sponge_iron",
+        "count": 4
+      },
+      {
+        "ingredient": "earth_core:coke",
+        "count": 4
+      }
+    ],
+    "ticks": 1200
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.mat.ironmaking_steelmaking",
+  "desc_key": "lore.earth_core.mat.ironmaking_steelmaking.desc",
+  "icon": "earth_core:steel"
+}

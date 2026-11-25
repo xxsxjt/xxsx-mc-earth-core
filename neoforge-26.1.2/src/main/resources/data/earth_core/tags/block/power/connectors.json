@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:thin_copper_power_cable",
+    "earth_core:copper_power_cable",
+    "earth_core:heavy_copper_power_cable"
+  ]
+}

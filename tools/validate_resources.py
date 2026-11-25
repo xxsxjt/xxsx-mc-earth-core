@@ -14,18 +14,18 @@ from PIL import Image
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-RES = ROOT / "neoforge-26.2" / "src" / "main" / "resources"
-ASSETS = RES / "assets" / "earth_on_minecraft"
-JAVA_ENTRYPOINT = ROOT / "neoforge-26.2" / "src" / "main" / "java" / "com" / "xxsx" / "earthonminecraft" / "EarthOnMinecraft.java"
-JAVA_SPEC_ITEMS = ROOT / "neoforge-26.2" / "src" / "main" / "java" / "com" / "xxsx" / "earthonminecraft" / "SpecItems.java"
-BUILD_GRADLE = ROOT / "neoforge-26.2" / "build.gradle"
-GRADLE_PROPERTIES = ROOT / "neoforge-26.2" / "gradle.properties"
-JAVA_ROOT = ROOT / "neoforge-26.2" / "src" / "main" / "java" / "com" / "xxsx" / "earthonminecraft"
-MACHINE_PROFILES = RES / "data" / "earth_on_minecraft" / "earth" / "quality" / "machine_profiles.json"
+RES = ROOT / "neoforge-26.1.2" / "src" / "main" / "resources"
+ASSETS = RES / "assets" / "earth_core"
+JAVA_ENTRYPOINT = ROOT / "neoforge-26.1.2" / "src" / "main" / "java" / "com" / "xxsx" / "earth" / "core" / "EarthOnMinecraft.java"
+JAVA_SPEC_ITEMS = ROOT / "neoforge-26.1.2" / "src" / "main" / "java" / "com" / "xxsx" / "earth" / "core" / "SpecItems.java"
+BUILD_GRADLE = ROOT / "neoforge-26.1.2" / "build.gradle"
+GRADLE_PROPERTIES = ROOT / "neoforge-26.1.2" / "gradle.properties"
+JAVA_ROOT = ROOT / "neoforge-26.1.2" / "src" / "main" / "java" / "com" / "xxsx" / "earth" / "core"
+MACHINE_PROFILES = RES / "data" / "earth_core" / "earth" / "quality" / "machine_profiles.json"
 UI_STATE_MATRIX = ROOT / "docs" / "quality" / "ui-state-matrix.json"
 VERTICAL_SLICE_TEMPLATE = ROOT / "docs" / "quality" / "vertical-slice-template.json"
 MODS_TOML = RES / "META-INF" / "neoforge.mods.toml"
-MOD_ICON = RES / "earth_on_minecraft.png"
+MOD_ICON = RES / "earth_core.png"
 VANILLA_ORE_PLACED_FEATURES = (
     "ore_coal_lower",
     "ore_coal_upper",
@@ -56,57 +56,57 @@ FORBIDDEN_PLAYER_TEXT = (
 )
 
 INTEGRATION_TAG_REQUIREMENTS = {
-    "data/earth_on_minecraft/tags/item/water/potable.json": {
-        "earth_on_minecraft:softened_water",
+    "data/earth_core/tags/item/water/potable.json": {
+        "earth_core:softened_water",
     },
-    "data/earth_on_minecraft/tags/item/water/treated.json": {
-        "earth_on_minecraft:softened_water",
+    "data/earth_core/tags/item/water/treated.json": {
+        "earth_core:softened_water",
     },
-    "data/earth_on_minecraft/tags/item/water/treatment_inputs.json": {
-        "earth_on_minecraft:hard_water_sample",
-        "earth_on_minecraft:activated_carbon_filter",
+    "data/earth_core/tags/item/water/treatment_inputs.json": {
+        "earth_core:hard_water_sample",
+        "earth_core:activated_carbon_filter",
     },
-    "data/earth_on_minecraft/tags/item/soil/amendments.json": {
-        "earth_on_minecraft:humus_sample",
-        "earth_on_minecraft:fertilizer_blend",
+    "data/earth_core/tags/item/soil/amendments.json": {
+        "earth_core:humus_sample",
+        "earth_core:fertilizer_blend",
     },
-    "data/earth_on_minecraft/tags/item/construction/materials.json": {
-        "earth_on_minecraft:cement_powder",
-        "earth_on_minecraft:asphalt",
+    "data/earth_core/tags/item/construction/materials.json": {
+        "earth_core:cement_powder",
+        "earth_core:asphalt",
     },
-    "data/earth_on_minecraft/tags/item/electrical/conductors.json": {
-        "earth_on_minecraft:copper_wire",
-        "earth_on_minecraft:copper_busbar",
+    "data/earth_core/tags/item/electrical/conductors.json": {
+        "earth_core:copper_wire",
+        "earth_core:copper_busbar",
     },
-    "data/earth_on_minecraft/tags/item/electrical/insulators.json": {
-        "earth_on_minecraft:ceramic_insulator",
-        "earth_on_minecraft:rubber_gasket",
+    "data/earth_core/tags/item/electrical/insulators.json": {
+        "earth_core:ceramic_insulator",
+        "earth_core:rubber_gasket",
     },
-    "data/earth_on_minecraft/tags/item/filtration/media.json": {
-        "earth_on_minecraft:activated_carbon",
-        "earth_on_minecraft:activated_carbon_filter",
+    "data/earth_core/tags/item/filtration/media.json": {
+        "earth_core:activated_carbon",
+        "earth_core:activated_carbon_filter",
     },
-    "data/earth_on_minecraft/tags/item/power/sources.json": {
-        "earth_on_minecraft:nuclear_heat_module",
+    "data/earth_core/tags/item/power/sources.json": {
+        "earth_core:nuclear_heat_module",
     },
-    "data/earth_on_minecraft/tags/item/power/connectors.json": {
-        "earth_on_minecraft:copper_wire",
+    "data/earth_core/tags/item/power/connectors.json": {
+        "earth_core:copper_wire",
     },
-    "data/earth_on_minecraft/tags/block/power/generators.json": {
-        "earth_on_minecraft:combustion_generator",
-        "earth_on_minecraft:steam_turbine_generator",
+    "data/earth_core/tags/block/power/generators.json": {
+        "earth_core:combustion_generator",
+        "earth_core:steam_turbine_generator",
     },
-    "data/earth_on_minecraft/tags/block/power/connectors.json": {
-        "earth_on_minecraft:copper_power_cable",
+    "data/earth_core/tags/block/power/connectors.json": {
+        "earth_core:copper_power_cable",
     },
-    "data/earth_on_minecraft/tags/block/environment/heat_sources.json": {
-        "earth_on_minecraft:industrial_kiln",
+    "data/earth_core/tags/block/environment/heat_sources.json": {
+        "earth_core:industrial_kiln",
     },
-    "data/earth_on_minecraft/tags/block/environment/air_pollution_sources.json": {
-        "earth_on_minecraft:combustion_generator",
+    "data/earth_core/tags/block/environment/air_pollution_sources.json": {
+        "earth_core:combustion_generator",
     },
     "data/earth_human/tags/item/care/hydration.json": {
-        "earth_on_minecraft:softened_water",
+        "earth_core:softened_water",
     },
 }
 
@@ -151,8 +151,8 @@ def png_dimensions(path: pathlib.Path) -> tuple[int, int]:
 
 def validate_mod_icon() -> int:
     metadata = MODS_TOML.read_text(encoding="utf-8")
-    if not re.search(r'(?m)^logoFile\s*=\s*"earth_on_minecraft\.png"\s*$', metadata):
-        fail("neoforge.mods.toml must declare logoFile=\"earth_on_minecraft.png\"")
+    if not re.search(r'(?m)^logoFile\s*=\s*"earth_core\.png"\s*$', metadata):
+        fail("neoforge.mods.toml must declare logoFile=\"earth_core.png\"")
     if not re.search(r'(?m)^logoBlur\s*=\s*false\s*$', metadata):
         fail("pixel-art mod icon must declare logoBlur=false")
     if not MOD_ICON.exists():
@@ -211,13 +211,13 @@ def validate_connected_ore_assets() -> int:
             fail(f"connected center texture size mismatch for {block_id}")
 
         center_model = json.loads((model_root / f"{block_id}_center.json").read_text(encoding="utf-8-sig"))
-        expected_center_ref = f"earth_on_minecraft:block/connected/{block_id}_center"
+        expected_center_ref = f"earth_core:block/connected/{block_id}_center"
         if center_model.get("parent") != "minecraft:block/cube_all":
             fail(f"connected center model has wrong parent for {block_id}")
         if center_model.get("textures", {}).get("all") != expected_center_ref:
             fail(f"connected center model has wrong texture for {block_id}")
 
-        expected_ore_ref = f"earth_on_minecraft:block/{block_id}"
+        expected_ore_ref = f"earth_core:block/{block_id}"
         for direction in directions:
             path = model_root / f"{block_id}_edge_{direction}.json"
             model = json.loads(path.read_text(encoding="utf-8-sig"))
@@ -254,7 +254,7 @@ def model_path(ref: str) -> pathlib.Path | None:
     if ":" not in ref:
         return None
     namespace, model = ref.split(":", 1)
-    if namespace != "earth_on_minecraft":
+    if namespace != "earth_core":
         return None
     return ASSETS / "models" / f"{model}.json"
 
@@ -270,7 +270,7 @@ def validate_model_texture_refs() -> int:
                 if ref.startswith("#") or ":" not in ref:
                     continue
                 namespace, tex = ref.split(":", 1)
-                if namespace != "earth_on_minecraft":
+                if namespace != "earth_core":
                     continue
                 texture = ASSETS / "textures" / f"{tex}.png"
                 if not texture.exists():
@@ -375,11 +375,11 @@ def validate_registry_resource_coverage() -> tuple[int, int, int, set[str]]:
         for block_id in block_ids:
             if block_id == "structure_projection":
                 continue
-            key = f"block.earth_on_minecraft.{block_id}"
+            key = f"block.earth_core.{block_id}"
             if key not in data:
                 fail(f"missing {lang} block lang key {key}")
         for item_id in stack_item_ids:
-            key = f"item.earth_on_minecraft.{item_id}"
+            key = f"item.earth_core.{item_id}"
             if key not in data:
                 fail(f"missing {lang} item lang key {key}")
     for item_id in stack_item_ids:
@@ -394,7 +394,7 @@ def validate_registry_resource_coverage() -> tuple[int, int, int, set[str]]:
 
 
 def validate_first_iron_bootstrap() -> int:
-    recipe_root = RES / "data" / "earth_on_minecraft" / "recipe"
+    recipe_root = RES / "data" / "earth_core" / "recipe"
 
     def recipe(name: str) -> dict:
         path = recipe_root / f"{name}.json"
@@ -411,7 +411,7 @@ def validate_first_iron_bootstrap() -> int:
 
     separator = recipe("magnetic_separator")
     separator_inputs = set(walk_values(separator.get("key", {})))
-    if not {"minecraft:copper_ingot", "earth_on_minecraft:magnetite_chunk"}.issubset(separator_inputs):
+    if not {"minecraft:copper_ingot", "earth_core:magnetite_chunk"}.issubset(separator_inputs):
         fail("first Magnetic Separator recipe must use copper and a magnetite chunk")
     if "minecraft:iron_ingot" in separator_inputs:
         fail("first Magnetic Separator recipe must not require an iron ingot")
@@ -436,7 +436,7 @@ def validate_first_iron_bootstrap() -> int:
     coke = recipe("coke_from_coal")
     if coke.get("type") != "minecraft:smelting" or coke.get("ingredient") != "minecraft:coal":
         fail("coke must be obtainable by smelting coal")
-    if coke.get("result", {}).get("id") != "earth_on_minecraft:coke":
+    if coke.get("result", {}).get("id") != "earth_core:coke":
         fail("coal smelting must produce coke for the first-iron reduction route")
 
     retired = (
@@ -453,7 +453,7 @@ def validate_first_iron_bootstrap() -> int:
 def validate_player_facing_text() -> int:
     roots = [
         ASSETS / "lang",
-        ROOT / "neoforge-26.2" / "src" / "main" / "java" / "com" / "xxsx" / "earthonminecraft" / "client",
+        ROOT / "neoforge-26.1.2" / "src" / "main" / "java" / "com" / "xxsx" / "earth" / "core" / "client",
     ]
     count = 0
     for root in roots:
@@ -515,7 +515,7 @@ def validate_release_note_sha() -> int:
     minecraft_version = props.get("minecraft_version", "")
     if not version or not minecraft_version:
         fail("cannot determine project version from gradle.properties")
-    current_jar = ROOT / "neoforge-26.2" / "build" / "libs" / f"earth-on-minecraft-neoforge-{minecraft_version}-{version}.jar"
+    current_jar = ROOT / "neoforge-26.1.2" / "build" / "libs" / f"earth-core-neoforge-{minecraft_version}-{version}.jar"
     current_release_notes = ROOT / "docs" / f"release-notes-{version}-beta.md"
     if not current_release_notes.exists():
         return 0
@@ -561,7 +561,7 @@ def tag_values(data: dict) -> list[str]:
 def validate_local_reference(value: str, path: pathlib.Path, known_ids: set[str]) -> None:
     is_tag = value.startswith("#")
     reference = value[1:] if is_tag else value
-    if not reference.startswith("earth_on_minecraft:"):
+    if not reference.startswith("earth_core:"):
         return
     local_id = reference.split(":", 1)[1]
     parts = path.relative_to(RES / "data").parts
@@ -570,21 +570,21 @@ def validate_local_reference(value: str, path: pathlib.Path, known_ids: set[str]
         if registry_type in (None, "item", "block") and local_id not in known_ids:
             fail(f"unknown item/block id {reference} referenced by {path.relative_to(ROOT)}")
         if registry_type not in (None, "item", "block"):
-            target = RES / "data" / "earth_on_minecraft" / registry_type / f"{local_id}.json"
+            target = RES / "data" / "earth_core" / registry_type / f"{local_id}.json"
             if not target.exists():
                 fail(f"unknown {registry_type} id {reference} referenced by {path.relative_to(ROOT)}")
         return
 
     if registry_type is None:
         return
-    target = RES / "data" / "earth_on_minecraft" / "tags" / registry_type / f"{local_id}.json"
+    target = RES / "data" / "earth_core" / "tags" / registry_type / f"{local_id}.json"
     if not target.exists():
         fail(f"unknown local tag {reference} referenced by {path.relative_to(ROOT)}")
 
 
 def validate_recipe_and_tag_refs(known_ids: set[str]) -> int:
     count = 0
-    roots = [RES / "data" / "earth_on_minecraft" / "recipe"]
+    roots = [RES / "data" / "earth_core" / "recipe"]
     roots.extend(path / "tags" for path in (RES / "data").iterdir() if (path / "tags").is_dir())
     for root in roots:
         for path in root.rglob("*.json"):
@@ -608,8 +608,8 @@ def validate_living_world(known_ids: set[str]) -> tuple[int, int, int]:
             if key not in values:
                 fail(f"missing {lang} living-world lang key {key} referenced by {source.relative_to(ROOT)}")
 
-    role_dir = RES / "data" / "earth_on_minecraft" / "settlements" / "resident_roles"
-    trade_root = RES / "data" / "earth_on_minecraft" / "villager_trade" / "resident"
+    role_dir = RES / "data" / "earth_core" / "settlements" / "resident_roles"
+    trade_root = RES / "data" / "earth_core" / "villager_trade" / "resident"
     tag_root = RES / "data" / "minecraft" / "tags" / "villager_trade"
     expected_trades: set[str] = set()
     expected_tags: dict[tuple[str, int], set[str]] = {}
@@ -617,7 +617,7 @@ def validate_living_world(known_ids: set[str]) -> tuple[int, int, int]:
     for role_path in sorted(role_dir.glob("*.json")):
         role = json.loads(role_path.read_text(encoding="utf-8-sig"))
         role_name = role_path.stem
-        role_id = f"earth_on_minecraft:{role_name}"
+        role_id = f"earth_core:{role_name}"
         require_lang(role["title_key"], role_path)
         require_lang(role["identity_key"], role_path)
         professions = [
@@ -628,9 +628,9 @@ def validate_living_world(known_ids: set[str]) -> tuple[int, int, int]:
         for index, definition in enumerate(role.get("trades", []), start=1):
             level = max(1, min(5, int(definition["level"])))
             local_path = f"resident/{role_name}/level_{level}_{index}"
-            trade_id = f"earth_on_minecraft:{local_path}"
+            trade_id = f"earth_core:{local_path}"
             expected_trades.add(local_path)
-            trade_path = RES / "data" / "earth_on_minecraft" / "villager_trade" / f"{local_path}.json"
+            trade_path = RES / "data" / "earth_core" / "villager_trade" / f"{local_path}.json"
             if not trade_path.exists():
                 fail(f"missing generated living-world trade {trade_path.relative_to(ROOT)}")
             trade = json.loads(trade_path.read_text(encoding="utf-8-sig"))
@@ -639,7 +639,7 @@ def validate_living_world(known_ids: set[str]) -> tuple[int, int, int]:
                 fail(f"trade predicate does not select {role_id}: {trade_path.relative_to(ROOT)}")
             for field in ("input", "output"):
                 item_id = definition[field]
-                if item_id.startswith("earth_on_minecraft:") and item_id.split(":", 1)[1] not in known_ids:
+                if item_id.startswith("earth_core:") and item_id.split(":", 1)[1] not in known_ids:
                     fail(f"unknown living-world trade item {item_id} in {role_path.relative_to(ROOT)}")
             for profession in professions:
                 expected_tags.setdefault((profession, level), set()).add(trade_id)
@@ -661,7 +661,7 @@ def validate_living_world(known_ids: set[str]) -> tuple[int, int, int]:
         if not expected_values.issubset(values):
             fail(f"villager trade tag is missing role trades: {tag_path.relative_to(ROOT)}")
 
-    settlement_root = RES / "data" / "earth_on_minecraft" / "settlements"
+    settlement_root = RES / "data" / "earth_core" / "settlements"
     for path in sorted((settlement_root / "name_pools").glob("*.json")):
         data = json.loads(path.read_text(encoding="utf-8-sig"))
         for key in data.get("name_keys", []):
@@ -701,14 +701,14 @@ def validate_living_world(known_ids: set[str]) -> tuple[int, int, int]:
         "settlement_mechanized_city",
     )
     for chest_table in required_chest_loot:
-        chest_path = RES / "data" / "earth_on_minecraft" / "loot_table" / "chests" / f"{chest_table}.json"
+        chest_path = RES / "data" / "earth_core" / "loot_table" / "chests" / f"{chest_table}.json"
         if not chest_path.exists():
             fail(f"missing settlement chest loot table {chest_path.relative_to(ROOT)}")
         chest_data = json.loads(chest_path.read_text(encoding="utf-8-sig"))
         for pool in chest_data.get("pools", []):
             for entry in pool.get("entries", []):
                 item_name = entry.get("name", "")
-                if item_name.startswith("earth_on_minecraft:") and item_name.split(":", 1)[1] not in known_ids:
+                if item_name.startswith("earth_core:") and item_name.split(":", 1)[1] not in known_ids:
                     fail(f"unknown item {item_name} in {chest_path.relative_to(ROOT)}")
 
     required_loot = {
@@ -716,12 +716,12 @@ def validate_living_world(known_ids: set[str]) -> tuple[int, int, int]:
         "pillager_stolen_supplies": "living/pillager_stolen_supplies",
     }
     for modifier_name, table_id in required_loot.items():
-        modifier_path = RES / "data" / "earth_on_minecraft" / "loot_modifiers" / f"{modifier_name}.json"
-        table_path = RES / "data" / "earth_on_minecraft" / "loot_table" / f"{table_id}.json"
+        modifier_path = RES / "data" / "earth_core" / "loot_modifiers" / f"{modifier_name}.json"
+        table_path = RES / "data" / "earth_core" / "loot_table" / f"{table_id}.json"
         if not modifier_path.exists() or not table_path.exists():
             fail(f"missing Living World loot modifier/table pair {modifier_name}")
         modifier = json.loads(modifier_path.read_text(encoding="utf-8-sig"))
-        if modifier.get("table") != f"earth_on_minecraft:{table_id}":
+        if modifier.get("table") != f"earth_core:{table_id}":
             fail(f"wrong Living World loot table reference in {modifier_path.relative_to(ROOT)}")
 
     return len(expected_trades), len(expected_tags), len(required_loot)
@@ -747,23 +747,23 @@ def validate_integration_contract(known_ids: set[str]) -> int:
 
 
 def validate_worldgen_refs() -> int:
-    configured = {path.stem for path in (RES / "data" / "earth_on_minecraft" / "worldgen" / "configured_feature").glob("*.json")}
-    placed = {path.stem for path in (RES / "data" / "earth_on_minecraft" / "worldgen" / "placed_feature").glob("*.json")}
+    configured = {path.stem for path in (RES / "data" / "earth_core" / "worldgen" / "configured_feature").glob("*.json")}
+    placed = {path.stem for path in (RES / "data" / "earth_core" / "worldgen" / "placed_feature").glob("*.json")}
     count = 0
-    for path in (RES / "data" / "earth_on_minecraft" / "worldgen" / "placed_feature").glob("*.json"):
+    for path in (RES / "data" / "earth_core" / "worldgen" / "placed_feature").glob("*.json"):
         data = json.loads(path.read_text(encoding="utf-8-sig"))
         feature = data.get("feature")
-        if isinstance(feature, str) and feature.startswith("earth_on_minecraft:"):
+        if isinstance(feature, str) and feature.startswith("earth_core:"):
             local_id = feature.split(":", 1)[1]
             if local_id not in configured:
                 fail(f"unknown configured feature {feature} referenced by {path.relative_to(ROOT)}")
         count += 1
-    for path in (RES / "data" / "earth_on_minecraft" / "neoforge" / "biome_modifier").glob("*.json"):
+    for path in (RES / "data" / "earth_core" / "neoforge" / "biome_modifier").glob("*.json"):
         data = json.loads(path.read_text(encoding="utf-8-sig"))
         features = data.get("features")
         refs = features if isinstance(features, list) else [features]
         for ref in refs:
-            if isinstance(ref, str) and ref.startswith("earth_on_minecraft:"):
+            if isinstance(ref, str) and ref.startswith("earth_core:"):
                 local_id = ref.split(":", 1)[1]
                 if local_id not in placed:
                     fail(f"unknown placed feature {ref} referenced by {path.relative_to(ROOT)}")
@@ -779,7 +779,7 @@ def absolute_height(value: object) -> int | None:
 
 def validate_worldgen_height_ranges() -> int:
     count = 0
-    root = RES / "data" / "earth_on_minecraft" / "worldgen" / "placed_feature"
+    root = RES / "data" / "earth_core" / "worldgen" / "placed_feature"
     for path in root.glob("*.json"):
         data = json.loads(path.read_text(encoding="utf-8-sig"))
         for placement in data.get("placement", []):
@@ -799,10 +799,10 @@ def validate_worldgen_height_ranges() -> int:
 
 
 def validate_earth_strata_refs() -> int:
-    configured = {path.stem for path in (RES / "data" / "earth_on_minecraft" / "worldgen" / "configured_feature").glob("*.json")}
-    placed = {path.stem for path in (RES / "data" / "earth_on_minecraft" / "worldgen" / "placed_feature").glob("*.json")}
+    configured = {path.stem for path in (RES / "data" / "earth_core" / "worldgen" / "configured_feature").glob("*.json")}
+    placed = {path.stem for path in (RES / "data" / "earth_core" / "worldgen" / "placed_feature").glob("*.json")}
     count = 0
-    root = RES / "data" / "earth_on_minecraft" / "earth" / "strata"
+    root = RES / "data" / "earth_core" / "earth" / "strata"
     for path in root.glob("*.json"):
         data = json.loads(path.read_text(encoding="utf-8-sig"))
         for layer in data.get("layers", []) + data.get("planned_layers", []):
@@ -810,7 +810,7 @@ def validate_earth_strata_refs() -> int:
                 continue
             for field in ("background_features", "deposit_features"):
                 for ref in layer.get(field, []):
-                    if not isinstance(ref, str) or not ref.startswith("earth_on_minecraft:"):
+                    if not isinstance(ref, str) or not ref.startswith("earth_core:"):
                         continue
                     local_id = ref.split(":", 1)[1]
                     if local_id not in placed and local_id not in configured:
@@ -889,7 +889,7 @@ def validate_quality_foundation() -> tuple[int, int, int, int, int]:
             for cue in ("idle_cue", "running_cue", "fault_cue", "prototype", "silhouette", "particle_profile"):
                 if not isinstance(profile.get(cue), str) or not profile[cue].strip():
                     fail(f"{group} profile missing {cue}: {machine_id}")
-            event = profile.get("sound_event", "").removeprefix("earth_on_minecraft:")
+            event = profile.get("sound_event", "").removeprefix("earth_core:")
             if event not in sounds:
                 fail(f"missing custom {group} sound event {event}")
             ogg = ASSETS / "sounds" / group / machine_id / "run.ogg"

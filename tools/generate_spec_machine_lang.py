@@ -7,7 +7,7 @@ import json
 import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-LANG = ROOT / "neoforge-26.2/src/main/resources/assets/earth_on_minecraft/lang"
+LANG = ROOT / "neoforge-26.1.2/src/main/resources/assets/earth_core/lang"
 
 KEYS = {
     "bloomery_controller": ("Operating focus: blast rate and charge descent",
@@ -91,8 +91,8 @@ def main() -> None:
         data = json.loads(path.read_text(encoding="utf-8-sig"))
         added = 0
         for machine_id, texts in KEYS.items():
-            setpoint = f"screen.earth_on_minecraft.machine.setpoint.{machine_id}"
-            description = f"tooltip.earth_on_minecraft.machine.{machine_id}.description"
+            setpoint = f"screen.earth_core.machine.setpoint.{machine_id}"
+            description = f"tooltip.earth_core.machine.{machine_id}.description"
             if setpoint not in data:
                 data[setpoint] = texts[index]
                 added += 1

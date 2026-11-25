@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:hard_water_sample",
+    "earth_core:brine_crystal",
+    "earth_core:activated_carbon",
+    "earth_core:activated_carbon_filter",
+    "earth_core:slaked_lime",
+    "earth_core:calcium_chloride"
+  ]
+}

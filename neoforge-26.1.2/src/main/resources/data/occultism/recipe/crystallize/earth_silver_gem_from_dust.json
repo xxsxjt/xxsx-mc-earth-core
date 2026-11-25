@@ -1,0 +1,14 @@
+{
+  "neoforge:conditions": [
+    { "type": "neoforge:mod_loaded", "modid": "occultism" },
+    { "type": "neoforge:not", "value": { "type": "neoforge:tag_empty", "tag": "c:dusts/silver" } }
+  ],
+  "type": "occultism:crystallize",
+  "ignore_crystallize_multiplier": true,
+  "ingredient": "#c:dusts/silver",
+  "result": {
+    "type": "occultism:item",
+    "count": 1,
+    "id": "earth_core:silver"
+  }
+}

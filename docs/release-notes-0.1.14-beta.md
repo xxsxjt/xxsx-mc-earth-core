@@ -35,6 +35,6 @@
 - A user-started client successfully loaded this mod's resources, atlases, sounds, particles, and JEI plugin with no Earth on Minecraft errors in the observed log.
 - Full gameplay balance and long-term world compatibility are not yet considered stable.
 
-Artifact: `earth-on-minecraft-neoforge-26.2-0.1.14.jar`
+Artifact: `earth-core-neoforge-26.1.2-0.1.14.jar`
 
 SHA256: `752D2AAFBB3A39CFCA5C64D7967C8B3B7F674B3A67228247FD02F7366AC16D39`

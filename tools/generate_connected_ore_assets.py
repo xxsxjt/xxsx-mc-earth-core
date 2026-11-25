@@ -8,9 +8,9 @@ from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MODULE = ROOT / "neoforge-26.2"
-JAVA_REGISTRY = MODULE / "src/main/java/com/xxsx/earthonminecraft/EarthOnMinecraft.java"
-ASSETS = MODULE / "src/main/resources/assets/earth_on_minecraft"
+MODULE = ROOT / "neoforge-26.1.2"
+JAVA_REGISTRY = MODULE / "src/main/java/com/xxsx/earth/core/EarthOnMinecraft.java"
+ASSETS = MODULE / "src/main/resources/assets/earth_core"
 TEXTURES = ASSETS / "textures/block"
 CONNECTED_TEXTURES = TEXTURES / "connected"
 CONNECTED_MODELS = ASSETS / "models/block/connected"
@@ -166,8 +166,8 @@ def edge_elements(direction: str) -> list[dict[str, object]]:
 
 
 def make_models(block_id: str) -> None:
-    original = f"earth_on_minecraft:block/{block_id}"
-    center = f"earth_on_minecraft:block/connected/{block_id}_center"
+    original = f"earth_core:block/{block_id}"
+    center = f"earth_core:block/connected/{block_id}_center"
     write_json(CONNECTED_MODELS / f"{block_id}_center.json", {
         "parent": "minecraft:block/cube_all",
         "textures": {"all": center},

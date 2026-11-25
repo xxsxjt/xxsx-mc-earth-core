@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "earth_core:block/wet_machine_side",
+    "down": "earth_core:block/wet_machine_top",
+    "up": "earth_core:block/wet_machine_top",
+    "north": "earth_core:block/wet_machine_side",
+    "south": "earth_core:block/wet_machine_side",
+    "west": "earth_core:block/wet_machine_side",
+    "east": "earth_core:block/wet_machine_side"
+  }
+}

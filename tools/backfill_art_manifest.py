@@ -17,7 +17,7 @@ import re
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "tools/generate_gemini_art.py"
-ASSETS = ROOT / "neoforge-26.2/src/main/resources/assets/earth_on_minecraft"
+ASSETS = ROOT / "neoforge-26.1.2/src/main/resources/assets/earth_core"
 MANIFEST = ROOT / "docs/quality/gemini-art-manifest.json"
 
 ITEM_TEMPLATE_MAX = 1200

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AAA"
+  ],
+  "key": {
+    "A": "earth_core:clay_brick"
+  },
+  "result": {
+    "id": "earth_core:oven_mouth"
+  }
+}

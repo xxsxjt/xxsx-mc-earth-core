@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    "CFC",
+    "SSS"
+  ],
+  "key": {
+    "C": "minecraft:cobblestone",
+    "S": "minecraft:stone",
+    "F": "minecraft:furnace"
+  },
+  "result": {
+    "id": "earth_core:jaw_crusher"
+  }
+}

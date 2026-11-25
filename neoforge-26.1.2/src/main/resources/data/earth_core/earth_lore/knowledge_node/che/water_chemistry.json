@@ -1,0 +1,48 @@
+{
+  "discipline": "earth_lore:che",
+  "tier": 2,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:che/inorganic_chemistry"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:water_treatment_unit"
+    },
+    {
+      "block": "earth_core:water_treatment_unit"
+    },
+    {
+      "item": "earth_core:distilled_water"
+    },
+    {
+      "item": "earth_core:deionized_water"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "earth_core:water_operator"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:lime",
+        "count": 2
+      },
+      {
+        "ingredient": "minecraft:water_bucket",
+        "count": 1
+      }
+    ],
+    "ticks": 1200
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.che.water_chemistry",
+  "desc_key": "lore.earth_core.che.water_chemistry.desc",
+  "icon": "earth_core:distilled_water"
+}

@@ -1,0 +1,41 @@
+{
+  "discipline": "earth_lore:mat",
+  "tier": 3,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:mat/glassmaking"
+    }
+  ],
+  "item_requires": [
+    {
+      "made": "minecraft:glass"
+    }
+  ],
+  "unlocks": [
+    {
+      "item": "earth_core:optical_glass"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "minecraft:glass",
+        "count": 8
+      },
+      {
+        "ingredient": "earth_core:gem_dust",
+        "count": 2
+      }
+    ],
+    "ticks": 2400
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.mat.optical_glass",
+  "desc_key": "lore.earth_core.mat.optical_glass.desc",
+  "icon": "earth_core:book"
+}

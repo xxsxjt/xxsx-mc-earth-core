@@ -2,7 +2,7 @@
 
 本契约定义 `Earth on Minecraft / 我的地球` 与当前三个可选模块之间的稳定联动面：
 
-- `earth_on_minecraft`：现实地球的自然材料、环境角色、工业与基础设施提供者。
+- `earth_core`：现实地球的自然材料、环境角色、工业与基础设施提供者。
 - `earth_human`：人物身体、生存压力和护理系统，可独立安装。
 - `earth_online_magic`：魔法路线，可独立安装。
 - `earth_online_xuanhuan`：玄幻路线，可独立安装。
@@ -16,7 +16,7 @@
 3. 不跨仓库导入兄弟模块 Java 类。优先使用标签、数据配方、持久化数据键和明确的小型兼容层。
 4. 所有联动标签使用 `replace: false`。可选模块缺失时，标签为空或只保留本模块内容，不应导致加载失败。
 5. 标签新增值属于兼容更新；删除、改名或改变既有标签语义属于破坏性更新，必须保留兼容别名或发布新契约版本。
-6. 玩家手册的本体主线只介绍原版和 `earth_on_minecraft`。已安装模块的联动内容应由对应模块自己的手册、JEI 分类或兼容页说明。
+6. 玩家手册的本体主线只介绍原版和 `earth_core`。已安装模块的联动内容应由对应模块自己的手册、JEI 分类或兼容页说明。
 
 ## 本体发布的材料角色标签
 
@@ -24,39 +24,39 @@
 
 | 标签 | 含义 | 主要消费者 |
 |---|---|---|
-| `earth_on_minecraft:water/potable` | 可作为饮用水来源的物品 | Earth Human、食物/农业模块 |
-| `earth_on_minecraft:water/treated` | 已完成基础处理的水 | Earth Human、水处理扩展 |
-| `earth_on_minecraft:water/treatment_inputs` | 水处理介质和原料 | 工业、水文扩展 |
-| `earth_on_minecraft:soil/amendments` | 肥料、腐殖质和土壤改良材料 | 农业、生态扩展 |
-| `earth_on_minecraft:construction/materials` | 建筑与公共工程材料 | 建筑、交通扩展 |
-| `earth_on_minecraft:electrical/conductors` | 导电材料和导体部件 | 电力、自动化、魔法/玄幻联动 |
-| `earth_on_minecraft:electrical/insulators` | 绝缘材料和部件 | 电力、自动化 |
-| `earth_on_minecraft:filtration/media` | 吸附、过滤和介质材料 | 水处理、空气处理 |
-| `earth_on_minecraft:power/sources` | 可储能、供热或供电的物品 | 电力、机器扩展 |
-| `earth_on_minecraft:power/connectors` | 电气和控制连接部件 | 电力、自动化 |
+| `earth_core:water/potable` | 可作为饮用水来源的物品 | Earth Human、食物/农业模块 |
+| `earth_core:water/treated` | 已完成基础处理的水 | Earth Human、水处理扩展 |
+| `earth_core:water/treatment_inputs` | 水处理介质和原料 | 工业、水文扩展 |
+| `earth_core:soil/amendments` | 肥料、腐殖质和土壤改良材料 | 农业、生态扩展 |
+| `earth_core:construction/materials` | 建筑与公共工程材料 | 建筑、交通扩展 |
+| `earth_core:electrical/conductors` | 导电材料和导体部件 | 电力、自动化、魔法/玄幻联动 |
+| `earth_core:electrical/insulators` | 绝缘材料和部件 | 电力、自动化 |
+| `earth_core:filtration/media` | 吸附、过滤和介质材料 | 水处理、空气处理 |
+| `earth_core:power/sources` | 可储能、供热或供电的物品 | 电力、机器扩展 |
+| `earth_core:power/connectors` | 电气和控制连接部件 | 电力、自动化 |
 
 既有超凡路线标签继续有效：
 
-- `earth_on_minecraft:aether_crystal_substrates`
-- `earth_on_minecraft:spiritual_mineral_substrates`
-- `earth_on_minecraft:arcana_geology_catalysts`
-- `earth_on_minecraft:mana_conductors`
+- `earth_core:aether_crystal_substrates`
+- `earth_core:spiritual_mineral_substrates`
+- `earth_core:arcana_geology_catalysts`
+- `earth_core:mana_conductors`
 
 ### 方块标签
 
 | 标签 | 含义 |
 |---|---|
-| `earth_on_minecraft:power/generators` | 本体发电设备 |
-| `earth_on_minecraft:power/connectors` | 本体电网连接方块 |
-| `earth_on_minecraft:environment/heat_sources` | 可被环境或人物模块识别为工业热源的方块 |
-| `earth_on_minecraft:environment/air_pollution_sources` | 可能产生工业排放的设备；标签只表示来源角色，不直接规定污染强度 |
+| `earth_core:power/generators` | 本体发电设备 |
+| `earth_core:power/connectors` | 本体电网连接方块 |
+| `earth_core:environment/heat_sources` | 可被环境或人物模块识别为工业热源的方块 |
+| `earth_core:environment/air_pollution_sources` | 可能产生工业排放的设备；标签只表示来源角色，不直接规定污染强度 |
 
 ## Earth Human 护理桥接
 
 `earth_human` 拥有护理动作和护理标签语义。本体只向它公开的标签追加兼容物品：
 
 - `data/earth_human/tags/item/care/hydration.json`
-- 当前追加 `earth_on_minecraft:softened_water`
+- 当前追加 `earth_core:softened_water`
 
 Earth Human 对非自身 `StatusConsumableItem` 的通用饮水行为是恢复 25 点水分并消耗一个物品。因此当前软化水会作为一份完整饮用水被消耗；在引入通用容器/流体能力前，不向该标签批量加入工业样品、盐卤或气体容器。
 

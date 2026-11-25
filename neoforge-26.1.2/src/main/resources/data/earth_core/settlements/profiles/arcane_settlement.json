@@ -1,0 +1,23 @@
+{
+  "tier": 2,
+  "display_name_key": "settlement.earth_core.profile.arcane_settlement",
+  "scale_key": "settlement.earth_core.scale.village",
+  "technology_key": "settlement.earth_core.technology.arcane",
+  "name_keys": [
+    "settlement.earth_core.name.witchlight",
+    "settlement.earth_core.name.runehollow"
+  ],
+  "industry_keys": [
+    "settlement.earth_core.industry.arcane_research",
+    "settlement.earth_core.industry.alchemy"
+  ],
+  "demand_keys": [
+    "settlement.earth_core.material.arcane_focus",
+    "settlement.earth_core.material.crystal"
+  ],
+  "supply_keys": [
+    "settlement.earth_core.material.runes",
+    "settlement.earth_core.material.potions"
+  ],
+  "weight": 1
+}

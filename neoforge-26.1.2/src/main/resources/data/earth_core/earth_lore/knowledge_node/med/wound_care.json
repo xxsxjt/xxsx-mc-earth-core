@@ -1,0 +1,59 @@
+{
+  "discipline": "earth_lore:med",
+  "tier": 3,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:med/first_aid"
+    },
+    {
+      "all": "earth_core:med/sterile_technique"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:styptic_powder"
+    },
+    {
+      "item": "earth_core:burn_ointment"
+    },
+    {
+      "item": "earth_core:suture_thread"
+    },
+    {
+      "item": "earth_core:scalpel"
+    },
+    {
+      "item": "earth_core:forceps"
+    },
+    {
+      "item": "earth_core:syringe"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:bandage",
+        "count": 4
+      },
+      {
+        "ingredient": "earth_core:silk_thread",
+        "count": 2
+      },
+      {
+        "ingredient": "earth_core:steel",
+        "count": 1
+      }
+    ],
+    "ticks": 2400
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.med.wound_care",
+  "desc_key": "lore.earth_core.med.wound_care.desc",
+  "icon": "earth_core:styptic_powder"
+}

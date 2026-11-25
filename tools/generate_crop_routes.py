@@ -19,8 +19,8 @@ import re
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SPEC = pathlib.Path(r"D:\Codex\WORKSPACES\Projects\mc-agent\spec\eom")
-OUT = ROOT / "neoforge-26.2/src/main/resources/data/earth_on_minecraft/earth/quality/crop_routes.json"
-JAVA = ROOT / "neoforge-26.2/src/main/java/com/xxsx/earthonminecraft"
+OUT = ROOT / "neoforge-26.1.2/src/main/resources/data/earth_core/earth/quality/crop_routes.json"
+JAVA = ROOT / "neoforge-26.1.2/src/main/java/com/xxsx/earth/core"
 
 # Animal produce is not grown; it comes from a barn or a smokehouse.
 ANIMAL = {
@@ -76,30 +76,30 @@ def main() -> None:
     for crop in crops:
         if crop in ANIMAL:
             machine = "smokehouse"
-            inputs = [{"item": "earth_on_minecraft:hay", "count": 2},
-                      {"item": "earth_on_minecraft:bran", "count": 1}]
+            inputs = [{"item": "earth_core:hay", "count": 2},
+                      {"item": "earth_core:bran", "count": 1}]
             note = "barn produce: fed livestock yields this"
             ticks = 400
         elif crop in FRUIT:
             machine = "carpentry_bench"
-            inputs = [{"item": "earth_on_minecraft:timber_beam", "count": 1},
-                      {"item": "earth_on_minecraft:potash", "count": 1}]
+            inputs = [{"item": "earth_core:timber_beam", "count": 1},
+                      {"item": "earth_core:potash", "count": 1}]
             note = "orchard: pruned timber yields fruit"
             ticks = 600
         elif crop in GATHERED:
             machine = "herb_processing_table"
-            inputs = [{"item": "earth_on_minecraft:grass_fiber", "count": 2}]
+            inputs = [{"item": "earth_core:grass_fiber", "count": 2}]
             note = "foraged: cleaned and bundled at the herb table"
             ticks = 200
         elif crop in TREE_BYPRODUCT:
             machine = "carpentry_bench"
-            inputs = [{"item": "earth_on_minecraft:timber_beam", "count": 1}]
+            inputs = [{"item": "earth_core:timber_beam", "count": 1}]
             note = "tree by-product: harvested from felled timber"
             ticks = 300
         else:
             machine = "herb_processing_table"
-            inputs = [{"item": f"earth_on_minecraft:{crop}", "count": 1},
-                      {"item": "earth_on_minecraft:bone_meal", "count": 1}]
+            inputs = [{"item": f"earth_core:{crop}", "count": 1},
+                      {"item": "earth_core:bone_meal", "count": 1}]
             note = "seed crop: propagate a cutting on a bone meal bed"
             ticks = 240
 
@@ -107,7 +107,7 @@ def main() -> None:
             "id": f"crop/{crop}",
             "machine": machine,
             "inputs": inputs,
-            "outputs": [{"item": f"earth_on_minecraft:{crop}", "count": 2}],
+            "outputs": [{"item": f"earth_core:{crop}", "count": 2}],
             "ticks": ticks,
             "energy": 0,
             "note": note,

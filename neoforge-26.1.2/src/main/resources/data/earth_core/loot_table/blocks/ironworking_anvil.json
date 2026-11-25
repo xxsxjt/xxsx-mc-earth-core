@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:ironworking_anvil"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "earth_core:blocks/ironworking_anvil"
+}

@@ -1,0 +1,58 @@
+{
+  "discipline": "earth_lore:mat",
+  "tier": 1,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:mat/materials_basics"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:ore_roaster"
+    },
+    {
+      "block": "earth_core:ore_roaster"
+    },
+    {
+      "item": "earth_core:reduction_furnace"
+    },
+    {
+      "block": "earth_core:reduction_furnace"
+    },
+    {
+      "item": "earth_core:bloomery_controller"
+    },
+    {
+      "block": "earth_core:bloomery_controller"
+    },
+    {
+      "item": "earth_core:wrought_iron"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "earth_core:miner",
+    "minecraft:armorer"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:magnetite_ore",
+        "count": 4
+      },
+      {
+        "ingredient": "minecraft:charcoal",
+        "count": 4
+      }
+    ],
+    "ticks": 600
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.mat.pyrometallurgy",
+  "desc_key": "lore.earth_core.mat.pyrometallurgy.desc",
+  "icon": "earth_core:book"
+}

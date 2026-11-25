@@ -1,0 +1,114 @@
+{
+  "discipline": "earth_lore:mat",
+  "tier": 1,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:mat/materials_basics"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:copper_pickaxe"
+    },
+    {
+      "item": "earth_core:iron_pickaxe"
+    },
+    {
+      "item": "earth_core:steel_pickaxe"
+    },
+    {
+      "item": "earth_core:diamond_pickaxe"
+    },
+    {
+      "item": "earth_core:iron_axe"
+    },
+    {
+      "item": "earth_core:steel_axe"
+    },
+    {
+      "item": "earth_core:iron_shovel"
+    },
+    {
+      "item": "earth_core:iron_hoe"
+    },
+    {
+      "item": "earth_core:saw"
+    },
+    {
+      "item": "earth_core:file"
+    },
+    {
+      "item": "earth_core:chisel"
+    },
+    {
+      "item": "earth_core:wrench"
+    },
+    {
+      "item": "earth_core:knife"
+    },
+    {
+      "item": "earth_core:shears"
+    },
+    {
+      "item": "earth_core:needle"
+    },
+    {
+      "item": "earth_core:axe"
+    },
+    {
+      "item": "earth_core:plane"
+    },
+    {
+      "item": "earth_core:pliers"
+    },
+    {
+      "item": "earth_core:screwdriver"
+    },
+    {
+      "item": "earth_core:shovel"
+    },
+    {
+      "item": "earth_core:pickaxe"
+    },
+    {
+      "item": "earth_core:rake"
+    },
+    {
+      "item": "earth_core:billhook"
+    },
+    {
+      "item": "earth_core:padlock"
+    },
+    {
+      "item": "earth_core:key"
+    },
+    {
+      "item": "earth_core:bell"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "minecraft:toolsmith"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "minecraft:iron_ingot",
+        "count": 4
+      },
+      {
+        "ingredient": "minecraft:coal",
+        "count": 4
+      }
+    ],
+    "ticks": 600
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.mat.smithing",
+  "desc_key": "lore.earth_core.mat.smithing.desc",
+  "icon": "earth_core:copper_pickaxe"
+}

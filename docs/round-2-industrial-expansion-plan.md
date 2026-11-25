@@ -205,7 +205,7 @@
 第二轮后建议拆出数据结构：
 
 ```text
-data/earth_on_minecraft/processing_routes/*.json
+data/earth_core/processing_routes/*.json
 ```
 
 目标字段：

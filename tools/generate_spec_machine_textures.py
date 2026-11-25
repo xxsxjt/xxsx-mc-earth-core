@@ -15,7 +15,7 @@ import pathlib
 from PIL import Image, ImageDraw
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "neoforge-26.2/src/main/resources/assets/earth_on_minecraft"
+ASSETS = ROOT / "neoforge-26.1.2/src/main/resources/assets/earth_core"
 TEXTURES = ASSETS / "textures/block"
 MODELS = ASSETS / "models/block"
 SIZE = 128
@@ -319,13 +319,13 @@ def draw_face(machine_id: str, active: bool) -> Image.Image:
 def write_model(machine_id: str) -> None:
     family = FAMILY[machine_id]
     textures = {
-        "particle": f"earth_on_minecraft:block/{machine_id}",
-        "front": f"earth_on_minecraft:block/{machine_id}",
-        "back": f"earth_on_minecraft:block/{SIDE[family]}",
-        "left": f"earth_on_minecraft:block/{SIDE[family]}",
-        "right": f"earth_on_minecraft:block/{SIDE[family]}",
-        "top": f"earth_on_minecraft:block/{TOP[family]}",
-        "bottom": f"earth_on_minecraft:block/{TOP[family]}",
+        "particle": f"earth_core:block/{machine_id}",
+        "front": f"earth_core:block/{machine_id}",
+        "back": f"earth_core:block/{SIDE[family]}",
+        "left": f"earth_core:block/{SIDE[family]}",
+        "right": f"earth_core:block/{SIDE[family]}",
+        "top": f"earth_core:block/{TOP[family]}",
+        "bottom": f"earth_core:block/{TOP[family]}",
         "fault": "minecraft:block/redstone_lamp_on",
     }
     for suffix, active in (("", False), ("_active", True)):
@@ -335,8 +335,8 @@ def write_model(machine_id: str) -> None:
             "gui_light": "side",
             "textures": {
                 **textures,
-                "particle": f"earth_on_minecraft:block/{machine_id}{suffix}",
-                "front": f"earth_on_minecraft:block/{machine_id}{suffix}",
+                "particle": f"earth_core:block/{machine_id}{suffix}",
+                "front": f"earth_core:block/{machine_id}{suffix}",
             },
             "elements": [
                 {

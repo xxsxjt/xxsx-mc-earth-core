@@ -17,8 +17,8 @@ from PIL import Image
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-RES = ROOT / "neoforge-26.2" / "src" / "main" / "resources"
-ASSETS = RES / "assets" / "earth_on_minecraft"
+RES = ROOT / "neoforge-26.1.2" / "src" / "main" / "resources"
+ASSETS = RES / "assets" / "earth_core"
 TMP = ROOT / "tmp" / "imagegen" / "agnes-modern-chemistry"
 PROVIDERS = pathlib.Path(r"C:\Users\du_ji\WorkBuddy\agnes\providers.json")
 
@@ -243,13 +243,13 @@ def update_resource_metadata() -> None:
         write_json(items_dir / f"{item_id}.json", {
             "model": {
                 "type": "minecraft:model",
-                "model": f"earth_on_minecraft:item/{item_id}",
+                "model": f"earth_core:item/{item_id}",
             }
         })
         write_json(models_dir / f"{item_id}.json", {
             "parent": "minecraft:item/generated",
             "textures": {
-                "layer0": f"earth_on_minecraft:item/{item_id}",
+                "layer0": f"earth_core:item/{item_id}",
             },
         })
 
@@ -257,21 +257,21 @@ def update_resource_metadata() -> None:
         path = ASSETS / "lang" / lang_name
         data = json.loads(path.read_text(encoding="utf-8-sig"))
         for item_id, names in ITEMS.items():
-            data[f"item.earth_on_minecraft.{item_id}"] = names[name_index]
+            data[f"item.earth_core.{item_id}"] = names[name_index]
         write_json(path, data)
 
-    tag_path = RES / "data" / "earth_on_minecraft" / "tags" / "item" / "chemical_products.json"
+    tag_path = RES / "data" / "earth_core" / "tags" / "item" / "chemical_products.json"
     tag = json.loads(tag_path.read_text(encoding="utf-8-sig"))
     values = tag.setdefault("values", [])
     for item_id in ITEMS:
         if item_id in NON_CHEMICAL_PRODUCT_ITEMS:
             continue
-        value = f"earth_on_minecraft:{item_id}"
+        value = f"earth_core:{item_id}"
         if value not in values:
             values.append(value)
     write_json(tag_path, tag)
 
-    manifest_path = RES / "data" / "earth_on_minecraft" / "earth" / "industry" / "chemical_industry_manifest.json"
+    manifest_path = RES / "data" / "earth_core" / "earth" / "industry" / "chemical_industry_manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8-sig"))
     manifest["scope"] = "modern first playable chemistry coverage"
     industries = manifest.setdefault("industries", [])

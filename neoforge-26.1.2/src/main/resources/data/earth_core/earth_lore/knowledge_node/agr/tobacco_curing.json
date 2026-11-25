@@ -1,0 +1,76 @@
+{
+  "discipline": "earth_lore:agr",
+  "tier": 2,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:agr/tillage"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:cured_tobacco"
+    },
+    {
+      "item": "earth_core:tobacco_shred"
+    },
+    {
+      "item": "earth_core:cigarette"
+    },
+    {
+      "item": "earth_core:cigar"
+    },
+    {
+      "item": "earth_core:pipe"
+    },
+    {
+      "item": "earth_core:pipe_tobacco"
+    },
+    {
+      "item": "earth_core:chewing_tobacco"
+    },
+    {
+      "item": "earth_core:snuff"
+    },
+    {
+      "item": "earth_core:hookah"
+    },
+    {
+      "item": "earth_core:slaked_lime_paste"
+    },
+    {
+      "item": "earth_core:curing_barn"
+    },
+    {
+      "block": "earth_core:curing_barn"
+    },
+    {
+      "ability": "earth_core:agr_tobacco_curing/curing_barn"
+    },
+    {
+      "ability": "earth_core:agr_tobacco_curing/cured_tobacco"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:tobacco_leaf",
+        "count": 16
+      },
+      {
+        "ingredient": "minecraft:charcoal",
+        "count": 2
+      }
+    ],
+    "ticks": 1200
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.agr.tobacco_curing",
+  "desc_key": "lore.earth_core.agr.tobacco_curing.desc",
+  "icon": "earth_core:cured_tobacco"
+}

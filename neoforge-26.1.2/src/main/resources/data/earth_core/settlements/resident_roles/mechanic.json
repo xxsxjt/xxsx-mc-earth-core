@@ -1,0 +1,73 @@
+{
+  "title_key": "resident.earth_core.role.mechanic",
+  "identity_key": "resident.earth_core.identity.technician",
+  "vanilla_professions": [
+    "minecraft:armorer",
+    "minecraft:toolsmith",
+    "minecraft:weaponsmith"
+  ],
+  "settlement_profiles": [
+    "earth_core:mining_settlement",
+    "earth_core:resource_village",
+    "earth_core:industrial_town",
+    "earth_core:mechanized_city",
+    "earth_core:mechanized_town"
+  ],
+  "weight": 3,
+  "trades": [
+    {
+      "level": 1,
+      "input": "earth_core:coke",
+      "input_count": 4,
+      "output": "earth_core:firebrick",
+      "output_count": 4,
+      "max_uses": 12,
+      "xp": 2
+    },
+    {
+      "level": 1,
+      "input": "earth_core:lime_dust",
+      "input_count": 6,
+      "output": "earth_core:wrought_iron",
+      "output_count": 2,
+      "max_uses": 12,
+      "xp": 4
+    },
+    {
+      "level": 2,
+      "input": "earth_core:iron_concentrate",
+      "input_count": 4,
+      "output": "earth_core:steel",
+      "output_count": 2,
+      "max_uses": 12,
+      "xp": 10
+    },
+    {
+      "level": 2,
+      "input": "earth_core:coke",
+      "input_count": 6,
+      "output": "earth_core:rubber_gasket",
+      "output_count": 4,
+      "max_uses": 12,
+      "xp": 10
+    },
+    {
+      "level": 3,
+      "input": "earth_core:sulfur_dust",
+      "input_count": 6,
+      "output": "earth_core:iron_catalyst",
+      "output_count": 1,
+      "max_uses": 8,
+      "xp": 20
+    },
+    {
+      "level": 3,
+      "input": "earth_core:steel",
+      "input_count": 3,
+      "output": "earth_core:steel_pickaxe",
+      "output_count": 1,
+      "max_uses": 8,
+      "xp": 20
+    }
+  ]
+}

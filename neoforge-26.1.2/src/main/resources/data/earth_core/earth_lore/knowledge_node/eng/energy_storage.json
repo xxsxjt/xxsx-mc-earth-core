@@ -1,0 +1,43 @@
+{
+  "discipline": "earth_lore:eng",
+  "tier": 4,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:eng/power_grid"
+    },
+    {
+      "all": "earth_core:che/electrochemistry"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:battery_box"
+    },
+    {
+      "block": "earth_core:battery_box"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:lead",
+        "count": 4
+      },
+      {
+        "ingredient": "earth_core:sulfuric_acid",
+        "count": 2
+      }
+    ],
+    "ticks": 4800
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.eng.energy_storage",
+  "desc_key": "lore.earth_core.eng.energy_storage.desc",
+  "icon": "earth_core:lead"
+}

@@ -9,11 +9,11 @@ import uuid
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-RESOURCES = ROOT / "neoforge-26.2" / "src" / "main" / "resources"
-ASSETS = RESOURCES / "assets" / "earth_on_minecraft"
+RESOURCES = ROOT / "neoforge-26.1.2" / "src" / "main" / "resources"
+ASSETS = RESOURCES / "assets" / "earth_core"
 MODELS = ASSETS / "models" / "block"
 BLOCKSTATES = ASSETS / "blockstates"
-PROFILES = RESOURCES / "data" / "earth_on_minecraft" / "earth" / "quality" / "machine_profiles.json"
+PROFILES = RESOURCES / "data" / "earth_core" / "earth" / "quality" / "machine_profiles.json"
 BLOCKBENCH = ROOT / "art" / "blockbench"
 OUTPUT = ROOT / "output" / "quality"
 FACES = ("north", "south", "west", "east", "up", "down")
@@ -395,7 +395,7 @@ def blockstate(machine_id: str, processing_machine: bool) -> dict[str, object]:
     if processing_machine:
         for active in (False, True):
             for fault in (False, True):
-                model = f"earth_on_minecraft:block/{machine_id}{'_fault' if fault else '_active' if active else ''}"
+                model = f"earth_core:block/{machine_id}{'_fault' if fault else '_active' if active else ''}"
                 for facing, y in rotations.items():
                     value: dict[str, object] = {"model": model}
                     if y:
@@ -403,7 +403,7 @@ def blockstate(machine_id: str, processing_machine: bool) -> dict[str, object]:
                     variants[f"active={str(active).lower()},facing={facing},fault={str(fault).lower()}"] = value
     else:
         for active in (False, True):
-            model = f"earth_on_minecraft:block/{machine_id}{'_active' if active else ''}"
+            model = f"earth_core:block/{machine_id}{'_active' if active else ''}"
             for facing, y in rotations.items():
                 value = {"model": model}
                 if y:
@@ -420,7 +420,7 @@ def blockbench_source(machine_id: str, profile: dict[str, object], entries: list
     outliner: list[str] = []
     roles = {"north": "front", "south": "back", "west": "left", "east": "right", "up": "top", "down": "bottom"}
     for index, entry in enumerate(entries):
-        element_uuid = str(uuid.uuid5(uuid.NAMESPACE_URL, f"earth-on-minecraft:{machine_id}:{index}:{entry['name']}"))
+        element_uuid = str(uuid.uuid5(uuid.NAMESPACE_URL, f"earth-core:{machine_id}:{index}:{entry['name']}"))
         start = entry["from"]
         end = entry["to"]
         element: dict[str, object] = {
@@ -444,7 +444,7 @@ def blockbench_source(machine_id: str, profile: dict[str, object], entries: list
         namespace, separator, texture_path = texture_id.partition(":")
         if not separator:
             namespace, texture_path = "minecraft", namespace
-        path = "" if namespace != "earth_on_minecraft" else str(pathlib.Path("../../..") / "neoforge-26.2" / "src" / "main" / "resources" / "assets" / namespace / "textures" / f"{texture_path}.png").replace("\\", "/")
+        path = "" if namespace != "earth_core" else str(pathlib.Path("../../..") / "neoforge-26.1.2" / "src" / "main" / "resources" / "assets" / namespace / "textures" / f"{texture_path}.png").replace("\\", "/")
         texture = {
             "name": pathlib.Path(texture_path).name + ".png", "folder": "",
             "namespace": namespace, "id": str(index), "particle": texture_id == idle["particle"],
@@ -456,10 +456,10 @@ def blockbench_source(machine_id: str, profile: dict[str, object], entries: list
         textures.append(texture)
     return {
         "meta": {"format_version": "5.0", "model_format": "java_block", "box_uv": False},
-        "name": machine_id, "model_identifier": f"earth_on_minecraft:{machine_id}",
+        "name": machine_id, "model_identifier": f"earth_core:{machine_id}",
         "visible_box": [1, 1, 0], "variable_placeholders": "", "resolution": {"width": 128, "height": 128},
         "elements": elements, "outliner": outliner, "textures": textures,
-        "earth_on_minecraft": {
+        "earth_core": {
             "schema_version": 1, "prototype": profile["prototype"], "silhouette": profile["silhouette"],
             "faces": profile["faces"], "states": {"idle": idle, "running": active, "fault": {**idle, "fault": "minecraft:block/redstone_lamp_on"}},
         },

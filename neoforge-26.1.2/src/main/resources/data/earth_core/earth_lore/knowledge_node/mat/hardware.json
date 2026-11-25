@@ -1,0 +1,48 @@
+{
+  "discipline": "earth_lore:mat",
+  "tier": 2,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:mat/smithing"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:nail"
+    },
+    {
+      "item": "earth_core:bolt"
+    },
+    {
+      "item": "earth_core:hinge"
+    },
+    {
+      "item": "earth_core:lock"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "minecraft:toolsmith"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "minecraft:iron_ingot",
+        "count": 4
+      },
+      {
+        "ingredient": "minecraft:iron_nugget",
+        "count": 8
+      }
+    ],
+    "ticks": 1200
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.mat.hardware",
+  "desc_key": "lore.earth_core.mat.hardware.desc",
+  "icon": "earth_core:nail"
+}

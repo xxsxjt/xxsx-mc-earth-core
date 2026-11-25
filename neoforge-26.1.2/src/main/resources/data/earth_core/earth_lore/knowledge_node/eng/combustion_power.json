@@ -1,0 +1,43 @@
+{
+  "discipline": "earth_lore:eng",
+  "tier": 3,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:eng/thermodynamics"
+    },
+    {
+      "all": "earth_core:eng/electrical_basics"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:combustion_generator"
+    },
+    {
+      "block": "earth_core:combustion_generator"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:copper_power_cable",
+        "count": 4
+      },
+      {
+        "ingredient": "minecraft:coal",
+        "count": 16
+      }
+    ],
+    "ticks": 2400
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.eng.combustion_power",
+  "desc_key": "lore.earth_core.eng.combustion_power.desc",
+  "icon": "earth_core:book"
+}

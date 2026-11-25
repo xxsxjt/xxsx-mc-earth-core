@@ -13,19 +13,19 @@ import re
 from PIL import Image, ImageDraw
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-JAVA_ROOT = ROOT / "neoforge-26.2/src/main/java/com/xxsx/earthonminecraft"
-RES = ROOT / "neoforge-26.2/src/main/resources"
-ASSETS = RES / "assets/earth_on_minecraft"
+JAVA_ROOT = ROOT / "neoforge-26.1.2/src/main/java/com/xxsx/earth/core"
+RES = ROOT / "neoforge-26.1.2/src/main/resources"
+ASSETS = RES / "assets/earth_core"
 BLOCK_TEXTURES = ASSETS / "textures/block"
 BLOCK_MODELS = ASSETS / "models/block"
 BLOCKSTATES = ASSETS / "blockstates"
 ITEM_DEFS = ASSETS / "items"
 LANG = ASSETS / "lang"
-LOOT = RES / "data/earth_on_minecraft/loot_table/blocks"
+LOOT = RES / "data/earth_core/loot_table/blocks"
 BLOCK_TAGS = RES / "data/minecraft/tags/block"
-DATA_TAGS = RES / "data/earth_on_minecraft/tags/block"
-WORLDGEN = RES / "data/earth_on_minecraft/worldgen"
-BIOME_MODIFIER = RES / "data/earth_on_minecraft/neoforge/biome_modifier/add_overworld_deposits.json"
+DATA_TAGS = RES / "data/earth_core/tags/block"
+WORLDGEN = RES / "data/earth_core/worldgen"
+BIOME_MODIFIER = RES / "data/earth_core/neoforge/biome_modifier/add_overworld_deposits.json"
 SPEC_BLOCKS_JAVA = JAVA_ROOT / "SpecBlocks.java"
 ENTRYPOINT = JAVA_ROOT / "EarthOnMinecraft.java"
 MANIFEST = ROOT / "docs/quality/spec-block-layer.json"
@@ -108,7 +108,7 @@ def java_string(value: str) -> str:
 
 def generate_java(entries: list[dict]) -> str:
     lines = [
-        "package com.xxsx.earthonminecraft;",
+        "package com.xxsx.earth.core;",
         "",
         "import net.minecraft.world.level.block.Block;",
         "import net.minecraft.world.level.block.SoundType;",
@@ -155,8 +155,8 @@ def generate_java(entries: list[dict]) -> str:
         "                            .sound(entry.family().equals(\"device\") ? SoundType.METAL : SoundType.STONE));",
         "            var item = EarthOnMinecraft.ITEMS.registerItem(entry.id(),",
         "                    props -> new GuidedBlockItem(block.get(), props, entry.family().equals(\"ore_block\")",
-        "                            ? \"tooltip.earth_on_minecraft.natural_source\"",
-        "                            : \"tooltip.earth_on_minecraft.block.header\"),",
+        "                            ? \"tooltip.earth_core.natural_source\"",
+        "                            : \"tooltip.earth_core.block.header\"),",
         "                    props -> props);",
         "            BY_ID.put(entry.id(), block);",
         "            EarthOnMinecraft.addTabItem(item);",
@@ -172,8 +172,8 @@ def merge_lang(slug: str, zh: str, en: str) -> None:
     for locale, value in (("zh_cn", zh), ("en_us", en)):
         path = LANG / f"{locale}.json"
         data = json.loads(path.read_text(encoding="utf-8"))
-        data[f"block.earth_on_minecraft.{slug}"] = value
-        data[f"item.earth_on_minecraft.{slug}"] = value
+        data[f"block.earth_core.{slug}"] = value
+        data[f"item.earth_core.{slug}"] = value
         path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
@@ -181,7 +181,7 @@ def merge_tag(path: pathlib.Path, slug: str) -> None:
     data = {"replace": False, "values": []}
     if path.exists():
         data = json.loads(path.read_text(encoding="utf-8"))
-    entry = f"earth_on_minecraft:{slug}"
+    entry = f"earth_core:{slug}"
     values = data.setdefault("values", [])
     if entry not in values:
         values.append(entry)
@@ -208,14 +208,14 @@ def write_loot(record: dict) -> None:
             }, {"function": "minecraft:explosion_decay"}],
         }
         children.append(entry)
-    silk = {"type": "minecraft:item", "name": f"earth_on_minecraft:{slug}",
+    silk = {"type": "minecraft:item", "name": f"earth_core:{slug}",
             "conditions": [{"condition": "minecraft:match_tool", "predicate": {
                 "predicates": {"minecraft:enchantments": [{"enchantments": "minecraft:silk_touch", "levels": {"min": 1}}]}}}]}
     pool_entry = {"type": "minecraft:alternatives", "children": [silk] + children}
     data = {
         "type": "minecraft:block",
         "pools": [{"rolls": 1.0, "entries": [pool_entry]}],
-        "random_sequence": f"earth_on_minecraft:blocks/{slug}",
+        "random_sequence": f"earth_core:blocks/{slug}",
     }
     (LOOT / f"{slug}.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
@@ -244,7 +244,7 @@ def write_worldgen(block: dict, record: dict) -> None:
     maximum = int(height.get("max", 80))
     count = int(record.get("lodes_per_region", 8))
     placed = {
-        "feature": f"earth_on_minecraft:{slug}",
+        "feature": f"earth_core:{slug}",
         "placement": [
             {"type": "minecraft:rarity_filter", "chance": max(1, count)},
             {"type": "minecraft:in_square"},
@@ -262,7 +262,7 @@ def write_worldgen(block: dict, record: dict) -> None:
     if BIOME_MODIFIER.exists():
         data = json.loads(BIOME_MODIFIER.read_text(encoding="utf-8"))
         features = data.setdefault("features", [])
-        entry = f"earth_on_minecraft:{slug}"
+        entry = f"earth_core:{slug}"
         if entry not in features:
             features.append(entry)
             BIOME_MODIFIER.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -296,19 +296,19 @@ def main() -> None:
                 draw_block(slug, family).save(texture)
                 generated_art += 1
             (BLOCKSTATES / f"{slug}.json").write_text(json.dumps({
-                "variants": {"": {"model": f"earth_on_minecraft:block/{slug}"}}
+                "variants": {"": {"model": f"earth_core:block/{slug}"}}
             }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             (BLOCK_MODELS / f"{slug}.json").write_text(json.dumps({
                 "parent": "minecraft:block/cube_all",
-                "textures": {"all": f"earth_on_minecraft:block/{slug}"}
+                "textures": {"all": f"earth_core:block/{slug}"}
             }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             (ITEM_DEFS / f"{slug}.json").write_text(json.dumps({
-                "model": {"type": "minecraft:model", "model": f"earth_on_minecraft:block/{slug}"}
+                "model": {"type": "minecraft:model", "model": f"earth_core:block/{slug}"}
             }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         merge_lang(slug, record.get("zh") or slug, record.get("en") or slug)
         write_loot(record)
         for tag in record.get("tags") or []:
-            if tag.startswith("earth_on_minecraft:"):
+            if tag.startswith("earth_core:"):
                 tag_path = tag.split(":", 1)[1]
                 if tag_path.startswith("block/"):
                     tag_path = tag_path[len("block/"):]
@@ -320,7 +320,7 @@ def main() -> None:
             merge_tag(BLOCK_TAGS / "needs_iron_tool.json", slug)
         elif tool in ("stone_pickaxe", "pickaxe"):
             merge_tag(BLOCK_TAGS / "needs_stone_tool.json", slug)
-        refs = [ref for ref in (record.get("worldgen") or []) if ref.startswith("earth_on_minecraft:lode/")]
+        refs = [ref for ref in (record.get("worldgen") or []) if ref.startswith("earth_core:lode/")]
         for ref in refs:
             local = ref.split("lode/", 1)[1]
             if local in wg:

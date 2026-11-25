@@ -343,7 +343,7 @@ Agnes 辅助批量脚本：
 python tools\generate_agnes_item_textures.py
 ```
 
-脚本会从 `<旧用户目录>\WorkBuddy\agnes\providers.json` 读取 Agnes 配置，调用 `agnes-image-2.1-flash`，把原始生成图保存到 `tmp/imagegen/agnes-modern-chemistry/`，再裁切缩放为 `assets/earth_on_minecraft/textures/item/*.png`。不要把 API Key 写进仓库或日志。高可见资产不要因为脚本能批量生成就直接视为最终美术。
+脚本会从 `<旧用户目录>\WorkBuddy\agnes\providers.json` 读取 Agnes 配置，调用 `agnes-image-2.1-flash`，把原始生成图保存到 `tmp/imagegen/agnes-modern-chemistry/`，再裁切缩放为 `assets/earth_core/textures/item/*.png`。不要把 API Key 写进仓库或日志。高可见资产不要因为脚本能批量生成就直接视为最终美术。
 
 通用 Agnes / image-2 提示词结构：
 
@@ -562,7 +562,7 @@ python tools/generate_gemini_art.py --kind item --dry-run
 
 ### 产物
 
-- 运行时贴图：`neoforge-26.2/src/main/resources/assets/earth_on_minecraft/textures/item/<id>.png`（128×128）
+- 运行时贴图：`neoforge-26.1.2/src/main/resources/assets/earth_core/textures/item/<id>.png`（128×128）
 - 覆盖率清单：`docs/quality/gemini-art-manifest.json`（每生成一张即写盘，中断不丢记录）
 - 对比图：`python tools/make_gemini_only_sheet.py` → `output/quality/gemini-art-only.png`
 

@@ -1,0 +1,67 @@
+{
+  "discipline": "earth_lore:agr",
+  "tier": 1,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:agr/agriculture_basics"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:chicken_coop"
+    },
+    {
+      "item": "earth_core:pigpen"
+    },
+    {
+      "item": "earth_core:cowshed"
+    },
+    {
+      "item": "earth_core:sheepfold"
+    },
+    {
+      "item": "earth_core:stable"
+    },
+    {
+      "item": "earth_core:paddock"
+    },
+    {
+      "item": "earth_core:feed_trough"
+    },
+    {
+      "item": "earth_core:milking_bucket"
+    },
+    {
+      "item": "earth_core:branding_iron"
+    },
+    {
+      "item": "earth_core:silage_pit"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "minecraft:butcher",
+    "minecraft:shepherd"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "minecraft:wheat",
+        "count": 16
+      },
+      {
+        "ingredient": "minecraft:leather",
+        "count": 2
+      }
+    ],
+    "ticks": 600
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.agr.husbandry",
+  "desc_key": "lore.earth_core.agr.husbandry.desc",
+  "icon": "earth_core:chicken_coop"
+}

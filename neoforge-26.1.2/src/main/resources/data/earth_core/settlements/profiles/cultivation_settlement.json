@@ -1,0 +1,23 @@
+{
+  "tier": 2,
+  "display_name_key": "settlement.earth_core.profile.cultivation_settlement",
+  "scale_key": "settlement.earth_core.scale.village",
+  "technology_key": "settlement.earth_core.technology.cultivation",
+  "name_keys": [
+    "settlement.earth_core.name.cloudstep",
+    "settlement.earth_core.name.springvale"
+  ],
+  "industry_keys": [
+    "settlement.earth_core.industry.cultivation",
+    "settlement.earth_core.industry.herbalism"
+  ],
+  "demand_keys": [
+    "settlement.earth_core.material.spirit_grass",
+    "settlement.earth_core.material.spirit_springs"
+  ],
+  "supply_keys": [
+    "settlement.earth_core.material.talisman_paper",
+    "settlement.earth_core.material.spirit_stones"
+  ],
+  "weight": 1
+}

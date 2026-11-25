@@ -1,0 +1,906 @@
+{
+  "discipline": "earth_lore:agr",
+  "tier": 0,
+  "gate": "root",
+  "requires": [],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:wheat"
+    },
+    {
+      "item": "earth_core:rice_paddy"
+    },
+    {
+      "item": "earth_core:rice"
+    },
+    {
+      "item": "earth_core:maize"
+    },
+    {
+      "item": "earth_core:barley"
+    },
+    {
+      "item": "earth_core:oat"
+    },
+    {
+      "item": "earth_core:rye"
+    },
+    {
+      "item": "earth_core:sorghum"
+    },
+    {
+      "item": "earth_core:millet"
+    },
+    {
+      "item": "earth_core:buckwheat"
+    },
+    {
+      "item": "earth_core:proso_millet"
+    },
+    {
+      "item": "earth_core:quinoa"
+    },
+    {
+      "item": "earth_core:teff"
+    },
+    {
+      "item": "earth_core:wild_rice"
+    },
+    {
+      "item": "earth_core:job_tears"
+    },
+    {
+      "item": "earth_core:potato"
+    },
+    {
+      "item": "earth_core:sweet_potato"
+    },
+    {
+      "item": "earth_core:cassava"
+    },
+    {
+      "item": "earth_core:carrot"
+    },
+    {
+      "item": "earth_core:beet"
+    },
+    {
+      "item": "earth_core:onion"
+    },
+    {
+      "item": "earth_core:garlic"
+    },
+    {
+      "item": "earth_core:ginger"
+    },
+    {
+      "item": "earth_core:taro"
+    },
+    {
+      "item": "earth_core:yam"
+    },
+    {
+      "item": "earth_core:radish"
+    },
+    {
+      "item": "earth_core:turnip"
+    },
+    {
+      "item": "earth_core:lotus_root"
+    },
+    {
+      "item": "earth_core:arrowhead"
+    },
+    {
+      "item": "earth_core:water_chestnut"
+    },
+    {
+      "item": "earth_core:konjac"
+    },
+    {
+      "item": "earth_core:soybean"
+    },
+    {
+      "item": "earth_core:pea"
+    },
+    {
+      "item": "earth_core:chickpea"
+    },
+    {
+      "item": "earth_core:lentil"
+    },
+    {
+      "item": "earth_core:peanut"
+    },
+    {
+      "item": "earth_core:mung_bean"
+    },
+    {
+      "item": "earth_core:adzuki_bean"
+    },
+    {
+      "item": "earth_core:broad_bean"
+    },
+    {
+      "item": "earth_core:lupin"
+    },
+    {
+      "item": "earth_core:black_bean"
+    },
+    {
+      "item": "earth_core:cabbage"
+    },
+    {
+      "item": "earth_core:spinach"
+    },
+    {
+      "item": "earth_core:lettuce"
+    },
+    {
+      "item": "earth_core:tomato"
+    },
+    {
+      "item": "earth_core:cucumber"
+    },
+    {
+      "item": "earth_core:pumpkin"
+    },
+    {
+      "item": "earth_core:eggplant"
+    },
+    {
+      "item": "earth_core:chili"
+    },
+    {
+      "item": "earth_core:bell_pepper"
+    },
+    {
+      "item": "earth_core:mushroom"
+    },
+    {
+      "item": "earth_core:broccoli"
+    },
+    {
+      "item": "earth_core:cauliflower"
+    },
+    {
+      "item": "earth_core:celery"
+    },
+    {
+      "item": "earth_core:asparagus"
+    },
+    {
+      "item": "earth_core:leek"
+    },
+    {
+      "item": "earth_core:okra"
+    },
+    {
+      "item": "earth_core:zucchini"
+    },
+    {
+      "item": "earth_core:winter_melon"
+    },
+    {
+      "item": "earth_core:luffa"
+    },
+    {
+      "item": "earth_core:bitter_melon"
+    },
+    {
+      "item": "earth_core:celtuce"
+    },
+    {
+      "item": "earth_core:chrysanthemum_greens"
+    },
+    {
+      "item": "earth_core:amaranth"
+    },
+    {
+      "item": "earth_core:water_spinach"
+    },
+    {
+      "item": "earth_core:bamboo_shoot"
+    },
+    {
+      "item": "earth_core:sweet_corn"
+    },
+    {
+      "item": "earth_core:apple"
+    },
+    {
+      "item": "earth_core:pear"
+    },
+    {
+      "item": "earth_core:peach"
+    },
+    {
+      "item": "earth_core:grape"
+    },
+    {
+      "item": "earth_core:citrus"
+    },
+    {
+      "item": "earth_core:lemon"
+    },
+    {
+      "item": "earth_core:pomelo"
+    },
+    {
+      "item": "earth_core:banana"
+    },
+    {
+      "item": "earth_core:mango"
+    },
+    {
+      "item": "earth_core:coconut"
+    },
+    {
+      "item": "earth_core:olive"
+    },
+    {
+      "item": "earth_core:date"
+    },
+    {
+      "item": "earth_core:fig"
+    },
+    {
+      "item": "earth_core:berry"
+    },
+    {
+      "item": "earth_core:strawberry"
+    },
+    {
+      "item": "earth_core:blueberry"
+    },
+    {
+      "item": "earth_core:raspberry"
+    },
+    {
+      "item": "earth_core:blackcurrant"
+    },
+    {
+      "item": "earth_core:pomegranate"
+    },
+    {
+      "item": "earth_core:persimmon"
+    },
+    {
+      "item": "earth_core:kiwi"
+    },
+    {
+      "item": "earth_core:lychee"
+    },
+    {
+      "item": "earth_core:longan"
+    },
+    {
+      "item": "earth_core:pineapple"
+    },
+    {
+      "item": "earth_core:papaya"
+    },
+    {
+      "item": "earth_core:avocado"
+    },
+    {
+      "item": "earth_core:hawthorn"
+    },
+    {
+      "item": "earth_core:sea_buckthorn"
+    },
+    {
+      "item": "earth_core:mulberry"
+    },
+    {
+      "item": "earth_core:waxberry"
+    },
+    {
+      "item": "earth_core:raw_beef"
+    },
+    {
+      "item": "earth_core:cooked_beef"
+    },
+    {
+      "item": "earth_core:raw_pork"
+    },
+    {
+      "item": "earth_core:cooked_pork"
+    },
+    {
+      "item": "earth_core:raw_mutton"
+    },
+    {
+      "item": "earth_core:cooked_mutton"
+    },
+    {
+      "item": "earth_core:raw_chicken"
+    },
+    {
+      "item": "earth_core:cooked_chicken"
+    },
+    {
+      "item": "earth_core:raw_fish"
+    },
+    {
+      "item": "earth_core:cooked_fish"
+    },
+    {
+      "item": "earth_core:raw_rabbit"
+    },
+    {
+      "item": "earth_core:cooked_rabbit"
+    },
+    {
+      "item": "earth_core:egg"
+    },
+    {
+      "item": "earth_core:duck_egg"
+    },
+    {
+      "item": "earth_core:goose_egg"
+    },
+    {
+      "item": "earth_core:milk"
+    },
+    {
+      "item": "earth_core:goat_milk"
+    },
+    {
+      "item": "earth_core:shellfish"
+    },
+    {
+      "item": "earth_core:shrimp"
+    },
+    {
+      "item": "earth_core:crab"
+    },
+    {
+      "item": "earth_core:kelp"
+    },
+    {
+      "item": "earth_core:nori"
+    },
+    {
+      "item": "earth_core:salt"
+    },
+    {
+      "item": "earth_core:rock_salt"
+    },
+    {
+      "item": "earth_core:sea_salt"
+    },
+    {
+      "item": "earth_core:flour"
+    },
+    {
+      "item": "earth_core:honey"
+    },
+    {
+      "item": "earth_core:spice"
+    },
+    {
+      "item": "earth_core:sichuan_pepper"
+    },
+    {
+      "item": "earth_core:pepper"
+    },
+    {
+      "item": "earth_core:cinnamon"
+    },
+    {
+      "item": "earth_core:clove"
+    },
+    {
+      "item": "earth_core:nutmeg"
+    },
+    {
+      "item": "earth_core:turmeric"
+    },
+    {
+      "item": "earth_core:mustard"
+    },
+    {
+      "item": "earth_core:lard"
+    },
+    {
+      "item": "earth_core:campfire"
+    },
+    {
+      "block": "earth_core:campfire"
+    },
+    {
+      "item": "earth_core:stove"
+    },
+    {
+      "block": "earth_core:stove"
+    },
+    {
+      "item": "earth_core:oven"
+    },
+    {
+      "block": "earth_core:oven"
+    },
+    {
+      "item": "earth_core:steamer"
+    },
+    {
+      "block": "earth_core:steamer"
+    },
+    {
+      "item": "earth_core:steamer_basket"
+    },
+    {
+      "block": "earth_core:steamer_basket"
+    },
+    {
+      "item": "earth_core:mill"
+    },
+    {
+      "block": "earth_core:mill"
+    },
+    {
+      "item": "earth_core:stone_mill"
+    },
+    {
+      "block": "earth_core:stone_mill"
+    },
+    {
+      "item": "earth_core:hoe"
+    },
+    {
+      "item": "earth_core:sickle"
+    },
+    {
+      "item": "earth_core:flail"
+    },
+    {
+      "item": "earth_core:haystack"
+    },
+    {
+      "item": "earth_core:water_bottle"
+    },
+    {
+      "item": "earth_core:mineral_water"
+    },
+    {
+      "item": "earth_core:coconut_water"
+    },
+    {
+      "item": "earth_core:tobacco_leaf"
+    },
+    {
+      "item": "earth_core:betel_nut"
+    },
+    {
+      "item": "earth_core:betel_leaf"
+    },
+    {
+      "item": "earth_core:coca_leaf"
+    },
+    {
+      "item": "earth_core:ginseng"
+    },
+    {
+      "item": "earth_core:codonopsis"
+    },
+    {
+      "item": "earth_core:astragalus"
+    },
+    {
+      "item": "earth_core:atractylodes"
+    },
+    {
+      "item": "earth_core:atractylodes_lancea"
+    },
+    {
+      "item": "earth_core:licorice"
+    },
+    {
+      "item": "earth_core:angelica"
+    },
+    {
+      "item": "earth_core:ligusticum"
+    },
+    {
+      "item": "earth_core:white_peony"
+    },
+    {
+      "item": "earth_core:red_peony"
+    },
+    {
+      "item": "earth_core:rehmannia"
+    },
+    {
+      "item": "earth_core:polygonum_multiflorum"
+    },
+    {
+      "item": "earth_core:rhubarb"
+    },
+    {
+      "item": "earth_core:coptis"
+    },
+    {
+      "item": "earth_core:scutellaria"
+    },
+    {
+      "item": "earth_core:phellodendron"
+    },
+    {
+      "item": "earth_core:isatis_root"
+    },
+    {
+      "item": "earth_core:kudzu_root"
+    },
+    {
+      "item": "earth_core:bupleurum"
+    },
+    {
+      "item": "earth_core:saposhnikovia"
+    },
+    {
+      "item": "earth_core:notopterygium"
+    },
+    {
+      "item": "earth_core:angelica_pubescens"
+    },
+    {
+      "item": "earth_core:platycodon"
+    },
+    {
+      "item": "earth_core:salvia_miltiorrhiza"
+    },
+    {
+      "item": "earth_core:panax_notoginseng"
+    },
+    {
+      "item": "earth_core:dioscorea"
+    },
+    {
+      "item": "earth_core:gastrodia"
+    },
+    {
+      "item": "earth_core:pinellia"
+    },
+    {
+      "item": "earth_core:arisaema"
+    },
+    {
+      "item": "earth_core:aconite"
+    },
+    {
+      "item": "earth_core:aconitum"
+    },
+    {
+      "item": "earth_core:emodin"
+    },
+    {
+      "item": "earth_core:ephedra"
+    },
+    {
+      "item": "earth_core:cinnamon_twig"
+    },
+    {
+      "item": "earth_core:perilla"
+    },
+    {
+      "item": "earth_core:mint"
+    },
+    {
+      "item": "earth_core:schizonepeta"
+    },
+    {
+      "item": "earth_core:mosla"
+    },
+    {
+      "item": "earth_core:honeysuckle"
+    },
+    {
+      "item": "earth_core:forsythia"
+    },
+    {
+      "item": "earth_core:dandelion"
+    },
+    {
+      "item": "earth_core:houttuynia"
+    },
+    {
+      "item": "earth_core:purslane"
+    },
+    {
+      "item": "earth_core:reed_root"
+    },
+    {
+      "item": "earth_core:imperata"
+    },
+    {
+      "item": "earth_core:leonurus"
+    },
+    {
+      "item": "earth_core:agrimony"
+    },
+    {
+      "item": "earth_core:mugwort"
+    },
+    {
+      "item": "earth_core:artemisia_annua"
+    },
+    {
+      "item": "earth_core:artemisia_capillaris"
+    },
+    {
+      "item": "earth_core:plantago"
+    },
+    {
+      "item": "earth_core:lysimachia"
+    },
+    {
+      "item": "earth_core:sedum"
+    },
+    {
+      "item": "earth_core:lophatherum"
+    },
+    {
+      "item": "earth_core:lotus_leaf"
+    },
+    {
+      "item": "earth_core:mulberry_leaf"
+    },
+    {
+      "item": "earth_core:loquat_leaf"
+    },
+    {
+      "item": "earth_core:biota_leaf"
+    },
+    {
+      "item": "earth_core:eucommia_leaf"
+    },
+    {
+      "item": "earth_core:chrysanthemum"
+    },
+    {
+      "item": "earth_core:wild_chrysanthemum"
+    },
+    {
+      "item": "earth_core:safflower"
+    },
+    {
+      "item": "earth_core:sophora_flower"
+    },
+    {
+      "item": "earth_core:magnolia_flower"
+    },
+    {
+      "item": "earth_core:rose"
+    },
+    {
+      "item": "earth_core:goji"
+    },
+    {
+      "item": "earth_core:schisandra"
+    },
+    {
+      "item": "earth_core:hawthorn_fruit"
+    },
+    {
+      "item": "earth_core:dried_tangerine_peel"
+    },
+    {
+      "item": "earth_core:green_tangerine_peel"
+    },
+    {
+      "item": "earth_core:bitter_orange"
+    },
+    {
+      "item": "earth_core:finger_citron"
+    },
+    {
+      "item": "earth_core:amomum"
+    },
+    {
+      "item": "earth_core:cardamom"
+    },
+    {
+      "item": "earth_core:tsaoko"
+    },
+    {
+      "item": "earth_core:evodia"
+    },
+    {
+      "item": "earth_core:cornus"
+    },
+    {
+      "item": "earth_core:rosa_laevigata"
+    },
+    {
+      "item": "earth_core:smoked_plum"
+    },
+    {
+      "item": "earth_core:papaya_fruit"
+    },
+    {
+      "item": "earth_core:jujube_seed"
+    },
+    {
+      "item": "earth_core:biota_seed"
+    },
+    {
+      "item": "earth_core:peach_seed"
+    },
+    {
+      "item": "earth_core:apricot_seed"
+    },
+    {
+      "item": "earth_core:cassia_seed"
+    },
+    {
+      "item": "earth_core:radish_seed"
+    },
+    {
+      "item": "earth_core:mustard_seed"
+    },
+    {
+      "item": "earth_core:pepperweed_seed"
+    },
+    {
+      "item": "earth_core:foxnut"
+    },
+    {
+      "item": "earth_core:lotus_seed"
+    },
+    {
+      "item": "earth_core:coix_seed"
+    },
+    {
+      "item": "earth_core:euryale"
+    },
+    {
+      "item": "earth_core:cinnamon_bark"
+    },
+    {
+      "item": "earth_core:eucommia_bark"
+    },
+    {
+      "item": "earth_core:magnolia_bark"
+    },
+    {
+      "item": "earth_core:moutan_bark"
+    },
+    {
+      "item": "earth_core:lycium_bark"
+    },
+    {
+      "item": "earth_core:mulberry_bark"
+    },
+    {
+      "item": "earth_core:melia_bark"
+    },
+    {
+      "item": "earth_core:agarwood"
+    },
+    {
+      "item": "earth_core:sandalwood"
+    },
+    {
+      "item": "earth_core:sappanwood"
+    },
+    {
+      "item": "earth_core:rosewood"
+    },
+    {
+      "item": "earth_core:frankincense"
+    },
+    {
+      "item": "earth_core:myrrh"
+    },
+    {
+      "item": "earth_core:pine_resin"
+    },
+    {
+      "item": "earth_core:dragons_blood"
+    },
+    {
+      "item": "earth_core:benzoin"
+    },
+    {
+      "item": "earth_core:borneol"
+    },
+    {
+      "item": "earth_core:camphor"
+    },
+    {
+      "item": "earth_core:beeswax"
+    },
+    {
+      "item": "earth_core:honeycomb"
+    },
+    {
+      "item": "earth_core:cicada_shell"
+    },
+    {
+      "item": "earth_core:snake_slough"
+    },
+    {
+      "item": "earth_core:turtle_shell"
+    },
+    {
+      "item": "earth_core:tortoise_shell"
+    },
+    {
+      "item": "earth_core:oyster_shell"
+    },
+    {
+      "item": "earth_core:pearl_shell"
+    },
+    {
+      "item": "earth_core:abalone_shell"
+    },
+    {
+      "item": "earth_core:cuttlebone"
+    },
+    {
+      "item": "earth_core:chicken_gizzard"
+    },
+    {
+      "item": "earth_core:earthworm_dried"
+    },
+    {
+      "item": "earth_core:scorpion_dried"
+    },
+    {
+      "item": "earth_core:centipede_dried"
+    },
+    {
+      "item": "earth_core:silkworm_dried"
+    },
+    {
+      "item": "earth_core:mantis_egg"
+    },
+    {
+      "item": "earth_core:gypsum"
+    },
+    {
+      "item": "earth_core:talc"
+    },
+    {
+      "item": "earth_core:fossil_bone"
+    },
+    {
+      "item": "earth_core:magnetite_ore"
+    },
+    {
+      "block": "earth_core:magnetite_ore"
+    },
+    {
+      "item": "earth_core:hematite_ore"
+    },
+    {
+      "item": "earth_core:mirabilite"
+    },
+    {
+      "item": "earth_core:cinnabar_ore"
+    },
+    {
+      "item": "earth_core:realgar_ore"
+    },
+    {
+      "item": "earth_core:alum"
+    },
+    {
+      "item": "earth_core:borax_ore"
+    }
+  ],
+  "literature": [
+    "commonsense"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [],
+    "ticks": 0
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.agr.agriculture_basics",
+  "desc_key": "lore.earth_core.agr.agriculture_basics.desc",
+  "icon": "earth_core:wheat"
+}

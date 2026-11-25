@@ -10,8 +10,8 @@ import sys
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-CATALOG = ROOT / "neoforge-26.2" / "src" / "main" / "resources" / "data" / "earth_on_minecraft" / "materials"
-SCHEMA_ID = "earth_on_minecraft:materials.schema.json"
+CATALOG = ROOT / "neoforge-26.1.2" / "src" / "main" / "resources" / "data" / "earth_core" / "materials"
+SCHEMA_ID = "earth_core:materials.schema.json"
 ALLOWED_KINDS = {"element", "compound", "mineral", "rock", "deposit", "mixture", "alloy", "polymer", "manufactured", "soil", "gas"}
 ALLOWED_BASES = {"ideal_formula", "end_member_range", "mass_fraction", "game_simplified", "mixed"}
 ALLOWED_PHASES = {"solid", "liquid", "gas", "solution", "plasma", "mixed"}
@@ -74,7 +74,7 @@ def validate_record(path: pathlib.Path, seen: set[str]) -> None:
     if missing:
         fail(f"material record missing fields {sorted(missing)}: {path.name}")
     uid = data["id"]
-    if not isinstance(uid, str) or not re.fullmatch(r"earth_on_minecraft:[a-z0-9_/]+", uid):
+    if not isinstance(uid, str) or not re.fullmatch(r"earth_core:[a-z0-9_/]+", uid):
         fail(f"bad material id in {path.name}: {uid!r}")
     if uid in seen:
         fail(f"duplicate material id {uid} in {path.name}")
@@ -147,14 +147,14 @@ def main() -> None:
     for path in records:
         validate_record(path, seen)
     required_fixtures = {
-        "earth_on_minecraft:magnetite": "Fe3O4",
-        "earth_on_minecraft:chalcopyrite": "CuFeS2",
-        "earth_on_minecraft:calcite": "CaCO3",
-        "earth_on_minecraft:quartz": "SiO2",
-        "earth_on_minecraft:orthoclase": "KAlSi3O8",
-        "earth_on_minecraft:muscovite": "KAl2(AlSi3O10)(OH)2",
-        "earth_on_minecraft:hematite": "Fe2O3",
-        "earth_on_minecraft:spirit_stone_matrix":
+        "earth_core:magnetite": "Fe3O4",
+        "earth_core:chalcopyrite": "CuFeS2",
+        "earth_core:calcite": "CaCO3",
+        "earth_core:quartz": "SiO2",
+        "earth_core:orthoclase": "KAlSi3O8",
+        "earth_core:muscovite": "KAl2(AlSi3O10)(OH)2",
+        "earth_core:hematite": "Fe2O3",
+        "earth_core:spirit_stone_matrix":
             "SiO2 + KAlSi3O8 + KAl2(AlSi3O10)(OH)2 + Fe2O3",
     }
     found = {json.loads(path.read_text(encoding="utf-8-sig"))["id"]: json.loads(path.read_text(encoding="utf-8-sig"))["formula"] for path in records}
@@ -163,7 +163,7 @@ def main() -> None:
             fail(f"missing required material fixture {uid} -> {formula}; got {found.get(uid)!r}")
     spirit = next(json.loads(path.read_text(encoding="utf-8-sig")) for path in records
                   if json.loads(path.read_text(encoding="utf-8-sig"))["id"]
-                  == "earth_on_minecraft:spirit_stone_matrix")
+                  == "earth_core:spirit_stone_matrix")
     fractions = {entry["species"]: entry["fraction"] for entry in spirit["constituents"]}
     expected = {"SiO2": 0.80, "KAlSi3O8": 0.15, "KAl2(AlSi3O10)(OH)2": 0.04, "Fe2O3": 0.01}
     if fractions != expected:

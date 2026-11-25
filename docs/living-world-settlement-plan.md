@@ -107,12 +107,12 @@ Earth on Minecraft 已经验证了地质、机器、电力、物流、手册和 
 建议建立以下数据源：
 
 ```text
-data/earth_on_minecraft/settlements/profiles/*.json
-data/earth_on_minecraft/settlements/resident_roles/*.json
-data/earth_on_minecraft/settlements/name_pools/*.json
-data/earth_on_minecraft/settlements/trade_pools/*.json
-data/earth_on_minecraft/settlements/building_sets/*.json
-data/earth_on_minecraft/settlements/raid_profiles/*.json
+data/earth_core/settlements/profiles/*.json
+data/earth_core/settlements/resident_roles/*.json
+data/earth_core/settlements/name_pools/*.json
+data/earth_core/settlements/trade_pools/*.json
+data/earth_core/settlements/building_sets/*.json
+data/earth_core/settlements/raid_profiles/*.json
 ```
 
 聚落档案应持久化保存：

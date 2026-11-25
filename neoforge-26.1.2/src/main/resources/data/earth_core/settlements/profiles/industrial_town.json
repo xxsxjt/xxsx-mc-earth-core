@@ -1,0 +1,23 @@
+{
+  "tier": 3,
+  "display_name_key": "settlement.earth_core.profile.industrial_town",
+  "scale_key": "settlement.earth_core.scale.town",
+  "technology_key": "settlement.earth_core.technology.industrial",
+  "name_keys": [
+    "settlement.earth_core.name.cokevale",
+    "settlement.earth_core.name.shaftborough"
+  ],
+  "industry_keys": [
+    "settlement.earth_core.industry.metallurgy",
+    "settlement.earth_core.industry.coking"
+  ],
+  "demand_keys": [
+    "settlement.earth_core.material.coke",
+    "settlement.earth_core.material.flux"
+  ],
+  "supply_keys": [
+    "settlement.earth_core.material.steel",
+    "settlement.earth_core.material.machine_parts"
+  ],
+  "weight": 2
+}

@@ -1,6 +1,6 @@
 # Earth on Minecraft Integration API v1
 
-Package: `com.xxsx.earthonminecraft.api.v1`
+Package: `com.xxsx.earth.core.api.v1`
 
 Entry point: `EarthOnMinecraftApi`
 

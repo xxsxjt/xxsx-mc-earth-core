@@ -1,0 +1,23 @@
+{
+  "tier": 4,
+  "display_name_key": "settlement.earth_core.profile.mechanized_city",
+  "scale_key": "settlement.earth_core.scale.city",
+  "technology_key": "settlement.earth_core.technology.grid_city",
+  "name_keys": [
+    "settlement.earth_core.name.gridpoint",
+    "settlement.earth_core.name.volt_harbor"
+  ],
+  "industry_keys": [
+    "settlement.earth_core.industry.power_grid",
+    "settlement.earth_core.industry.chemical_engineering"
+  ],
+  "demand_keys": [
+    "settlement.earth_core.material.reagents",
+    "settlement.earth_core.material.crushed_ore"
+  ],
+  "supply_keys": [
+    "settlement.earth_core.material.catalysts",
+    "settlement.earth_core.material.cable"
+  ],
+  "weight": 1
+}

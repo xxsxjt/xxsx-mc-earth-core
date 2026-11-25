@@ -5,7 +5,7 @@
 ## Artifact
 
 - Mod version: `0.1.9`
-- Jar: `earth-on-minecraft-neoforge-26.2-0.1.9.jar`
+- Jar: `earth-core-neoforge-26.1.2-0.1.9.jar`
 - SHA256: `676C1C73C010A7B6AA5D1273F065101DB09D2F21DE91FAB8ED690C44884E27B7`
 
 ## Living World foundation

@@ -1,0 +1,113 @@
+{
+  "replace": false,
+  "values": {
+    "minecraft:armorer": [
+      {
+        "node": "earth_core:mat/pyrometallurgy"
+      },
+      {
+        "node": "earth_core:mat/ironmaking_steelmaking"
+      },
+      {
+        "node": "earth_core:mat/armorsmithing"
+      }
+    ],
+    "minecraft:butcher": [
+      {
+        "node": "earth_core:agr/husbandry"
+      },
+      {
+        "node": "earth_core:agr/cooking"
+      },
+      {
+        "node": "earth_core:agr/food_processing"
+      },
+      {
+        "node": "earth_core:med/veterinary"
+      }
+    ],
+    "minecraft:cartographer": [
+      {
+        "node": "earth_core:geo/mineral_identification"
+      },
+      {
+        "node": "earth_core:geo/surveying"
+      }
+    ],
+    "minecraft:cleric": [
+      {
+        "node": "earth_core:che/inorganic_chemistry"
+      },
+      {
+        "node": "earth_core:med/first_aid"
+      },
+      {
+        "node": "earth_core:med/materia_medica"
+      },
+      {
+        "node": "earth_core:med/herbal_processing"
+      },
+      {
+        "node": "earth_core:med/sterile_technique"
+      },
+      {
+        "node": "earth_core:med/nursing"
+      },
+      {
+        "node": "earth_core:med/public_health"
+      }
+    ],
+    "minecraft:farmer": [
+      {
+        "node": "earth_core:mat/woodworking"
+      }
+    ],
+    "minecraft:fisherman": [
+      {
+        "node": "earth_core:agr/aquaculture"
+      }
+    ],
+    "minecraft:leatherworker": [
+      {
+        "node": "earth_core:mat/textiles"
+      }
+    ],
+    "minecraft:librarian": [
+      {
+        "node": "earth_core:eng/timekeeping"
+      },
+      {
+        "node": "earth_core:mat/papermaking"
+      }
+    ],
+    "minecraft:mason": [
+      {
+        "node": "earth_core:mat/ceramics"
+      },
+      {
+        "node": "earth_core:mat/binders"
+      }
+    ],
+    "minecraft:shepherd": [
+      {
+        "node": "earth_core:agr/husbandry"
+      },
+      {
+        "node": "earth_core:mat/textiles"
+      }
+    ],
+    "minecraft:toolsmith": [
+      {
+        "node": "earth_core:mat/smithing"
+      },
+      {
+        "node": "earth_core:mat/hardware"
+      }
+    ],
+    "minecraft:weaponsmith": [
+      {
+        "node": "earth_core:mat/weaponsmithing"
+      }
+    ]
+  }
+}

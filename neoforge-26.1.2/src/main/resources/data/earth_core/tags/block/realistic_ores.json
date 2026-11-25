@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:poor_magnetite_ore",
+    "earth_core:magnetite_ore",
+    "earth_core:rich_magnetite_ore",
+    "earth_core:chalcopyrite_ore",
+    "earth_core:auriferous_quartz_vein",
+    "earth_core:bituminous_coal_seam",
+    "earth_core:anthracite_coal_seam",
+    "earth_core:kimberlite",
+    "earth_core:diamondiferous_kimberlite",
+    "earth_core:lapis_lazuli_ore",
+    "earth_core:emerald_beryl_vein",
+    "earth_core:redstone_mineral_ore",
+    "earth_core:cinnabar_vein",
+    "earth_core:bauxite_laterite_deposit",
+    "earth_core:phosphorite_bed",
+    "earth_core:evaporite_salt_bed",
+    "earth_core:cassiterite_placer_deposit",
+    "earth_core:rare_earth_carbonatite"
+  ]
+}

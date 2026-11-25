@@ -8,7 +8,7 @@ This build is only intended for `Minecraft 26.2` with `NeoForge 26.2.0.7-beta`.
 - MC: `26.2`
 - Loader: `NeoForge 26.2.0.7-beta`
 - Mod version: `0.1.0`
-- Jar: `earth-on-minecraft-neoforge-26.2-0.1.0.jar`
+- Jar: `earth-core-neoforge-26.1.2-0.1.0.jar`
 
 ## Included In This Beta
 

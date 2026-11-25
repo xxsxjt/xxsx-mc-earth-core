@@ -1,0 +1,56 @@
+{
+  "discipline": "earth_lore:geo",
+  "tier": 5,
+  "gate": "cap",
+  "requires": [
+    {
+      "all": "earth_core:geo/geophysics"
+    },
+    {
+      "all": "earth_core:geo/jade_carving"
+    },
+    {
+      "all": "earth_core:geo/hydrogeology"
+    },
+    {
+      "all": "earth_core:geo/surveying"
+    },
+    {
+      "all": "earth_core:geo/meteorology"
+    },
+    {
+      "all": "earth_core:geo/geochemistry"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "capstone": "earth_lore:geo"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:sample_bag",
+        "count": 16
+      },
+      {
+        "ingredient": "earth_core:gem_cut",
+        "count": 1
+      },
+      {
+        "ingredient": "minecraft:paper",
+        "count": 8
+      }
+    ],
+    "ticks": 9600
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.geo.earth_system_science",
+  "desc_key": "lore.earth_core.geo.earth_system_science.desc",
+  "icon": "earth_core:sample_bag"
+}

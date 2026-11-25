@@ -10,7 +10,7 @@ from PIL import Image
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-TEXTURES = ROOT / "neoforge-26.2" / "src" / "main" / "resources" / "assets" / "earth_on_minecraft" / "textures" / "item"
+TEXTURES = ROOT / "neoforge-26.1.2" / "src" / "main" / "resources" / "assets" / "earth_core" / "textures" / "item"
 TARGET_SIZE = 128
 
 

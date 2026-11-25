@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:poor_magnetite_ore",
+    "earth_core:magnetite_ore",
+    "earth_core:rich_magnetite_ore"
+  ]
+}

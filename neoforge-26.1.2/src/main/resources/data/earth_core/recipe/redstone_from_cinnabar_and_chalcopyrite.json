@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    "earth_core:cinnabar_dust",
+    "earth_core:chalcopyrite_dust"
+  ],
+  "result": {
+    "id": "minecraft:redstone",
+    "count": 4
+  }
+}

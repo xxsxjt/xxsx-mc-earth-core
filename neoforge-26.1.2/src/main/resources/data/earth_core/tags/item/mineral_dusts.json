@@ -1,0 +1,31 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:magnetite_dust",
+    "earth_core:chalcopyrite_dust",
+    "earth_core:quartz_dust",
+    "earth_core:feldspar_dust",
+    "earth_core:mica_dust",
+    "earth_core:tailings_dust",
+    "earth_core:coal_dust",
+    "earth_core:gold_dust",
+    "earth_core:diamond_grit",
+    "earth_core:cinnabar_dust",
+    "earth_core:silica_dust",
+    "earth_core:calcite_dust",
+    "earth_core:lime_dust",
+    "earth_core:hematite_dust",
+    "earth_core:pyrite_dust",
+    "earth_core:sulfur_dust",
+    "earth_core:mafic_silicate_dust",
+    "earth_core:aluminosilicate_dust",
+    "earth_core:slag",
+    "earth_core:salt_dust",
+    "earth_core:phosphate_rock_dust",
+    "earth_core:soda_ash",
+    "earth_core:gypsum_dust",
+    "earth_core:cement_powder",
+    "earth_core:clay_dust",
+    "earth_core:bauxite_dust"
+  ]
+}

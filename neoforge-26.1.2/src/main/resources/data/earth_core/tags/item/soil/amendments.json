@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:humus_sample",
+    "earth_core:soil_mineral_mix",
+    "earth_core:fertilizer_blend",
+    "earth_core:ammonium_nitrate",
+    "earth_core:ammonium_sulfate",
+    "earth_core:single_superphosphate",
+    "earth_core:potash",
+    "earth_core:urea"
+  ]
+}

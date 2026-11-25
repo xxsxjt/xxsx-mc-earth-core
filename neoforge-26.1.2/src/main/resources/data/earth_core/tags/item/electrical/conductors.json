@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:copper_ingot",
+    "earth_core:aluminum_ingot",
+    "earth_core:copper_wire",
+    "earth_core:copper_busbar",
+    "earth_core:copper_clad_laminate"
+  ]
+}

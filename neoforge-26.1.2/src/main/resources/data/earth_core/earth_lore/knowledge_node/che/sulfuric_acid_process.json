@@ -1,0 +1,43 @@
+{
+  "discipline": "earth_lore:che",
+  "tier": 3,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:che/reaction_engineering"
+    },
+    {
+      "all": "earth_core:mat/pyrometallurgy"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:absorption_tower"
+    },
+    {
+      "block": "earth_core:absorption_tower"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:chalcopyrite_ore",
+        "count": 4
+      },
+      {
+        "ingredient": "earth_core:glass_bottle",
+        "count": 4
+      }
+    ],
+    "ticks": 2400
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.che.sulfuric_acid_process",
+  "desc_key": "lore.earth_core.che.sulfuric_acid_process.desc",
+  "icon": "earth_core:glass_bottle"
+}

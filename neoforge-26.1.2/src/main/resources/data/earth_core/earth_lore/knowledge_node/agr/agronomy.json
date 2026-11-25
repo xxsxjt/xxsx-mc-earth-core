@@ -1,0 +1,65 @@
+{
+  "discipline": "earth_lore:agr",
+  "tier": 6,
+  "gate": "cap",
+  "requires": [
+    {
+      "all": "earth_core:agr/irrigation"
+    },
+    {
+      "all": "earth_core:agr/apiculture_sericulture"
+    },
+    {
+      "all": "earth_core:agr/aquaculture"
+    },
+    {
+      "all": "earth_core:agr/food_processing"
+    },
+    {
+      "all": "earth_core:agr/sugar_and_oil"
+    },
+    {
+      "all": "earth_core:agr/tea_and_coffee"
+    },
+    {
+      "all": "earth_core:agr/mixology"
+    },
+    {
+      "all": "earth_core:agr/tobacco_curing"
+    },
+    {
+      "all": "earth_core:agr/seed_selection"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "capstone": "earth_lore:agr"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:bread",
+        "count": 8
+      },
+      {
+        "ingredient": "earth_core:wine",
+        "count": 2
+      },
+      {
+        "ingredient": "earth_core:cheese",
+        "count": 2
+      }
+    ],
+    "ticks": 9600
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.agr.agronomy",
+  "desc_key": "lore.earth_core.agr.agronomy.desc",
+  "icon": "earth_core:bread"
+}

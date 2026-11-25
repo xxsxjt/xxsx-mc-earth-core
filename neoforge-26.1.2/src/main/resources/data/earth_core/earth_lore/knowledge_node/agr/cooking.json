@@ -1,0 +1,159 @@
+{
+  "discipline": "earth_lore:agr",
+  "tier": 1,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:agr/agriculture_basics"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:bread_oven_controller"
+    },
+    {
+      "block": "earth_core:bread_oven_controller"
+    },
+    {
+      "item": "earth_core:bread"
+    },
+    {
+      "item": "earth_core:rye_bread"
+    },
+    {
+      "item": "earth_core:baguette"
+    },
+    {
+      "item": "earth_core:cooked_rice"
+    },
+    {
+      "item": "earth_core:porridge"
+    },
+    {
+      "item": "earth_core:noodles"
+    },
+    {
+      "item": "earth_core:ramen"
+    },
+    {
+      "item": "earth_core:steamed_bun"
+    },
+    {
+      "item": "earth_core:baozi"
+    },
+    {
+      "item": "earth_core:dumpling"
+    },
+    {
+      "item": "earth_core:corn_tortilla"
+    },
+    {
+      "item": "earth_core:baked_potato"
+    },
+    {
+      "item": "earth_core:fries"
+    },
+    {
+      "item": "earth_core:potato_chips"
+    },
+    {
+      "item": "earth_core:stew"
+    },
+    {
+      "item": "earth_core:soup"
+    },
+    {
+      "item": "earth_core:bone_broth"
+    },
+    {
+      "item": "earth_core:stir_fry"
+    },
+    {
+      "item": "earth_core:fried_egg"
+    },
+    {
+      "item": "earth_core:sandwich"
+    },
+    {
+      "item": "earth_core:pizza"
+    },
+    {
+      "item": "earth_core:burger"
+    },
+    {
+      "item": "earth_core:curry"
+    },
+    {
+      "item": "earth_core:sushi"
+    },
+    {
+      "item": "earth_core:kebab"
+    },
+    {
+      "item": "earth_core:pie"
+    },
+    {
+      "item": "earth_core:tofu"
+    },
+    {
+      "item": "earth_core:dried_tofu"
+    },
+    {
+      "item": "earth_core:tofu_pudding"
+    },
+    {
+      "item": "earth_core:soy_milk"
+    },
+    {
+      "item": "earth_core:rice_noodles"
+    },
+    {
+      "item": "earth_core:rice_cake"
+    },
+    {
+      "item": "earth_core:zongzi"
+    },
+    {
+      "item": "earth_core:mooncake"
+    },
+    {
+      "item": "earth_core:tangyuan"
+    },
+    {
+      "item": "earth_core:rice_huller"
+    },
+    {
+      "block": "earth_core:rice_huller"
+    },
+    {
+      "item": "earth_core:noodle_press"
+    },
+    {
+      "block": "earth_core:noodle_press"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "minecraft:butcher"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:flour",
+        "count": 4
+      },
+      {
+        "ingredient": "minecraft:egg",
+        "count": 2
+      }
+    ],
+    "ticks": 600
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.agr.cooking",
+  "desc_key": "lore.earth_core.agr.cooking.desc",
+  "icon": "earth_core:bread"
+}

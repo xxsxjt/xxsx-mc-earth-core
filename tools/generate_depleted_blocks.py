@@ -13,9 +13,9 @@ import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SPEC = pathlib.Path(r"D:\Codex\WORKSPACES\Projects\mc-agent\spec\eom")
-ASSETS = ROOT / "neoforge-26.2/src/main/resources/assets/earth_on_minecraft"
-DATA = ROOT / "neoforge-26.2/src/main/resources/data/earth_on_minecraft"
-JAVA = ROOT / "neoforge-26.2/src/main/java/com/xxsx/earthonminecraft"
+ASSETS = ROOT / "neoforge-26.1.2/src/main/resources/assets/earth_core"
+DATA = ROOT / "neoforge-26.1.2/src/main/resources/data/earth_core"
+JAVA = ROOT / "neoforge-26.1.2/src/main/java/com/xxsx/earth/core"
 
 # Depleted rock looks like the host rock, not like ore, so most share a few base palettes.
 PALETTE = {
@@ -63,7 +63,7 @@ def main() -> None:
 
     # 1. Java registration table.
     lines = [
-        "package com.xxsx.earthonminecraft;",
+        "package com.xxsx.earth.core;",
         "",
         "import net.minecraft.world.level.block.Block;",
         "import net.minecraft.world.level.block.SoundType;",
@@ -114,7 +114,7 @@ def main() -> None:
         "                            .sound(SoundType.STONE));",
         "            var item = EarthOnMinecraft.ITEMS.registerItem(entry.id(),",
         "                    props -> new GuidedBlockItem(block.get(), props,",
-        "                            \"tooltip.earth_on_minecraft.depleted_lode\"),",
+        "                            \"tooltip.earth_core.depleted_lode\"),",
         "                    props -> props);",
         "            BY_ID.put(entry.id(), block);",
         "            EarthOnMinecraft.addTabItem(item);",
@@ -142,16 +142,16 @@ def main() -> None:
     for name, lode, r, g, b in entries:
         # Blockstate: a single cube_all variant.
         (ASSETS / "blockstates" / f"{name}.json").write_text(json.dumps({
-            "variants": {"": {"model": f"earth_on_minecraft:block/{name}"}}
+            "variants": {"": {"model": f"earth_core:block/{name}"}}
         }, indent=2) + "\n", encoding="utf-8")
 
         (ASSETS / "models/block" / f"{name}.json").write_text(json.dumps({
             "parent": "minecraft:block/cube_all",
-            "textures": {"all": f"earth_on_minecraft:block/{name}"}
+            "textures": {"all": f"earth_core:block/{name}"}
         }, indent=2) + "\n", encoding="utf-8")
 
         (ASSETS / "items" / f"{name}.json").write_text(json.dumps({
-            "model": {"type": "minecraft:model", "model": f"earth_on_minecraft:block/{name}"}
+            "model": {"type": "minecraft:model", "model": f"earth_core:block/{name}"}
         }, indent=2) + "\n", encoding="utf-8")
 
         # Loot table: drops one of itself, like the ore block it replaces.
@@ -161,7 +161,7 @@ def main() -> None:
                 "rolls": 1,
                 "bonus_rolls": 0,
                 "entries": [{"type": "minecraft:item",
-                             "name": f"earth_on_minecraft:{name}"}],
+                             "name": f"earth_core:{name}"}],
                 "conditions": [{"condition": "minecraft:survives_explosion"}]
             }]
         }, indent=2) + "\n", encoding="utf-8")

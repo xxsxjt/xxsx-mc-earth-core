@@ -1,0 +1,64 @@
+{
+  "discipline": "earth_lore:mat",
+  "tier": 5,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:mat/heat_treatment"
+    },
+    {
+      "all": "earth_core:mat/electrometallurgy"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:stainless_steel"
+    },
+    {
+      "item": "earth_core:nickel"
+    },
+    {
+      "item": "earth_core:chromium"
+    },
+    {
+      "item": "earth_core:tungsten"
+    },
+    {
+      "item": "earth_core:cobalt"
+    },
+    {
+      "item": "earth_core:molybdenum"
+    },
+    {
+      "item": "earth_core:monel"
+    },
+    {
+      "item": "earth_core:inconel"
+    },
+    {
+      "item": "earth_core:platinum"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:steel",
+        "count": 8
+      },
+      {
+        "ingredient": "earth_core:chromite_ore",
+        "count": 2
+      }
+    ],
+    "ticks": 6000
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.mat.alloy_steels",
+  "desc_key": "lore.earth_core.mat.alloy_steels.desc",
+  "icon": "earth_core:stainless_steel"
+}

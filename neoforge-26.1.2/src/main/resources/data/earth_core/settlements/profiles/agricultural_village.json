@@ -1,0 +1,23 @@
+{
+  "tier": 1,
+  "display_name_key": "settlement.earth_core.profile.agricultural_village",
+  "scale_key": "settlement.earth_core.scale.village",
+  "technology_key": "settlement.earth_core.technology.agricultural",
+  "name_keys": [
+    "settlement.earth_core.name.riverbend",
+    "settlement.earth_core.name.greenfield"
+  ],
+  "industry_keys": [
+    "settlement.earth_core.industry.agriculture",
+    "settlement.earth_core.industry.irrigation"
+  ],
+  "demand_keys": [
+    "settlement.earth_core.material.tools",
+    "settlement.earth_core.material.fertilizer"
+  ],
+  "supply_keys": [
+    "settlement.earth_core.material.food",
+    "settlement.earth_core.material.fiber"
+  ],
+  "weight": 4
+}

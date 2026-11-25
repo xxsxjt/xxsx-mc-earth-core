@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "earth_core:gypsum_dust",
+    "minecraft:paper",
+    "minecraft:string"
+  ],
+  "result": {
+    "id": "earth_core:plaster",
+    "count": 2
+  }
+}

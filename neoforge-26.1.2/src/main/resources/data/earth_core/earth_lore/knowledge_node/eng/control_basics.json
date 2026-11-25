@@ -1,0 +1,53 @@
+{
+  "discipline": "earth_lore:eng",
+  "tier": 3,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:eng/electrical_basics"
+    },
+    {
+      "all": "earth_core:eng/logistics"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:industrial_sensor"
+    },
+    {
+      "item": "earth_core:plc_controller"
+    },
+    {
+      "item": "earth_core:actuator_module"
+    },
+    {
+      "item": "earth_core:redstone_io_gateway"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "minecraft:redstone",
+        "count": 16
+      },
+      {
+        "ingredient": "minecraft:comparator",
+        "count": 2
+      },
+      {
+        "ingredient": "earth_core:copper_power_cable",
+        "count": 2
+      }
+    ],
+    "ticks": 2400
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.eng.control_basics",
+  "desc_key": "lore.earth_core.eng.control_basics.desc",
+  "icon": "earth_core:book"
+}

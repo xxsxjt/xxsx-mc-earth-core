@@ -1,0 +1,63 @@
+{
+  "discipline": "earth_lore:agr",
+  "tier": 2,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:agr/cooking"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:sugar"
+    },
+    {
+      "item": "earth_core:brown_sugar"
+    },
+    {
+      "item": "earth_core:rock_sugar"
+    },
+    {
+      "item": "earth_core:syrup"
+    },
+    {
+      "item": "earth_core:cooking_oil"
+    },
+    {
+      "item": "earth_core:sesame_oil"
+    },
+    {
+      "item": "earth_core:starch"
+    },
+    {
+      "item": "earth_core:oil_press"
+    },
+    {
+      "block": "earth_core:oil_press"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "minecraft:farmer"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "minecraft:sugar_cane",
+        "count": 16
+      },
+      {
+        "ingredient": "earth_core:peanut",
+        "count": 8
+      }
+    ],
+    "ticks": 1200
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.agr.sugar_and_oil",
+  "desc_key": "lore.earth_core.agr.sugar_and_oil.desc",
+  "icon": "earth_core:sugar"
+}

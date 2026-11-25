@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:cement_powder",
+    "earth_core:asphalt",
+    "earth_core:firebrick",
+    "earth_core:mineral_wool",
+    "earth_core:stabilized_tailings",
+    "earth_core:steel_bloom",
+    "earth_core:aluminum_ingot"
+  ]
+}
