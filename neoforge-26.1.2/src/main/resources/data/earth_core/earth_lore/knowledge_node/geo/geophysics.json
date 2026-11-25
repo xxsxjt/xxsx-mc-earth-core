@@ -1,0 +1,44 @@
+{
+  "discipline": "earth_lore:geo",
+  "tier": 4,
+  "gate": "hard",
+  "requires": [
+    {
+      "all": "earth_core:geo/economic_geology"
+    },
+    {
+      "all": "earth_core:eng/electrical_basics"
+    }
+  ],
+  "item_requires": [
+    {
+      "made": "earth_core:copper_power_cable"
+    }
+  ],
+  "unlocks": [
+    {
+      "item": "earth_core:ore_scanner"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:sample_bag",
+        "count": 6
+      },
+      {
+        "ingredient": "earth_core:copper_power_cable",
+        "count": 4
+      }
+    ],
+    "ticks": 4800
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.geo.geophysics",
+  "desc_key": "lore.earth_core.geo.geophysics.desc",
+  "icon": "earth_core:ore_scanner"
+}

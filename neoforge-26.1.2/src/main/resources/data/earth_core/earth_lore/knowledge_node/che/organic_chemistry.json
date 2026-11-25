@@ -1,0 +1,70 @@
+{
+  "discipline": "earth_lore:che",
+  "tier": 2,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:che/inorganic_chemistry"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:phenol"
+    },
+    {
+      "item": "earth_core:benzene"
+    },
+    {
+      "item": "earth_core:toluene"
+    },
+    {
+      "item": "earth_core:methanol"
+    },
+    {
+      "item": "earth_core:ethanol"
+    },
+    {
+      "item": "earth_core:acetone"
+    },
+    {
+      "item": "earth_core:glycerol"
+    },
+    {
+      "item": "earth_core:citric_acid"
+    },
+    {
+      "item": "earth_core:lactic_acid"
+    },
+    {
+      "item": "earth_core:glucose"
+    },
+    {
+      "item": "earth_core:sucrose"
+    },
+    {
+      "item": "earth_core:msg"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:ethanol",
+        "count": 2
+      },
+      {
+        "ingredient": "earth_core:sugar",
+        "count": 4
+      }
+    ],
+    "ticks": 1200
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.che.organic_chemistry",
+  "desc_key": "lore.earth_core.che.organic_chemistry.desc",
+  "icon": "earth_core:toluene"
+}

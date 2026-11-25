@@ -1,0 +1,19 @@
+{
+  "wants": {
+    "id": "minecraft:coal",
+    "count": 6
+  },
+  "gives": {
+    "id": "earth_core:geology_hammer"
+  },
+  "max_uses": 8,
+  "reputation_discount": 0.05,
+  "xp": 4,
+  "merchant_predicate": {
+    "condition": "minecraft:entity_properties",
+    "entity": "this",
+    "predicate": {
+      "minecraft:nbt": "{NeoForgeData:{EarthOnMinecraftResidentRoleId:\"earth_core:geologist\"}}"
+    }
+  }
+}

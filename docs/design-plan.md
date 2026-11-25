@@ -179,24 +179,24 @@ Earth on Minecraft 只重做自然来源和处理链，不破坏 MC 现有物品
 建议目录：
 
 ```text
-data/earth_on_minecraft/earth/rocks/
-data/earth_on_minecraft/earth/minerals/
-data/earth_on_minecraft/earth/deposits/
-data/earth_on_minecraft/recipes/processing/
+data/earth_core/earth/rocks/
+data/earth_core/earth/minerals/
+data/earth_core/earth/deposits/
+data/earth_core/recipes/processing/
 ```
 
 岩石定义示例：
 
 ```json
 {
-  "id": "earth_on_minecraft:granite",
+  "id": "earth_core:granite",
   "type": "igneous_intrusive",
   "components": [
-    { "material": "earth_on_minecraft:quartz", "formula": "SiO2", "min": 0.20, "max": 0.40 },
-    { "material": "earth_on_minecraft:orthoclase", "formula": "KAlSi3O8", "min": 0.20, "max": 0.45 },
-    { "material": "earth_on_minecraft:albite", "formula": "NaAlSi3O8", "min": 0.10, "max": 0.35 },
-    { "material": "earth_on_minecraft:biotite", "formula": "K(Mg,Fe)3AlSi3O10(OH)2", "min": 0.02, "max": 0.15 },
-    { "material": "earth_on_minecraft:magnetite", "formula": "Fe3O4", "min": 0.00, "max": 0.03 }
+    { "material": "earth_core:quartz", "formula": "SiO2", "min": 0.20, "max": 0.40 },
+    { "material": "earth_core:orthoclase", "formula": "KAlSi3O8", "min": 0.20, "max": 0.45 },
+    { "material": "earth_core:albite", "formula": "NaAlSi3O8", "min": 0.10, "max": 0.35 },
+    { "material": "earth_core:biotite", "formula": "K(Mg,Fe)3AlSi3O10(OH)2", "min": 0.02, "max": 0.15 },
+    { "material": "earth_core:magnetite", "formula": "Fe3O4", "min": 0.00, "max": 0.03 }
   ],
   "processing": ["crushing", "milling", "sieving", "flotation", "magnetic_separation"]
 }
@@ -206,13 +206,13 @@ data/earth_on_minecraft/recipes/processing/
 
 ```json
 {
-  "deposit": "earth_on_minecraft:magnetite_lens",
+  "deposit": "earth_core:magnetite_lens",
   "dimension": "minecraft:overworld",
   "host_rocks": [
     "minecraft:deepslate",
-    "earth_on_minecraft:gabbro",
-    "earth_on_minecraft:basalt",
-    "earth_on_minecraft:gneiss"
+    "earth_core:gabbro",
+    "earth_core:basalt",
+    "earth_core:gneiss"
   ],
   "shape": "lens",
   "size": {
@@ -221,9 +221,9 @@ data/earth_on_minecraft/recipes/processing/
     "thickness": [4, 12]
   },
   "composition": [
-    { "block": "earth_on_minecraft:magnetite_ore", "weight": 60 },
-    { "block": "earth_on_minecraft:poor_magnetite_ore", "weight": 25 },
-    { "block": "earth_on_minecraft:titanomagnetite_ore", "weight": 5 },
+    { "block": "earth_core:magnetite_ore", "weight": 60 },
+    { "block": "earth_core:poor_magnetite_ore", "weight": 25 },
+    { "block": "earth_core:titanomagnetite_ore", "weight": 5 },
     { "block": "minecraft:deepslate", "weight": 10 }
   ],
   "rarity": 0.015,

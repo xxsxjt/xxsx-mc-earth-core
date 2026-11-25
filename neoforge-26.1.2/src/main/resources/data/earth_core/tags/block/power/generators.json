@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:combustion_generator",
+    "earth_core:steam_turbine_generator"
+  ]
+}

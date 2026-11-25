@@ -1,0 +1,51 @@
+{
+  "discipline": "earth_lore:geo",
+  "tier": 2,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:geo/field_survey"
+    }
+  ],
+  "item_requires": [
+    {
+      "cond": "sky"
+    }
+  ],
+  "unlocks": [
+    {
+      "item": "earth_core:thermometer"
+    },
+    {
+      "item": "earth_core:barometer"
+    },
+    {
+      "item": "earth_core:rain_gauge"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "earth_core:water_operator"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "minecraft:paper",
+        "count": 4
+      },
+      {
+        "ingredient": "minecraft:glass",
+        "count": 2
+      }
+    ],
+    "ticks": 1200
+  },
+  "fail_codes": [
+    "sky_blocked"
+  ],
+  "name_key": "lore.earth_core.geo.meteorology",
+  "desc_key": "lore.earth_core.geo.meteorology.desc",
+  "icon": "earth_core:thermometer"
+}

@@ -18,7 +18,7 @@ from PIL import Image, ImageDraw
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "neoforge-26.2" / "src" / "main" / "resources" / "assets" / "earth_on_minecraft"
+ASSETS = ROOT / "neoforge-26.1.2" / "src" / "main" / "resources" / "assets" / "earth_core"
 ITEM_TEXTURES = ASSETS / "textures" / "item"
 LANG = ASSETS / "lang" / "en_us.json"
 AGNES_TOOL = ROOT / "tools" / "generate_agnes_item_textures.py"
@@ -49,7 +49,7 @@ def low_resolution_ids(min_size: int) -> list[str]:
 
 def display_names() -> dict[str, str]:
     data = json.loads(LANG.read_text(encoding="utf-8"))
-    prefix = "item.earth_on_minecraft."
+    prefix = "item.earth_core."
     return {key.removeprefix(prefix): value for key, value in data.items() if key.startswith(prefix)}
 
 

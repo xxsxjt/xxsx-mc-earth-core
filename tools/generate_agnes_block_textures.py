@@ -20,7 +20,7 @@ from PIL import Image
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "neoforge-26.2" / "src" / "main" / "resources" / "assets" / "earth_on_minecraft"
+ASSETS = ROOT / "neoforge-26.1.2" / "src" / "main" / "resources" / "assets" / "earth_core"
 TMP = ROOT / "tmp" / "imagegen" / "agnes-block-textures"
 PROVIDERS = pathlib.Path(r"C:\Users\du_ji\WorkBuddy\agnes\providers.json")
 

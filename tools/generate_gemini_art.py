@@ -36,7 +36,7 @@ from contextlib import contextmanager
 from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "neoforge-26.2/src/main/resources/assets/earth_on_minecraft"
+ASSETS = ROOT / "neoforge-26.1.2/src/main/resources/assets/earth_core"
 ITEM_TEXTURES = ASSETS / "textures/item"
 BLOCK_TEXTURES = ASSETS / "textures/block"
 SPEC = pathlib.Path(r"D:\Codex\WORKSPACES\Projects\mc-agent\spec\eom")

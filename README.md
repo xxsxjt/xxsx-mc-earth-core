@@ -53,11 +53,11 @@
 - [第二轮工业扩展计划](docs/round-2-industrial-expansion-plan.md)
 - [本体与附属边界](docs/core-and-addons-boundary.md)
 - [四模块生态联动契约 v1](docs/ecosystem-integration-contract-v1.md)
-- [魔幻地球本体联动指示](docs/fantasy-earth-addon-guide.md)
-- [玄幻地球本体联动指示](docs/xuanhuan-earth-addon-guide.md)
+- [魔幻地球本体联动指示](docs/earth-magic-addon-guide.md)
+- [玄幻地球本体联动指示](docs/earth-xuanxue-addon-guide.md)
 - [玩家入门流程](docs/player-guide.md)
 - [贴图 AI 提示词](docs/asset-prompts.md)
-- [扩展路线图：核能、电网、自动化和科幻附属边界](docs/earth-on-minecraft-expanded-roadmap.md)
+- [扩展路线图：核能、电网、自动化和科幻附属边界](docs/earth-core-expanded-roadmap.md)
 - [科幻附属路线图](docs/scifi-addon-roadmap.md)
 - [0.1.17 Test Beta release notes](docs/release-notes-0.1.17-beta.md)
 - [0.1.16 Test Beta release notes](docs/release-notes-0.1.16-beta.md)
@@ -82,7 +82,7 @@
 ## 本地验证
 
 ```powershell
-cd neoforge-26.2
+cd neoforge-26.1.2
 .\gradlew.bat compileJava verifyStaticQuality jar --console=plain
 cd ..
 pwsh -NoProfile -File tools\render_gui_previews.ps1
@@ -95,9 +95,9 @@ python tools\render_connected_ore_previews.py
 
 ## 当前模块
 
-- GitHub: https://github.com/xxsxjt/xxsx-mc-earth-on-minecraft
-- `neoforge-26.2/` — 目录名沿用旧版，当前目标为 NeoForge `26.1.2.124` / Minecraft `26.1.2`，Java 25。
-- 构建产物：`neoforge-26.2/build/libs/earth-on-minecraft-neoforge-26.1.2-0.1.17.jar`
+- GitHub: https://github.com/xxsxjt/xxsx-mc-earth-core
+- `neoforge-26.1.2/` — 目录名沿用旧版，当前目标为 NeoForge `26.1.2.124` / Minecraft `26.1.2`，Java 25。
+- 构建产物：`neoforge-26.1.2/build/libs/earth-core-neoforge-26.1.2-0.1.17.jar`
 - 测试部署目标：`E:\_dx\_Games\MC\xxxxxx\.minecraft\versions\26.1.2-NeoForge_26.1.2.124\mods`
 - 发布状态：`0.1.17` 是开发中测试版，在 0.1.16 的首铁迁移、有限矿床、工业钻头、采石场、多方块机器、流体处理和扩展路线之上，加入地表矿苗、地质锤勘探、可筛选的 5×5 区块矿体扫描仪和储量翻倍；已通过静态验证和无窗口 GameTest，未在游戏客户端内实测。
 
@@ -122,7 +122,7 @@ python tools\render_connected_ore_previews.py
 - 移除主世界原版矿物生成，并额外禁用原版大矿脉的 `ore_veininess` 噪声，避免自然生成原版铜矿、铁矿和粗矿块。
 - 改用 Earth on Minecraft 的稀疏大矿床 placed features，并追加围岩/伴生地质特征，如磁铁矿-凝灰岩、黄铜矿-花岗质围岩、含金石英-方解石、金伯利岩-凝灰质角砾、烟煤-砂岩围岩、无烟煤-深板岩围岩等。
 - 0.1.5 新增自然矿床来源：铝土矿风化壳、磷块岩沉积层、蒸发岩盐层、锡石砂矿和稀土碳酸岩矿体，分别接入铝工业、磷肥/石膏、氯碱/盐卤、锡焊料、稀土/核燃料材料链。
-- 0.1.6 新增旧命名空间兼容别名：旧测试存档中的 `earth_online:*` 方块、物品、机器方块实体和菜单会映射到新的 `earth_on_minecraft:*`。
+- 0.1.6 新增旧命名空间兼容别名：旧测试存档中的 `earth_online:*` 方块、物品、机器方块实体和菜单会映射到新的 `earth_core:*`。
 - 0.1.7 修正普通石头/圆石材料定位：普通石头是未分类地层石料，圆石是破碎采石骨料，不再像花岗岩；新增高地层/智能核心高度倍率联动规划数据，但默认不强改旧世界高度。
 - 0.1.8 新增默认高度下的真实地质背景层：沉积砂岩/石灰质层、花岗质/闪长质侵入体、安山岩/凝灰岩火山带、玄武质镁铁质岩脉，并按地层重调矿床高度带。
 - 0.1.9 细化原版岩石 Shift 材料卡：圆石明确为破碎采石骨料，普通石头为本地混合地层石料，花岗岩才使用明确花岗质矿物组合。

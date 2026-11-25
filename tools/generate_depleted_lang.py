@@ -6,13 +6,13 @@ import json
 import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-LANG = ROOT / "neoforge-26.2/src/main/resources/assets/earth_on_minecraft/lang"
-JAVA = ROOT / "neoforge-26.2/src/main/java/com/xxsx/earthonminecraft/SpecDepletedBlocks.java"
+LANG = ROOT / "neoforge-26.1.2/src/main/resources/assets/earth_core/lang"
+JAVA = ROOT / "neoforge-26.1.2/src/main/java/com/xxsx/earth/core/SpecDepletedBlocks.java"
 
 import re
 
 TEXT = {
-    "tooltip.earth_on_minecraft.depleted_lode": (
+    "tooltip.earth_core.depleted_lode": (
         "Worked-out ore body: the valuable fraction is gone, but residual mineral can still be "
         "recovered at low yield.",
         "已采空的矿体：有价部分已被采尽，残余矿物仍可以低回收率提取。",
@@ -115,7 +115,7 @@ def main() -> None:
                 data[key] = texts[index]
                 added += 1
         for block_id, lode in ids:
-            block_key = f"block.earth_on_minecraft.{block_id}"
+            block_key = f"block.earth_core.{block_id}"
             if block_key not in data:
                 data[block_key] = table.get(lode, block_id.replace("_", " ").title())
                 added += 1

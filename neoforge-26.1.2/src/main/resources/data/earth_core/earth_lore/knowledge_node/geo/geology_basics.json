@@ -1,0 +1,135 @@
+{
+  "discipline": "earth_lore:geo",
+  "tier": 0,
+  "gate": "root",
+  "requires": [],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:field_geology_notebook"
+    },
+    {
+      "item": "earth_core:geology_hammer"
+    },
+    {
+      "item": "earth_core:sample_bag"
+    },
+    {
+      "item": "earth_core:hand_lens"
+    },
+    {
+      "item": "earth_core:survey_stake"
+    },
+    {
+      "block": "earth_core:survey_stake"
+    },
+    {
+      "ability": "earth_core:geo_geology_basics/magnetite_ore"
+    },
+    {
+      "item": "earth_core:chalcopyrite_ore"
+    },
+    {
+      "block": "earth_core:chalcopyrite_ore"
+    },
+    {
+      "item": "earth_core:auriferous_quartz_vein"
+    },
+    {
+      "block": "earth_core:auriferous_quartz_vein"
+    },
+    {
+      "item": "earth_core:bituminous_coal_seam"
+    },
+    {
+      "block": "earth_core:bituminous_coal_seam"
+    },
+    {
+      "item": "earth_core:anthracite_coal_seam"
+    },
+    {
+      "block": "earth_core:anthracite_coal_seam"
+    },
+    {
+      "item": "earth_core:kimberlite"
+    },
+    {
+      "block": "earth_core:kimberlite"
+    },
+    {
+      "item": "earth_core:bauxite_laterite_deposit"
+    },
+    {
+      "block": "earth_core:bauxite_laterite_deposit"
+    },
+    {
+      "item": "earth_core:cassiterite_placer_deposit"
+    },
+    {
+      "block": "earth_core:cassiterite_placer_deposit"
+    },
+    {
+      "item": "earth_core:rare_earth_carbonatite"
+    },
+    {
+      "block": "earth_core:rare_earth_carbonatite"
+    },
+    {
+      "item": "earth_core:uraninite_ore"
+    },
+    {
+      "block": "earth_core:uraninite_ore"
+    },
+    {
+      "item": "earth_core:galena_ore"
+    },
+    {
+      "block": "earth_core:galena_ore"
+    },
+    {
+      "item": "earth_core:sphalerite_ore"
+    },
+    {
+      "block": "earth_core:sphalerite_ore"
+    },
+    {
+      "item": "earth_core:chromite_ore"
+    },
+    {
+      "block": "earth_core:chromite_ore"
+    },
+    {
+      "item": "earth_core:manganite_ore"
+    },
+    {
+      "block": "earth_core:manganite_ore"
+    },
+    {
+      "item": "earth_core:borate_deposit"
+    },
+    {
+      "block": "earth_core:borate_deposit"
+    },
+    {
+      "ability": "earth_core:gem_deposits"
+    },
+    {
+      "item": "earth_core:gem_rough"
+    },
+    {
+      "item": "earth_core:gem_dust"
+    }
+  ],
+  "literature": [
+    "commonsense"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [],
+    "ticks": 0
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.geo.geology_basics",
+  "desc_key": "lore.earth_core.geo.geology_basics.desc",
+  "icon": "earth_core:sample_bag"
+}

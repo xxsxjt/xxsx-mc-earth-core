@@ -16,7 +16,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "neoforge-26.2" / "src" / "main" / "resources" / "assets" / "earth_on_minecraft"
+ASSETS = ROOT / "neoforge-26.1.2" / "src" / "main" / "resources" / "assets" / "earth_core"
 SOUNDS_JSON = ASSETS / "sounds.json"
 OUTPUT = ROOT / "output" / "quality"
 SAMPLE_RATE = 22_050
@@ -119,7 +119,7 @@ def main() -> None:
     if len(hashes) != len(set(hashes)):
         failures.append("duplicate OGG payloads detected")
     referenced = {
-        sound["name"].removeprefix("earth_on_minecraft:") + ".ogg"
+        sound["name"].removeprefix("earth_core:") + ".ogg"
         for event in sounds.values() for sound in event.get("sounds", []) if isinstance(sound, dict)
     }
     actual = {path.relative_to(ASSETS / "sounds").as_posix() for path in paths}

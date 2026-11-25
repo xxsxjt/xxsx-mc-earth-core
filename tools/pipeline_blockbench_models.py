@@ -12,11 +12,11 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-RESOURCES = ROOT / "neoforge-26.2" / "src" / "main" / "resources"
-ASSETS = RESOURCES / "assets" / "earth_on_minecraft"
+RESOURCES = ROOT / "neoforge-26.1.2" / "src" / "main" / "resources"
+ASSETS = RESOURCES / "assets" / "earth_core"
 MODELS = ASSETS / "models" / "block"
 TEXTURES = ASSETS / "textures" / "block"
-PROFILES = RESOURCES / "data" / "earth_on_minecraft" / "earth" / "quality" / "machine_profiles.json"
+PROFILES = RESOURCES / "data" / "earth_core" / "earth" / "quality" / "machine_profiles.json"
 BLOCKBENCH_ROOT = ROOT / "art" / "blockbench"
 OUTPUT = ROOT / "output" / "quality"
 BRIEFS = OUTPUT / "blockbench-briefs"
@@ -32,7 +32,7 @@ def texture_id_to_path(texture_id: str) -> pathlib.Path | None:
     namespace, separator, path = texture_id.partition(":")
     if not separator:
         namespace, path = "minecraft", namespace
-    if namespace != "earth_on_minecraft" or not path.startswith("block/"):
+    if namespace != "earth_core" or not path.startswith("block/"):
         return None
     return TEXTURES / f"{path.removeprefix('block/')}.png"
 
@@ -93,7 +93,7 @@ def audit_and_write_briefs() -> tuple[list[dict[str, object]], list[str], list[s
                         failures.append(f"invalid Blockbench rotation in {source.relative_to(ROOT)}: {element.get('name')}")
                 for texture in source_data.get("textures", []):
                     relative_path = texture.get("relative_path")
-                    if texture.get("namespace") == "earth_on_minecraft" and (
+                    if texture.get("namespace") == "earth_core" and (
                             not relative_path or not (source.parent / relative_path).resolve().exists()):
                         failures.append(f"unresolved Blockbench texture in {source.relative_to(ROOT)}: {texture.get('name')}")
             except (json.JSONDecodeError, UnicodeDecodeError) as error:

@@ -1,0 +1,46 @@
+{
+  "discipline": "earth_lore:mat",
+  "tier": 3,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:mat/ironmaking_steelmaking"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:wire_die"
+    },
+    {
+      "block": "earth_core:wire_die"
+    },
+    {
+      "item": "earth_core:rolling_mill"
+    },
+    {
+      "block": "earth_core:rolling_mill"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:steel",
+        "count": 6
+      },
+      {
+        "ingredient": "earth_core:refined_copper",
+        "count": 4
+      }
+    ],
+    "ticks": 2400
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.mat.metal_forming",
+  "desc_key": "lore.earth_core.mat.metal_forming.desc",
+  "icon": "earth_core:steel"
+}

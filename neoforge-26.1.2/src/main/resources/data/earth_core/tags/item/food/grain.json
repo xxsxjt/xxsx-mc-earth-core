@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:barley",
+    "earth_core:maize",
+    "earth_core:oat",
+    "earth_core:rice",
+    "earth_core:rye",
+    "earth_core:sorghum",
+    "earth_core:wheat"
+  ]
+}

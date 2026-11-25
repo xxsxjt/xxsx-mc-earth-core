@@ -1,0 +1,127 @@
+{
+  "discipline": "earth_lore:agr",
+  "tier": 2,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:agr/beverages"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:tea_leaf"
+    },
+    {
+      "item": "earth_core:green_tea"
+    },
+    {
+      "item": "earth_core:black_tea"
+    },
+    {
+      "item": "earth_core:oolong_tea"
+    },
+    {
+      "item": "earth_core:white_tea"
+    },
+    {
+      "item": "earth_core:yellow_tea"
+    },
+    {
+      "item": "earth_core:dark_tea"
+    },
+    {
+      "item": "earth_core:pu_er_tea"
+    },
+    {
+      "item": "earth_core:scented_tea"
+    },
+    {
+      "item": "earth_core:matcha"
+    },
+    {
+      "item": "earth_core:milk_tea"
+    },
+    {
+      "item": "earth_core:butter_tea"
+    },
+    {
+      "item": "earth_core:coffee_bean"
+    },
+    {
+      "item": "earth_core:roasted_coffee_bean"
+    },
+    {
+      "item": "earth_core:coffee_grounds"
+    },
+    {
+      "item": "earth_core:coffee"
+    },
+    {
+      "item": "earth_core:espresso"
+    },
+    {
+      "item": "earth_core:americano"
+    },
+    {
+      "item": "earth_core:latte"
+    },
+    {
+      "item": "earth_core:cappuccino"
+    },
+    {
+      "item": "earth_core:cold_brew"
+    },
+    {
+      "item": "earth_core:cocoa_bean"
+    },
+    {
+      "item": "earth_core:cocoa_powder"
+    },
+    {
+      "item": "earth_core:coffee_roaster"
+    },
+    {
+      "block": "earth_core:coffee_roaster"
+    },
+    {
+      "item": "earth_core:coffee_grinder"
+    },
+    {
+      "block": "earth_core:coffee_grinder"
+    },
+    {
+      "item": "earth_core:tea_kiln"
+    },
+    {
+      "block": "earth_core:tea_kiln"
+    },
+    {
+      "ability": "earth_core:agr_tea_and_coffee/coffee_roaster"
+    },
+    {
+      "ability": "earth_core:agr_tea_and_coffee/tea_kiln"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:tea_leaf",
+        "count": 8
+      },
+      {
+        "ingredient": "earth_core:coffee_bean",
+        "count": 8
+      }
+    ],
+    "ticks": 1200
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.agr.tea_and_coffee",
+  "desc_key": "lore.earth_core.agr.tea_and_coffee.desc",
+  "icon": "earth_core:tea_leaf"
+}

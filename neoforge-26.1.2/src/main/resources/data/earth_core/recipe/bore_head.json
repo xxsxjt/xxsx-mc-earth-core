@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    "CJC",
+    "SBS"
+  ],
+  "key": {
+    "S": "earth_core:steel_bloom",
+    "C": "earth_core:copper_wire",
+    "J": "earth_core:jaw_crusher",
+    "B": "earth_core:simple_battery_cell"
+  },
+  "result": {
+    "id": "earth_core:bore_head",
+    "count": 1
+  }
+}

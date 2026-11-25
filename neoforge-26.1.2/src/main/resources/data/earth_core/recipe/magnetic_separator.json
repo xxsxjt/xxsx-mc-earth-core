@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CCC",
+    "CMC",
+    "CCC"
+  ],
+  "key": {
+    "C": "minecraft:copper_ingot",
+    "M": "earth_core:magnetite_chunk"
+  },
+  "result": {
+    "id": "earth_core:magnetic_separator"
+  }
+}

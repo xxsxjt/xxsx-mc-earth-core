@@ -1,0 +1,79 @@
+{
+  "discipline": "earth_lore:agr",
+  "tier": 4,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:agr/brewing"
+    },
+    {
+      "all": "earth_core:che/separation_engineering"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:baijiu"
+    },
+    {
+      "item": "earth_core:whisky"
+    },
+    {
+      "item": "earth_core:brandy"
+    },
+    {
+      "item": "earth_core:rum"
+    },
+    {
+      "item": "earth_core:vodka"
+    },
+    {
+      "item": "earth_core:gin"
+    },
+    {
+      "item": "earth_core:tequila"
+    },
+    {
+      "item": "earth_core:plum_brandy"
+    },
+    {
+      "item": "earth_core:grappa"
+    },
+    {
+      "item": "earth_core:still"
+    },
+    {
+      "block": "earth_core:still"
+    },
+    {
+      "ability": "earth_core:agr_distilling/still"
+    },
+    {
+      "ability": "earth_core:agr_distilling/baijiu"
+    },
+    {
+      "ability": "earth_core:agr_distilling/whisky"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:beer",
+        "count": 4
+      },
+      {
+        "ingredient": "earth_core:huangjiu",
+        "count": 4
+      }
+    ],
+    "ticks": 4800
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.agr.distilling",
+  "desc_key": "lore.earth_core.agr.distilling.desc",
+  "icon": "earth_core:baijiu"
+}

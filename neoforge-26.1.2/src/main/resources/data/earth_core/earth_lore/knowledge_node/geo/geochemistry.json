@@ -1,0 +1,36 @@
+{
+  "discipline": "earth_lore:geo",
+  "tier": 3,
+  "gate": "theory",
+  "requires": [
+    {
+      "all": "earth_core:geo/ore_genesis"
+    },
+    {
+      "all": "earth_core:che/inorganic_chemistry"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:sample_bag",
+        "count": 6
+      },
+      {
+        "ingredient": "earth_core:sulfuric_acid",
+        "count": 1
+      }
+    ],
+    "ticks": 2400
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.geo.geochemistry",
+  "desc_key": "lore.earth_core.geo.geochemistry.desc",
+  "icon": "earth_core:sample_bag"
+}

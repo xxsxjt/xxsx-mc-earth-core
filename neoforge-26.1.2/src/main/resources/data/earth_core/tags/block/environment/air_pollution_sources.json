@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:ore_roaster",
+    "earth_core:reduction_furnace",
+    "earth_core:industrial_kiln",
+    "earth_core:steam_cracker",
+    "earth_core:chemical_reactor",
+    "earth_core:combustion_generator"
+  ]
+}

@@ -7,23 +7,23 @@ import json
 import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-RES = ROOT / "neoforge-26.2/src/main/resources"
-ASSETS = RES / "assets/earth_on_minecraft"
-LOOT = RES / "data/earth_on_minecraft/loot_table/blocks"
-JAVA = ROOT / "neoforge-26.2/src/main/java/com/xxsx/earthonminecraft"
+RES = ROOT / "neoforge-26.1.2/src/main/resources"
+ASSETS = RES / "assets/earth_core"
+LOOT = RES / "data/earth_core/loot_table/blocks"
+JAVA = ROOT / "neoforge-26.1.2/src/main/java/com/xxsx/earth/core"
 
 HOST_LODES = {
     "andesite_volcanic_belt": ("andesite", "minecraft:andesite"),
-    "anthracite_deepslate_halo": ("deepslate", "earth_on_minecraft:coal_dust"),
-    "auriferous_quartz_calcite_halo": ("calcite", "earth_on_minecraft:auriferous_quartz_chunk"),
+    "anthracite_deepslate_halo": ("deepslate", "earth_core:coal_dust"),
+    "auriferous_quartz_calcite_halo": ("calcite", "earth_core:auriferous_quartz_chunk"),
     "basalt_mafic_dike": ("basalt", "minecraft:basalt"),
-    "bituminous_sandstone_halo": ("sandstone", "earth_on_minecraft:coal_dust"),
-    "chalcopyrite_granite_halo": ("granite", "earth_on_minecraft:chalcopyrite_chunk"),
+    "bituminous_sandstone_halo": ("sandstone", "earth_core:coal_dust"),
+    "chalcopyrite_granite_halo": ("granite", "earth_core:chalcopyrite_chunk"),
     "diorite_intrusion": ("diorite", "minecraft:diorite"),
     "granitic_intrusion": ("granite", "minecraft:granite"),
-    "kimberlite_tuff_halo": ("tuff", "earth_on_minecraft:kimberlite_chunk"),
+    "kimberlite_tuff_halo": ("tuff", "earth_core:kimberlite_chunk"),
     "limestone_calcite_bed": ("calcite", "minecraft:calcite"),
-    "magnetite_tuff_halo": ("tuff", "earth_on_minecraft:magnetite_chunk"),
+    "magnetite_tuff_halo": ("tuff", "earth_core:magnetite_chunk"),
     "sedimentary_sandstone_bed": ("sandstone", "minecraft:sandstone"),
     "tuff_volcanic_belt": ("tuff", "minecraft:tuff"),
 }
@@ -38,17 +38,17 @@ ORE_BLOCKS = {
 }
 
 SELF_DROP_REPLACEMENTS = {
-    "bauxite_laterite_deposit": "earth_on_minecraft:bauxite_dust",
-    "phosphorite_bed": "earth_on_minecraft:phosphate_rock_dust",
-    "evaporite_salt_bed": "earth_on_minecraft:brine_crystal",
-    "cassiterite_placer_deposit": "earth_on_minecraft:cassiterite_dust",
-    "rare_earth_carbonatite": "earth_on_minecraft:bastnasite_dust",
-    "chromite_ore": "earth_on_minecraft:chromite_dust",
-    "galena_ore": "earth_on_minecraft:galena_dust",
-    "manganite_ore": "earth_on_minecraft:manganese_oxide_dust",
-    "sphalerite_ore": "earth_on_minecraft:sphalerite_dust",
-    "uraninite_ore": "earth_on_minecraft:uraninite_dust",
-    "borate_deposit": "earth_on_minecraft:borate_mineral_dust",
+    "bauxite_laterite_deposit": "earth_core:bauxite_dust",
+    "phosphorite_bed": "earth_core:phosphate_rock_dust",
+    "evaporite_salt_bed": "earth_core:brine_crystal",
+    "cassiterite_placer_deposit": "earth_core:cassiterite_dust",
+    "rare_earth_carbonatite": "earth_core:bastnasite_dust",
+    "chromite_ore": "earth_core:chromite_dust",
+    "galena_ore": "earth_core:galena_dust",
+    "manganite_ore": "earth_core:manganese_oxide_dust",
+    "sphalerite_ore": "earth_core:sphalerite_dust",
+    "uraninite_ore": "earth_core:uraninite_dust",
+    "borate_deposit": "earth_core:borate_mineral_dust",
 }
 
 
@@ -58,19 +58,19 @@ def write_host_resources(block_id: str, host: str, drop: str) -> None:
     (ASSETS / "items").mkdir(parents=True, exist_ok=True)
     (LOOT).mkdir(parents=True, exist_ok=True)
     (ASSETS / "blockstates" / f"{block_id}.json").write_text(json.dumps({
-        "variants": {"": {"model": f"earth_on_minecraft:block/{block_id}"}}
+        "variants": {"": {"model": f"earth_core:block/{block_id}"}}
     }, indent=2) + "\n", encoding="utf-8")
     (ASSETS / "models/block" / f"{block_id}.json").write_text(json.dumps({
         "parent": "minecraft:block/cube_all",
         "textures": {"all": f"minecraft:block/{host}"},
     }, indent=2) + "\n", encoding="utf-8")
     (ASSETS / "items" / f"{block_id}.json").write_text(json.dumps({
-        "model": {"type": "minecraft:model", "model": f"earth_on_minecraft:block/{block_id}"}
+        "model": {"type": "minecraft:model", "model": f"earth_core:block/{block_id}"}
     }, indent=2) + "\n", encoding="utf-8")
     (LOOT / f"{block_id}.json").write_text(json.dumps({
         "type": "minecraft:block",
         "pools": [{"rolls": 1.0, "entries": [{"type": "minecraft:item", "name": drop}]}],
-        "random_sequence": f"earth_on_minecraft:blocks/{block_id}",
+        "random_sequence": f"earth_core:blocks/{block_id}",
     }, indent=2) + "\n", encoding="utf-8")
 
 
@@ -81,7 +81,7 @@ def remove_reserve_reset_drops(block_id: str) -> None:
     def replace_self_drop(value: object) -> None:
         if isinstance(value, dict):
             if value.get("type") == "minecraft:item" and value.get("name") in (
-                    f"earth_on_minecraft:{block_id}", "minecraft:cobblestone"):
+                    f"earth_core:{block_id}", "minecraft:cobblestone"):
                 value["name"] = SELF_DROP_REPLACEMENTS.get(block_id, "minecraft:cobblestone")
             for child in list(value.values()):
                 replace_self_drop(child)
@@ -107,7 +107,7 @@ def remove_reserve_reset_drops(block_id: str) -> None:
 
 def merge_tag(path: pathlib.Path, block_id: str) -> None:
     data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"replace": False, "values": []}
-    identifier = f"earth_on_minecraft:{block_id}"
+    identifier = f"earth_core:{block_id}"
     if identifier not in data.setdefault("values", []):
         data["values"].append(identifier)
     path.parent.mkdir(parents=True, exist_ok=True)

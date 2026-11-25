@@ -1,0 +1,78 @@
+{
+  "discipline": "earth_lore:agr",
+  "tier": 2,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:agr/husbandry"
+    },
+    {
+      "all": "earth_core:agr/cooking"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:cheese"
+    },
+    {
+      "item": "earth_core:butter"
+    },
+    {
+      "item": "earth_core:yogurt"
+    },
+    {
+      "item": "earth_core:cream"
+    },
+    {
+      "item": "earth_core:bacon"
+    },
+    {
+      "item": "earth_core:sausage"
+    },
+    {
+      "item": "earth_core:ham"
+    },
+    {
+      "item": "earth_core:dried_fish"
+    },
+    {
+      "item": "earth_core:insect_protein"
+    },
+    {
+      "item": "earth_core:smokehouse"
+    },
+    {
+      "block": "earth_core:smokehouse"
+    },
+    {
+      "item": "earth_core:pasteurizer"
+    },
+    {
+      "block": "earth_core:pasteurizer"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "minecraft:butcher"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:milk",
+        "count": 4
+      },
+      {
+        "ingredient": "earth_core:salt",
+        "count": 4
+      }
+    ],
+    "ticks": 1200
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.agr.food_processing",
+  "desc_key": "lore.earth_core.agr.food_processing.desc",
+  "icon": "earth_core:cheese"
+}

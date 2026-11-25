@@ -1,0 +1,51 @@
+{
+  "discipline": "earth_lore:med",
+  "tier": 1,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:med/medicine_basics"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:splint"
+    },
+    {
+      "item": "earth_core:stretcher"
+    },
+    {
+      "item": "earth_core:crutch"
+    },
+    {
+      "item": "earth_core:medical_kit"
+    },
+    {
+      "item": "earth_core:tourniquet"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "minecraft:cleric"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:bandage",
+        "count": 4
+      },
+      {
+        "ingredient": "minecraft:stick",
+        "count": 4
+      }
+    ],
+    "ticks": 600
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.med.first_aid",
+  "desc_key": "lore.earth_core.med.first_aid.desc",
+  "icon": "earth_core:splint"
+}

@@ -15,7 +15,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "neoforge-26.2" / "src" / "main" / "resources" / "assets" / "earth_on_minecraft"
+ASSETS = ROOT / "neoforge-26.1.2" / "src" / "main" / "resources" / "assets" / "earth_core"
 TEXTURES = ASSETS / "textures" / "item"
 ITEM_MODELS = ASSETS / "items"
 OUTPUT = ROOT / "output" / "quality"

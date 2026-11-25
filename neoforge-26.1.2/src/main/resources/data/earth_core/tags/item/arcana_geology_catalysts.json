@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:auriferous_quartz_chunk",
+    "earth_core:quartz_dust",
+    "earth_core:cinnabar_dust",
+    "earth_core:gold_dust",
+    "earth_core:bastnasite_dust",
+    "earth_core:monazite_sand",
+    "earth_core:mixed_rare_earth_oxide",
+    "earth_core:neodymium_salt",
+    "earth_core:lithium_salt",
+    "earth_core:ndfeb_magnet"
+  ]
+}

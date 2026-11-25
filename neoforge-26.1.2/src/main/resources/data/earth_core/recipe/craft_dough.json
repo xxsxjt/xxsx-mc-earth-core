@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "earth_core:flour",
+    "earth_core:flour"
+  ],
+  "result": {
+    "id": "earth_core:dough",
+    "count": 2
+  }
+}

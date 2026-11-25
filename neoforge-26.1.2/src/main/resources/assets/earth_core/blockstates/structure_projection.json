@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "role=casing": {
+      "model": "earth_core:block/structure_projection_casing"
+    },
+    "role=pipe": {
+      "model": "earth_core:block/structure_projection_pipe"
+    }
+  }
+}

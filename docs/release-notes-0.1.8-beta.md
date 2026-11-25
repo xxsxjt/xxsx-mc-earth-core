@@ -4,9 +4,9 @@
 
 - Minecraft: `26.2`
 - Loader: `NeoForge 26.2.0.7-beta`
-- Mod id: `earth_on_minecraft`
+- Mod id: `earth_core`
 - Mod version: `0.1.8`
-- Jar: `earth-on-minecraft-neoforge-26.2-0.1.8.jar`
+- Jar: `earth-core-neoforge-26.1.2-0.1.8.jar`
 - SHA256: `1581014F0DEBD658C8D12B14F4773A70252B8BE2BCE0CE0EBDD3063713FED0C6`
 
 ## 本轮重点

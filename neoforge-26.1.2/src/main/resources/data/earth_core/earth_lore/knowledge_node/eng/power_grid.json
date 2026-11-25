@@ -1,0 +1,44 @@
+{
+  "discipline": "earth_lore:eng",
+  "tier": 3,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:eng/electrical_basics"
+    }
+  ],
+  "item_requires": [
+    {
+      "made": "earth_core:copper_power_cable"
+    }
+  ],
+  "unlocks": [
+    {
+      "item": "earth_core:transformer_core"
+    },
+    {
+      "item": "earth_core:grid_switchgear"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:heavy_copper_power_cable",
+        "count": 4
+      },
+      {
+        "ingredient": "earth_core:refined_copper",
+        "count": 4
+      }
+    ],
+    "ticks": 2400
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.eng.power_grid",
+  "desc_key": "lore.earth_core.eng.power_grid.desc",
+  "icon": "earth_core:refined_copper"
+}

@@ -108,7 +108,7 @@ BUILD SUCCESSFUL
 先停止继续向 `createRecipes()` 和静态手册堆路线，建立运行时数据模型：
 
 ```text
-data/earth_on_minecraft/processing_routes/*.json
+data/earth_core/processing_routes/*.json
 ```
 
 第一版字段至少包括：

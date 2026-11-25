@@ -1,5 +1,5 @@
 param(
-    [string]$OutputRoot = (Join-Path $PSScriptRoot '..\neoforge-26.2\src\main\resources\assets\earth_on_minecraft\textures\gui\container')
+    [string]$OutputRoot = (Join-Path $PSScriptRoot '..\neoforge-26.1.2\src\main\resources\assets\earth_core\textures\gui\container')
 )
 
 Add-Type -AssemblyName System.Drawing

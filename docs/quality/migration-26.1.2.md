@@ -6,7 +6,7 @@
 
 | 项目 | 构建文件 | 旧版本 | 新版本 |
 |---|---|---|---|
-| earth_on_minecraft | `neoforge-26.2/build.gradle` | `26.2.0.93` | `26.1.2.124` |
+| earth_core | `neoforge-26.1.2/build.gradle` | `26.2.0.93` | `26.1.2.124` |
 | earth_human | `earth_human/build.gradle` | `26.2.0.93` | `26.1.2.124` |
 | temple | `temple/mod-[虚无圣殿]Temple of Nihility/build.gradle` | `26.2.0.93` | `26.1.2.124` |
 
@@ -16,9 +16,9 @@
 
 ## 目录名说明
 
-Gradle 项目目录仍叫 `neoforge-26.2`，没有改名。改名会牵动
+Gradle 项目目录仍叫 `neoforge-26.1.2`，没有改名。改名会牵动
 `tools/validate_resources.py`、`tools/spec_coverage.py` 等脚本里的几十处
-`ROOT / "neoforge-26.2"` 路径，收益不足以抵消风险。目录名只影响开发者，不影响产物。
+`ROOT / "neoforge-26.1.2"` 路径，收益不足以抵消风险。目录名只影响开发者，不影响产物。
 
 ## API 差异（26.2 → 26.1.2）
 
@@ -74,7 +74,7 @@ Gradle 项目目录仍叫 `neoforge-26.2`，没有改名。改名会牵动
 
 产物名：
 
-- `earth-on-minecraft-neoforge-26.1.2-<version>.jar`
+- `earth-core-neoforge-26.1.2-<version>.jar`
 - `earth-human-neoforge-26.1.2-<version>.jar`
 - `temple-of-nihility-neoforge-26.1.2-<version>.jar`
 
@@ -89,7 +89,7 @@ Gradle 项目目录仍叫 `neoforge-26.2`，没有改名。改名会牵动
 ## 验证
 
 ```
-earth_on_minecraft   compileJava + verifyStaticQuality   OK
+earth_core   compileJava + verifyStaticQuality   OK
 earth_human          compileJava                          OK（2 个 getGuiLeft/getGuiTop 弃用警告）
 temple               compileJava                          OK
 ```

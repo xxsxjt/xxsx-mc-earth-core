@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:syringe",
+    "earth_core:scalpel",
+    "earth_core:forceps",
+    "earth_core:suture_thread",
+    "earth_core:bandage",
+    "earth_core:tourniquet",
+    "earth_core:medical_kit",
+    "earth_core:vet_kit",
+    "earth_core:glass_bottle",
+    "earth_core:flask",
+    "minecraft:glass_bottle"
+  ]
+}

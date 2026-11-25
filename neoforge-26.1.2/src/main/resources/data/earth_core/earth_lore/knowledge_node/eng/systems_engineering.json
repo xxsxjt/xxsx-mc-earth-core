@@ -1,0 +1,53 @@
+{
+  "discipline": "earth_lore:eng",
+  "tier": 6,
+  "gate": "cap",
+  "requires": [
+    {
+      "all": "earth_core:eng/combustion_power"
+    },
+    {
+      "all": "earth_core:eng/energy_storage"
+    },
+    {
+      "all": "earth_core:eng/civil_engineering"
+    },
+    {
+      "all": "earth_core:eng/timekeeping"
+    },
+    {
+      "all": "earth_core:eng/industrial_safety"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "capstone": "earth_lore:eng"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:robotic_arm",
+        "count": 1
+      },
+      {
+        "ingredient": "earth_core:nuclear_heat_module",
+        "count": 1
+      },
+      {
+        "ingredient": "earth_core:steel",
+        "count": 16
+      }
+    ],
+    "ticks": 9600
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.eng.systems_engineering",
+  "desc_key": "lore.earth_core.eng.systems_engineering.desc",
+  "icon": "earth_core:steel"
+}

@@ -17,8 +17,8 @@ import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SPEC = pathlib.Path(r"D:\Codex\WORKSPACES\Projects\mc-agent\spec\eom")
-DATA = ROOT / "neoforge-26.2/src/main/resources/data/earth_on_minecraft"
-LANG = ROOT / "neoforge-26.2/src/main/resources/assets/earth_on_minecraft/lang"
+DATA = ROOT / "neoforge-26.1.2/src/main/resources/data/earth_core"
+LANG = ROOT / "neoforge-26.1.2/src/main/resources/assets/earth_core/lang"
 
 # Section prefix in catalog/herbs.md -> the vanilla blocks that can carry it.
 # Section headings in the spec are Chinese; match on the leading marker instead.
@@ -66,7 +66,7 @@ def main() -> None:
         modifier_id = f"wild_herb_{slug}"
         modifier_ids.append(modifier_id)
         entries = [
-            {"type": "minecraft:item", "name": f"earth_on_minecraft:{name}", "weight": 1}
+            {"type": "minecraft:item", "name": f"earth_core:{name}", "weight": 1}
             for name in names
         ]
         (modifier_dir / f"{modifier_id}.json").write_text(json.dumps({
@@ -77,7 +77,7 @@ def main() -> None:
                 # Only 1 in 8 broken plants yields a herb, so a field is not a herb farm.
                 {"condition": "minecraft:random_chance", "chance": 0.125},
             ],
-            "table": f"earth_on_minecraft:wild_herb/{slug}",
+            "table": f"earth_core:wild_herb/{slug}",
         }, indent=2) + "\n", encoding="utf-8")
 
         table_dir = DATA / "loot_table/wild_herb"

@@ -1,0 +1,60 @@
+{
+  "discipline": "earth_lore:mat",
+  "tier": 2,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:mat/comminution"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:magnetic_separator"
+    },
+    {
+      "block": "earth_core:magnetic_separator"
+    },
+    {
+      "item": "earth_core:flotation_cell"
+    },
+    {
+      "block": "earth_core:flotation_cell"
+    },
+    {
+      "item": "earth_core:thickener"
+    },
+    {
+      "block": "earth_core:thickener"
+    },
+    {
+      "item": "earth_core:filter_press"
+    },
+    {
+      "block": "earth_core:filter_press"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "earth_core:miner"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:crushed_magnetite",
+        "count": 4
+      },
+      {
+        "ingredient": "earth_core:chalcopyrite_ore",
+        "count": 2
+      }
+    ],
+    "ticks": 1200
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.mat.beneficiation",
+  "desc_key": "lore.earth_core.mat.beneficiation.desc",
+  "icon": "earth_core:book"
+}

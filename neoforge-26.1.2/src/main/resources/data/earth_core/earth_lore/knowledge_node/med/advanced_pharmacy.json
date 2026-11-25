@@ -1,0 +1,59 @@
+{
+  "discipline": "earth_lore:med",
+  "tier": 4,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:med/basic_pharmacy"
+    },
+    {
+      "all": "earth_core:med/sterile_technique"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:ibuprofen"
+    },
+    {
+      "item": "earth_core:glucose_injection"
+    },
+    {
+      "item": "earth_core:antihistamine"
+    },
+    {
+      "item": "earth_core:motion_sickness_pill"
+    },
+    {
+      "item": "earth_core:caffeine_tablet"
+    },
+    {
+      "item": "earth_core:melatonin"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:glucose",
+        "count": 4
+      },
+      {
+        "ingredient": "earth_core:syringe",
+        "count": 1
+      },
+      {
+        "ingredient": "earth_core:glass_bottle",
+        "count": 4
+      }
+    ],
+    "ticks": 4800
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.med.advanced_pharmacy",
+  "desc_key": "lore.earth_core.med.advanced_pharmacy.desc",
+  "icon": "earth_core:ibuprofen"
+}

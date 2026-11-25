@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:copper_wire",
+    "earth_core:copper_busbar",
+    "earth_core:automation_bus",
+    "earth_core:redstone_io_gateway"
+  ]
+}

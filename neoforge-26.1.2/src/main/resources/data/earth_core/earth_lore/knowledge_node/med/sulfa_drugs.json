@@ -1,0 +1,50 @@
+{
+  "discipline": "earth_lore:med",
+  "tier": 4,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:med/basic_pharmacy"
+    },
+    {
+      "all": "earth_core:che/analytical_chemistry"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:sulfanilamide"
+    },
+    {
+      "item": "earth_core:antibiotic_ointment"
+    },
+    {
+      "ability": "earth_core:med_sulfa_drugs/antibiotic"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:sulfuric_acid",
+        "count": 2
+      },
+      {
+        "ingredient": "earth_core:ammonia",
+        "count": 2
+      },
+      {
+        "ingredient": "earth_core:benzene",
+        "count": 1
+      }
+    ],
+    "ticks": 4800
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.med.sulfa_drugs",
+  "desc_key": "lore.earth_core.med.sulfa_drugs.desc",
+  "icon": "earth_core:sulfanilamide"
+}

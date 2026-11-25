@@ -15,10 +15,10 @@ $gradleUserHome = if ($env:GRADLE_USER_HOME) {
     Join-Path ([System.Environment]::GetFolderPath('UserProfile')) '.gradle'
 }
 $neoformAssetRoot = Join-Path $gradleUserHome 'caches\neoformruntime\assets'
-$resourceRoot = Join-Path $projectRoot 'neoforge-26.2\src\main\resources\assets\earth_on_minecraft'
+$resourceRoot = Join-Path $projectRoot 'neoforge-26.1.2\src\main\resources\assets\earth_core'
 $textureRoot = Join-Path $resourceRoot 'textures'
 $langRoot = Join-Path $resourceRoot 'lang'
-$artifactRoot = Join-Path $projectRoot 'neoforge-26.2\build\moddev\artifacts'
+$artifactRoot = Join-Path $projectRoot 'neoforge-26.1.2\build\moddev\artifacts'
 $patchedJar = Get-ChildItem -LiteralPath $artifactRoot -Filter 'minecraft-patched-*.jar' |
     Select-Object -First 1
 
@@ -508,12 +508,12 @@ function Assert-Within([string]$name, [int[]]$rect, [int]$width, [int]$height) {
 }
 
 function Render-Processing([string]$lang, [bool]$multiblock, [string]$name,
-                           [string]$statusKey = 'screen.earth_on_minecraft.machine.running') {
+                           [string]$statusKey = 'screen.earth_core.machine.running') {
     $bitmap = New-ContainerCanvas 'processing_machine.png'
     $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
     try {
-        $title = Get-Tr $lang $(if ($multiblock) { 'block.earth_on_minecraft.steam_cracker' } else { 'block.earth_on_minecraft.crystallizer' })
-        $family = Get-Tr $lang $(if ($multiblock) { 'screen.earth_on_minecraft.machine.family.thermal' } else { 'screen.earth_on_minecraft.machine.family.crystallization' })
+        $title = Get-Tr $lang $(if ($multiblock) { 'block.earth_core.steam_cracker' } else { 'block.earth_core.crystallizer' })
+        $family = Get-Tr $lang $(if ($multiblock) { 'screen.earth_core.machine.family.thermal' } else { 'screen.earth_core.machine.family.crystallization' })
         $inventory = if ($lang -eq 'zh_cn') { '物品栏' } else { 'Inventory' }
         $accent = if ($multiblock) { C '#A44C2B' } else { C '#6B7692' }
 
@@ -530,8 +530,8 @@ function Render-Processing([string]$lang, [bool]$multiblock, [string]$name,
         Draw-McText $bitmap (Fit-McText $title 140) 8 6 (C '#404040')
         Draw-McText $bitmap $inventory 8 94 (C '#404040')
 
-        $hasInput = $statusKey -ne 'screen.earth_on_minecraft.machine.empty_input_short'
-        $hasRecipe = $hasInput -and $statusKey -ne 'screen.earth_on_minecraft.machine.unsupported_input_short'
+        $hasInput = $statusKey -ne 'screen.earth_core.machine.empty_input_short'
+        $hasRecipe = $hasInput -and $statusKey -ne 'screen.earth_core.machine.unsupported_input_short'
         if ($hasInput) {
             Draw-Item $bitmap 'item\salt_dust.png' 38 35
         }
@@ -540,31 +540,31 @@ function Render-Processing([string]$lang, [bool]$multiblock, [string]$name,
             Draw-Item $bitmap 'item\tailings_dust.png' 120 20
             Draw-Item $bitmap 'item\gypsum_dust.png' 138 20
         }
-        if ($statusKey -eq 'screen.earth_on_minecraft.machine.missing_secondary_short') {
+        if ($statusKey -eq 'screen.earth_core.machine.missing_secondary_short') {
             Draw-Item $bitmap 'item\salt_dust.png' 8 76
             Draw-Item $bitmap 'item\distilled_water.png' 26 76
         } elseif ($hasRecipe) {
             Draw-Item $bitmap 'item\distilled_water.png' 8 76
         }
-        if ($statusKey -eq 'screen.earth_on_minecraft.machine.missing_reductant_short' -and -not $multiblock) {
+        if ($statusKey -eq 'screen.earth_core.machine.missing_reductant_short' -and -not $multiblock) {
             Draw-Item $bitmap 'item\distilled_water.png' 26 76
         }
-        if ($statusKey -eq 'screen.earth_on_minecraft.machine.running') {
+        if ($statusKey -eq 'screen.earth_core.machine.running') {
             Draw-Progress $graphics 64 38 15
         }
 
         Fill-Rect $graphics (C '#20282D') 39 58 16 16
         Draw-PowerGlyph $graphics 42 60 $accent
-        Draw-RedstoneGlyph $graphics 9 58 $(if ($statusKey -eq 'screen.earth_on_minecraft.machine.redstone_paused_short') { 'signal' } else { 'always' })
+        Draw-RedstoneGlyph $graphics 9 58 $(if ($statusKey -eq 'screen.earth_core.machine.redstone_paused_short') { 'signal' } else { 'always' })
         if (-not $multiblock) {
             Draw-IoGlyph $graphics 25 58
         }
         Draw-NotebookGlyph $graphics 157 6
 
-        $statusColor = if ($statusKey -eq 'screen.earth_on_minecraft.machine.running' -or
-                           $statusKey -eq 'screen.earth_on_minecraft.machine.recipe_ready') {
+        $statusColor = if ($statusKey -eq 'screen.earth_core.machine.running' -or
+                           $statusKey -eq 'screen.earth_core.machine.recipe_ready') {
             C '#207030'
-        } elseif ($statusKey -eq 'screen.earth_on_minecraft.machine.empty_input_short') {
+        } elseif ($statusKey -eq 'screen.earth_core.machine.empty_input_short') {
             C '#66727A'
         } else {
             C '#AA3322'
@@ -586,9 +586,9 @@ function Render-Generator([string]$lang, [bool]$turbine, [string]$name) {
     $bitmap = New-ContainerCanvas 'energy_generator.png'
     $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
     try {
-        $titleKey = if ($turbine) { 'block.earth_on_minecraft.steam_turbine_generator' } else { 'block.earth_on_minecraft.combustion_generator' }
-        $typeKey = if ($turbine) { 'screen.earth_on_minecraft.energy.type.steam_turbine' } else { 'screen.earth_on_minecraft.energy.type.combustion' }
-        $sourceKey = if ($turbine) { 'screen.earth_on_minecraft.energy.steam_source' } else { 'screen.earth_on_minecraft.energy.fuel' }
+        $titleKey = if ($turbine) { 'block.earth_core.steam_turbine_generator' } else { 'block.earth_core.combustion_generator' }
+        $typeKey = if ($turbine) { 'screen.earth_core.energy.type.steam_turbine' } else { 'screen.earth_core.energy.type.combustion' }
+        $sourceKey = if ($turbine) { 'screen.earth_core.energy.steam_source' } else { 'screen.earth_core.energy.fuel' }
         $accent = if ($turbine) { C '#2B91AA' } else { C '#B05B27' }
         $inventory = if ($lang -eq 'zh_cn') { '物品栏' } else { 'Inventory' }
 
@@ -605,7 +605,7 @@ function Render-Generator([string]$lang, [bool]$turbine, [string]$name) {
         Draw-McText $bitmap (Get-Tr $lang $sourceKey) 26 47 (C '#606060')
         Draw-Inset $graphics 76 45 92 11
         Fill-Rect $graphics (C '#1E7C9A') 79 48 5 5
-        Draw-McText $bitmap (Get-Tr $lang 'screen.earth_on_minecraft.machine.running') 87 46 (C '#1E7C9A')
+        Draw-McText $bitmap (Get-Tr $lang 'screen.earth_core.machine.running') 87 46 (C '#1E7C9A')
         Draw-McText $bitmap $(if ($turbine) { '+256 / 512 EOU/t' } else { '+64 / 128 EOU/t' }) 76 59 (C '#404040')
         Draw-NotebookGlyph $graphics 157 6
     } finally {
@@ -624,12 +624,12 @@ function Render-Battery([string]$lang, [string]$name) {
     try {
         $inventory = if ($lang -eq 'zh_cn') { '物品栏' } else { 'Inventory' }
         Draw-Button $bitmap 155 4 14 14
-        Draw-McText $bitmap (Fit-McText (Get-Tr $lang 'block.earth_on_minecraft.battery_box') 140) 8 6 (C '#404040')
+        Draw-McText $bitmap (Fit-McText (Get-Tr $lang 'block.earth_core.battery_box') 140) 8 6 (C '#404040')
         Draw-McText $bitmap $inventory 8 73 (C '#404040')
         Draw-McText $bitmap '128k/256k EOU' 20 20 (C '#404040')
         Draw-McText $bitmap '50%' 136 20 (C '#404040')
         Draw-EnergyBar $graphics 20 31 136 10 50
-        Draw-McTextCentered $bitmap (Get-Tr $lang 'screen.earth_on_minecraft.energy.battery_flow') 88 45 (C '#606060')
+        Draw-McTextCentered $bitmap (Get-Tr $lang 'screen.earth_core.energy.battery_flow') 88 45 (C '#606060')
 
         Fill-Rect $graphics (C '#20282D') 24 55 10 10
         Fill-Rect $graphics (C '#10151A') 25 56 8 8
@@ -641,7 +641,7 @@ function Render-Battery([string]$lang, [string]$name) {
         Fill-Rect $graphics (C '#C46A22') 144 57 2 6
         Fill-Rect $graphics (C '#555555') 34 59 108 2
         Fill-Rect $graphics (C '#1E7C9A') 83 57 5 6
-        Draw-McTextCentered $bitmap (Format-Tr $lang 'screen.earth_on_minecraft.energy.battery_throughput' @(128)) 88 63 (C '#404040')
+        Draw-McTextCentered $bitmap (Format-Tr $lang 'screen.earth_core.energy.battery_throughput' @(128)) 88 63 (C '#404040')
         Draw-NotebookGlyph $graphics 157 6
     } finally {
         $graphics.Dispose()
@@ -654,9 +654,9 @@ function Render-Battery([string]$lang, [string]$name) {
 }
 
 function Side-ModeText([string]$lang, [string]$face, [string]$mode) {
-    return Format-Tr $lang 'screen.earth_on_minecraft.side.config.button' @(
-        (Get-Tr $lang "screen.earth_on_minecraft.side.relative.short.$face"),
-        (Get-Tr $lang "screen.earth_on_minecraft.side.mode.short.$mode"))
+    return Format-Tr $lang 'screen.earth_core.side.config.button' @(
+        (Get-Tr $lang "screen.earth_core.side.relative.short.$face"),
+        (Get-Tr $lang "screen.earth_core.side.mode.short.$mode"))
 }
 
 function Render-SideConfig([string]$lang, [string]$name) {
@@ -671,8 +671,8 @@ function Render-SideConfig([string]$lang, [string]$name) {
         Fill-Rect $graphics (C '#FFFFFF') ($left + 1) ($top + 1) 174 146
         Fill-Rect $graphics (C '#C6C6C6') ($left + 3) ($top + 3) 171 143
         Fill-Rect $graphics (C '#8B8B8B') ($left + 7) ($top + 34) 162 1
-        Draw-McTextCentered $bitmap (Fit-McText (Get-Tr $lang 'screen.earth_on_minecraft.side.config.title') 156) 100 ($top + 8) (C '#404040')
-        Draw-McTextCentered $bitmap (Fit-McText (Get-Tr $lang 'screen.earth_on_minecraft.side.config.subtitle') 156) 100 ($top + 21) (C '#606060')
+        Draw-McTextCentered $bitmap (Fit-McText (Get-Tr $lang 'screen.earth_core.side.config.title') 156) 100 ($top + 8) (C '#404040')
+        Draw-McTextCentered $bitmap (Fit-McText (Get-Tr $lang 'screen.earth_core.side.config.subtitle') 156) 100 ($top + 21) (C '#606060')
 
         $faces = @(
             @('top', 48, 39, 'input'), @('left', 10, 59, 'off'),
@@ -689,12 +689,12 @@ function Render-SideConfig([string]$lang, [string]$name) {
         )
         foreach ($entry in $legend) {
             Fill-Rect $graphics (C $entry[1]) ($left + $entry[2]) ($top + 107) 6 6
-            Draw-McText $bitmap (Get-Tr $lang "screen.earth_on_minecraft.side.$($entry[0])") `
+            Draw-McText $bitmap (Get-Tr $lang "screen.earth_core.side.$($entry[0])") `
                 ($left + $entry[2] + 9) ($top + 105) (C '#404040')
         }
-        Draw-McText $bitmap (Fit-McText (Get-Tr $lang 'screen.earth_on_minecraft.side.config.hint') 104) `
+        Draw-McText $bitmap (Fit-McText (Get-Tr $lang 'screen.earth_core.side.config.hint') 104) `
             ($left + 9) ($top + 126) (C '#606060')
-        Draw-Button $bitmap ($left + 118) ($top + 124) 48 16 (Get-Tr $lang 'screen.earth_on_minecraft.side.config.done')
+        Draw-Button $bitmap ($left + 118) ($top + 124) 48 16 (Get-Tr $lang 'screen.earth_core.side.config.done')
     } finally {
         $graphics.Dispose()
     }
@@ -741,15 +741,15 @@ function Render-NotebookCompact([string]$lang, [string]$name) {
         Fill-Rect $graphics ([System.Drawing.Color]::FromArgb(31, 42, 33, 24)) ($left + 4) ($top + 4) ($bw - 8) 16
         Fill-Rect $graphics (C '#D6B77D') ($left + 7) ($top + 41) ($bw - 14) 1
 
-        $pageText = Format-Tr $lang 'screen.earth_on_minecraft.notebook.page' @(1, 32)
-        Draw-McText $bitmap (Fit-McText (Get-Tr $lang 'screen.earth_on_minecraft.notebook.title') ($bw - 76)) `
+        $pageText = Format-Tr $lang 'screen.earth_core.notebook.page' @(1, 32)
+        Draw-McText $bitmap (Fit-McText (Get-Tr $lang 'screen.earth_core.notebook.title') ($bw - 76)) `
             ($left + 10) ($top + 8) (C '#2B2117')
         Draw-McText $bitmap $pageText ($left + $bw - 10 - (Measure-McText $pageText)) ($top + 8) (C '#755F42')
 
         $sectionKeys = @('start', 'geology', 'industry', 'advanced', 'reference')
         $sectionW = 32
         for ($i = 0; $i -lt $sectionKeys.Count; $i++) {
-            $key = "screen.earth_on_minecraft.notebook.section.$($sectionKeys[$i]).short"
+            $key = "screen.earth_core.notebook.section.$($sectionKeys[$i]).short"
             Draw-Button $bitmap ($left + 8 + $i * 34) ($top + 24) $sectionW 14 (Get-Tr $lang $key) ($i -ne 0)
         }
 
@@ -758,11 +758,11 @@ function Render-NotebookCompact([string]$lang, [string]$name) {
         $contentW = $bw - 24
         Fill-Rect $graphics ([System.Drawing.Color]::FromArgb(32, 255, 255, 255)) ($contentX - 6) ($contentY - 6) ($contentW + 4) 20
         Fill-Rect $graphics (C '#2D6841') ($contentX - 6) ($contentY - 6) 4 20
-        $heading = Get-Tr $lang 'handbook.earth_on_minecraft.page.intro.title'
+        $heading = Get-Tr $lang 'handbook.earth_core.page.intro.title'
         Draw-McText $bitmap (Fit-McText $heading ($contentW - 8)) $contentX ($contentY - 3) (C '#2D6841')
         Fill-Rect $graphics (C '#2D6841') $contentX ($contentY + 12) ([Math]::Min($contentW, 146)) 1
 
-        $lines = Wrap-McText (Get-Tr $lang 'handbook.earth_on_minecraft.page.intro.lines') ($contentW - 10)
+        $lines = Wrap-McText (Get-Tr $lang 'handbook.earth_core.page.intro.lines') ($contentW - 10)
         $y = $contentY + 18
         for ($i = 0; $i -lt [Math]::Min(5, $lines.Count); $i++) {
             Fill-Rect $graphics (C '#2D6841') ($contentX + 5) ($y + 4) 3 3
@@ -771,9 +771,9 @@ function Render-NotebookCompact([string]$lang, [string]$name) {
         }
 
         $bottom = $top + $bh - 21
-        Draw-Button $bitmap ($left + 8) $bottom 36 16 (Get-Tr $lang 'screen.earth_on_minecraft.notebook.close')
-        Draw-Button $bitmap ($left + $bw - 112) $bottom 50 16 (Get-Tr $lang 'screen.earth_on_minecraft.notebook.prev') $false
-        Draw-Button $bitmap ($left + $bw - 58) $bottom 50 16 (Get-Tr $lang 'screen.earth_on_minecraft.notebook.next')
+        Draw-Button $bitmap ($left + 8) $bottom 36 16 (Get-Tr $lang 'screen.earth_core.notebook.close')
+        Draw-Button $bitmap ($left + $bw - 112) $bottom 50 16 (Get-Tr $lang 'screen.earth_core.notebook.prev') $false
+        Draw-Button $bitmap ($left + $bw - 58) $bottom 50 16 (Get-Tr $lang 'screen.earth_core.notebook.next')
     } finally {
         $graphics.Dispose()
     }
@@ -855,7 +855,7 @@ function New-ContactSheet([string[]]$paths) {
                 $y = $row * $cellH + [int](($cellH - $h) / 2)
                 $graphics.DrawImage($images[$i], [System.Drawing.Rectangle]::new($x, $y, $w, $h))
             }
-            $path = Join-Path $OutputRoot 'earth-on-minecraft-gui-contact-sheet.png'
+            $path = Join-Path $OutputRoot 'earth-core-gui-contact-sheet.png'
             $sheet.Save($path, [System.Drawing.Imaging.ImageFormat]::Png)
             return $path
         } finally {
@@ -898,15 +898,15 @@ Assert-Within 'compact notebook' @(6, 6, 188, 171) 200 183
 
 $outputs = [System.Collections.Generic.List[string]]::new()
 $processingStates = @(
-    @{ Id = 'empty'; Key = 'screen.earth_on_minecraft.machine.empty_input_short'; Multiblock = $false },
-    @{ Id = 'unsupported-input'; Key = 'screen.earth_on_minecraft.machine.unsupported_input_short'; Multiblock = $false },
-    @{ Id = 'missing-power'; Key = 'screen.earth_on_minecraft.machine.missing_power_short'; Multiblock = $false },
-    @{ Id = 'redstone-paused'; Key = 'screen.earth_on_minecraft.machine.redstone_paused_short'; Multiblock = $true },
-    @{ Id = 'missing-additive'; Key = 'screen.earth_on_minecraft.machine.missing_secondary_short'; Multiblock = $false },
-    @{ Id = 'output-blocked'; Key = 'screen.earth_on_minecraft.machine.outputs_full_short'; Multiblock = $false },
-    @{ Id = 'structure-fault'; Key = 'screen.earth_on_minecraft.machine.structure_missing_short'; Multiblock = $true },
-    @{ Id = 'running'; Key = 'screen.earth_on_minecraft.machine.running'; Multiblock = $false },
-    @{ Id = 'multi-route'; Key = 'screen.earth_on_minecraft.machine.recipe_ready'; Multiblock = $false }
+    @{ Id = 'empty'; Key = 'screen.earth_core.machine.empty_input_short'; Multiblock = $false },
+    @{ Id = 'unsupported-input'; Key = 'screen.earth_core.machine.unsupported_input_short'; Multiblock = $false },
+    @{ Id = 'missing-power'; Key = 'screen.earth_core.machine.missing_power_short'; Multiblock = $false },
+    @{ Id = 'redstone-paused'; Key = 'screen.earth_core.machine.redstone_paused_short'; Multiblock = $true },
+    @{ Id = 'missing-additive'; Key = 'screen.earth_core.machine.missing_secondary_short'; Multiblock = $false },
+    @{ Id = 'output-blocked'; Key = 'screen.earth_core.machine.outputs_full_short'; Multiblock = $false },
+    @{ Id = 'structure-fault'; Key = 'screen.earth_core.machine.structure_missing_short'; Multiblock = $true },
+    @{ Id = 'running'; Key = 'screen.earth_core.machine.running'; Multiblock = $false },
+    @{ Id = 'multi-route'; Key = 'screen.earth_core.machine.recipe_ready'; Multiblock = $false }
 )
 foreach ($lang in @('zh_cn', 'en_us')) {
     $shortLang = if ($lang -eq 'zh_cn') { 'zh' } else { 'en' }

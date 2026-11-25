@@ -16,7 +16,7 @@ import pathlib
 import re
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-JAVA_ROOT = ROOT / "neoforge-26.2/src/main/java/com/xxsx/earthonminecraft"
+JAVA_ROOT = ROOT / "neoforge-26.1.2/src/main/java/com/xxsx/earth/core"
 OUTPUT = JAVA_ROOT / "SpecMachineRecipes.java"
 MANIFEST = ROOT / "docs/quality/spec-machine-recipes.json"
 DEFAULT_SPEC = ROOT.parents[1] / "spec" / "eom"
@@ -127,49 +127,49 @@ REJECTED_LEGACY_IDS = {
 }
 
 CATALYST_MAP = {
-    "Fe": "earth_on_minecraft:iron_catalyst",
-    "Fe2O3": "earth_on_minecraft:iron_catalyst",
-    "Fe/HCl": "earth_on_minecraft:iron_catalyst",
-    "V2O5": "earth_on_minecraft:vanadium_catalyst",
-    "Bi/Mo": "earth_on_minecraft:vanadium_catalyst",
-    "Pt-Rh": "earth_on_minecraft:platinum_group_catalyst",
-    "Pd": "earth_on_minecraft:platinum_group_catalyst",
-    "Ag": "earth_on_minecraft:platinum_group_catalyst",
-    "Rh/I": "earth_on_minecraft:platinum_group_catalyst",
-    "Ni": "earth_on_minecraft:nickel_catalyst",
-    "Cu": "earth_on_minecraft:nickel_catalyst",
-    "Cu/ZnO": "earth_on_minecraft:nickel_catalyst",
-    "AlCl3": "earth_on_minecraft:catalyst",
-    "HgCl2": "earth_on_minecraft:catalyst",
-    "H2SO4": "earth_on_minecraft:sulfuric_acid",
-    "NaOH": "earth_on_minecraft:sodium_hydroxide",
-    "cryolite": "earth_on_minecraft:calcium_fluoride",
+    "Fe": "earth_core:iron_catalyst",
+    "Fe2O3": "earth_core:iron_catalyst",
+    "Fe/HCl": "earth_core:iron_catalyst",
+    "V2O5": "earth_core:vanadium_catalyst",
+    "Bi/Mo": "earth_core:vanadium_catalyst",
+    "Pt-Rh": "earth_core:platinum_group_catalyst",
+    "Pd": "earth_core:platinum_group_catalyst",
+    "Ag": "earth_core:platinum_group_catalyst",
+    "Rh/I": "earth_core:platinum_group_catalyst",
+    "Ni": "earth_core:nickel_catalyst",
+    "Cu": "earth_core:nickel_catalyst",
+    "Cu/ZnO": "earth_core:nickel_catalyst",
+    "AlCl3": "earth_core:catalyst",
+    "HgCl2": "earth_core:catalyst",
+    "H2SO4": "earth_core:sulfuric_acid",
+    "NaOH": "earth_core:sodium_hydroxide",
+    "cryolite": "earth_core:calcium_fluoride",
     "Aspergillus niger": "",
     "Lactobacillus": "",
 }
 
 SPECIFIED_REACTION_OVERRIDES = {
-    "machine:absorption_tower/131-sulfur_dust": ("earth_on_minecraft:vanadium_catalyst", 720, 101, "2S + 3O2 + 2H2O -> 2H2SO4"),
-    "machine:absorption_tower/132-sulfur_dioxide_cell": ("earth_on_minecraft:vanadium_catalyst", 720, 101, "2SO2 + O2 + 2H2O -> 2H2SO4"),
-    "machine:absorption_tower/286-vanadium_catalyst": ("earth_on_minecraft:vanadium_catalyst", 720, 101, "2SO2 + O2 + 2H2O -> 2H2SO4"),
+    "machine:absorption_tower/131-sulfur_dust": ("earth_core:vanadium_catalyst", 720, 101, "2S + 3O2 + 2H2O -> 2H2SO4"),
+    "machine:absorption_tower/132-sulfur_dioxide_cell": ("earth_core:vanadium_catalyst", 720, 101, "2SO2 + O2 + 2H2O -> 2H2SO4"),
+    "machine:absorption_tower/286-vanadium_catalyst": ("earth_core:vanadium_catalyst", 720, 101, "2SO2 + O2 + 2H2O -> 2H2SO4"),
     "machine:absorption_tower/289-chlorine_gas_cell": ("", 303, 101, "Cl2 + NaOH -> NaClO + HCl"),
-    "machine:absorption_tower/341-carbon_monoxide_cell": ("earth_on_minecraft:iron_catalyst", 673, 1000, "CO + H2O -> CO2 + H2"),
-    "machine:chemical_reactor/101-sulfur_dust": ("earth_on_minecraft:vanadium_catalyst", 720, 101, "2S + 3O2 + 2H2O -> 2H2SO4"),
+    "machine:absorption_tower/341-carbon_monoxide_cell": ("earth_core:iron_catalyst", 673, 1000, "CO + H2O -> CO2 + H2"),
+    "machine:chemical_reactor/101-sulfur_dust": ("earth_core:vanadium_catalyst", 720, 101, "2S + 3O2 + 2H2O -> 2H2SO4"),
     "machine:chemical_reactor/103-nitric_acid": ("", 353, 101, "HNO3 + NH3 -> NH4NO3"),
     "machine:chemical_reactor/105-lime_dust": ("", 353, 101, "CaO + H2O -> Ca(OH)2"),
     "machine:chemical_reactor/106-soda_ash": ("", 313, 101, "Na2CO3 + CO2 + H2O -> 2NaHCO3"),
     "machine:chemical_reactor/107-sulfuric_acid": ("", 323, 101, "H2SO4 + Ca(OH)2 -> CaSO4·2H2O"),
-    "machine:chemical_reactor/109-methanol": ("earth_on_minecraft:platinum_group_catalyst", 873, 101, "CH3OH -> HCHO + H2"),
+    "machine:chemical_reactor/109-methanol": ("earth_core:platinum_group_catalyst", 873, 101, "CH3OH -> HCHO + H2"),
     "machine:chemical_reactor/112-sodium_bicarbonate": ("", 433, 101, "2NaHCO3 -> Na2CO3 + CO2 + H2O"),
     "machine:chemical_reactor/267-metallurgical_silicon": ("", 573, 101, "Si + 2Cl2 + H2 -> SiHCl3 + HCl"),
-    "machine:chemical_reactor/292-hydrogen_gas_cell": ("earth_on_minecraft:platinum_group_catalyst", 323, 200, "2H2 + 2O2 -> 2H2O2"),
+    "machine:chemical_reactor/292-hydrogen_gas_cell": ("earth_core:platinum_group_catalyst", 323, 200, "2H2 + 2O2 -> 2H2O2"),
     "machine:chemical_reactor/334-sulfuric_acid": ("", 353, 101, "H2SO4 + 2NH3 -> (NH4)2SO4"),
     "machine:chemical_reactor/347-yellowcake": ("", 623, 101, "2U3O8 + O2 -> 6UO3"),
     "machine:chemical_reactor/349-low_enriched_uranium": ("", 900, 101, "UF6 + 2H2O + H2 -> UO2 + 6HF"),
     "machine:electrolytic_cell/170-salt_dust": ("", 353, 101, "2NaCl + 2H2O -> 2NaOH + Cl2 + H2"),
     "machine:mixer/155-sodium_hydroxide": ("", 298, 101, "HCl + NaOH -> NaCl + H2O"),
     "machine:mixer/291-sodium_hypochlorite": ("", 303, 101, "2NaClO + Ca(OH)2 -> Ca(ClO)2 + 2NaOH"),
-    "machine:synthesis_loop/129-natural_gas_cell": ("earth_on_minecraft:nickel_catalyst", 1073, 2000, "CH4 + 2H2O -> CO2 + 4H2"),
+    "machine:synthesis_loop/129-natural_gas_cell": ("earth_core:nickel_catalyst", 1073, 2000, "CH4 + 2H2O -> CO2 + 4H2"),
 }
 
 MAX_TOTAL_INPUTS = 5
@@ -268,7 +268,7 @@ def curated_primary_items() -> set[tuple[str, str]]:
         const_to_slug[match.group(1)] = match.group(2)
 
     pairs: set[tuple[str, str]] = {
-        ("reduction_furnace", "earth_on_minecraft:iron_concentrate"),
+        ("reduction_furnace", "earth_core:iron_concentrate"),
     }
     for match in re.finditer(r'r(?:WithCoke)?\(Kind\.([A-Z_]+),\s*([^,]+),', body):
         kind = match.group(1)
@@ -278,7 +278,7 @@ def curated_primary_items() -> set[tuple[str, str]]:
         source = match.group(2).strip()
         if source.startswith("EarthOnMinecraft."):
             const = source.split(".")[1].split("::")[0]
-            item = "earth_on_minecraft:" + const_to_slug.get(const, const.lower())
+            item = "earth_core:" + const_to_slug.get(const, const.lower())
         elif source.startswith("() -> Blocks."):
             snake = re.sub(r"(?<!^)(?=[A-Z])", "_", source.split("Blocks.")[1].rstrip(")")).lower()
             item = "minecraft:" + snake
@@ -370,10 +370,10 @@ def main() -> None:
             skipped["no_item_output"] += 1
             continue
         refs = [item for item, _ in item_inputs + item_outputs]
-        if any(ref.startswith("earth_on_minecraft:") and ref.split(":", 1)[1] not in known for ref in refs):
+        if any(ref.startswith("earth_core:") and ref.split(":", 1)[1] not in known for ref in refs):
             skipped["unknown_item"] += 1
             continue
-        if any(fluid.startswith("earth_on_minecraft:") and fluid.split(":", 1)[1] not in known_fluids
+        if any(fluid.startswith("earth_core:") and fluid.split(":", 1)[1] not in known_fluids
                for fluid, _ in fluid_inputs + fluid_outputs):
             skipped["unknown_fluid"] += 1
             continue
@@ -385,7 +385,7 @@ def main() -> None:
         rx = reactions_by_recipe.get(rec_id)
         raw_cat = str(record.get("catalyst") or (rx.get("catalyst") if rx else "") or "").strip()
         catalyst_item = CATALYST_MAP.get(raw_cat, "")
-        if catalyst_item.startswith("earth_on_minecraft:") and catalyst_item.split(":", 1)[1] not in known:
+        if catalyst_item.startswith("earth_core:") and catalyst_item.split(":", 1)[1] not in known:
             catalyst_item = ""
         input_item_ids = {item for item, _ in item_inputs}
         if catalyst_item in input_item_ids:
@@ -432,7 +432,7 @@ def main() -> None:
     # tools/generate_drink_routes.py and tools/generate_medicine_routes.py write them.
     for chain_file in ("drink_routes.json", "medicine_routes.json", "herb_routes.json",
                        "crop_routes.json"):
-        chain_path = (ROOT / "neoforge-26.2/src/main/resources/data/earth_on_minecraft"
+        chain_path = (ROOT / "neoforge-26.1.2/src/main/resources/data/earth_core"
                       / "earth/quality" / chain_file)
         if not chain_path.exists():
             continue
@@ -456,7 +456,7 @@ def main() -> None:
                 skipped["too_many_inputs"] += 1
                 continue
             refs = [item for item, _ in item_inputs + item_outputs]
-            if any(ref.startswith("earth_on_minecraft:") and ref.split(":", 1)[1] not in known
+            if any(ref.startswith("earth_core:") and ref.split(":", 1)[1] not in known
                    for ref in refs):
                 skipped["unknown_item"] += 1
                 continue
@@ -484,7 +484,7 @@ def main() -> None:
 
     entries.sort(key=lambda entry: (entry["machine"], entry["source"]))
     header = [
-        "package com.xxsx.earthonminecraft;",
+        "package com.xxsx.earth.core;",
         "",
         "import java.util.ArrayList;",
         "import java.util.List;",

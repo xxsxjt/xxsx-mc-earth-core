@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:lithium_salt",
+    "earth_core:bastnasite_dust",
+    "earth_core:monazite_sand",
+    "earth_core:mixed_rare_earth_oxide",
+    "earth_core:neodymium_salt",
+    "earth_core:led_phosphor",
+    "earth_core:ceramic_substrate"
+  ]
+}

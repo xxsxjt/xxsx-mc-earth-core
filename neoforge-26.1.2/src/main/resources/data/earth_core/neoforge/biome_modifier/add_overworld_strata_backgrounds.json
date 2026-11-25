@@ -1,0 +1,14 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "earth_core:sedimentary_sandstone_bed",
+    "earth_core:limestone_calcite_bed",
+    "earth_core:granitic_intrusion",
+    "earth_core:diorite_intrusion",
+    "earth_core:andesite_volcanic_belt",
+    "earth_core:tuff_volcanic_belt",
+    "earth_core:basalt_mafic_dike"
+  ],
+  "step": "underground_ores"
+}

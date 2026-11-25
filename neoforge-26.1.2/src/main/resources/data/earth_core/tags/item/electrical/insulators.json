@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:ceramic_insulator",
+    "earth_core:rubber_gasket",
+    "earth_core:fiberglass_cloth",
+    "earth_core:mineral_wool",
+    "earth_core:polyurethane_foam"
+  ]
+}

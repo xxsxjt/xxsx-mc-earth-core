@@ -7,7 +7,7 @@ import json
 import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-CATALOG = ROOT / "neoforge-26.2" / "src" / "main" / "resources" / "data" / "earth_on_minecraft" / "materials"
+CATALOG = ROOT / "neoforge-26.1.2" / "src" / "main" / "resources" / "data" / "earth_core" / "materials"
 
 RECORDS: list[dict[str, object]] = [
     # Igneous, metamorphic & sedimentary rocks (fixed multi-phase mass fractions)
@@ -27,7 +27,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["magmatic", "plutonic"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.granite",
+        "display_key": "material.earth_core.granite",
         "notes": "Standardized felsic plutonic rock batch with fixed quartz, alkali feldspar, albite, muscovite and accessory magnetite fractions.",
     },
     {
@@ -46,7 +46,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["magmatic", "plutonic"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.diorite",
+        "display_key": "material.earth_core.diorite",
         "notes": "Intermediate plutonic rock dominated by andesine plagioclase and hornblende.",
     },
     {
@@ -65,7 +65,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["volcanic", "subduction_arc"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.andesite",
+        "display_key": "material.earth_core.andesite",
         "notes": "Intermediate volcanic rock with fixed plagioclase, pyroxene, silica and magnetite assay.",
     },
     {
@@ -84,7 +84,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["volcanic", "mafic"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.basalt",
+        "display_key": "material.earth_core.basalt",
         "notes": "Mafic volcanic rock batch with calcic plagioclase, augite pyroxene, olivine and titanomagnetite.",
     },
     {
@@ -103,7 +103,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["volcanic", "pyroclastic"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.tuff",
+        "display_key": "material.earth_core.tuff",
         "notes": "Consolidated volcanic ash and lithic tuff with fixed vitric silica and feldspar fractions.",
     },
     {
@@ -122,7 +122,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["metamorphic"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.deepslate",
+        "display_key": "material.earth_core.deepslate",
         "notes": "Low-to-medium grade metamorphic pelitic slate with fixed aluminosilicate, quartz, mica and graphitic carbon assay.",
     },
     {
@@ -140,7 +140,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["sedimentary", "clastic"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.sandstone",
+        "display_key": "material.earth_core.sandstone",
         "notes": "Quartz arenite sandstone cemented by minor calcite and iron oxide.",
     },
     {
@@ -159,7 +159,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["magmatic", "mantle_pipe"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.kimberlite",
+        "display_key": "material.earth_core.kimberlite",
         "notes": "Ultramafic potassic volcanic breccia carrying olivine, serpentine, carbonate matrix and trace diamond carbon.",
     },
     {
@@ -178,7 +178,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["weathering", "lateritic"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.bauxite_laterite",
+        "display_key": "material.earth_core.bauxite_laterite",
         "notes": "Lateritic bauxite ore batch for Bayer-process alkaline digestion.",
     },
     {
@@ -196,7 +196,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["sedimentary", "marine"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.phosphorite",
+        "display_key": "material.earth_core.phosphorite",
         "notes": "Marine sedimentary phosphorite bed with fixed fluorapatite and carbonate gangue assay.",
     },
     {
@@ -214,7 +214,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["evaporite", "sedimentary"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.evaporite_salt",
+        "display_key": "material.earth_core.evaporite_salt",
         "notes": "Evaporite basin salt deposit containing halite, sylvite, gypsum and bischofite.",
     },
 
@@ -234,7 +234,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["metallurgical_smelting"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.iron_ingot",
+        "display_key": "material.earth_core.iron_ingot",
         "notes": "Standard stackable structural iron ingot with fixed carbon, manganese and silicon residual assay.",
     },
     {
@@ -254,7 +254,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["bloomery_forging"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.wrought_iron",
+        "display_key": "material.earth_core.wrought_iron",
         "notes": "Low-carbon forged wrought iron (C < 0.02 wt%) containing trace fibrous silicate slag inclusions.",
     },
     {
@@ -273,7 +273,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["blast_furnace"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.pig_iron",
+        "display_key": "material.earth_core.pig_iron",
         "notes": "High-carbon brittle hot-metal product from shaft/blast furnace reduction prior to decarburization.",
     },
     {
@@ -291,7 +291,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["steelmaking"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.steel",
+        "display_key": "material.earth_core.steel",
         "notes": "Standard medium-high carbon structural and tool steel batch.",
     },
     {
@@ -311,7 +311,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["alloy_steelmaking"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.stainless_steel",
+        "display_key": "material.earth_core.stainless_steel",
         "notes": "304-grade austenitic 18/8 Cr-Ni stainless steel batch.",
     },
     {
@@ -329,7 +329,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["alloy_melting"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.bronze",
+        "display_key": "material.earth_core.bronze",
         "notes": "Standard tin bronze casting and bearing alloy.",
     },
     {
@@ -347,7 +347,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["alloy_melting"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.brass",
+        "display_key": "material.earth_core.brass",
         "notes": "Cartridge/machining alpha-beta brass alloy.",
     },
     {
@@ -365,7 +365,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["alloy_melting"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.cupronickel",
+        "display_key": "material.earth_core.cupronickel",
         "notes": "70/30 marine corrosion-resistant cupronickel alloy.",
     },
     {
@@ -383,7 +383,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["alloy_melting"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.duralumin",
+        "display_key": "material.earth_core.duralumin",
         "notes": "2024-type precipitation-hardened Al-Cu-Mg structural alloy.",
     },
     {
@@ -401,7 +401,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["alloy_melting"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.solder",
+        "display_key": "material.earth_core.solder",
         "notes": "Low-melting Sn60/Pb38 electronics and plumbing solder alloy.",
     },
     {
@@ -419,7 +419,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["alloy_melting"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.invar",
+        "display_key": "material.earth_core.invar",
         "notes": "FeNi36 low-thermal-expansion precision instrument alloy.",
     },
     {
@@ -437,7 +437,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["alloy_melting"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.kanthal",
+        "display_key": "material.earth_core.kanthal",
         "notes": "FeCrAl high-temperature electric resistance heating alloy.",
     },
     {
@@ -455,7 +455,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["electrowinning", "smelting"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.copper_ingot",
+        "display_key": "material.earth_core.copper_ingot",
         "notes": "Electrolytic tough-pitch copper ingot with trace silver and oxygen.",
     },
     {
@@ -472,7 +472,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["electrowinning", "smelting"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.gold_ingot",
+        "display_key": "material.earth_core.gold_ingot",
         "notes": "Refined bullion gold ingot with trace silver and copper.",
     },
 
@@ -488,7 +488,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["hydrothermal"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.galena",
+        "display_key": "material.earth_core.galena",
         "notes": "Primary lead sulfide ore mineral.",
     },
     {
@@ -502,7 +502,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["hydrothermal"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.sphalerite",
+        "display_key": "material.earth_core.sphalerite",
         "notes": "Primary zinc sulfide ore mineral.",
     },
     {
@@ -516,7 +516,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["pegmatitic", "placer"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.cassiterite",
+        "display_key": "material.earth_core.cassiterite",
         "notes": "Primary tin oxide mineral.",
     },
     {
@@ -530,7 +530,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["epithermal"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.cinnabar",
+        "display_key": "material.earth_core.cinnabar",
         "notes": "Mercury(II) sulfide vein mineral.",
     },
     {
@@ -544,7 +544,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["hydrothermal", "sedimentary"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.pyrite",
+        "display_key": "material.earth_core.pyrite",
         "notes": "Iron disulfide mineral used for roasting to SO2 and hematite calcine.",
     },
     {
@@ -558,7 +558,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["magmatic", "ultramafic"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.chromite",
+        "display_key": "material.earth_core.chromite",
         "notes": "Iron chromium oxide spinel mineral for ferrochrome and refractories.",
     },
     {
@@ -572,7 +572,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["hydrothermal", "pegmatitic"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.uraninite",
+        "display_key": "material.earth_core.uraninite",
         "notes": "Uranium dioxide ore mineral.",
     },
     {
@@ -586,7 +586,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["calcination"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.alumina",
+        "display_key": "material.earth_core.alumina",
         "notes": "Calcined aluminum oxide for Hall-Heroult electrolysis and high-alumina ceramics.",
     },
     {
@@ -600,7 +600,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["calcination"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.quicklime",
+        "display_key": "material.earth_core.quicklime",
         "notes": "Calcium oxide produced by thermal decomposition of limestone/calcite.",
     },
     {
@@ -614,7 +614,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["contact_process"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.sulfuric_acid",
+        "display_key": "material.earth_core.sulfuric_acid",
         "notes": "Industrial diprotic mineral acid produced via catalytic SO2 oxidation and absorption.",
     },
     {
@@ -628,7 +628,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["chlor_alkali"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.hydrochloric_acid",
+        "display_key": "material.earth_core.hydrochloric_acid",
         "notes": "Hydrogen chloride acid solution for chloride leaching and trichlorosilane synthesis.",
     },
     {
@@ -642,7 +642,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["ostwald_process"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.nitric_acid",
+        "display_key": "material.earth_core.nitric_acid",
         "notes": "Strong oxidizing mineral acid synthesized from catalytic ammonia oxidation.",
     },
     {
@@ -656,7 +656,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["wet_acid_process"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.phosphoric_acid",
+        "display_key": "material.earth_core.phosphoric_acid",
         "notes": "Orthophosphoric acid from sulfuric digestion of fluorapatite rock.",
     },
     {
@@ -670,7 +670,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["chlor_alkali"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.sodium_hydroxide",
+        "display_key": "material.earth_core.sodium_hydroxide",
         "notes": "Caustic soda base from brine electrolysis.",
     },
     {
@@ -684,7 +684,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["solvay_process"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.sodium_carbonate",
+        "display_key": "material.earth_core.sodium_carbonate",
         "notes": "Soda ash flux for glassmaking, chemical neutralization and detergent builders.",
     },
     {
@@ -698,7 +698,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["evaporite", "brine"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.sodium_chloride",
+        "display_key": "material.earth_core.sodium_chloride",
         "notes": "Halite salt feedstock for chlor-alkali electrolysis and Solvay soda ash.",
     },
     {
@@ -712,7 +712,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["evaporite", "brine"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.potassium_chloride",
+        "display_key": "material.earth_core.potassium_chloride",
         "notes": "Sylvite potash salt for fertilizer and potassium nitrate synthesis.",
     },
     {
@@ -726,7 +726,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["haber_bosch"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.ammonia",
+        "display_key": "material.earth_core.ammonia",
         "notes": "Anhydrous ammonia synthesized from nitrogen and hydrogen.",
     },
     {
@@ -740,7 +740,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["mineral_separation"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.titanium_dioxide",
+        "display_key": "material.earth_core.titanium_dioxide",
         "notes": "Rutile/anatase titanium dioxide pigment and Kroll-process feedstock.",
     },
     {
@@ -754,7 +754,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["roasting"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.zinc_oxide",
+        "display_key": "material.earth_core.zinc_oxide",
         "notes": "Roasted sphalerite calcine for zinc smelting and rubber vulcanization activator.",
     },
 
@@ -774,7 +774,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["magmatic", "banded_iron"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.poor_magnetite_ore",
+        "display_key": "material.earth_core.poor_magnetite_ore",
         "notes": "Low-grade siliceous magnetite ore requiring comminution and magnetic separation.",
     },
     {
@@ -792,7 +792,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["magmatic", "hydrothermal"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.magnetite_ore",
+        "display_key": "material.earth_core.magnetite_ore",
         "notes": "Standard industrial magnetite ore batch with moderate quartz and carbonate gangue.",
     },
     {
@@ -809,7 +809,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["magmatic", "skarn"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.rich_magnetite_ore",
+        "display_key": "material.earth_core.rich_magnetite_ore",
         "notes": "High-grade massive magnetite ore body with minimal silicate gangue.",
     },
     {
@@ -827,7 +827,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["hydrothermal", "porphyry"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.chalcopyrite_ore",
+        "display_key": "material.earth_core.chalcopyrite_ore",
         "notes": "Sulfide copper ore intergrown with pyrite and quartz gangue.",
     },
     {
@@ -845,7 +845,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["hydrothermal", "vein"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.auriferous_quartz_vein",
+        "display_key": "material.earth_core.auriferous_quartz_vein",
         "notes": "Hydrothermal quartz vein carrying disseminated native gold, electrum silver and pyrite.",
     },
     {
@@ -863,7 +863,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["sedimentary", "coal_seam"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.bituminous_coal_seam",
+        "display_key": "material.earth_core.bituminous_coal_seam",
         "notes": "Bituminous coking coal seam with volatile hydrocarbons, shale ash and pyritic sulfur.",
     },
     {
@@ -881,7 +881,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["metamorphic", "coal_seam"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.anthracite_coal_seam",
+        "display_key": "material.earth_core.anthracite_coal_seam",
         "notes": "High-rank low-volatile anthracite coal seam with high fixed carbon.",
     },
     {
@@ -900,7 +900,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["magmatic", "mantle_pipe"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.diamondiferous_kimberlite",
+        "display_key": "material.earth_core.diamondiferous_kimberlite",
         "notes": "Diamond-bearing kimberlite pipe horizon enriched in mantle xenocrysts and crystalline carbon.",
     },
     {
@@ -918,7 +918,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["metamorphic", "skarn"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.lapis_lazuli_ore",
+        "display_key": "material.earth_core.lapis_lazuli_ore",
         "notes": "Contact-metamorphic lazurite marble containing white calcite and golden pyrite flecks.",
     },
     {
@@ -936,7 +936,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["pegmatitic", "hydrothermal"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.emerald_beryl_vein",
+        "display_key": "material.earth_core.emerald_beryl_vein",
         "notes": "Pegmatitic and hydrothermal beryl vein doped with trace chromium.",
     },
     {
@@ -954,7 +954,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["hydrothermal", "vein"],
         "simplification": "game_batch",
         "certainty": "game_simplified",
-        "display_key": "material.earth_on_minecraft.redstone_mineral_ore",
+        "display_key": "material.earth_core.redstone_mineral_ore",
         "notes": "Conductive ferruginous-cinnabar-manganese composite ore body.",
     },
     {
@@ -972,7 +972,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["epithermal", "vein"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.cinnabar_vein",
+        "display_key": "material.earth_core.cinnabar_vein",
         "notes": "Epithermal mercury sulfide vein hosted in silicified carbonate wallrock.",
     },
     {
@@ -991,7 +991,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["weathering", "lateritic"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.bauxite_laterite_deposit",
+        "display_key": "material.earth_core.bauxite_laterite_deposit",
         "notes": "In-situ bauxite laterite horizon rich in boehmite and gibbsite.",
     },
     {
@@ -1009,7 +1009,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["sedimentary", "marine"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.phosphorite_bed",
+        "display_key": "material.earth_core.phosphorite_bed",
         "notes": "Sedimentary phosphorite bed for phosphate rock beneficiation.",
     },
     {
@@ -1027,7 +1027,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["evaporite", "sedimentary"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.evaporite_salt_bed",
+        "display_key": "material.earth_core.evaporite_salt_bed",
         "notes": "Bedding-plane evaporite salt horizon containing halite, sylvite and anhydrite/gypsum.",
     },
     {
@@ -1045,7 +1045,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["placer", "alluvial"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.cassiterite_placer_deposit",
+        "display_key": "material.earth_core.cassiterite_placer_deposit",
         "notes": "Alluvial heavy-mineral placer deposit bearing cassiterite, rutile and monazite sand.",
     },
     {
@@ -1063,7 +1063,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["magmatic", "carbonatite"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.rare_earth_carbonatite",
+        "display_key": "material.earth_core.rare_earth_carbonatite",
         "notes": "Igneous carbonatite complex hosting bastnasite, monazite and accessory uraninite.",
     },
     {
@@ -1081,7 +1081,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["hydrothermal", "vein"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.galena_ore",
+        "display_key": "material.earth_core.galena_ore",
         "notes": "Hydrothermal lead sulfide ore vein with sphalerite, calcite and quartz gangue.",
     },
     {
@@ -1099,7 +1099,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["hydrothermal", "vein"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.sphalerite_ore",
+        "display_key": "material.earth_core.sphalerite_ore",
         "notes": "Zinc sulfide ore body intergrown with pyrite, galena and quartz.",
     },
     {
@@ -1116,7 +1116,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["magmatic", "ultramafic"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.chromite_ore",
+        "display_key": "material.earth_core.chromite_ore",
         "notes": "Podiform/stratiform chromite ore hosted in serpentinized ultramafic rock.",
     },
     {
@@ -1134,7 +1134,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["sedimentary", "hydrothermal"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.manganite_ore",
+        "display_key": "material.earth_core.manganite_ore",
         "notes": "Manganite/pyrolusite manganese oxide ore bed for ferromanganese smelting.",
     },
     {
@@ -1152,7 +1152,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["hydrothermal", "unconformity"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.uraninite_ore",
+        "display_key": "material.earth_core.uraninite_ore",
         "notes": "Pitchblende/uraninite ore vein with hematitic alteration and radiogenic galena.",
     },
     {
@@ -1170,7 +1170,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["evaporite", "lacustrine"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.borate_deposit",
+        "display_key": "material.earth_core.borate_deposit",
         "notes": "Playa-lake borate evaporite deposit bearing borax and colemanite.",
     },
 
@@ -1189,7 +1189,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["crushing"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.magnetite_chunk",
+        "display_key": "material.earth_core.magnetite_chunk",
         "notes": "Jaw-crushed magnetite ore chunk prior to ball milling.",
     },
     {
@@ -1206,7 +1206,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["grinding"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.magnetite_dust",
+        "display_key": "material.earth_core.magnetite_dust",
         "notes": "Finely ground magnetite pulp liberated for magnetic separation.",
     },
     {
@@ -1225,7 +1225,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["magnetic_separation"],
         "simplification": "concentrate",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.iron_concentrate",
+        "display_key": "material.earth_core.iron_concentrate",
         "notes": "Beneficiated iron oxide concentrate with residual silica, sulfide sulfur and apatite phosphorus.",
     },
     {
@@ -1244,7 +1244,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["direct_reduction", "bloomery"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.sponge_iron",
+        "display_key": "material.earth_core.sponge_iron",
         "notes": "Porous direct-reduced iron bloom with entrapped silicate slag and heterogeneous carbon/sulfur/phosphorus.",
     },
     {
@@ -1264,7 +1264,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["carburization", "steelmaking"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.steel_bloom",
+        "display_key": "material.earth_core.steel_bloom",
         "notes": "Carburized semi-fused steel bloom requiring anvil forging to expel residual slag and homogenize carbon.",
     },
     {
@@ -1284,7 +1284,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["shaft_furnace", "casting"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.cast_iron",
+        "display_key": "material.earth_core.cast_iron",
         "notes": "High-carbon (C > 2.1%) cast iron alloy with silicon promoting graphite flake formation.",
     },
     {
@@ -1304,7 +1304,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["steelmaking", "forging"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.high_carbon_steel",
+        "display_key": "material.earth_core.high_carbon_steel",
         "notes": "High-carbon blade and tool steel (1.4 wt% C) with strict sulfur and phosphorus limits.",
     },
     {
@@ -1323,7 +1323,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["alloy_steelmaking"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.stainless_steel_bloom",
+        "display_key": "material.earth_core.stainless_steel_bloom",
         "notes": "Unconsolidated Fe-Cr-Ni stainless steel billet prior to hot rolling and forging.",
     },
     {
@@ -1341,7 +1341,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["alloy_melting"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.monel",
+        "display_key": "material.earth_core.monel",
         "notes": "Monel 400 nickel-copper corrosion-resistant chemical engineering alloy.",
     },
     {
@@ -1359,7 +1359,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["carbothermic_reduction"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.ferrosilicon",
+        "display_key": "material.earth_core.ferrosilicon",
         "notes": "FeSi75 master alloy deoxidizer and inoculant for steelmaking and cast iron.",
     },
     {
@@ -1377,7 +1377,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["carbothermic_reduction"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.ferromanganese",
+        "display_key": "material.earth_core.ferromanganese",
         "notes": "High-carbon ferromanganese sulfur-fixing and alloying additive.",
     },
     {
@@ -1395,7 +1395,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["carbothermic_reduction"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.ferrochrome",
+        "display_key": "material.earth_core.ferrochrome",
         "notes": "Charge ferrochrome master alloy for stainless and tool steel production.",
     },
     {
@@ -1412,7 +1412,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["flotation"],
         "simplification": "concentrate",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.copper_concentrate",
+        "display_key": "material.earth_core.copper_concentrate",
         "notes": "Froth-floated chalcopyrite concentrate (~28 wt% Cu) for roasting and smelting.",
     },
     {
@@ -1430,7 +1430,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["roasting"],
         "simplification": "concentrate",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.roasted_copper_concentrate",
+        "display_key": "material.earth_core.roasted_copper_concentrate",
         "notes": "Dead- or partially-roasted copper calcine with reduced sulfur content.",
     },
     {
@@ -1449,7 +1449,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["converting", "smelting"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.blister_copper",
+        "display_key": "material.earth_core.blister_copper",
         "notes": "Converter blister copper (~98.2% Cu) blistered by escaping SO2 gas.",
     },
     {
@@ -1467,7 +1467,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["fire_refining"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.anode_copper",
+        "display_key": "material.earth_core.anode_copper",
         "notes": "Fire-refined copper cast into anodes for electrolytic electrorefining.",
     },
     {
@@ -1484,7 +1484,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["electrorefining"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.cathode_copper",
+        "display_key": "material.earth_core.cathode_copper",
         "notes": "4N-grade electrolytic cathode copper (99.95% Cu) for electrical and arcane conductors.",
     },
     {
@@ -1501,7 +1501,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["converting", "refining"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.refined_copper",
+        "display_key": "material.earth_core.refined_copper",
         "notes": "High-conductivity refined copper stock for alloying and wire drawing.",
     },
     {
@@ -1519,7 +1519,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["flotation", "leaching"],
         "simplification": "concentrate",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.gold_concentrate",
+        "display_key": "material.earth_core.gold_concentrate",
         "notes": "Enriched auriferous concentrate ready for bullion smelting or electrorefining.",
     },
     {
@@ -1536,7 +1536,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["flotation"],
         "simplification": "concentrate",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.lapis_concentrate",
+        "display_key": "material.earth_core.lapis_concentrate",
         "notes": "Upgraded lazurite pigment and crystal concentrate.",
     },
     {
@@ -1553,7 +1553,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["leaching", "beneficiation"],
         "simplification": "concentrate",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.beryl_concentrate",
+        "display_key": "material.earth_core.beryl_concentrate",
         "notes": "Purified chromium-bearing beryl concentrate.",
     },
     {
@@ -1571,7 +1571,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["flotation"],
         "simplification": "concentrate",
         "certainty": "game_simplified",
-        "display_key": "material.earth_on_minecraft.redstone_concentrate",
+        "display_key": "material.earth_core.redstone_concentrate",
         "notes": "Deslimed redstone mineral concentrate with low silica gangue.",
     },
     {
@@ -1589,7 +1589,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["smelting"],
         "simplification": "mixture",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.slag",
+        "display_key": "material.earth_core.slag",
         "notes": "Vitreous calcium-aluminosilicate metallurgical slag byproduct.",
     },
     {
@@ -1606,7 +1606,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["hall_heroult"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.aluminum_ingot",
+        "display_key": "material.earth_core.aluminum_ingot",
         "notes": "Primary Hall-Heroult electrolytic aluminium ingot.",
     },
     {
@@ -1625,7 +1625,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["kroll_process"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.titanium_sponge",
+        "display_key": "material.earth_core.titanium_sponge",
         "notes": "Porous Kroll-process titanium sponge reduced from TiCl4 with magnesium.",
     },
     {
@@ -1642,7 +1642,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["vacuum_arc_remelting"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.titanium",
+        "display_key": "material.earth_core.titanium",
         "notes": "Commercially pure Grade-2 vacuum-remelted titanium metal.",
     },
     {
@@ -1660,7 +1660,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["alloy_melting"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.titanium_alloy",
+        "display_key": "material.earth_core.titanium_alloy",
         "notes": "Ti-6Al-4V aerospace and sci-fi structural alpha-beta titanium alloy.",
     },
     {
@@ -1678,7 +1678,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["carbothermic_reduction"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.metallurgical_silicon",
+        "display_key": "material.earth_core.metallurgical_silicon",
         "notes": "98.5% metallurgical-grade silicon (MG-Si) from submerged-arc quartz reduction.",
     },
     {
@@ -1692,7 +1692,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["siemens_process"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.high_purity_silicon",
+        "display_key": "material.earth_core.high_purity_silicon",
         "notes": "Solar/electronic high-purity silicon (6N-9N) purified via chlorosilane distillation.",
     },
     {
@@ -1706,7 +1706,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["chemical_vapor_deposition"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.polysilicon",
+        "display_key": "material.earth_core.polysilicon",
         "notes": "Electronic-grade polycrystalline silicon rod chunk for Czochralski crystal pulling.",
     },
     {
@@ -1720,7 +1720,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["czochralski_growth"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.silicon_wafer",
+        "display_key": "material.earth_core.silicon_wafer",
         "notes": "Monocrystalline 9N semiconductor silicon wafer substrate.",
     },
     {
@@ -1734,7 +1734,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["hydrochlorination"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.chlorosilane",
+        "display_key": "material.earth_core.chlorosilane",
         "notes": "Volatile trichlorosilane liquid intermediate for fractional distillation to 9N silicon.",
     },
     {
@@ -1748,7 +1748,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["chlorination"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.titanium_tetrachloride",
+        "display_key": "material.earth_core.titanium_tetrachloride",
         "notes": "Distilled titanium tetrachloride feedstock for Kroll magnesium reduction.",
     },
 
@@ -1769,7 +1769,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["coking"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.coke",
+        "display_key": "material.earth_core.coke",
         "notes": "Metallurgical coke carbon reductant and high-temperature fuel with mineral ash.",
     },
     {
@@ -1786,7 +1786,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["delayed_coking"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.petroleum_coke",
+        "display_key": "material.earth_core.petroleum_coke",
         "notes": "High-carbon low-ash petroleum coke for carbon anodes and graphite synthesis.",
     },
     {
@@ -1805,7 +1805,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["grinding"],
         "simplification": "game_batch",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.coal_dust",
+        "display_key": "material.earth_core.coal_dust",
         "notes": "Pulverized raw coal carrying volatile organics and elevated sulfur/phosphorus impurities.",
     },
     {
@@ -1819,7 +1819,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["syngas_synthesis"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.methanol",
+        "display_key": "material.earth_core.methanol",
         "notes": "Industrial methyl alcohol solvent and C1 chemical feedstock.",
     },
     {
@@ -1833,7 +1833,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["fermentation", "hydration"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.ethanol",
+        "display_key": "material.earth_core.ethanol",
         "notes": "Distilled ethyl alcohol solvent, fuel and pharmaceutical extractant.",
     },
     {
@@ -1847,7 +1847,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["carbonylation", "oxidation"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.acetic_acid",
+        "display_key": "material.earth_core.acetic_acid",
         "notes": "Glacial ethanoic acid organic reagent and acetylating feedstock.",
     },
     {
@@ -1861,7 +1861,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["cumene_process"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.acetone",
+        "display_key": "material.earth_core.acetone",
         "notes": "Polar aprotic ketone solvent and methacrylate precursor.",
     },
     {
@@ -1875,7 +1875,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["coal_tar_distillation", "reforming"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.benzene",
+        "display_key": "material.earth_core.benzene",
         "notes": "Aromatic hydrocarbon ring precursor for styrene, phenol and aniline.",
     },
     {
@@ -1889,7 +1889,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["steam_cracking"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.ethylene",
+        "display_key": "material.earth_core.ethylene",
         "notes": "Primary olefin monomer for polyethylene and ethylene oxide.",
     },
     {
@@ -1903,7 +1903,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["steam_cracking"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.propylene",
+        "display_key": "material.earth_core.propylene",
         "notes": "Light olefin monomer for polypropylene and acrylonitrile.",
     },
     {
@@ -1917,7 +1917,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["coal_tar", "cumene_process"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.phenol",
+        "display_key": "material.earth_core.phenol",
         "notes": "Carbolic acid aromatic monomer for phenolic and epoxy resins.",
     },
     {
@@ -1931,7 +1931,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["bosch_meiser"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.urea",
+        "display_key": "material.earth_core.urea",
         "notes": "High-nitrogen carbamide fertilizer and resin precursor.",
     },
     {
@@ -1945,7 +1945,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["neutralization"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.ammonium_nitrate",
+        "display_key": "material.earth_core.ammonium_nitrate",
         "notes": "Concentrated nitrogen fertilizer and industrial oxidizer salt.",
     },
     {
@@ -1959,7 +1959,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["solvay_byproduct", "acid_leaching"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.calcium_chloride",
+        "display_key": "material.earth_core.calcium_chloride",
         "notes": "Hygroscopic desiccant and brine calcium salt.",
     },
     {
@@ -1973,7 +1973,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["hydration"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.slaked_lime",
+        "display_key": "material.earth_core.slaked_lime",
         "notes": "Hydrated calcium hydroxide base for mortar, water softening and flue-gas scrubbing.",
     },
     {
@@ -1987,7 +1987,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["solvay_process"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.sodium_bicarbonate",
+        "display_key": "material.earth_core.sodium_bicarbonate",
         "notes": " precipitated sodium hydrogen carbonate intermediate in the Solvay soda ash loop.",
     },
     {
@@ -2001,7 +2001,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["anthraquinone_process"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.hydrogen_peroxide",
+        "display_key": "material.earth_core.hydrogen_peroxide",
         "notes": "Clean liquid oxidizer and bleaching agent.",
     },
     {
@@ -2018,7 +2018,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["leaching", "precipitation"],
         "simplification": "concentrate",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.yellowcake",
+        "display_key": "material.earth_core.yellowcake",
         "notes": "Milled uranium oxide concentrate powder (~80% U3O8 equivalent).",
     },
     {
@@ -2032,7 +2032,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["hydrogen_reduction"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.uranium_dioxide_powder",
+        "display_key": "material.earth_core.uranium_dioxide_powder",
         "notes": "Ceramic-grade uranium(IV) dioxide powder for nuclear fuel pellets and hydrofluorination.",
     },
     {
@@ -2046,7 +2046,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["hydrofluorination"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.uranium_tetrafluoride",
+        "display_key": "material.earth_core.uranium_tetrafluoride",
         "notes": "Green salt (UF4) intermediate for metallic uranium reduction or UF6 fluorination.",
     },
     {
@@ -2060,7 +2060,7 @@ RECORDS: list[dict[str, object]] = [
         "source": ["fluorination"],
         "simplification": "none",
         "certainty": "well_established",
-        "display_key": "material.earth_on_minecraft.uranium_hexafluoride",
+        "display_key": "material.earth_core.uranium_hexafluoride",
         "notes": "Volatile uranium(VI) fluoride gas for centrifuge isotope separation.",
     },
 ]
@@ -2073,7 +2073,7 @@ def main() -> None:
         slug = str(item["id"])
         payload = {
             "schema_version": 1,
-            "id": f"earth_on_minecraft:{slug}",
+            "id": f"earth_core:{slug}",
             "kind": item["kind"],
             "formula": item["formula"],
             "composition_basis": item["composition_basis"],

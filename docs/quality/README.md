@@ -27,7 +27,7 @@ python tools\audit_machine_audio.py --check
 python tools\audit_assets.py --check
 pwsh -NoProfile -File tools\render_gui_previews.ps1
 python tools\validate_resources.py
-cd neoforge-26.2
+cd neoforge-26.1.2
 .\gradlew.bat verifyGuiPreviews
 .\gradlew.bat clean build
 cd ..
@@ -42,8 +42,8 @@ An authorized old-world smoke test uses `tools/run_world_migration_smoke.ps1` wi
 
 ## Canonical Inputs
 
-- Machine physical and presentation contracts: `data/earth_on_minecraft/earth/quality/machine_profiles.json`
-- Authored route chains (outside the spec): `data/earth_on_minecraft/earth/quality/{drink,medicine,herb,crop}_routes.json`
+- Machine physical and presentation contracts: `data/earth_core/earth/quality/machine_profiles.json`
+- Authored route chains (outside the spec): `data/earth_core/earth/quality/{drink,medicine,herb,crop}_routes.json`
 - UI states: `docs/quality/ui-state-matrix.json`
 - New feature closure contract: `docs/quality/vertical-slice-template.json`
 - Runtime evidence: `docs/quality/runtime-checklist.md`

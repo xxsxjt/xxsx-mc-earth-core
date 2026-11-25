@@ -10,9 +10,9 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-RESOURCES = ROOT / "neoforge-26.2" / "src" / "main" / "resources"
-ROLE_DIR = RESOURCES / "data" / "earth_on_minecraft" / "settlements" / "resident_roles"
-TRADE_DIR = RESOURCES / "data" / "earth_on_minecraft" / "villager_trade" / "resident"
+RESOURCES = ROOT / "neoforge-26.1.2" / "src" / "main" / "resources"
+ROLE_DIR = RESOURCES / "data" / "earth_core" / "settlements" / "resident_roles"
+TRADE_DIR = RESOURCES / "data" / "earth_core" / "villager_trade" / "resident"
 TAG_DIR = RESOURCES / "data" / "minecraft" / "tags" / "villager_trade"
 
 
@@ -46,7 +46,7 @@ def main() -> None:
     for role_file in sorted(ROLE_DIR.glob("*.json")):
         role = json.loads(role_file.read_text(encoding="utf-8"))
         role_name = role_file.stem
-        role_id = f"earth_on_minecraft:{role_name}"
+        role_id = f"earth_core:{role_name}"
         professions = [
             value.split(":", 1)[1]
             for value in role.get("vanilla_professions", [])
@@ -56,7 +56,7 @@ def main() -> None:
         for index, trade in enumerate(role.get("trades", []), start=1):
             level = max(1, min(5, int(trade["level"])))
             trade_path = f"resident/{role_name}/level_{level}_{index}"
-            trade_id = f"earth_on_minecraft:{trade_path}"
+            trade_id = f"earth_core:{trade_path}"
             payload = {
                 "wants": item_stack(trade["input"], int(trade["input_count"])),
                 "gives": item_stack(trade["output"], int(trade["output_count"])),

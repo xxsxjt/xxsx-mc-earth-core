@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "earth_core:block/industrial_machine_casing_assembled",
+    "down": "earth_core:block/industrial_machine_casing_assembled",
+    "up": "earth_core:block/modern_machine_top_active",
+    "north": "earth_core:block/machine_input_interface_assembled",
+    "south": "earth_core:block/industrial_machine_casing_assembled",
+    "west": "earth_core:block/industrial_machine_casing_assembled",
+    "east": "earth_core:block/industrial_machine_casing_assembled"
+  }
+}

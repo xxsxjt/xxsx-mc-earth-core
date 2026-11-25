@@ -1,0 +1,69 @@
+{
+  "discipline": "earth_lore:che",
+  "tier": 2,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:che/inorganic_chemistry"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:soap"
+    },
+    {
+      "item": "earth_core:scented_soap"
+    },
+    {
+      "item": "earth_core:toothpaste"
+    },
+    {
+      "item": "earth_core:dye"
+    },
+    {
+      "item": "earth_core:indigo_dye"
+    },
+    {
+      "item": "earth_core:madder_dye"
+    },
+    {
+      "item": "earth_core:murex_dye"
+    },
+    {
+      "item": "earth_core:tannin"
+    },
+    {
+      "item": "earth_core:paint"
+    },
+    {
+      "item": "earth_core:match"
+    },
+    {
+      "item": "earth_core:firework"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "earth_core:mechanic"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:lard",
+        "count": 2
+      },
+      {
+        "ingredient": "earth_core:lime",
+        "count": 2
+      }
+    ],
+    "ticks": 1200
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.che.household_chemistry",
+  "desc_key": "lore.earth_core.che.household_chemistry.desc",
+  "icon": "earth_core:soap"
+}

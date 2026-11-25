@@ -5,7 +5,7 @@ In-development test build for Minecraft 26.2 / NeoForge 26.2.0.7-beta.
 ## Artifact
 
 - Mod version: `0.1.10`
-- Jar: `earth-on-minecraft-neoforge-26.2-0.1.10.jar`
+- Jar: `earth-core-neoforge-26.1.2-0.1.10.jar`
 - SHA256: `3FF8571D41428BAC38A6E930A4F2989C2F17E039F1FB6D9243905A0B232402F5`
 
 ## UI foundation

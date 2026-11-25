@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "earth_core:block/depleted_rich_magnetite_lens"
+    }
+  }
+}

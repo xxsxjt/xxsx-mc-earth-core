@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PPP",
+    "P P",
+    "WWW"
+  ],
+  "key": {
+    "P": "minecraft:oak_planks",
+    "W": "minecraft:oak_slab"
+  },
+  "result": {
+    "id": "earth_core:tannery",
+    "count": 1
+  }
+}

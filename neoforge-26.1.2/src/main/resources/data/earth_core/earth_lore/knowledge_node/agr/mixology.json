@@ -1,0 +1,88 @@
+{
+  "discipline": "earth_lore:agr",
+  "tier": 5,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:agr/distilling"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:highball"
+    },
+    {
+      "item": "earth_core:gin_tonic"
+    },
+    {
+      "item": "earth_core:mojito"
+    },
+    {
+      "item": "earth_core:margarita"
+    },
+    {
+      "item": "earth_core:bloody_mary"
+    },
+    {
+      "item": "earth_core:old_fashioned"
+    },
+    {
+      "item": "earth_core:martini"
+    },
+    {
+      "item": "earth_core:mulled_wine"
+    },
+    {
+      "item": "earth_core:eggnog"
+    },
+    {
+      "item": "earth_core:white_russian"
+    },
+    {
+      "item": "earth_core:daiquiri"
+    },
+    {
+      "item": "earth_core:sidecar"
+    },
+    {
+      "item": "earth_core:paloma"
+    },
+    {
+      "item": "earth_core:mint_julep"
+    },
+    {
+      "item": "earth_core:mocktail"
+    },
+    {
+      "item": "earth_core:bar_counter"
+    },
+    {
+      "block": "earth_core:bar_counter"
+    },
+    {
+      "ability": "earth_core:agr_mixology/highball"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:whisky",
+        "count": 2
+      },
+      {
+        "ingredient": "earth_core:shot_glass",
+        "count": 2
+      }
+    ],
+    "ticks": 6000
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.agr.mixology",
+  "desc_key": "lore.earth_core.agr.mixology.desc",
+  "icon": "earth_core:highball"
+}

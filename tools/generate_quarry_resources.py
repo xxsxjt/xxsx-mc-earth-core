@@ -9,9 +9,9 @@ import pathlib
 from PIL import Image, ImageDraw
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-RES = ROOT / "neoforge-26.2/src/main/resources"
-ASSETS = RES / "assets/earth_on_minecraft"
-DATA = RES / "data/earth_on_minecraft"
+RES = ROOT / "neoforge-26.1.2/src/main/resources"
+ASSETS = RES / "assets/earth_core"
+DATA = RES / "data/earth_core"
 LANG = ASSETS / "lang"
 
 BLOCK_ID = "quarry"
@@ -52,7 +52,7 @@ def main() -> None:
         for active in (False, True):
             suffix = "_active" if active else ""
             variants[f"facing={facing},active={'true' if active else 'false'}"] = {
-                "model": f"earth_on_minecraft:block/{BLOCK_ID}{suffix}"
+                "model": f"earth_core:block/{BLOCK_ID}{suffix}"
             }
     (ASSETS / "blockstates" / f"{BLOCK_ID}.json").write_text(
         json.dumps({"variants": variants}, indent=2) + "\n", encoding="utf-8")
@@ -61,14 +61,14 @@ def main() -> None:
         (ASSETS / "models/block" / f"{BLOCK_ID}{suffix}.json").write_text(json.dumps({
             "parent": "minecraft:block/cube_bottom_top",
             "textures": {
-                "top": f"earth_on_minecraft:block/{texture}",
-                "bottom": f"earth_on_minecraft:block/{texture}",
-                "side": f"earth_on_minecraft:block/{texture}",
+                "top": f"earth_core:block/{texture}",
+                "bottom": f"earth_core:block/{texture}",
+                "side": f"earth_core:block/{texture}",
             },
         }, indent=2) + "\n", encoding="utf-8")
 
     (ASSETS / "items" / f"{BLOCK_ID}.json").write_text(json.dumps({
-        "model": {"type": "minecraft:model", "model": f"earth_on_minecraft:block/{BLOCK_ID}"}
+        "model": {"type": "minecraft:model", "model": f"earth_core:block/{BLOCK_ID}"}
     }, indent=2) + "\n", encoding="utf-8")
 
     (DATA / "loot_table/blocks" / f"{BLOCK_ID}.json").write_text(json.dumps({
@@ -76,7 +76,7 @@ def main() -> None:
         "pools": [{
             "rolls": 1,
             "bonus_rolls": 0,
-            "entries": [{"type": "minecraft:item", "name": f"earth_on_minecraft:{BLOCK_ID}"}],
+            "entries": [{"type": "minecraft:item", "name": f"earth_core:{BLOCK_ID}"}],
             "conditions": [{"condition": "minecraft:survives_explosion"}],
         }],
     }, indent=2) + "\n", encoding="utf-8")
@@ -86,23 +86,23 @@ def main() -> None:
         "category": "misc",
         "pattern": ["SSS", "ICI", "BBB"],
         "key": {
-            "S": "earth_on_minecraft:steel",
+            "S": "earth_core:steel",
             "I": "minecraft:iron_ingot",
-            "C": "earth_on_minecraft:copper_wire",
+            "C": "earth_core:copper_wire",
             "B": "minecraft:stone",
         },
-        "result": {"id": f"earth_on_minecraft:{BLOCK_ID}", "count": 1},
+        "result": {"id": f"earth_core:{BLOCK_ID}", "count": 1},
     }, indent=2) + "\n", encoding="utf-8")
 
     keys = {
-        f"block.earth_on_minecraft.{BLOCK_ID}": ("Quarry", "采石场"),
-        f"item.earth_on_minecraft.{BLOCK_ID}": ("Quarry", "采石场"),
-        "tooltip.earth_on_minecraft.automation.quarry": (
+        f"block.earth_core.{BLOCK_ID}": ("Quarry", "采石场"),
+        f"item.earth_core.{BLOCK_ID}": ("Quarry", "采石场"),
+        "tooltip.earth_core.automation.quarry": (
             "Grinds out bulk rock from whatever it sits on. Ores are excluded, so a quarry never "
             "replaces a bore head.",
             "就地开采大宗石料。矿石被排除在外，采石场不会取代钻采头。",
         ),
-        "screen.earth_on_minecraft.quarry.status": (
+        "screen.earth_core.quarry.status": (
             "Quarry: %s items stored", "采石场：已存物品 %s"),
     }
     for lang, index in (("en_us", 0), ("zh_cn", 1)):

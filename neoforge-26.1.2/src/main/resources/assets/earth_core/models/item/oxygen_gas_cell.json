@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "earth_core:item/oxygen_gas_cell"
+  }
+}

@@ -12,17 +12,17 @@ import json
 import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-RES = ROOT / "neoforge-26.2/src/main/resources"
-ASSETS = RES / "assets/earth_on_minecraft"
+RES = ROOT / "neoforge-26.1.2/src/main/resources"
+ASSETS = RES / "assets/earth_core"
 DATA = RES / "data"
 ITEM_DEFS = ASSETS / "items"
 ITEM_MODELS = ASSETS / "models/item"
 LANG = ASSETS / "lang"
-LOOT = DATA / "earth_on_minecraft/loot_table/blocks"
-RECIPES = DATA / "earth_on_minecraft/recipe"
+LOOT = DATA / "earth_core/loot_table/blocks"
+RECIPES = DATA / "earth_core/recipe"
 BLOCK_TAGS = DATA / "minecraft/tags/block"
-ITEM_TAGS = DATA / "earth_on_minecraft/tags/item"
-BLOCK_DATA_TAGS = DATA / "earth_on_minecraft/tags/block"
+ITEM_TAGS = DATA / "earth_core/tags/item"
+BLOCK_DATA_TAGS = DATA / "earth_core/tags/block"
 
 # id -> (en, zh, tool, needs_tier, recipe pattern, keys, shapeless)
 MACHINES = {
@@ -114,13 +114,13 @@ def merge_lang(lang: str, machine_id: str, en: str, zh: str) -> None:
     path = LANG / f"{lang}.json"
     data = json.loads(path.read_text(encoding="utf-8-sig"))
     display = en if lang == "en_us" else zh
-    data[f"block.earth_on_minecraft.{machine_id}"] = display
-    data[f"item.earth_on_minecraft.{machine_id}"] = display
+    data[f"block.earth_core.{machine_id}"] = display
+    data[f"item.earth_core.{machine_id}"] = display
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
 def merge_tag(path: pathlib.Path, machine_id: str) -> None:
-    entry = f"earth_on_minecraft:{machine_id}"
+    entry = f"earth_core:{machine_id}"
     data = json.loads(path.read_text(encoding="utf-8-sig")) if path.exists() else {"replace": False, "values": []}
     values = data.setdefault("values", [])
     if entry not in values:
@@ -134,10 +134,10 @@ def write_loot(machine_id: str) -> None:
         "type": "minecraft:block",
         "pools": [{
             "rolls": 1.0,
-            "entries": [{"type": "minecraft:item", "name": f"earth_on_minecraft:{machine_id}"}],
+            "entries": [{"type": "minecraft:item", "name": f"earth_core:{machine_id}"}],
             "conditions": [{"condition": "minecraft:survives_explosion"}],
         }],
-        "random_sequence": f"earth_on_minecraft:blocks/{machine_id}",
+        "random_sequence": f"earth_core:blocks/{machine_id}",
     })
 
 
@@ -149,15 +149,15 @@ def write_recipe(machine_id: str, pattern: list[str], keys: dict[str, str], shap
     else:
         recipe["pattern"] = pattern
         recipe["key"] = dict(keys)
-    recipe["result"] = {"id": f"earth_on_minecraft:{machine_id}", "count": 1}
+    recipe["result"] = {"id": f"earth_core:{machine_id}", "count": 1}
     write_json(RECIPES / f"{machine_id}.json", recipe)
 
 
 def main() -> None:
     for machine_id, (en, zh, tool, tier, pattern, keys, shapeless) in MACHINES.items():
         write_json(ITEM_DEFS / f"{machine_id}.json", {
-            "model": {"type": "minecraft:model", "model": f"earth_on_minecraft:block/{machine_id}"}})
-        write_json(ITEM_MODELS / f"{machine_id}.json", {"parent": f"earth_on_minecraft:block/{machine_id}"})
+            "model": {"type": "minecraft:model", "model": f"earth_core:block/{machine_id}"}})
+        write_json(ITEM_MODELS / f"{machine_id}.json", {"parent": f"earth_core:block/{machine_id}"})
         write_loot(machine_id)
         for lang in ("en_us", "zh_cn"):
             merge_lang(lang, machine_id, en, zh)

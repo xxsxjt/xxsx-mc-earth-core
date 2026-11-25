@@ -10,9 +10,9 @@ import re
 from collections import Counter
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-JAVA_ROOT = ROOT / "neoforge-26.2/src/main/java"
-RES = ROOT / "neoforge-26.2/src/main/resources"
-RECIPE_DIR = RES / "data/earth_on_minecraft/recipe"
+JAVA_ROOT = ROOT / "neoforge-26.1.2/src/main/java"
+RES = ROOT / "neoforge-26.1.2/src/main/resources"
+RECIPE_DIR = RES / "data/earth_core/recipe"
 MANIFEST = ROOT / "docs/quality/spec-vanilla-recipes.json"
 DEFAULT_SPEC = pathlib.Path(r"D:\Codex\WORKSPACES\Projects\mc-agent\spec\eom")
 
@@ -27,7 +27,7 @@ def registered_ids() -> set[str]:
     ids |= set(re.findall(r'ITEMS\.registerItem\(\s*"([a-z0-9_]+)"', text))
     ids |= set(re.findall(r'BLOCKS\.registerBlock\(\s*"([a-z0-9_]+)"', text))
     for name in ("SpecItems.java", "SpecBlocks.java"):
-        path = JAVA_ROOT / "com/xxsx/earthonminecraft" / name
+        path = JAVA_ROOT / "com/xxsx/earth/core" / name
         if path.exists():
             ids |= set(re.findall(r'new (?:Entry|BlockEntry)\("([a-z0-9_]+)"', path.read_text(encoding="utf-8")))
     return ids
@@ -96,7 +96,7 @@ def main() -> None:
     for record in recipes:
         refs = [entry.get("item") for entry in (record.get("inputs") or []) + (record.get("outputs") or [])
                 if entry.get("item")]
-        if any(ref.startswith("earth_on_minecraft:") and ref.split(":", 1)[1] not in known for ref in refs):
+        if any(ref.startswith("earth_core:") and ref.split(":", 1)[1] not in known for ref in refs):
             skipped.append({"id": record["id"], "reason": "missing_item"})
             continue
         payload = None

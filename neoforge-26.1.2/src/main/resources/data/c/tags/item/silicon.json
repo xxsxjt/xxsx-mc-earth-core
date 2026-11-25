@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:metallurgical_silicon",
+    "earth_core:high_purity_silicon",
+    "earth_core:polysilicon"
+  ]
+}

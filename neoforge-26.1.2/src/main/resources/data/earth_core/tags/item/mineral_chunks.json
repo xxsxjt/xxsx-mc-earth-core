@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:magnetite_chunk",
+    "earth_core:chalcopyrite_chunk",
+    "earth_core:auriferous_quartz_chunk",
+    "earth_core:kimberlite_chunk",
+    "earth_core:cinnabar_chunk"
+  ]
+}

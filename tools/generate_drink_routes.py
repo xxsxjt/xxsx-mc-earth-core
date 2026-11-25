@@ -18,7 +18,7 @@ import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SPEC = pathlib.Path(r"D:\Codex\WORKSPACES\Projects\mc-agent\spec\eom")
-OUT = ROOT / "neoforge-26.2/src/main/resources/data/earth_on_minecraft/earth/quality/drink_routes.json"
+OUT = ROOT / "neoforge-26.1.2/src/main/resources/data/earth_core/earth/quality/drink_routes.json"
 
 # Fermentable base: what each fermented drink is made from, and what it becomes when distilled.
 # `material` is the spec's own catalog wording where it exists.
@@ -162,7 +162,7 @@ def item_ref(name: str) -> str:
                "honey", "milk", "cocoa", "oat", "rice", "pear", "grape"}
     if name in vanilla:
         return f"minecraft:{name}"
-    return f"earth_on_minecraft:{name}"
+    return f"earth_core:{name}"
 
 
 def main() -> None:

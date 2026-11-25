@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:redstone_mineral_ore",
+    "earth_core:cinnabar_vein",
+    "earth_core:manganite_ore"
+  ]
+}

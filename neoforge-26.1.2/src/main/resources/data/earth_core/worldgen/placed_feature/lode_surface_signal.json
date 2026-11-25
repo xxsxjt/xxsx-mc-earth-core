@@ -1,0 +1,8 @@
+{
+  "feature": "earth_core:lode_surface_signal",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

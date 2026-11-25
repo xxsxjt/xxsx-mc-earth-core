@@ -1,0 +1,372 @@
+{
+  "discipline": "earth_lore:geo",
+  "tier": 2,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:geo/mineral_identification"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "ability": "earth_core:geo_gemology/serpentine_jade"
+    },
+    {
+      "ability": "earth_core:geo_gemology/zoisite_jade"
+    },
+    {
+      "ability": "earth_core:geo_gemology/turquoise"
+    },
+    {
+      "ability": "earth_core:geo_gemology/lapis_lazuli"
+    },
+    {
+      "ability": "earth_core:geo_gemology/chalcedony"
+    },
+    {
+      "ability": "earth_core:geo_gemology/agate"
+    },
+    {
+      "ability": "earth_core:geo_gemology/jasper"
+    },
+    {
+      "ability": "earth_core:geo_gemology/aventurine"
+    },
+    {
+      "ability": "earth_core:geo_gemology/opal"
+    },
+    {
+      "ability": "earth_core:geo_gemology/malachite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/azurite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/chrysocolla"
+    },
+    {
+      "ability": "earth_core:geo_gemology/fluorite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/iceland_spar"
+    },
+    {
+      "ability": "earth_core:geo_gemology/rhodonite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/tigers_eye"
+    },
+    {
+      "ability": "earth_core:geo_gemology/hawks_eye"
+    },
+    {
+      "ability": "earth_core:geo_gemology/amazonite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/moonstone"
+    },
+    {
+      "ability": "earth_core:geo_gemology/labradorite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/sunstone"
+    },
+    {
+      "ability": "earth_core:geo_gemology/sodalite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/prehnite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/obsidian"
+    },
+    {
+      "ability": "earth_core:geo_gemology/snowflake_obsidian"
+    },
+    {
+      "ability": "earth_core:geo_gemology/tektite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/diamond"
+    },
+    {
+      "ability": "earth_core:geo_gemology/corundum"
+    },
+    {
+      "ability": "earth_core:geo_gemology/ruby"
+    },
+    {
+      "ability": "earth_core:geo_gemology/sapphire"
+    },
+    {
+      "ability": "earth_core:geo_gemology/chrysoberyl"
+    },
+    {
+      "ability": "earth_core:geo_gemology/cats_eye"
+    },
+    {
+      "ability": "earth_core:geo_gemology/alexandrite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/spinel"
+    },
+    {
+      "ability": "earth_core:geo_gemology/almandine"
+    },
+    {
+      "ability": "earth_core:geo_gemology/pyrope"
+    },
+    {
+      "ability": "earth_core:geo_gemology/spessartine"
+    },
+    {
+      "ability": "earth_core:geo_gemology/grossular"
+    },
+    {
+      "ability": "earth_core:geo_gemology/andradite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/uvarovite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/rhodolite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/peridot"
+    },
+    {
+      "ability": "earth_core:geo_gemology/zircon"
+    },
+    {
+      "ability": "earth_core:geo_gemology/topaz"
+    },
+    {
+      "ability": "earth_core:geo_gemology/tourmaline"
+    },
+    {
+      "ability": "earth_core:geo_gemology/rubellite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/paraiba"
+    },
+    {
+      "ability": "earth_core:geo_gemology/watermelon"
+    },
+    {
+      "ability": "earth_core:geo_gemology/beryl"
+    },
+    {
+      "ability": "earth_core:geo_gemology/emerald"
+    },
+    {
+      "ability": "earth_core:geo_gemology/aquamarine"
+    },
+    {
+      "ability": "earth_core:geo_gemology/morganite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/heliodor"
+    },
+    {
+      "ability": "earth_core:geo_gemology/bixbite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/blue_zoisite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/zoisite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/thulite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/diopside"
+    },
+    {
+      "ability": "earth_core:geo_gemology/chrome_diopside"
+    },
+    {
+      "ability": "earth_core:geo_gemology/apatite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/amethyst"
+    },
+    {
+      "ability": "earth_core:geo_gemology/citrine"
+    },
+    {
+      "ability": "earth_core:geo_gemology/smoky_quartz"
+    },
+    {
+      "ability": "earth_core:geo_gemology/rose_quartz"
+    },
+    {
+      "ability": "earth_core:geo_gemology/rutilated_quartz"
+    },
+    {
+      "ability": "earth_core:geo_gemology/quartz_cats_eye"
+    },
+    {
+      "ability": "earth_core:geo_gemology/iolite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/kyanite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/andalusite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/sillimanite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/staurolite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/scapolite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/titanite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/vesuvianite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/axinite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/benitoite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/danburite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/spodumene"
+    },
+    {
+      "ability": "earth_core:geo_gemology/kunzite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/hiddenite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/dioptase"
+    },
+    {
+      "ability": "earth_core:geo_gemology/celestine"
+    },
+    {
+      "ability": "earth_core:geo_gemology/barite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/rhodochrosite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/smithsonite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/cerussite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/hemimorphite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/cuprite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/native_copper"
+    },
+    {
+      "ability": "earth_core:geo_gemology/native_gold"
+    },
+    {
+      "ability": "earth_core:geo_gemology/native_silver"
+    },
+    {
+      "ability": "earth_core:geo_gemology/native_bismuth"
+    },
+    {
+      "ability": "earth_core:geo_gemology/realgar"
+    },
+    {
+      "ability": "earth_core:geo_gemology/orpiment"
+    },
+    {
+      "ability": "earth_core:geo_gemology/cinnabar"
+    },
+    {
+      "ability": "earth_core:geo_gemology/stibnite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/bismuthinite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/molybdenite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/pyrite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/arsenopyrite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/pyrrhotite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/sphalerite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/galena"
+    },
+    {
+      "ability": "earth_core:geo_gemology/chalcopyrite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/bornite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/chalcocite"
+    },
+    {
+      "ability": "earth_core:geo_gemology/amber"
+    },
+    {
+      "ability": "earth_core:geo_gemology/pearl"
+    },
+    {
+      "ability": "earth_core:geo_gemology/coral"
+    },
+    {
+      "ability": "earth_core:geo_gemology/jet"
+    },
+    {
+      "ability": "earth_core:geo_gemology/shell"
+    },
+    {
+      "ability": "earth_core:geo_gemology/bone_carving"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "earth_core:geologist"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:gem_rough",
+        "count": 3
+      },
+      {
+        "ingredient": "minecraft:paper",
+        "count": 2
+      }
+    ],
+    "ticks": 1200
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.geo.gemology",
+  "desc_key": "lore.earth_core.geo.gemology.desc",
+  "icon": "earth_core:gem_rough"
+}

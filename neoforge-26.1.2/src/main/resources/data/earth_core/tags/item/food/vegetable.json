@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:bell_pepper",
+    "earth_core:cabbage",
+    "earth_core:carrot",
+    "earth_core:onion",
+    "earth_core:potato",
+    "earth_core:spinach",
+    "earth_core:tomato"
+  ]
+}

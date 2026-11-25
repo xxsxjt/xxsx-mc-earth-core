@@ -43,6 +43,6 @@
 - Fantasy Earth and Xuanhuan Earth compile and their arcana regression checks pass.
 - In-world survival timing and balance were not measured for this build.
 
-Artifact: `earth-on-minecraft-neoforge-26.2-0.1.15.jar`
+Artifact: `earth-core-neoforge-26.1.2-0.1.15.jar`
 
 SHA256: `CCA7E4E41F7A69F3014ADB56B6FB1CFE4BE8CB523DCA246FFED5673C8CFBD840`

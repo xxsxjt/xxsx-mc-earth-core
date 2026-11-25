@@ -4,14 +4,14 @@
 
 - Minecraft: `26.2`
 - Loader: `NeoForge 26.2.0.7-beta`
-- Mod id: `earth_on_minecraft`
+- Mod id: `earth_core`
 - Mod version: `0.1.6`
-- Jar: `earth-on-minecraft-neoforge-26.2-0.1.6.jar`
+- Jar: `earth-core-neoforge-26.1.2-0.1.6.jar`
 - SHA256: `0714E1E1EBADB57F779AD46FBBAFBBA06609316149564002C2F3BBE6F3F23C12`
 
 ## 本轮重点
 
-- 增加旧测试命名空间兼容别名：`earth_online:*` 会映射到当前 `earth_on_minecraft:*`。
+- 增加旧测试命名空间兼容别名：`earth_online:*` 会映射到当前 `earth_core:*`。
 - 覆盖范围包括方块、物品、机器方块实体和菜单类型，目标是让改名前的测试存档进入旧区块时不再把矿床/机器解析成未知注册表键。
 - 保留 0.1.5 的自然矿床优化：铝土矿风化壳、磷块岩沉积层、蒸发岩盐层、锡石砂矿和稀土碳酸岩矿体。
 

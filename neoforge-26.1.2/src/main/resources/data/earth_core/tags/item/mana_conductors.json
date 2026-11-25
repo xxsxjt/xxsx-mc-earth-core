@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:copper_wire",
+    "earth_core:copper_busbar",
+    "earth_core:copper_clad_laminate",
+    "earth_core:printed_circuit_board",
+    "earth_core:ndfeb_magnet",
+    "earth_core:neodymium_salt",
+    "earth_core:mixed_rare_earth_oxide"
+  ]
+}

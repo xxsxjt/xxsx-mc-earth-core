@@ -1,0 +1,63 @@
+{
+  "discipline": "earth_lore:mat",
+  "tier": 2,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:mat/pyrometallurgy"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:bronze"
+    },
+    {
+      "item": "earth_core:brass"
+    },
+    {
+      "item": "earth_core:cupronickel"
+    },
+    {
+      "item": "earth_core:lead"
+    },
+    {
+      "item": "earth_core:tin"
+    },
+    {
+      "item": "earth_core:zinc"
+    },
+    {
+      "item": "earth_core:solder"
+    },
+    {
+      "item": "earth_core:gold"
+    },
+    {
+      "item": "earth_core:silver"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "earth_core:miner"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:chalcopyrite_ore",
+        "count": 4
+      },
+      {
+        "ingredient": "earth_core:galena_ore",
+        "count": 2
+      }
+    ],
+    "ticks": 1200
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.mat.nonferrous_metallurgy",
+  "desc_key": "lore.earth_core.mat.nonferrous_metallurgy.desc",
+  "icon": "earth_core:bronze"
+}

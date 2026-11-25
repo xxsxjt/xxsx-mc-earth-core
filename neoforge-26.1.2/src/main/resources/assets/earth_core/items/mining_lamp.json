@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "earth_core:item/mining_lamp"
+  }
+}

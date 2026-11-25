@@ -16,7 +16,7 @@ from pathlib import Path
 from PIL import Image
 
 
-ROOT = Path(__file__).resolve().parents[1] / "neoforge-26.2" / "src" / "main" / "resources" / "assets" / "earth_on_minecraft" / "textures"
+ROOT = Path(__file__).resolve().parents[1] / "neoforge-26.1.2" / "src" / "main" / "resources" / "assets" / "earth_core" / "textures"
 MIN_COLORS = 10
 
 

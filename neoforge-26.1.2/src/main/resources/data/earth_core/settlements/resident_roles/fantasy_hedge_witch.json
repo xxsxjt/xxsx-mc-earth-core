@@ -1,0 +1,8 @@
+{
+  "title_key": "resident.earth_core.role.fantasy_hedge_witch",
+  "identity_key": "resident.earth_core.identity.arcane",
+  "vanilla_professions": ["earth_magic:arcane_settler"],
+  "settlement_profiles": ["earth_core:arcane_settlement"],
+  "weight": 1,
+  "trades": []
+}

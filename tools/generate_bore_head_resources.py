@@ -9,9 +9,9 @@ import pathlib
 from PIL import Image, ImageDraw
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-RES = ROOT / "neoforge-26.2/src/main/resources"
-ASSETS = RES / "assets/earth_on_minecraft"
-DATA = RES / "data/earth_on_minecraft"
+RES = ROOT / "neoforge-26.1.2/src/main/resources"
+ASSETS = RES / "assets/earth_core"
+DATA = RES / "data/earth_core"
 LANG = ASSETS / "lang"
 
 BLOCK_ID = "bore_head"
@@ -55,7 +55,7 @@ def main() -> None:
         for active in (False, True):
             suffix = "_active" if active else ""
             variants[f"facing={facing},active={'true' if active else 'false'}"] = {
-                "model": f"earth_on_minecraft:block/{BLOCK_ID}{suffix}"
+                "model": f"earth_core:block/{BLOCK_ID}{suffix}"
             }
     (ASSETS / "blockstates" / f"{BLOCK_ID}.json").write_text(
         json.dumps({"variants": variants}, indent=2) + "\n", encoding="utf-8")
@@ -64,14 +64,14 @@ def main() -> None:
         (ASSETS / "models/block" / f"{BLOCK_ID}{suffix}.json").write_text(json.dumps({
             "parent": "minecraft:block/cube_bottom_top",
             "textures": {
-                "top": f"earth_on_minecraft:block/{texture}",
-                "bottom": f"earth_on_minecraft:block/{texture}",
-                "side": f"earth_on_minecraft:block/{texture}",
+                "top": f"earth_core:block/{texture}",
+                "bottom": f"earth_core:block/{texture}",
+                "side": f"earth_core:block/{texture}",
             },
         }, indent=2) + "\n", encoding="utf-8")
 
     (ASSETS / "items" / f"{BLOCK_ID}.json").write_text(json.dumps({
-        "model": {"type": "minecraft:model", "model": f"earth_on_minecraft:block/{BLOCK_ID}"}
+        "model": {"type": "minecraft:model", "model": f"earth_core:block/{BLOCK_ID}"}
     }, indent=2) + "\n", encoding="utf-8")
 
     (DATA / "loot_table/blocks" / f"{BLOCK_ID}.json").write_text(json.dumps({
@@ -79,7 +79,7 @@ def main() -> None:
         "pools": [{
             "rolls": 1,
             "bonus_rolls": 0,
-            "entries": [{"type": "minecraft:item", "name": f"earth_on_minecraft:{BLOCK_ID}"}],
+            "entries": [{"type": "minecraft:item", "name": f"earth_core:{BLOCK_ID}"}],
             "conditions": [{"condition": "minecraft:survives_explosion"}],
         }],
     }, indent=2) + "\n", encoding="utf-8")
@@ -90,26 +90,26 @@ def main() -> None:
         "category": "misc",
         "pattern": ["SSS", "CJC", "SBS"],
         "key": {
-            "S": "earth_on_minecraft:steel",
-            "C": "earth_on_minecraft:copper_wire",
-            "J": "earth_on_minecraft:jaw_crusher",
-            "B": "earth_on_minecraft:simple_battery_cell",
+            "S": "earth_core:steel",
+            "C": "earth_core:copper_wire",
+            "J": "earth_core:jaw_crusher",
+            "B": "earth_core:simple_battery_cell",
         },
-        "result": {"id": f"earth_on_minecraft:{BLOCK_ID}", "count": 1},
+        "result": {"id": f"earth_core:{BLOCK_ID}", "count": 1},
     }, indent=2) + "\n", encoding="utf-8")
 
     keys = {
-        f"block.earth_on_minecraft.{BLOCK_ID}": ("Industrial Bore Head", "工业钻采头"),
-        "tooltip.earth_on_minecraft.automation.bore_head": (
+        f"block.earth_core.{BLOCK_ID}": ("Industrial Bore Head", "工业钻采头"),
+        "tooltip.earth_core.automation.bore_head": (
             "Works nearby lodes without a player: draws EOU, extracts ore, and swaps a spent lode "
             "for its depleted form. Right-click to read the reserve it can reach.",
             "无需玩家即可开采附近矿脉：消耗 EOU 抽取矿石，采空后把矿脉换成贫矿块。右键查看可采储量。",
         ),
-        "screen.earth_on_minecraft.miner.status": (
+        "screen.earth_core.miner.status": (
             "Bore head: %s ore in reach, %s items stored, %s lodes tracked",
             "钻采头：可采储量 %s，已存物品 %s，追踪矿脉 %s",
         ),
-        "screen.earth_on_minecraft.deposit.status": (
+        "screen.earth_core.deposit.status": (
             "Ore body: %s / %s units remaining",
             "矿体：剩余 %s / %s 单位",
         ),

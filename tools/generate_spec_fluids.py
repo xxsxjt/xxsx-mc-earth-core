@@ -19,9 +19,9 @@ import pathlib
 from PIL import Image, ImageDraw
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-JAVA_ROOT = ROOT / "neoforge-26.2/src/main/java/com/xxsx/earthonminecraft"
-RES = ROOT / "neoforge-26.2/src/main/resources"
-ASSETS = RES / "assets/earth_on_minecraft"
+JAVA_ROOT = ROOT / "neoforge-26.1.2/src/main/java/com/xxsx/earth/core"
+RES = ROOT / "neoforge-26.1.2/src/main/resources"
+ASSETS = RES / "assets/earth_core"
 LANG = ASSETS / "lang"
 FLUID_TEXTURES = ASSETS / "textures/block/fluid"
 SPEC_FLUIDS_JAVA = JAVA_ROOT / "SpecFluids.java"
@@ -129,7 +129,7 @@ def draw_flow(slug: str, base: tuple[int, int, int], glowing: bool) -> Image.Ima
 
 def generate_java(entries: list[dict]) -> str:
     lines = [
-        "package com.xxsx.earthonminecraft;",
+        "package com.xxsx.earth.core;",
         "",
         "import java.util.LinkedHashMap;",
         "import java.util.List;",
@@ -179,7 +179,7 @@ def generate_java(entries: list[dict]) -> str:
         "            BY_ID.put(entry.id(), entry);",
         "            DeferredHolder<FluidType, FluidType> type = fluidTypes.register(entry.id(),",
         "                    () -> new FluidType(FluidType.Properties.create()",
-        "                            .descriptionId(\"fluid.earth_on_minecraft.\" + entry.id())",
+        "                            .descriptionId(\"fluid.earth_core.\" + entry.id())",
         "                            .density(entry.density())",
         "                            .viscosity(entry.viscosity())",
         "                            .temperature(entry.temperatureK())",
@@ -241,7 +241,7 @@ def generate_java(entries: list[dict]) -> str:
 def merge_lang(lang: str, slug: str, en: str, zh: str) -> None:
     path = LANG / f"{lang}.json"
     data = json.loads(path.read_text(encoding="utf-8-sig"))
-    data[f"fluid.earth_on_minecraft.{slug}"] = en if lang == "en_us" else zh
+    data[f"fluid.earth_core.{slug}"] = en if lang == "en_us" else zh
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 

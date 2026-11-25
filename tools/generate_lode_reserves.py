@@ -13,7 +13,7 @@ import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SPEC = pathlib.Path(r"D:\Codex\WORKSPACES\Projects\mc-agent\spec\eom")
-OUT = ROOT / "neoforge-26.2/src/main/java/com/xxsx/earthonminecraft/SpecLodeReserves.java"
+OUT = ROOT / "neoforge-26.1.2/src/main/java/com/xxsx/earth/core/SpecLodeReserves.java"
 
 # A chunk of ore body is worth roughly this many ore units before division by lode count.
 UNITS_PER_RESERVE_CHUNK = 12
@@ -43,7 +43,7 @@ def main() -> None:
     entries.sort()
 
     lines = [
-        "package com.xxsx.earthonminecraft;",
+        "package com.xxsx.earth.core;",
         "",
         "import java.util.LinkedHashMap;",
         "import java.util.Map;",

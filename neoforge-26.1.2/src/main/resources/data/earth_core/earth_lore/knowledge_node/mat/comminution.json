@@ -1,0 +1,57 @@
+{
+  "discipline": "earth_lore:mat",
+  "tier": 1,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:mat/materials_basics"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:jaw_crusher"
+    },
+    {
+      "block": "earth_core:jaw_crusher"
+    },
+    {
+      "item": "earth_core:ball_mill"
+    },
+    {
+      "block": "earth_core:ball_mill"
+    },
+    {
+      "item": "earth_core:sieve"
+    },
+    {
+      "block": "earth_core:sieve"
+    },
+    {
+      "ability": "earth_core:mat_comminution/sieve"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "earth_core:miner"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:magnetite_ore",
+        "count": 4
+      },
+      {
+        "ingredient": "minecraft:cobblestone",
+        "count": 8
+      }
+    ],
+    "ticks": 600
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.mat.comminution",
+  "desc_key": "lore.earth_core.mat.comminution.desc",
+  "icon": "earth_core:book"
+}

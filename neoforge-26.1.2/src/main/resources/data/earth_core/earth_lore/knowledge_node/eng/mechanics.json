@@ -1,0 +1,35 @@
+{
+  "discipline": "earth_lore:eng",
+  "tier": 1,
+  "gate": "theory",
+  "requires": [
+    {
+      "all": "earth_core:eng/engineering_basics"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "earth_core:mechanic"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "minecraft:piston",
+        "count": 1
+      },
+      {
+        "ingredient": "minecraft:stick",
+        "count": 8
+      }
+    ],
+    "ticks": 600
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.eng.mechanics",
+  "desc_key": "lore.earth_core.eng.mechanics.desc",
+  "icon": "earth_core:book"
+}

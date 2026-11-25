@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "earth_core:block/bauxite_laterite_deposit"
+      },
+      {
+        "model": "earth_core:block/bauxite_laterite_deposit",
+        "y": 90
+      },
+      {
+        "model": "earth_core:block/bauxite_laterite_deposit",
+        "y": 180
+      },
+      {
+        "model": "earth_core:block/bauxite_laterite_deposit",
+        "y": 270
+      }
+    ]
+  }
+}

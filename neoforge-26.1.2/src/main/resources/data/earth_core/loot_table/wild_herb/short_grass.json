@@ -1,0 +1,106 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:angelica",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:artemisia_annua",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:astragalus",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:beeswax",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:biota_seed",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:coptis",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:corydalis",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:eucommia_bark",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:forsythia",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:ginseng",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:gypsum",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:hawthorn_fruit",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:honeysuckle",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:jujube_seed",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:licorice",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:oyster_shell",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:rehmannia",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:safflower",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "earth_core:salvia_miltiorrhiza",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

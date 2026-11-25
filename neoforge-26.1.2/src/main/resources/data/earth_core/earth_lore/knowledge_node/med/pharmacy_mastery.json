@@ -1,0 +1,56 @@
+{
+  "discipline": "earth_lore:med",
+  "tier": 5,
+  "gate": "cap",
+  "requires": [
+    {
+      "all": "earth_core:med/herbal_processing"
+    },
+    {
+      "all": "earth_core:med/advanced_pharmacy"
+    },
+    {
+      "all": "earth_core:med/sulfa_drugs"
+    },
+    {
+      "all": "earth_core:med/nursing"
+    },
+    {
+      "all": "earth_core:med/public_health"
+    },
+    {
+      "all": "earth_core:med/veterinary"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "capstone": "earth_lore:med"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:aspirin",
+        "count": 8
+      },
+      {
+        "ingredient": "earth_core:prepared_licorice",
+        "count": 4
+      },
+      {
+        "ingredient": "earth_core:sulfanilamide",
+        "count": 2
+      }
+    ],
+    "ticks": 9600
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.med.pharmacy_mastery",
+  "desc_key": "lore.earth_core.med.pharmacy_mastery.desc",
+  "icon": "earth_core:aspirin"
+}

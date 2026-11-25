@@ -1,0 +1,23 @@
+{
+  "tier": 4,
+  "display_name_key": "settlement.earth_core.profile.mechanized_town",
+  "scale_key": "settlement.earth_core.scale.town",
+  "technology_key": "settlement.earth_core.technology.mechanized",
+  "name_keys": [
+    "settlement.earth_core.name.pine_ridge_works",
+    "settlement.earth_core.name.ironbridge"
+  ],
+  "industry_keys": [
+    "settlement.earth_core.industry.manufacturing",
+    "settlement.earth_core.industry.logistics"
+  ],
+  "demand_keys": [
+    "settlement.earth_core.material.coal",
+    "settlement.earth_core.material.lubricant"
+  ],
+  "supply_keys": [
+    "settlement.earth_core.material.machine_parts",
+    "settlement.earth_core.material.cable"
+  ],
+  "weight": 2
+}

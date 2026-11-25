@@ -1,0 +1,8 @@
+{
+  "title_key": "resident.earth_core.role.cultivation_resident",
+  "identity_key": "resident.earth_core.identity.cultivator",
+  "vanilla_professions": ["earth_xuanxue:cultivation_settler"],
+  "settlement_profiles": ["earth_core:cultivation_settlement"],
+  "weight": 1,
+  "trades": []
+}

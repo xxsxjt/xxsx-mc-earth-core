@@ -15,7 +15,7 @@
 
 | 项目 | 值 |
 |---|---|
-| 工作目录 | `D:\Users\xxsx\orca\workspaces\earth_on_minecraft\iron-loop-migration` |
+| 工作目录 | `D:\Users\xxsx\orca\workspaces\earth_core\iron-loop-migration` |
 | Shell | Windows PowerShell 5.1（**没有** heredoc；`python -c` 多行会失败，要写临时 `.py` 文件） |
 | Python | `python`（已在 PATH），需要 `PIL` |
 | 编码 | 控制台会乱码显示中文，但**文件本身是 UTF-8，正常**。不要因为控制台乱码去改文件编码 |
@@ -62,8 +62,8 @@
 
 | 内容 | 路径 |
 |---|---|
-| 物品贴图（128×128 PNG） | `neoforge-26.2/src/main/resources/assets/earth_on_minecraft/textures/item/<id>.png` |
-| 方块贴图（128×128 PNG） | `neoforge-26.2/src/main/resources/assets/earth_on_minecraft/textures/block/<id>.png` |
+| 物品贴图（128×128 PNG） | `neoforge-26.1.2/src/main/resources/assets/earth_core/textures/item/<id>.png` |
+| 方块贴图（128×128 PNG） | `neoforge-26.1.2/src/main/resources/assets/earth_core/textures/block/<id>.png` |
 | 覆盖率账本 | `docs/quality/gemini-art-manifest.json`（每生成一张立即写盘，跨运行累积） |
 | 对比图 | `output/quality/gemini-art-only.png` |
 
@@ -119,7 +119,7 @@
 ### 步骤 1：探活
 
 ```powershell
-cd 'D:\Users\xxsx\orca\workspaces\earth_on_minecraft\iron-loop-migration'
+cd 'D:\Users\xxsx\orca\workspaces\earth_core\iron-loop-migration'
 python tools\generate_gemini_art.py --kind item --only salt --force --pause 0
 ```
 

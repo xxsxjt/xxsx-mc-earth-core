@@ -9,7 +9,7 @@ from PIL import Image, ImageDraw
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "neoforge-26.2/src/main/resources/assets/earth_on_minecraft/textures/item/geology_hammer.png"
+OUTPUT = ROOT / "neoforge-26.1.2/src/main/resources/assets/earth_core/textures/item/geology_hammer.png"
 
 
 def main() -> None:

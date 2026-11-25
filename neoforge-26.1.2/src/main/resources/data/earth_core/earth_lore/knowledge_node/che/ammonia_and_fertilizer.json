@@ -1,0 +1,46 @@
+{
+  "discipline": "earth_lore:che",
+  "tier": 4,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:che/sulfuric_acid_process"
+    },
+    {
+      "all": "earth_core:eng/thermodynamics"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:synthesis_loop"
+    },
+    {
+      "block": "earth_core:synthesis_loop"
+    },
+    {
+      "item": "earth_core:fertilizer_blend"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:ammonia",
+        "count": 2
+      },
+      {
+        "ingredient": "earth_core:glass_bottle",
+        "count": 4
+      }
+    ],
+    "ticks": 4800
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.che.ammonia_and_fertilizer",
+  "desc_key": "lore.earth_core.che.ammonia_and_fertilizer.desc",
+  "icon": "earth_core:glass_bottle"
+}

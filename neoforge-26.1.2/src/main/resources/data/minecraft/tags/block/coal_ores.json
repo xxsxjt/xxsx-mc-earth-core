@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:bituminous_coal_seam",
+    "earth_core:anthracite_coal_seam"
+  ]
+}

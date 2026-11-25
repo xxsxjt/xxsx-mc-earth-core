@@ -1,0 +1,66 @@
+{
+  "discipline": "earth_lore:mat",
+  "tier": 2,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:mat/ceramics"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:cement_powder"
+    },
+    {
+      "item": "earth_core:mineral_wool"
+    },
+    {
+      "item": "earth_core:lime_kiln_controller"
+    },
+    {
+      "block": "earth_core:lime_kiln_controller"
+    },
+    {
+      "item": "earth_core:lime"
+    },
+    {
+      "item": "earth_core:lime_mortar"
+    },
+    {
+      "item": "earth_core:plaster"
+    },
+    {
+      "item": "earth_core:cement"
+    },
+    {
+      "item": "earth_core:concrete"
+    },
+    {
+      "item": "earth_core:drywall"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "minecraft:mason"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "minecraft:calcite",
+        "count": 4
+      },
+      {
+        "ingredient": "minecraft:clay_ball",
+        "count": 4
+      }
+    ],
+    "ticks": 1200
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.mat.binders",
+  "desc_key": "lore.earth_core.mat.binders.desc",
+  "icon": "earth_core:lime"
+}

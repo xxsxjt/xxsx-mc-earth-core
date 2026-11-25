@@ -1,5 +1,5 @@
 param(
-    [string]$RepoRoot = "D:\_dx\_Games\MC\_agent\earth_on_minecraft",
+    [string]$RepoRoot = "D:\_dx\_Games\MC\_agent\earth_core",
     [string]$BatchName = "image2-item-refresh-20260715",
     [string]$PromptFile = "prompts-all-128-v2.jsonl",
     [string]$InstanceRoot = "D:\_dx\_Games\MC\xxxxxx\.minecraft\versions\26.2-NeoForge_26.2.0.7-beta",
@@ -52,7 +52,7 @@ try {
     git diff --check
     if ($LASTEXITCODE -ne 0) { throw 'git diff --check failed.' }
 
-    Push-Location (Join-Path $RepoRoot 'neoforge-26.2')
+    Push-Location (Join-Path $RepoRoot 'neoforge-26.1.2')
     try {
         .\gradlew.bat build --no-daemon --offline
         if ($LASTEXITCODE -ne 0) { throw 'Gradle build failed.' }
@@ -60,7 +60,7 @@ try {
         Pop-Location
     }
 
-    $Jar = Get-ChildItem -LiteralPath (Join-Path $RepoRoot 'neoforge-26.2\build\libs') -File -Filter 'earth-on-minecraft-neoforge-26.2-*.jar' |
+    $Jar = Get-ChildItem -LiteralPath (Join-Path $RepoRoot 'neoforge-26.1.2\build\libs') -File -Filter 'earth-core-neoforge-26.1.2-*.jar' |
         Where-Object { $_.Name -notmatch '(sources|javadoc)' } |
         Sort-Object LastWriteTime -Descending |
         Select-Object -First 1
@@ -69,9 +69,9 @@ try {
     $InstanceRoot = (Resolve-Path -LiteralPath $InstanceRoot).Path
     $Mods = Join-Path $InstanceRoot 'mods'
     New-Item -ItemType Directory -Force -Path $Mods | Out-Null
-    $Backup = Join-Path $Mods '.backup-earth-on-minecraft'
+    $Backup = Join-Path $Mods '.backup-earth-core'
     New-Item -ItemType Directory -Force -Path $Backup | Out-Null
-    Get-ChildItem -LiteralPath $Mods -File -Filter 'earth-on-minecraft-neoforge-26.2-*.jar' | ForEach-Object {
+    Get-ChildItem -LiteralPath $Mods -File -Filter 'earth-core-neoforge-26.1.2-*.jar' | ForEach-Object {
         $Destination = Join-Path $Backup ($_.Name + '.bak-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
         Move-Item -LiteralPath $_.FullName -Destination $Destination
     }

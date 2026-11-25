@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:bar_counter",
+    "earth_core:campfire",
+    "earth_core:carpentry_bench",
+    "earth_core:curing_barn",
+    "earth_core:herb_processing_table",
+    "earth_core:loom",
+    "earth_core:mill",
+    "earth_core:noodle_press",
+    "earth_core:oil_press",
+    "earth_core:rice_huller",
+    "earth_core:smokehouse",
+    "earth_core:steamer_basket",
+    "earth_core:stone_mill",
+    "earth_core:tannery",
+    "earth_core:settlement_board"
+  ]
+}

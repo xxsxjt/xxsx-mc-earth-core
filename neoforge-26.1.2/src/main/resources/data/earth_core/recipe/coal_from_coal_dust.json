@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": "earth_core:coal_dust"
+  },
+  "result": {
+    "id": "minecraft:coal"
+  }
+}

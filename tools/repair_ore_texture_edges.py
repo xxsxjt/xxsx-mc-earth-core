@@ -15,7 +15,7 @@ from shutil import copy2
 from PIL import Image, ImageFilter
 
 ROOT = Path(__file__).resolve().parents[1]
-TEXTURE_ROOT = ROOT / "neoforge-26.2/src/main/resources/assets/earth_on_minecraft/textures/block"
+TEXTURE_ROOT = ROOT / "neoforge-26.1.2/src/main/resources/assets/earth_core/textures/block"
 BACKUP_ROOT = ROOT / "texture-backups/ore-edge-repair"
 TARGETS = (
     "poor_magnetite_ore.png",

@@ -1,0 +1,69 @@
+{
+  "discipline": "earth_lore:mat",
+  "tier": 1,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:mat/materials_basics"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:ceramic_body"
+    },
+    {
+      "item": "earth_core:brick"
+    },
+    {
+      "item": "earth_core:roof_tile"
+    },
+    {
+      "item": "earth_core:clay_brick"
+    },
+    {
+      "item": "earth_core:clay_tile"
+    },
+    {
+      "item": "earth_core:floor_tile"
+    },
+    {
+      "item": "earth_core:drain_pipe"
+    },
+    {
+      "item": "earth_core:chimney_pipe"
+    },
+    {
+      "item": "earth_core:clay_jar"
+    },
+    {
+      "item": "earth_core:amphora"
+    },
+    {
+      "item": "earth_core:milk_can"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "minecraft:mason"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "minecraft:clay_ball",
+        "count": 8
+      },
+      {
+        "ingredient": "minecraft:charcoal",
+        "count": 2
+      }
+    ],
+    "ticks": 600
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.mat.ceramics",
+  "desc_key": "lore.earth_core.mat.ceramics.desc",
+  "icon": "earth_core:brick"
+}

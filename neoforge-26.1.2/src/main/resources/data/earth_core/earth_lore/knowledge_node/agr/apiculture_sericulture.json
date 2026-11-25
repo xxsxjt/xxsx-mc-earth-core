@@ -1,0 +1,42 @@
+{
+  "discipline": "earth_lore:agr",
+  "tier": 2,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:agr/husbandry"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:beehive"
+    },
+    {
+      "item": "earth_core:silkworm_room"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [
+    "minecraft:farmer"
+  ],
+  "research": {
+    "items": [
+      {
+        "ingredient": "minecraft:honeycomb",
+        "count": 2
+      },
+      {
+        "ingredient": "minecraft:string",
+        "count": 8
+      }
+    ],
+    "ticks": 1200
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.agr.apiculture_sericulture",
+  "desc_key": "lore.earth_core.agr.apiculture_sericulture.desc",
+  "icon": "earth_core:beehive"
+}

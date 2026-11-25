@@ -11,7 +11,7 @@ Record the date, commit, jar name, SHA256, instance, world, language, GUI scale,
 - [ ] Blockbench report distinguishes completed `.bbmodel` geometry sources from texture-reference models; no pending entry is described as finished geometry.
 - [ ] Every feature marked complete has an eight-layer manifest with concrete evidence.
 - [ ] Deployed jar SHA256 equals the verified build artifact.
-- [ ] Exactly one active `earth-on-minecraft-neoforge-26.2-*.jar` exists in the instance.
+- [ ] Exactly one active `earth-core-neoforge-26.1.2-*.jar` exists in the instance.
 
 ## Client Startup
 
@@ -22,7 +22,7 @@ Record the date, commit, jar name, SHA256, instance, world, language, GUI scale,
 
 ## Screenshot Matrix
 
-- [ ] Run `/test run earth_on_minecraft:quality_screenshot_field` in a development client.
+- [ ] Run `/test run earth_core:quality_screenshot_field` in a development client.
 - [ ] Capture ore clusters from front, top, and oblique angles; internal seams are absent.
 - [ ] Capture each processing-family representative in idle, running, and fault/blocked state.
 - [ ] Capture every UI state listed in `ui-state-matrix.json` in `zh_cn` and `en_us`.

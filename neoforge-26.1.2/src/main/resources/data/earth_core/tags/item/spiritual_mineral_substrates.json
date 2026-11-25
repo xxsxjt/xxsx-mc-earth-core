@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:auriferous_quartz_chunk",
+    "earth_core:quartz_dust",
+    "earth_core:silica_dust",
+    "earth_core:cinnabar_dust",
+    "earth_core:gold_dust",
+    "earth_core:rare_earth_tailings"
+  ]
+}

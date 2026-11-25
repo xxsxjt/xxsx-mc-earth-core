@@ -20,7 +20,7 @@ import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SPEC = pathlib.Path(r"D:\Codex\WORKSPACES\Projects\mc-agent\spec\eom")
-OUT = ROOT / "neoforge-26.2/src/main/resources/data/earth_on_minecraft/earth/quality/medicine_routes.json"
+OUT = ROOT / "neoforge-26.1.2/src/main/resources/data/earth_core/earth/quality/medicine_routes.json"
 
 # Vanilla names the chain may reference.
 VANILLA = {"sugar", "honey", "salt", "starch", "kelp", "glass_bottle"}
@@ -135,7 +135,7 @@ CHRONIC = {
 def item_ref(name: str) -> str:
     if name in VANILLA:
         return f"minecraft:{name}"
-    return f"earth_on_minecraft:{name}"
+    return f"earth_core:{name}"
 
 
 def main() -> None:

@@ -8,7 +8,7 @@ import pathlib
 from PIL import Image, ImageDraw
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-TEX = ROOT / "neoforge-26.2/src/main/resources/assets/earth_on_minecraft/textures/item"
+TEX = ROOT / "neoforge-26.1.2/src/main/resources/assets/earth_core/textures/item"
 MANIFEST = ROOT / "docs/quality/gemini-art-manifest.json"
 OUT = ROOT / "output/quality/gemini-art-contact-sheet.png"
 

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:butter",
+    "earth_core:cheese",
+    "earth_core:cream",
+    "earth_core:milk",
+    "earth_core:yogurt"
+  ]
+}

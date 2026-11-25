@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:raw_beef",
+    "earth_core:raw_chicken",
+    "earth_core:raw_mutton",
+    "earth_core:raw_pork",
+    "earth_core:raw_rabbit"
+  ]
+}

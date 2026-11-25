@@ -1,0 +1,125 @@
+{
+  "discipline": "earth_lore:med",
+  "tier": 3,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:med/medicine_basics"
+    },
+    {
+      "all": "earth_core:che/organic_chemistry"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:salicylic_acid"
+    },
+    {
+      "item": "earth_core:acetic_anhydride"
+    },
+    {
+      "item": "earth_core:acetylsalicylic_acid"
+    },
+    {
+      "item": "earth_core:paracetamol"
+    },
+    {
+      "item": "earth_core:aspirin"
+    },
+    {
+      "item": "earth_core:paracetamol_tablet"
+    },
+    {
+      "item": "earth_core:antiseptic_ethanol"
+    },
+    {
+      "item": "earth_core:povidone_iodine"
+    },
+    {
+      "item": "earth_core:hydrogen_peroxide_solution"
+    },
+    {
+      "item": "earth_core:saline_solution"
+    },
+    {
+      "item": "earth_core:oral_rehydration_salts"
+    },
+    {
+      "item": "earth_core:activated_charcoal_tablet"
+    },
+    {
+      "item": "earth_core:antacid_tablet"
+    },
+    {
+      "item": "earth_core:laxative"
+    },
+    {
+      "item": "earth_core:cough_syrup"
+    },
+    {
+      "item": "earth_core:throat_lozenge"
+    },
+    {
+      "item": "earth_core:vitamin_tablet"
+    },
+    {
+      "item": "earth_core:iron_supplement"
+    },
+    {
+      "item": "earth_core:calcium_tablet"
+    },
+    {
+      "item": "earth_core:antiseptic"
+    },
+    {
+      "ability": "earth_core:med_basic_pharmacy/painkiller"
+    },
+    {
+      "ability": "earth_core:med_basic_pharmacy/pharmacy_table"
+    },
+    {
+      "item": "earth_core:tablet_press"
+    },
+    {
+      "block": "earth_core:tablet_press"
+    },
+    {
+      "ability": "earth_core:med_basic_pharmacy/aspirin"
+    },
+    {
+      "ability": "earth_core:med_basic_pharmacy/saline"
+    },
+    {
+      "ability": "earth_core:med_basic_pharmacy/antiseptic"
+    },
+    {
+      "ability": "earth_core:med_basic_pharmacy/activated_charcoal_tablet"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:ethanol",
+        "count": 2
+      },
+      {
+        "ingredient": "earth_core:salicylic_acid",
+        "count": 1
+      },
+      {
+        "ingredient": "earth_core:glass_bottle",
+        "count": 4
+      }
+    ],
+    "ticks": 2400
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.med.basic_pharmacy",
+  "desc_key": "lore.earth_core.med.basic_pharmacy.desc",
+  "icon": "earth_core:salicylic_acid"
+}

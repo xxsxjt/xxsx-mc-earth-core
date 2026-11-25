@@ -21,9 +21,9 @@ import re
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "tools/generate_gemini_art.py"
 SPEC = pathlib.Path(r"D:\Codex\WORKSPACES\Projects\mc-agent\spec\eom")
-JAVA = ROOT / "neoforge-26.2/src/main/java/com/xxsx/earthonminecraft"
-ITEM_TEX = ROOT / "neoforge-26.2/src/main/resources/assets/earth_on_minecraft/textures/item"
-BLOCK_TEX = ROOT / "neoforge-26.2/src/main/resources/assets/earth_on_minecraft/textures/block"
+JAVA = ROOT / "neoforge-26.1.2/src/main/java/com/xxsx/earth/core"
+ITEM_TEX = ROOT / "neoforge-26.1.2/src/main/resources/assets/earth_core/textures/item"
+BLOCK_TEX = ROOT / "neoforge-26.1.2/src/main/resources/assets/earth_core/textures/block"
 OUT = ROOT / "docs/quality/art-pending.json"
 TEMPLATE_MAX_BYTES = 1200
 
@@ -62,8 +62,8 @@ def curated_block() -> str:
     return src[src.find("ITEM_SUBJECTS = {"): src.find("BLOCK_SUBJECTS")]
 
 
-ASSETS = ROOT / "neoforge-26.2/src/main/resources/assets/earth_on_minecraft"
-NS = "earth_on_minecraft"
+ASSETS = ROOT / "neoforge-26.1.2/src/main/resources/assets/earth_core"
+NS = "earth_core"
 
 
 def _load(path: pathlib.Path) -> dict | None:

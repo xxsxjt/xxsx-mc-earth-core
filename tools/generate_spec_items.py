@@ -2,7 +2,7 @@
 """Generate the spec item layer from spec/eom/items.jsonl.
 
 Outputs:
-  * neoforge-26.2/.../SpecItems.java (registry table)
+  * neoforge-26.1.2/.../SpecItems.java (registry table)
   * assets/<ns>/items/<slug>.json (26.2 item definitions)
   * assets/<ns>/models/item/<slug>.json (generated item models)
   * assets/<ns>/textures/item/<slug>.png (deterministic template art)
@@ -27,13 +27,13 @@ import re
 from PIL import Image, ImageDraw
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-JAVA_ROOT = ROOT / "neoforge-26.2/src/main/java/com/xxsx/earthonminecraft"
-RES = ROOT / "neoforge-26.2/src/main/resources"
-ASSETS = RES / "assets/earth_on_minecraft"
+JAVA_ROOT = ROOT / "neoforge-26.1.2/src/main/java/com/xxsx/earth/core"
+RES = ROOT / "neoforge-26.1.2/src/main/resources"
+ASSETS = RES / "assets/earth_core"
 TEXTURES = ASSETS / "textures/item"
 MODELS = ASSETS / "models/item"
 ITEM_DEFS = ASSETS / "items"
-TAGS = RES / "data/earth_on_minecraft/tags/item"
+TAGS = RES / "data/earth_core/tags/item"
 LANG = ASSETS / "lang"
 ENTRYPOINT = JAVA_ROOT / "EarthOnMinecraft.java"
 SPEC_ITEMS_JAVA = JAVA_ROOT / "SpecItems.java"
@@ -103,14 +103,14 @@ def food_values(record: dict) -> tuple[int, float]:
 
 def component_value(record: dict, component: str, template: str) -> str:
     slug = record["id"].split(":", 1)[1]
-    if component == "earth_on_minecraft:herb":
+    if component == "earth_core:herb":
         match = re.search(r"/herb/([a-z_]+)$", template)
         part = match.group(1) if match else "root"
         if part == "crystal":
             part = "mineral"
         valid = {"root", "rhizome", "stem", "leaf", "flower", "fruit", "seed", "bark", "resin", "mineral", "animal"}
         return part if part in valid else "root"
-    if component == "earth_on_minecraft:metal_batch":
+    if component == "earth_core:metal_batch":
         return "steel" if "steel" in slug else ("aluminium" if "alumin" in slug else "iron")
     return ""
 
@@ -264,15 +264,15 @@ def java_string(value: str) -> str:
 
 def generate_java(entries: list[dict]) -> str:
     lines = [
-        "package com.xxsx.earthonminecraft;",
+        "package com.xxsx.earth.core;",
         "",
-        "import com.xxsx.earthonminecraft.component.EarthDataComponents;",
-        "import com.xxsx.earthonminecraft.component.GemComponent;",
-        "import com.xxsx.earthonminecraft.component.Grade;",
-        "import com.xxsx.earthonminecraft.component.HerbComponent;",
-        "import com.xxsx.earthonminecraft.component.MaterialBatch;",
-        "import com.xxsx.earthonminecraft.component.MetalBatch;",
-        "import com.xxsx.earthonminecraft.component.ToolQualityComponent;",
+        "import com.xxsx.earth.core.component.EarthDataComponents;",
+        "import com.xxsx.earth.core.component.GemComponent;",
+        "import com.xxsx.earth.core.component.Grade;",
+        "import com.xxsx.earth.core.component.HerbComponent;",
+        "import com.xxsx.earth.core.component.MaterialBatch;",
+        "import com.xxsx.earth.core.component.MetalBatch;",
+        "import com.xxsx.earth.core.component.ToolQualityComponent;",
         "import net.minecraft.world.food.FoodProperties;",
         "import net.minecraft.world.item.Item;",
         "import net.minecraft.world.item.component.Consumables;",
@@ -327,19 +327,19 @@ def generate_java(entries: list[dict]) -> str:
         "            props = entry.drink() ? props.food(food, Consumables.DEFAULT_DRINK) : props.food(food);",
         "        }",
         "        return switch (entry.component()) {",
-        '            case "earth_on_minecraft:herb" -> props.component(EarthDataComponents.HERB,',
+        '            case "earth_core:herb" -> props.component(EarthDataComponents.HERB,',
         "                    new HerbComponent(1, entry.id(), herbPart(entry.componentValue()),",
         "                            HerbComponent.Nature.NEUTRAL, List.of(), 0, HerbComponent.Prepared.RAW,",
         "                            1.0, Grade.COMMON, \"\"));",
-        '            case "earth_on_minecraft:gem" -> props.component(EarthDataComponents.GEM,',
+        '            case "earth_core:gem" -> props.component(EarthDataComponents.GEM,',
         "                    new GemComponent(1, entry.id(), \"\", Grade.COMMON, GemComponent.Clarity.TRANSLUCENT,",
         "                            GemComponent.ColorGrade.MEDIUM, 1.0, GemComponent.Treatment.NONE,",
         "                            GemComponent.Cut.ROUGH, \"\", 0));",
-        '            case "earth_on_minecraft:tool_quality" -> props.component(EarthDataComponents.TOOL_QUALITY,',
+        '            case "earth_core:tool_quality" -> props.component(EarthDataComponents.TOOL_QUALITY,',
         "                    ToolQualityComponent.DEFAULT);",
-        '            case "earth_on_minecraft:material_batch" -> props.component(EarthDataComponents.MATERIAL_BATCH,',
+        '            case "earth_core:material_batch" -> props.component(EarthDataComponents.MATERIAL_BATCH,',
         "                    MaterialBatch.defaultFor(entry.id()));",
-        '            case "earth_on_minecraft:metal_batch" -> props.component(EarthDataComponents.METAL_BATCH,',
+        '            case "earth_core:metal_batch" -> props.component(EarthDataComponents.METAL_BATCH,',
         "                    MetalBatch.defaultFor(entry.componentValue()));",
         "            default -> props;",
         "        };",
@@ -370,13 +370,13 @@ def merge_lang(slug: str, zh: str, en: str) -> None:
     for locale, value in (("zh_cn", zh), ("en_us", en)):
         path = LANG / f"{locale}.json"
         data = json.loads(path.read_text(encoding="utf-8"))
-        data[f"item.earth_on_minecraft.{slug}"] = value
+        data[f"item.earth_core.{slug}"] = value
         path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def merge_tags(slug: str, tags: list[str]) -> None:
     for tag in tags:
-        if not tag.startswith("earth_on_minecraft:"):
+        if not tag.startswith("earth_core:"):
             continue
         tag_path = tag.split(":", 1)[1]
         if tag_path.startswith("item/"):
@@ -386,7 +386,7 @@ def merge_tags(slug: str, tags: list[str]) -> None:
         if path.exists():
             data = json.loads(path.read_text(encoding="utf-8"))
         values = data.setdefault("values", [])
-        entry = f"earth_on_minecraft:{slug}"
+        entry = f"earth_core:{slug}"
         if entry not in values:
             values.append(entry)
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -436,12 +436,12 @@ def main() -> None:
                 art.append(slug)
             item_def = ITEM_DEFS / f"{slug}.json"
             item_def.write_text(json.dumps({
-                "model": {"type": "minecraft:model", "model": f"earth_on_minecraft:item/{slug}"}
+                "model": {"type": "minecraft:model", "model": f"earth_core:item/{slug}"}
             }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             model = MODELS / f"{slug}.json"
             model.write_text(json.dumps({
                 "parent": "minecraft:item/generated",
-                "textures": {"layer0": f"earth_on_minecraft:item/{slug}"}
+                "textures": {"layer0": f"earth_core:item/{slug}"}
             }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         merge_lang(slug, record.get("zh") or slug, record.get("en") or slug)
         before = len((record.get("tags") or []))

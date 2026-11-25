@@ -1,0 +1,222 @@
+{
+  "discipline": "earth_lore:eng",
+  "tier": 0,
+  "gate": "root",
+  "requires": [],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:wheelbarrow"
+    },
+    {
+      "item": "earth_core:cart"
+    },
+    {
+      "item": "earth_core:sled"
+    },
+    {
+      "item": "earth_core:rowboat"
+    },
+    {
+      "item": "earth_core:canoe"
+    },
+    {
+      "item": "earth_core:bamboo_raft"
+    },
+    {
+      "item": "earth_core:signpost"
+    },
+    {
+      "item": "earth_core:milestone"
+    },
+    {
+      "item": "earth_core:toothbrush"
+    },
+    {
+      "item": "earth_core:washbasin"
+    },
+    {
+      "item": "earth_core:bathhouse"
+    },
+    {
+      "item": "earth_core:water_heater"
+    },
+    {
+      "item": "earth_core:bathtub"
+    },
+    {
+      "item": "earth_core:shower"
+    },
+    {
+      "item": "earth_core:wash_tub"
+    },
+    {
+      "item": "earth_core:clothesline"
+    },
+    {
+      "item": "earth_core:iron"
+    },
+    {
+      "item": "earth_core:broom"
+    },
+    {
+      "item": "earth_core:dustpan"
+    },
+    {
+      "item": "earth_core:trash_bin"
+    },
+    {
+      "item": "earth_core:hammock"
+    },
+    {
+      "item": "earth_core:hearth"
+    },
+    {
+      "item": "earth_core:fireplace"
+    },
+    {
+      "item": "earth_core:chimney"
+    },
+    {
+      "block": "earth_core:chimney"
+    },
+    {
+      "item": "earth_core:window"
+    },
+    {
+      "item": "earth_core:curtain"
+    },
+    {
+      "item": "earth_core:door_curtain"
+    },
+    {
+      "item": "earth_core:lamp"
+    },
+    {
+      "item": "earth_core:oil_lamp"
+    },
+    {
+      "item": "earth_core:candle"
+    },
+    {
+      "item": "earth_core:lantern"
+    },
+    {
+      "item": "earth_core:torch"
+    },
+    {
+      "item": "earth_core:rug"
+    },
+    {
+      "item": "earth_core:aquarium"
+    },
+    {
+      "item": "earth_core:potted_plant"
+    },
+    {
+      "item": "earth_core:thread"
+    },
+    {
+      "item": "earth_core:millstone"
+    },
+    {
+      "item": "earth_core:mortar_pestle"
+    },
+    {
+      "item": "earth_core:bucket"
+    },
+    {
+      "item": "earth_core:rope_ladder"
+    },
+    {
+      "item": "earth_core:fire_striker"
+    },
+    {
+      "item": "earth_core:flint_and_steel"
+    },
+    {
+      "item": "earth_core:scale"
+    },
+    {
+      "item": "earth_core:ruler"
+    },
+    {
+      "item": "earth_core:ink_line"
+    },
+    {
+      "item": "earth_core:tent"
+    },
+    {
+      "item": "earth_core:sleeping_bag"
+    },
+    {
+      "item": "earth_core:umbrella"
+    },
+    {
+      "item": "earth_core:walking_stick"
+    },
+    {
+      "item": "earth_core:brush"
+    },
+    {
+      "item": "earth_core:quill"
+    },
+    {
+      "item": "earth_core:instrument"
+    },
+    {
+      "item": "earth_core:flute"
+    },
+    {
+      "item": "earth_core:drum"
+    },
+    {
+      "item": "earth_core:zither"
+    },
+    {
+      "item": "earth_core:horn"
+    },
+    {
+      "item": "earth_core:board_game"
+    },
+    {
+      "item": "earth_core:dice"
+    },
+    {
+      "item": "earth_core:playing_cards"
+    },
+    {
+      "item": "earth_core:banner"
+    },
+    {
+      "item": "earth_core:sky_lantern"
+    },
+    {
+      "item": "earth_core:mask"
+    },
+    {
+      "item": "earth_core:stage"
+    },
+    {
+      "item": "earth_core:altar"
+    },
+    {
+      "item": "earth_core:gravestone"
+    },
+    {
+      "item": "earth_core:monument"
+    }
+  ],
+  "literature": [
+    "commonsense"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [],
+    "ticks": 0
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.eng.engineering_basics",
+  "desc_key": "lore.earth_core.eng.engineering_basics.desc",
+  "icon": "earth_core:wheelbarrow"
+}

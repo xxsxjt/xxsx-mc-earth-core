@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "earth_core:fertilizer_blend"
+  ],
+  "result": {
+    "id": "minecraft:bone_meal",
+    "count": 6
+  }
+}

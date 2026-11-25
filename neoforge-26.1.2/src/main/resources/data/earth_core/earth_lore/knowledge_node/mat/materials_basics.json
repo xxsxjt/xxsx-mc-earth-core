@@ -1,0 +1,243 @@
+{
+  "discipline": "earth_lore:mat",
+  "tier": 0,
+  "gate": "root",
+  "requires": [],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:forge"
+    },
+    {
+      "block": "earth_core:forge"
+    },
+    {
+      "item": "earth_core:anvil"
+    },
+    {
+      "block": "earth_core:anvil"
+    },
+    {
+      "item": "earth_core:hammer"
+    },
+    {
+      "block": "earth_core:hammer"
+    },
+    {
+      "item": "earth_core:tongs"
+    },
+    {
+      "block": "earth_core:tongs"
+    },
+    {
+      "item": "earth_core:grindstone"
+    },
+    {
+      "block": "earth_core:grindstone"
+    },
+    {
+      "item": "earth_core:wooden_pickaxe"
+    },
+    {
+      "item": "earth_core:stone_pickaxe"
+    },
+    {
+      "item": "earth_core:wooden_sword"
+    },
+    {
+      "item": "earth_core:stone_sword"
+    },
+    {
+      "item": "earth_core:sling"
+    },
+    {
+      "item": "earth_core:blowgun"
+    },
+    {
+      "item": "earth_core:bow"
+    },
+    {
+      "item": "earth_core:leather_armor"
+    },
+    {
+      "item": "earth_core:leather_boots"
+    },
+    {
+      "ability": "earth_core:mat_materials_basics/sharpness"
+    },
+    {
+      "ability": "earth_core:mat_materials_basics/protection"
+    },
+    {
+      "ability": "earth_core:mat_materials_basics/efficiency"
+    },
+    {
+      "ability": "earth_core:mat_materials_basics/unbreaking"
+    },
+    {
+      "ability": "earth_core:mat_materials_basics/mending"
+    },
+    {
+      "ability": "earth_core:mat_materials_basics/fire_aspect"
+    },
+    {
+      "ability": "earth_core:mat_materials_basics/knockback"
+    },
+    {
+      "ability": "earth_core:mat_materials_basics/fortune"
+    },
+    {
+      "ability": "earth_core:mat_materials_basics/silk_touch"
+    },
+    {
+      "ability": "earth_core:mat_materials_basics/respiration"
+    },
+    {
+      "ability": "earth_core:mat_materials_basics/depth_strider"
+    },
+    {
+      "ability": "earth_core:mat_materials_basics/frost_walker"
+    },
+    {
+      "item": "earth_core:log"
+    },
+    {
+      "item": "earth_core:plank"
+    },
+    {
+      "item": "earth_core:cut_stone"
+    },
+    {
+      "item": "earth_core:thatch"
+    },
+    {
+      "item": "earth_core:bamboo"
+    },
+    {
+      "item": "earth_core:rattan"
+    },
+    {
+      "item": "earth_core:wood_shingle"
+    },
+    {
+      "item": "earth_core:wood_floor"
+    },
+    {
+      "item": "earth_core:stone_step"
+    },
+    {
+      "item": "earth_core:fence"
+    },
+    {
+      "item": "earth_core:wattle_fence"
+    },
+    {
+      "item": "earth_core:timber_beam"
+    },
+    {
+      "item": "earth_core:slate_tile"
+    },
+    {
+      "item": "earth_core:chest"
+    },
+    {
+      "item": "earth_core:large_chest"
+    },
+    {
+      "item": "earth_core:barrel"
+    },
+    {
+      "item": "earth_core:crate"
+    },
+    {
+      "item": "earth_core:basket"
+    },
+    {
+      "item": "earth_core:hamper"
+    },
+    {
+      "item": "earth_core:toolbox"
+    },
+    {
+      "item": "earth_core:display_case"
+    },
+    {
+      "item": "earth_core:safe"
+    },
+    {
+      "item": "earth_core:pickling_crock"
+    },
+    {
+      "item": "earth_core:granary"
+    },
+    {
+      "item": "earth_core:icebox"
+    },
+    {
+      "item": "earth_core:canning_rack"
+    },
+    {
+      "item": "earth_core:spice_cabinet"
+    },
+    {
+      "item": "earth_core:bread_basket"
+    },
+    {
+      "item": "earth_core:honey_pot"
+    },
+    {
+      "item": "earth_core:water_jug"
+    },
+    {
+      "item": "earth_core:lunch_box"
+    },
+    {
+      "item": "earth_core:cigarette_case"
+    },
+    {
+      "item": "earth_core:humidor"
+    },
+    {
+      "item": "earth_core:pipe_stand"
+    },
+    {
+      "item": "earth_core:medicine_cabinet"
+    },
+    {
+      "item": "earth_core:medicine_box"
+    },
+    {
+      "item": "earth_core:sewing_kit"
+    },
+    {
+      "item": "earth_core:jewelry_box"
+    },
+    {
+      "item": "earth_core:wardrobe"
+    },
+    {
+      "item": "earth_core:bookshelf"
+    },
+    {
+      "item": "earth_core:mailbox"
+    },
+    {
+      "item": "earth_core:backpack"
+    },
+    {
+      "item": "earth_core:saddlebag"
+    }
+  ],
+  "literature": [
+    "commonsense"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [],
+    "ticks": 0
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.mat.materials_basics",
+  "desc_key": "lore.earth_core.mat.materials_basics.desc",
+  "icon": "earth_core:wooden_pickaxe"
+}

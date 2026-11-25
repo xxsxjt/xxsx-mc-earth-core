@@ -21,8 +21,8 @@ import re
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SPEC = pathlib.Path(r"D:\Codex\WORKSPACES\Projects\mc-agent\spec\eom")
-OUT = ROOT / "neoforge-26.2/src/main/resources/data/earth_on_minecraft/earth/quality/herb_routes.json"
-JAVA = ROOT / "neoforge-26.2/src/main/java/com/xxsx/earthonminecraft"
+OUT = ROOT / "neoforge-26.1.2/src/main/resources/data/earth_core/earth/quality/herb_routes.json"
+JAVA = ROOT / "neoforge-26.1.2/src/main/java/com/xxsx/earth/core"
 
 MINERAL_HERBS = {
     "alum", "borax_ore", "cinnabar_ore", "gypsum", "realgar", "orpiment", "mirabilite",
@@ -74,10 +74,10 @@ def main() -> None:
             "id": f"herb/{herb}",
             "machine": "herb_processing_table",
             "inputs": [
-                {"item": f"earth_on_minecraft:{herb}", "count": 1},
-                {"item": f"earth_on_minecraft:{nutrient}", "count": 1},
+                {"item": f"earth_core:{herb}", "count": 1},
+                {"item": f"earth_core:{nutrient}", "count": 1},
             ],
-            "outputs": [{"item": f"earth_on_minecraft:{herb}", "count": 2}],
+            "outputs": [{"item": f"earth_core:{herb}", "count": 2}],
             "ticks": 200,
             "energy": 0,
             "note": note,

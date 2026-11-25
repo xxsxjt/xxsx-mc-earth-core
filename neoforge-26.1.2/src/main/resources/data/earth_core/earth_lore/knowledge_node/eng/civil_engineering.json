@@ -1,0 +1,67 @@
+{
+  "discipline": "earth_lore:eng",
+  "tier": 3,
+  "gate": "soft",
+  "requires": [
+    {
+      "all": "earth_core:eng/measurement"
+    },
+    {
+      "all": "earth_core:mat/binders"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "item": "earth_core:road"
+    },
+    {
+      "item": "earth_core:bridge"
+    },
+    {
+      "item": "earth_core:tunnel"
+    },
+    {
+      "item": "earth_core:lighthouse"
+    },
+    {
+      "item": "earth_core:cable_car"
+    },
+    {
+      "item": "earth_core:post_station"
+    },
+    {
+      "item": "earth_core:reinforced_concrete"
+    },
+    {
+      "item": "earth_core:steel_beam"
+    },
+    {
+      "item": "earth_core:insulation"
+    },
+    {
+      "item": "earth_core:waterproof_membrane"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:cement_powder",
+        "count": 8
+      },
+      {
+        "ingredient": "earth_core:steel",
+        "count": 4
+      }
+    ],
+    "ticks": 2400
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.eng.civil_engineering",
+  "desc_key": "lore.earth_core.eng.civil_engineering.desc",
+  "icon": "earth_core:road"
+}

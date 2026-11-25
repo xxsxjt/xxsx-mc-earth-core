@@ -1,0 +1,77 @@
+{
+  "discipline": "earth_lore:mat",
+  "tier": 6,
+  "gate": "cap",
+  "requires": [
+    {
+      "all": "earth_core:mat/beneficiation"
+    },
+    {
+      "all": "earth_core:mat/casting"
+    },
+    {
+      "all": "earth_core:mat/weaponsmithing"
+    },
+    {
+      "all": "earth_core:mat/armorsmithing"
+    },
+    {
+      "all": "earth_core:mat/metal_forming"
+    },
+    {
+      "all": "earth_core:mat/nonferrous_metallurgy"
+    },
+    {
+      "all": "earth_core:mat/alloy_steels"
+    },
+    {
+      "all": "earth_core:mat/binders"
+    },
+    {
+      "all": "earth_core:mat/optical_glass"
+    },
+    {
+      "all": "earth_core:mat/textiles"
+    },
+    {
+      "all": "earth_core:mat/woodworking"
+    },
+    {
+      "all": "earth_core:mat/papermaking"
+    },
+    {
+      "all": "earth_core:mat/hardware"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "capstone": "earth_lore:mat"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:steel",
+        "count": 8
+      },
+      {
+        "ingredient": "earth_core:optical_glass",
+        "count": 2
+      },
+      {
+        "ingredient": "earth_core:inconel",
+        "count": 1
+      }
+    ],
+    "ticks": 9600
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.mat.materials_science",
+  "desc_key": "lore.earth_core.mat.materials_science.desc",
+  "icon": "earth_core:steel"
+}

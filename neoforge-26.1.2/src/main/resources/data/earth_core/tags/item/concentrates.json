@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:iron_concentrate",
+    "earth_core:copper_concentrate",
+    "earth_core:gold_concentrate",
+    "earth_core:roasted_copper_concentrate",
+    "earth_core:redstone_concentrate",
+    "earth_core:lapis_concentrate",
+    "earth_core:beryl_concentrate"
+  ]
+}

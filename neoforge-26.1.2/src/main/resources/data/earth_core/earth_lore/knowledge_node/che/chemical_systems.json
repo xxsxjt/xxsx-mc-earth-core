@@ -1,0 +1,53 @@
+{
+  "discipline": "earth_lore:che",
+  "tier": 5,
+  "gate": "cap",
+  "requires": [
+    {
+      "all": "earth_core:che/chlor_alkali"
+    },
+    {
+      "all": "earth_core:che/ammonia_and_fertilizer"
+    },
+    {
+      "all": "earth_core:che/water_chemistry"
+    },
+    {
+      "all": "earth_core:che/household_chemistry"
+    },
+    {
+      "all": "earth_core:che/analytical_chemistry"
+    }
+  ],
+  "item_requires": [],
+  "unlocks": [
+    {
+      "capstone": "earth_lore:che"
+    }
+  ],
+  "literature": [
+    "notes"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [
+      {
+        "ingredient": "earth_core:sulfuric_acid",
+        "count": 4
+      },
+      {
+        "ingredient": "earth_core:ammonia",
+        "count": 4
+      },
+      {
+        "ingredient": "earth_core:benzene",
+        "count": 4
+      }
+    ],
+    "ticks": 9600
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.che.chemical_systems",
+  "desc_key": "lore.earth_core.che.chemical_systems.desc",
+  "icon": "earth_core:book"
+}

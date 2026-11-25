@@ -8,7 +8,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $repo = Split-Path -Parent $PSScriptRoot
-$module = Join-Path $repo 'neoforge-26.2'
+$module = Join-Path $repo 'neoforge-26.1.2'
 $runRoot = Join-Path $module 'runs\migration'
 $worldName = 'migration-world'
 $worldTarget = Join-Path $runRoot $worldName
@@ -51,7 +51,7 @@ foreach ($path in @($worldTarget, $modsTarget)) {
 Copy-Item -LiteralPath $sourceWorldPath -Destination $worldTarget -Recurse
 New-Item -ItemType Directory -Path $modsTarget -Force | Out-Null
 $activeMods = @(Get-ChildItem -LiteralPath $instanceModsPath -File -Filter '*.jar' |
-    Where-Object { $_.Name -notlike 'earth-on-minecraft-neoforge-26.2-*.jar' })
+    Where-Object { $_.Name -notlike 'earth-core-neoforge-26.1.2-*.jar' })
 $excludedMods = @($activeMods | Where-Object { Test-ClientOnlyMod $_.Name })
 $copiedMods = @($activeMods | Where-Object { -not (Test-ClientOnlyMod $_.Name) })
 foreach ($mod in $copiedMods) {

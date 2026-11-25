@@ -14,8 +14,8 @@ from PIL import Image, ImageDraw
 
 EOM_ROOT = pathlib.Path(__file__).resolve().parents[1]
 WORKSPACE_ROOT = EOM_ROOT.parents[1]
-RES_ROOT = EOM_ROOT / "neoforge-26.2" / "src" / "main" / "resources"
-ASSETS_ROOT = RES_ROOT / "assets" / "earth_on_minecraft"
+RES_ROOT = EOM_ROOT / "neoforge-26.1.2" / "src" / "main" / "resources"
+ASSETS_ROOT = RES_ROOT / "assets" / "earth_core"
 DATA_ROOT = RES_ROOT / "data"
 
 sys.path.insert(0, str(WORKSPACE_ROOT / "tools"))
@@ -33,13 +33,13 @@ NOTES_TOK = "\u7b14\u8bb0"
 SEC_CH = "\u00a7"
 
 ALIAS_NS = {
-    "eom": "earth_on_minecraft",
+    "eom": "earth_core",
     "mc": "minecraft",
     "lore": "earth_lore",
     "life": "earth_life_sciences",
     "phys": "earth_physical_sciences",
-    "xh": "xuanhuan_earth",
-    "fe": "fantasy_earth",
+    "xh": "earth_xuanxue",
+    "fe": "earth_magic",
     "theo": "earth_theology",
 }
 
@@ -215,12 +215,12 @@ def build_unlocks(
     local_keys: set[str] = set()
 
     def add_unlock(kind: str, val: str) -> None:
-        key = f"capstone:{val}@earth_on_minecraft" if kind == "capstone" else f"{kind}:{val}"
+        key = f"capstone:{val}@earth_core" if kind == "capstone" else f"{kind}:{val}"
         if key in local_keys:
             return
         if key in seen_unlock_keys:
             # Disambiguate cross-node overlap (such as magnetite_ore in K-AGR-00 herbs vs K-GEO-00)
-            alt_val = f"earth_on_minecraft:{n.code.lower()}_{n.slug}/{val.split(':', 1)[-1]}"
+            alt_val = f"earth_core:{n.code.lower()}_{n.slug}/{val.split(':', 1)[-1]}"
             alt_key = f"ability:{alt_val}"
             if alt_key not in local_keys and alt_key not in seen_unlock_keys:
                 local_keys.add(alt_key)
@@ -233,7 +233,7 @@ def build_unlocks(
 
     def emit_slug(slug: str) -> None:
         mapped = SPECIAL_SLUG_OVERRIDES.get(slug, slug)
-        full = f"earth_on_minecraft:{mapped}"
+        full = f"earth_core:{mapped}"
         item_ok = mapped in item_set and f"item:{full}" not in seen_unlock_keys
         block_ok = mapped in block_set and f"block:{full}" not in seen_unlock_keys
         if item_ok:
@@ -243,7 +243,7 @@ def build_unlocks(
         elif block_ok:
             add_unlock("block", full)
         else:
-            add_unlock("ability", f"earth_on_minecraft:{n.code.lower()}_{n.slug}/{slug}")
+            add_unlock("ability", f"earth_core:{n.code.lower()}_{n.slug}/{slug}")
 
     for tok in n.unlocks:
         if tok.startswith(CAP_PFX):
@@ -253,17 +253,17 @@ def build_unlocks(
         if tok.startswith(READ_PFX):
             eid = tok[len(READ_PFX):].strip()
             if eid == "M-DATA-02":
-                add_unlock("ability", "earth_on_minecraft:readout/material_batch")
+                add_unlock("ability", "earth_core:readout/material_batch")
             else:
                 e = entries[eid]
                 assert e.slug and e.slug in item_set, f"Readout item missing: {eid} -> {e.slug}"
-                add_unlock("readout", f"earth_on_minecraft:{e.slug}")
+                add_unlock("readout", f"earth_core:{e.slug}")
             continue
         if tok.startswith(YIELD_PFX):
             eid = tok[len(YIELD_PFX):].strip()
             e = entries[eid]
             assert e.slug and e.slug in block_set, f"Yield block missing: {eid} -> {e.slug}"
-            add_unlock("yield", f"earth_on_minecraft:{e.slug}")
+            add_unlock("yield", f"earth_core:{e.slug}")
             continue
         if tok.startswith("cat:"):
             mm = re.match(r"^cat:([a-z-]+)" + SEC_CH + r"([^:]+)(?::(.+))?$", tok)
@@ -295,13 +295,13 @@ def build_unlocks(
             elif eid == "M-068":
                 for ns_slug in NUCLEAR_FUEL_SLUGS:
                     emit_slug(ns_slug)
-                add_unlock("ability", "earth_on_minecraft:nuclear_fuel_cycle")
+                add_unlock("ability", "earth_core:nuclear_fuel_cycle")
             elif eid == "M-100":
-                add_unlock("ability", "earth_on_minecraft:gem_deposits")
+                add_unlock("ability", "earth_core:gem_deposits")
             elif eid == "M-026":
-                add_unlock("ability", "earth_on_minecraft:associated_minerals")
+                add_unlock("ability", "earth_core:associated_minerals")
             else:
-                add_unlock("ability", f"earth_on_minecraft:{eid.lower()}")
+                add_unlock("ability", f"earth_core:{eid.lower()}")
 
     return out
 
@@ -455,9 +455,9 @@ def generate_assets_and_data(block_ids: list[str], stack_item_ids: list[str]) ->
     for facing, y_rot in rotations.items():
         for active in ("false", "true"):
             model_ref = (
-                "earth_on_minecraft:block/autoclave_active"
+                "earth_core:block/autoclave_active"
                 if active == "true"
-                else "earth_on_minecraft:block/autoclave"
+                else "earth_core:block/autoclave"
             )
             entry: dict[str, object] = {"model": model_ref}
             if y_rot:
@@ -470,9 +470,9 @@ def generate_assets_and_data(block_ids: list[str], stack_item_ids: list[str]) ->
         {
             "parent": "minecraft:block/orientable",
             "textures": {
-                "top": "earth_on_minecraft:block/autoclave_top",
-                "front": "earth_on_minecraft:block/autoclave_front",
-                "side": "earth_on_minecraft:block/autoclave_side",
+                "top": "earth_core:block/autoclave_top",
+                "front": "earth_core:block/autoclave_front",
+                "side": "earth_core:block/autoclave_side",
             },
         },
     )
@@ -481,37 +481,37 @@ def generate_assets_and_data(block_ids: list[str], stack_item_ids: list[str]) ->
         {
             "parent": "minecraft:block/orientable",
             "textures": {
-                "top": "earth_on_minecraft:block/autoclave_top",
-                "front": "earth_on_minecraft:block/autoclave_front_active",
-                "side": "earth_on_minecraft:block/autoclave_side",
+                "top": "earth_core:block/autoclave_top",
+                "front": "earth_core:block/autoclave_front_active",
+                "side": "earth_core:block/autoclave_side",
             },
         },
     )
     write_json(
         ASSETS_ROOT / "items" / "autoclave.json",
-        {"model": {"type": "minecraft:model", "model": "earth_on_minecraft:block/autoclave"}},
+        {"model": {"type": "minecraft:model", "model": "earth_core:block/autoclave"}},
     )
 
     for item_id in ("optical_glass", "crushed_magnetite"):
         write_json(
             ASSETS_ROOT / "items" / f"{item_id}.json",
-            {"model": {"type": "minecraft:model", "model": f"earth_on_minecraft:item/{item_id}"}},
+            {"model": {"type": "minecraft:model", "model": f"earth_core:item/{item_id}"}},
         )
         write_json(
             ASSETS_ROOT / "models" / "item" / f"{item_id}.json",
-            {"parent": "minecraft:item/generated", "textures": {"layer0": f"earth_on_minecraft:item/{item_id}"}},
+            {"parent": "minecraft:item/generated", "textures": {"layer0": f"earth_core:item/{item_id}"}},
         )
 
     # Loot table for autoclave
     write_json(
-        DATA_ROOT / "earth_on_minecraft" / "loot_table" / "blocks" / "autoclave.json",
+        DATA_ROOT / "earth_core" / "loot_table" / "blocks" / "autoclave.json",
         {
             "type": "minecraft:block",
             "pools": [
                 {
                     "rolls": 1,
                     "bonus_rolls": 0,
-                    "entries": [{"type": "minecraft:item", "name": "earth_on_minecraft:autoclave"}],
+                    "entries": [{"type": "minecraft:item", "name": "earth_core:autoclave"}],
                     "conditions": [{"condition": "minecraft:survives_explosion"}],
                 }
             ],
@@ -523,18 +523,18 @@ def generate_assets_and_data(block_ids: list[str], stack_item_ids: list[str]) ->
     if pickaxe_tag_path.exists():
         pick_data = json.loads(pickaxe_tag_path.read_text(encoding="utf-8-sig"))
         vals = pick_data.get("values", [])
-        if "earth_on_minecraft:autoclave" not in vals:
-            vals.append("earth_on_minecraft:autoclave")
+        if "earth_core:autoclave" not in vals:
+            vals.append("earth_core:autoclave")
             pick_data["values"] = vals
             write_json(pickaxe_tag_path, pick_data)
 
     # Material catalog JSONs for optical_glass & crushed_magnetite
-    mat_dir = DATA_ROOT / "earth_on_minecraft" / "materials"
+    mat_dir = DATA_ROOT / "earth_core" / "materials"
     write_json(
         mat_dir / "optical_glass.json",
         {
             "schema_version": 1,
-            "id": "earth_on_minecraft:optical_glass",
+            "id": "earth_core:optical_glass",
             "kind": "manufactured",
             "formula": "SiO2 + B2O3 + Na2O + K2O",
             "composition_basis": "mass_fraction",
@@ -548,7 +548,7 @@ def generate_assets_and_data(block_ids: list[str], stack_item_ids: list[str]) ->
             "source": ["fining_melt"],
             "simplification": "game_batch",
             "certainty": "well_established",
-            "display_key": "material.earth_on_minecraft.optical_glass",
+            "display_key": "material.earth_core.optical_glass",
             "notes": "Refined borosilicate crown optical glass blank fined for low bubble count.",
         },
     )
@@ -556,7 +556,7 @@ def generate_assets_and_data(block_ids: list[str], stack_item_ids: list[str]) ->
         mat_dir / "crushed_magnetite.json",
         {
             "schema_version": 1,
-            "id": "earth_on_minecraft:crushed_magnetite",
+            "id": "earth_core:crushed_magnetite",
             "kind": "mixture",
             "formula": "Fe3O4 + SiO2 + Fe2O3",
             "composition_basis": "mass_fraction",
@@ -569,13 +569,13 @@ def generate_assets_and_data(block_ids: list[str], stack_item_ids: list[str]) ->
             "source": ["crushing"],
             "simplification": "game_batch",
             "certainty": "well_established",
-            "display_key": "material.earth_on_minecraft.crushed_magnetite",
+            "display_key": "material.earth_core.crushed_magnetite",
             "notes": "Coarsely crushed magnetite feed ready for beneficiation and magnetic separation.",
         },
     )
 
     # Survival crafting recipes for early-game field tools, autoclave, and crushed_magnetite
-    rec_dir = DATA_ROOT / "earth_on_minecraft" / "recipe"
+    rec_dir = DATA_ROOT / "earth_core" / "recipe"
     write_json(
         rec_dir / "hand_lens.json",
         {
@@ -587,7 +587,7 @@ def generate_assets_and_data(block_ids: list[str], stack_item_ids: list[str]) ->
                 "C": "minecraft:copper_ingot",
                 "S": "minecraft:stick",
             },
-            "result": {"id": "earth_on_minecraft:hand_lens", "count": 1},
+            "result": {"id": "earth_core:hand_lens", "count": 1},
         },
     )
     write_json(
@@ -600,7 +600,7 @@ def generate_assets_and_data(block_ids: list[str], stack_item_ids: list[str]) ->
                 "P": "minecraft:oak_planks",
                 "S": "minecraft:stick",
             },
-            "result": {"id": "earth_on_minecraft:survey_stake", "count": 4},
+            "result": {"id": "earth_core:survey_stake", "count": 4},
         },
     )
     write_json(
@@ -613,7 +613,7 @@ def generate_assets_and_data(block_ids: list[str], stack_item_ids: list[str]) ->
                 "S": "minecraft:string",
                 "P": "minecraft:paper",
             },
-            "result": {"id": "earth_on_minecraft:sample_bag", "count": 2},
+            "result": {"id": "earth_core:sample_bag", "count": 2},
         },
     )
     write_json(
@@ -623,12 +623,12 @@ def generate_assets_and_data(block_ids: list[str], stack_item_ids: list[str]) ->
             "category": "misc",
             "pattern": ["SCS", "GFG", "SCS"],
             "key": {
-                "S": "earth_on_minecraft:steel",
+                "S": "earth_core:steel",
                 "C": "minecraft:copper_ingot",
                 "G": "minecraft:glass",
                 "F": "minecraft:furnace",
             },
-            "result": {"id": "earth_on_minecraft:autoclave", "count": 1},
+            "result": {"id": "earth_core:autoclave", "count": 1},
         },
     )
     write_json(
@@ -637,23 +637,23 @@ def generate_assets_and_data(block_ids: list[str], stack_item_ids: list[str]) ->
             "type": "minecraft:crafting_shapeless",
             "category": "misc",
             "ingredients": [
-                "earth_on_minecraft:magnetite_chunk",
-                "earth_on_minecraft:magnetite_chunk",
+                "earth_core:magnetite_chunk",
+                "earth_core:magnetite_chunk",
             ],
-            "result": {"id": "earth_on_minecraft:crushed_magnetite", "count": 2},
+            "result": {"id": "earth_core:crushed_magnetite", "count": 2},
         },
     )
 
     # earth_lore:records_owner block tag (all EOM processing machines, generators, battery, bore_head, quarry, autoclave)
     java_entry = (
         EOM_ROOT
-        / "neoforge-26.2"
+        / "neoforge-26.1.2"
         / "src"
         / "main"
         / "java"
         / "com"
         / "xxsx"
-        / "earthonminecraft"
+        / "earth" / "core"
         / "EarthOnMinecraft.java"
     ).read_text(encoding="utf-8")
     machine_blocks = re.findall(r'machineBlock\("([a-z0-9_]+)"', java_entry)
@@ -665,13 +665,13 @@ def generate_assets_and_data(block_ids: list[str], stack_item_ids: list[str]) ->
         "quarry",
         "autoclave",
     ]
-    owner_blocks = sorted({f"earth_on_minecraft:{b}" for b in machine_blocks + extra_owned if b in block_ids})
+    owner_blocks = sorted({f"earth_core:{b}" for b in machine_blocks + extra_owned if b in block_ids})
     write_json(
         DATA_ROOT / "earth_lore" / "tags" / "block" / "records_owner.json",
         {"replace": False, "values": owner_blocks},
     )
 
-    # earth_on_minecraft:sterilizable item tag
+    # earth_core:sterilizable item tag
     candidate_sterilizable = [
         "syringe",
         "scalpel",
@@ -688,10 +688,10 @@ def generate_assets_and_data(block_ids: list[str], stack_item_ids: list[str]) ->
         "flask",
         "test_tube",
     ]
-    sterilizable_items = [f"earth_on_minecraft:{i}" for i in candidate_sterilizable if i in stack_item_ids]
+    sterilizable_items = [f"earth_core:{i}" for i in candidate_sterilizable if i in stack_item_ids]
     sterilizable_items.append("minecraft:glass_bottle")
     write_json(
-        DATA_ROOT / "earth_on_minecraft" / "tags" / "item" / "sterilizable.json",
+        DATA_ROOT / "earth_core" / "tags" / "item" / "sterilizable.json",
         {"replace": False, "values": sterilizable_items},
     )
 
@@ -704,68 +704,68 @@ def update_lang_files(eom_nodes: list) -> None:
     zh = json.loads(zh_path.read_text(encoding="utf-8-sig"))
 
     en_updates = {
-        "block.earth_on_minecraft.autoclave": "Steam Autoclave",
-        "item.earth_on_minecraft.autoclave": "Steam Autoclave",
-        "item.earth_on_minecraft.optical_glass": "Optical Glass Blank",
-        "item.earth_on_minecraft.crushed_magnetite": "Crushed Magnetite",
-        "material.earth_on_minecraft.optical_glass": "Optical Glass",
-        "material.earth_on_minecraft.crushed_magnetite": "Crushed Magnetite",
-        "tooltip.earth_on_minecraft.automation.autoclave": "Pressurized steam sterilizer (8 EOU/t, 120 ticks) for surgical and laboratory ware.",
-        "tooltip.earth_on_minecraft.sterile": "Sterile (Autoclaved)",
-        "tooltip.earth_on_minecraft.optical_glass": "Optical Index n=%s | Bubbles: %s",
-        "tooltip.earth_on_minecraft.optical_glass.bubbles_high": "High bubble inclusion: unsuitable for precision lenses",
-        "tooltip.earth_on_minecraft.chem.detail.mineral": "Mineral Specimen",
-        "message.earth_on_minecraft.hand_lens.empty": "Hold a mineral or material sample in your other hand to inspect it.",
-        "message.earth_on_minecraft.hand_lens.category_only": "Hand lens observation: %s (study Mineral Identification for quantitative assay).",
-        "message.earth_on_minecraft.hand_lens.detail_plain": "Hand lens: %s (%s).",
-        "message.earth_on_minecraft.hand_lens.detail": "Hand lens: %s (%s) | Purity %s | Moisture %s | Grain %s um | %s",
-        "message.earth_on_minecraft.survey_stake.category_none": "Survey stake: no main ore deposit projection detected nearby.",
-        "message.earth_on_minecraft.survey_stake.category_present": "Survey stake: standing within a mineral deposit zone (study Field Survey for bearing and depth).",
-        "message.earth_on_minecraft.survey_stake.none": "Survey stake: no main ore body within 4 chunks.",
-        "message.earth_on_minecraft.survey_stake.detail": "Survey stake: %s to the %s (~%sm, %s, reserve %s).",
-        "message.earth_on_minecraft.geology_hammer.category_present": "Rock strike echoes a mineralized body nearby (study Economic Geology for bearing, depth, and reserve).",
-        "message.earth_on_minecraft.autoclave.not_sterilizable": "Only sterilizable instruments and glassware can be loaded into the autoclave.",
-        "message.earth_on_minecraft.autoclave.status": "Autoclave cycle: %s/%s ticks | Buffer: %s EOU",
-        "message.earth_on_minecraft.autoclave.fault.pressure_low": "Autoclave fault: steam pressure dropped (insufficient power, 8 EOU/t required).",
-        "message.earth_on_minecraft.autoclave.fault.cycle_incomplete": "Autoclave fault: sterilization cycle interrupted before completion.",
-        "message.earth_on_minecraft.autoclave.fault.lore_locked": "Autoclave fault: operator lacks required knowledge.",
-        "screen.earth_on_minecraft.notebook.stratigraphy_locked": "Study Stratigraphy & Provinces (K-GEO-03) to interpret host provinces, companion minerals, and depth bands.",
-        "screen.earth_on_minecraft.notebook.stratigraphy_redacted": "[Stratigraphic details require K-GEO-03]",
+        "block.earth_core.autoclave": "Steam Autoclave",
+        "item.earth_core.autoclave": "Steam Autoclave",
+        "item.earth_core.optical_glass": "Optical Glass Blank",
+        "item.earth_core.crushed_magnetite": "Crushed Magnetite",
+        "material.earth_core.optical_glass": "Optical Glass",
+        "material.earth_core.crushed_magnetite": "Crushed Magnetite",
+        "tooltip.earth_core.automation.autoclave": "Pressurized steam sterilizer (8 EOU/t, 120 ticks) for surgical and laboratory ware.",
+        "tooltip.earth_core.sterile": "Sterile (Autoclaved)",
+        "tooltip.earth_core.optical_glass": "Optical Index n=%s | Bubbles: %s",
+        "tooltip.earth_core.optical_glass.bubbles_high": "High bubble inclusion: unsuitable for precision lenses",
+        "tooltip.earth_core.chem.detail.mineral": "Mineral Specimen",
+        "message.earth_core.hand_lens.empty": "Hold a mineral or material sample in your other hand to inspect it.",
+        "message.earth_core.hand_lens.category_only": "Hand lens observation: %s (study Mineral Identification for quantitative assay).",
+        "message.earth_core.hand_lens.detail_plain": "Hand lens: %s (%s).",
+        "message.earth_core.hand_lens.detail": "Hand lens: %s (%s) | Purity %s | Moisture %s | Grain %s um | %s",
+        "message.earth_core.survey_stake.category_none": "Survey stake: no main ore deposit projection detected nearby.",
+        "message.earth_core.survey_stake.category_present": "Survey stake: standing within a mineral deposit zone (study Field Survey for bearing and depth).",
+        "message.earth_core.survey_stake.none": "Survey stake: no main ore body within 4 chunks.",
+        "message.earth_core.survey_stake.detail": "Survey stake: %s to the %s (~%sm, %s, reserve %s).",
+        "message.earth_core.geology_hammer.category_present": "Rock strike echoes a mineralized body nearby (study Economic Geology for bearing, depth, and reserve).",
+        "message.earth_core.autoclave.not_sterilizable": "Only sterilizable instruments and glassware can be loaded into the autoclave.",
+        "message.earth_core.autoclave.status": "Autoclave cycle: %s/%s ticks | Buffer: %s EOU",
+        "message.earth_core.autoclave.fault.pressure_low": "Autoclave fault: steam pressure dropped (insufficient power, 8 EOU/t required).",
+        "message.earth_core.autoclave.fault.cycle_incomplete": "Autoclave fault: sterilization cycle interrupted before completion.",
+        "message.earth_core.autoclave.fault.lore_locked": "Autoclave fault: operator lacks required knowledge.",
+        "screen.earth_core.notebook.stratigraphy_locked": "Study Stratigraphy & Provinces (K-GEO-03) to interpret host provinces, companion minerals, and depth bands.",
+        "screen.earth_core.notebook.stratigraphy_redacted": "[Stratigraphic details require K-GEO-03]",
     }
 
     zh_updates = {
-        "block.earth_on_minecraft.autoclave": "\u9ad8\u538b\u84b8\u6c7d\u706d\u83cc\u91dc",
-        "item.earth_on_minecraft.autoclave": "\u9ad8\u538b\u84b8\u6c7d\u706d\u83cc\u91dc",
-        "item.earth_on_minecraft.optical_glass": "\u5149\u5b66\u73bb\u7483\u6bdb\u576f",
-        "item.earth_on_minecraft.crushed_magnetite": "\u7c97\u788e\u78c1\u94c1\u77ff",
-        "material.earth_on_minecraft.optical_glass": "\u5149\u5b66\u73bb\u7483",
-        "material.earth_on_minecraft.crushed_magnetite": "\u7c97\u788e\u78c1\u94c1\u77ff",
-        "tooltip.earth_on_minecraft.automation.autoclave": "\u9ad8\u538b\u9971\u548c\u84b8\u6c7d\u706d\u83cc\u8bbe\u5907\uff088 EOU/t\uff0c120 \u523b\uff09\uff0c\u7528\u4e8e\u533b\u7597\u5668\u68b0\u4e0e\u5b9e\u9a8c\u5668\u76bf\u65e0\u83cc\u5904\u7406\u3002",
-        "tooltip.earth_on_minecraft.sterile": "\u5df2\u706d\u83cc\uff08\u65e0\u83cc\u72b6\u6001\uff09",
-        "tooltip.earth_on_minecraft.optical_glass": "\u6298\u5c04\u7387 n=%s | \u6c14\u6ce1\u6570\uff1a%s",
-        "tooltip.earth_on_minecraft.optical_glass.bubbles_high": "\u6c14\u6ce1\u504f\u591a\uff1a\u4e0d\u5b9c\u7528\u4e8e\u7cbe\u5bc6\u900f\u955c\u7814\u78e8",
-        "tooltip.earth_on_minecraft.chem.detail.mineral": "\u77ff\u7269\u6807\u672c",
-        "message.earth_on_minecraft.hand_lens.empty": "\u8bf7\u5728\u53e6\u4e00\u53ea\u624b\u6301\u63e1\u77ff\u7269\u6216\u6750\u6599\u6837\u54c1\u8fdb\u884c\u89c2\u5bdf\u3002",
-        "message.earth_on_minecraft.hand_lens.category_only": "\u653e\u5927\u955c\u521d\u68c0\uff1a%s\uff08\u7814\u8bfb\u300c\u77ff\u7269\u9274\u5b9a\u300d\u540e\u53ef\u8bfb\u53d6\u7eaf\u5ea6\u3001\u7c92\u5f84\u4e0e\u54c1\u7ea7\uff09\u3002",
-        "message.earth_on_minecraft.hand_lens.detail_plain": "\u653e\u5927\u955c\u9274\u5b9a\uff1a%s\uff08%s\uff09\u3002",
-        "message.earth_on_minecraft.hand_lens.detail": "\u653e\u5927\u955c\u9274\u5b9a\uff1a%s\uff08%s\uff09| \u7eaf\u5ea6 %s | \u6c34\u5206 %s | \u7c92\u5f84 %s um | %s",
-        "message.earth_on_minecraft.survey_stake.category_none": "\u6d4b\u6869\u8e0f\u52d8\uff1a\u9644\u8fd1\u672a\u53d1\u73b0\u4e3b\u77ff\u4f53\u6295\u5f71\u3002",
-        "message.earth_on_minecraft.survey_stake.category_present": "\u6d4b\u6869\u8e0f\u52d8\uff1a\u4f4d\u4e8e\u77ff\u5e8a\u6295\u5f71\u8303\u56f4\u5185\uff08\u7814\u8bfb\u300c\u91ce\u5916\u8e0f\u52d8\u300d\u540e\u53ef\u6d4b\u5b9a\u65b9\u4f4d\u3001\u8ddd\u79bb\u4e0e\u57cb\u6df1\uff09\u3002",
-        "message.earth_on_minecraft.survey_stake.none": "\u6d4b\u6869\u6d4b\u91cf\uff1a4 \u533a\u5757\u534a\u5f84\u5185\u65e0\u4e3b\u77ff\u4f53\u3002",
-        "message.earth_on_minecraft.survey_stake.detail": "\u6d4b\u6869\u6d4b\u91cf\uff1a%s \u4f4d\u4e8e%s\u65b9\u5411\uff08\u6c34\u5e73\u7ea6 %sm\uff0c%s\uff0c\u5269\u4f59\u50a8\u91cf %s\uff09\u3002",
-        "message.earth_on_minecraft.geology_hammer.category_present": "\u5ca9\u5c42\u56de\u54cd\u663e\u793a\u9644\u8fd1\u5b58\u5728\u77ff\u5316\u4f53\uff08\u7814\u8bfb\u300c\u77ff\u5e8a\u4e0e\u52d8\u67e5\u300d\u540e\u53ef\u5224\u8bfb\u65b9\u4f4d\u3001\u6df1\u5ea6\u4e0e\u50a8\u91cf\uff09\u3002",
-        "message.earth_on_minecraft.autoclave.not_sterilizable": "\u706d\u83cc\u91dc\u4ec5\u63a5\u6536\u53ef\u706d\u83cc\u7684\u533b\u7597\u5668\u68b0\u4e0e\u5b9e\u9a8c\u73bb\u7483\u5668\u76bf\u3002",
-        "message.earth_on_minecraft.autoclave.status": "\u706d\u83cc\u8fdb\u5ea6\uff1a%s/%s \u523b | \u7535\u80fd\u7f13\u5b58\uff1a%s EOU",
-        "message.earth_on_minecraft.autoclave.fault.pressure_low": "\u706d\u83cc\u91dc\u6545\u969c\uff1a\u84b8\u6c7d\u538b\u529b\u4e0d\u8db3\uff08\u4f9b\u7535\u4e2d\u65ad\uff0c\u9700\u6301\u7eed 8 EOU/t\uff09\u3002",
-        "message.earth_on_minecraft.autoclave.fault.cycle_incomplete": "\u706d\u83cc\u91dc\u6545\u969c\uff1a\u706d\u83cc\u5468\u671f\u672a\u5b8c\u6210\u5373\u88ab\u4e2d\u65ad\u3002",
-        "message.earth_on_minecraft.autoclave.fault.lore_locked": "\u706d\u83cc\u91dc\u6545\u969c\uff1a\u653e\u7f6e\u8005\u5c1a\u672a\u638c\u63e1\u6240\u9700\u5b66\u8bc6\u3002",
-        "screen.earth_on_minecraft.notebook.stratigraphy_locked": "\u7814\u8bfb\u300c\u5730\u5c42\u4e0e\u5ca9\u7701\u300d\uff08K-GEO-03\uff09\u540e\u53ef\u89e3\u8bfb\u6bcd\u5ca9\u7701\u3001\u4f34\u751f\u7ec4\u5408\u4e0e\u57cb\u6df1\u5c42\u4f4d\u3002",
-        "screen.earth_on_minecraft.notebook.stratigraphy_redacted": "[\u5ca9\u7701\u4e0e\u5c42\u4f4d\u8be6\u60c5\u9700\u7814\u8bfb K-GEO-03]",
+        "block.earth_core.autoclave": "\u9ad8\u538b\u84b8\u6c7d\u706d\u83cc\u91dc",
+        "item.earth_core.autoclave": "\u9ad8\u538b\u84b8\u6c7d\u706d\u83cc\u91dc",
+        "item.earth_core.optical_glass": "\u5149\u5b66\u73bb\u7483\u6bdb\u576f",
+        "item.earth_core.crushed_magnetite": "\u7c97\u788e\u78c1\u94c1\u77ff",
+        "material.earth_core.optical_glass": "\u5149\u5b66\u73bb\u7483",
+        "material.earth_core.crushed_magnetite": "\u7c97\u788e\u78c1\u94c1\u77ff",
+        "tooltip.earth_core.automation.autoclave": "\u9ad8\u538b\u9971\u548c\u84b8\u6c7d\u706d\u83cc\u8bbe\u5907\uff088 EOU/t\uff0c120 \u523b\uff09\uff0c\u7528\u4e8e\u533b\u7597\u5668\u68b0\u4e0e\u5b9e\u9a8c\u5668\u76bf\u65e0\u83cc\u5904\u7406\u3002",
+        "tooltip.earth_core.sterile": "\u5df2\u706d\u83cc\uff08\u65e0\u83cc\u72b6\u6001\uff09",
+        "tooltip.earth_core.optical_glass": "\u6298\u5c04\u7387 n=%s | \u6c14\u6ce1\u6570\uff1a%s",
+        "tooltip.earth_core.optical_glass.bubbles_high": "\u6c14\u6ce1\u504f\u591a\uff1a\u4e0d\u5b9c\u7528\u4e8e\u7cbe\u5bc6\u900f\u955c\u7814\u78e8",
+        "tooltip.earth_core.chem.detail.mineral": "\u77ff\u7269\u6807\u672c",
+        "message.earth_core.hand_lens.empty": "\u8bf7\u5728\u53e6\u4e00\u53ea\u624b\u6301\u63e1\u77ff\u7269\u6216\u6750\u6599\u6837\u54c1\u8fdb\u884c\u89c2\u5bdf\u3002",
+        "message.earth_core.hand_lens.category_only": "\u653e\u5927\u955c\u521d\u68c0\uff1a%s\uff08\u7814\u8bfb\u300c\u77ff\u7269\u9274\u5b9a\u300d\u540e\u53ef\u8bfb\u53d6\u7eaf\u5ea6\u3001\u7c92\u5f84\u4e0e\u54c1\u7ea7\uff09\u3002",
+        "message.earth_core.hand_lens.detail_plain": "\u653e\u5927\u955c\u9274\u5b9a\uff1a%s\uff08%s\uff09\u3002",
+        "message.earth_core.hand_lens.detail": "\u653e\u5927\u955c\u9274\u5b9a\uff1a%s\uff08%s\uff09| \u7eaf\u5ea6 %s | \u6c34\u5206 %s | \u7c92\u5f84 %s um | %s",
+        "message.earth_core.survey_stake.category_none": "\u6d4b\u6869\u8e0f\u52d8\uff1a\u9644\u8fd1\u672a\u53d1\u73b0\u4e3b\u77ff\u4f53\u6295\u5f71\u3002",
+        "message.earth_core.survey_stake.category_present": "\u6d4b\u6869\u8e0f\u52d8\uff1a\u4f4d\u4e8e\u77ff\u5e8a\u6295\u5f71\u8303\u56f4\u5185\uff08\u7814\u8bfb\u300c\u91ce\u5916\u8e0f\u52d8\u300d\u540e\u53ef\u6d4b\u5b9a\u65b9\u4f4d\u3001\u8ddd\u79bb\u4e0e\u57cb\u6df1\uff09\u3002",
+        "message.earth_core.survey_stake.none": "\u6d4b\u6869\u6d4b\u91cf\uff1a4 \u533a\u5757\u534a\u5f84\u5185\u65e0\u4e3b\u77ff\u4f53\u3002",
+        "message.earth_core.survey_stake.detail": "\u6d4b\u6869\u6d4b\u91cf\uff1a%s \u4f4d\u4e8e%s\u65b9\u5411\uff08\u6c34\u5e73\u7ea6 %sm\uff0c%s\uff0c\u5269\u4f59\u50a8\u91cf %s\uff09\u3002",
+        "message.earth_core.geology_hammer.category_present": "\u5ca9\u5c42\u56de\u54cd\u663e\u793a\u9644\u8fd1\u5b58\u5728\u77ff\u5316\u4f53\uff08\u7814\u8bfb\u300c\u77ff\u5e8a\u4e0e\u52d8\u67e5\u300d\u540e\u53ef\u5224\u8bfb\u65b9\u4f4d\u3001\u6df1\u5ea6\u4e0e\u50a8\u91cf\uff09\u3002",
+        "message.earth_core.autoclave.not_sterilizable": "\u706d\u83cc\u91dc\u4ec5\u63a5\u6536\u53ef\u706d\u83cc\u7684\u533b\u7597\u5668\u68b0\u4e0e\u5b9e\u9a8c\u73bb\u7483\u5668\u76bf\u3002",
+        "message.earth_core.autoclave.status": "\u706d\u83cc\u8fdb\u5ea6\uff1a%s/%s \u523b | \u7535\u80fd\u7f13\u5b58\uff1a%s EOU",
+        "message.earth_core.autoclave.fault.pressure_low": "\u706d\u83cc\u91dc\u6545\u969c\uff1a\u84b8\u6c7d\u538b\u529b\u4e0d\u8db3\uff08\u4f9b\u7535\u4e2d\u65ad\uff0c\u9700\u6301\u7eed 8 EOU/t\uff09\u3002",
+        "message.earth_core.autoclave.fault.cycle_incomplete": "\u706d\u83cc\u91dc\u6545\u969c\uff1a\u706d\u83cc\u5468\u671f\u672a\u5b8c\u6210\u5373\u88ab\u4e2d\u65ad\u3002",
+        "message.earth_core.autoclave.fault.lore_locked": "\u706d\u83cc\u91dc\u6545\u969c\uff1a\u653e\u7f6e\u8005\u5c1a\u672a\u638c\u63e1\u6240\u9700\u5b66\u8bc6\u3002",
+        "screen.earth_core.notebook.stratigraphy_locked": "\u7814\u8bfb\u300c\u5730\u5c42\u4e0e\u5ca9\u7701\u300d\uff08K-GEO-03\uff09\u540e\u53ef\u89e3\u8bfb\u6bcd\u5ca9\u7701\u3001\u4f34\u751f\u7ec4\u5408\u4e0e\u57cb\u6df1\u5c42\u4f4d\u3002",
+        "screen.earth_core.notebook.stratigraphy_redacted": "[\u5ca9\u7701\u4e0e\u5c42\u4f4d\u8be6\u60c5\u9700\u7814\u8bfb K-GEO-03]",
     }
 
     for n in eom_nodes:
         code = n.code.lower()
-        name_key = f"lore.earth_on_minecraft.{code}.{n.slug}"
+        name_key = f"lore.earth_core.{code}.{n.slug}"
         desc_key = f"{name_key}.desc"
         en_name = ENGLISH_NAMES.get(n.slug, n.slug.replace("_", " ").title())
         en_desc, zh_desc = make_descriptions(n)
@@ -796,7 +796,7 @@ def main() -> None:
     item_set = set(stack_item_ids)
 
     # Clean old generated nodes directory first
-    node_base = DATA_ROOT / "earth_on_minecraft" / "earth_lore" / "knowledge_node"
+    node_base = DATA_ROOT / "earth_core" / "earth_lore" / "knowledge_node"
     if node_base.exists():
         for old in node_base.rglob("*.json"):
             old.unlink()
@@ -837,7 +837,7 @@ def main() -> None:
         if not literature:
             literature = ["commonsense"] if n.gate == "root" else ["notes"]
 
-        name_key = f"lore.earth_on_minecraft.{code}.{n.slug}"
+        name_key = f"lore.earth_core.{code}.{n.slug}"
         node_json: dict[str, object] = {
             "discipline": f"earth_lore:{code}",
             "tier": n.tier,

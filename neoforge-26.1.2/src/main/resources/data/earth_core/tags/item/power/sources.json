@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:coal_dust",
+    "earth_core:coke",
+    "earth_core:petroleum_coke",
+    "earth_core:coal_gas_cell",
+    "earth_core:natural_gas_cell",
+    "earth_core:syngas_cell",
+    "earth_core:simple_battery_cell",
+    "earth_core:nuclear_heat_module",
+    "earth_core:steam_turbine_assembly"
+  ]
+}

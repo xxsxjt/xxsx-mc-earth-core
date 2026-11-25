@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    "earth_core:manganese_oxide_dust",
+    "earth_core:magnetite_dust",
+    "earth_core:chalcopyrite_dust"
+  ],
+  "result": {
+    "id": "minecraft:redstone",
+    "count": 6
+  }
+}

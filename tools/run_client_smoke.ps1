@@ -5,7 +5,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $repo = Split-Path -Parent $PSScriptRoot
-$module = Join-Path $repo 'neoforge-26.2'
+$module = Join-Path $repo 'neoforge-26.1.2'
 if ([string]::IsNullOrWhiteSpace($TemplateWorld)) {
     $TemplateWorld = Join-Path $module 'runs\client\saves\ui-test'
 }
@@ -80,7 +80,7 @@ while ((Get-Date) -lt $deadline -and -not $process.HasExited) {
         continue
     }
     $logText = Get-Content -LiteralPath $latestLog -Raw -ErrorAction SilentlyContinue
-    $resourceLoaded = $logText -match 'Reloading ResourceManager:.*mod/earth_on_minecraft'
+    $resourceLoaded = $logText -match 'Reloading ResourceManager:.*mod/earth_core'
     $soundLoaded = $logText -match 'Sound engine started'
     $atlasLoaded = $logText -match 'minecraft:textures/atlas/blocks\.png-atlas'
     $worldStarted = $logText -match 'Starting integrated minecraft server version 26\.2'

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "earth_core:kimberlite_chunk"
+  ],
+  "result": {
+    "id": "earth_core:diamond_grit"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "BSB",
+    "WGW",
+    "CKC"
+  ],
+  "key": {
+    "B": "earth_core:copper_busbar",
+    "S": "earth_core:steam_turbine_assembly",
+    "W": "earth_core:copper_power_cable",
+    "G": "earth_core:generator_stator",
+    "C": "earth_core:industrial_machine_casing",
+    "K": "earth_core:grid_switchgear"
+  },
+  "result": {
+    "id": "earth_core:steam_turbine_generator"
+  }
+}

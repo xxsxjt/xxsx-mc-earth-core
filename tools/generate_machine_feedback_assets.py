@@ -17,9 +17,9 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-RESOURCES = ROOT / "neoforge-26.2" / "src" / "main" / "resources"
-ASSETS = RESOURCES / "assets" / "earth_on_minecraft"
-PROFILES = RESOURCES / "data" / "earth_on_minecraft" / "earth" / "quality" / "machine_profiles.json"
+RESOURCES = ROOT / "neoforge-26.1.2" / "src" / "main" / "resources"
+ASSETS = RESOURCES / "assets" / "earth_core"
+PROFILES = RESOURCES / "data" / "earth_core" / "earth" / "quality" / "machine_profiles.json"
 TMP = ROOT / "tmp" / "generated-machine-feedback"
 OUTPUT = ROOT / "output" / "quality"
 SAMPLE_RATE = 22_050
@@ -198,29 +198,29 @@ def main() -> None:
     particles_root = ASSETS / "particles"
     for group, profile in profiles:
         machine_id = str(profile["id"])
-        event = str(profile["sound_event"]).removeprefix("earth_on_minecraft:")
-        sound_name = f"earth_on_minecraft:{group}/{machine_id}/run"
+        event = str(profile["sound_event"]).removeprefix("earth_core:")
+        sound_name = f"earth_core:{group}/{machine_id}/run"
         write_ogg(synthesize(profile), ASSETS / "sounds" / group / machine_id / "run.ogg")
         sounds[event] = {
-            "subtitle": "subtitles.earth_on_minecraft.machine.running",
+            "subtitle": "subtitles.earth_core.machine.running",
             "sounds": [{"name": sound_name, "volume": 0.72}],
         }
         particle_id = f"{group}_{machine_id}_process"
         draw_particle(profile, ASSETS / "textures" / "particle" / group / f"{machine_id}.png")
         (particles_root / f"{particle_id}.json").parent.mkdir(parents=True, exist_ok=True)
         (particles_root / f"{particle_id}.json").write_text(
-            json.dumps({"textures": [f"earth_on_minecraft:{group}/{machine_id}"]}, indent=2) + "\n",
+            json.dumps({"textures": [f"earth_core:{group}/{machine_id}"]}, indent=2) + "\n",
             encoding="utf-8")
 
     write_ogg(synthesize_signal("fault"), ASSETS / "sounds" / "machine" / "fault.ogg")
     write_ogg(synthesize_signal("complete"), ASSETS / "sounds" / "machine" / "complete.ogg")
     sounds["machine.fault"] = {
-        "subtitle": "subtitles.earth_on_minecraft.machine.fault",
-        "sounds": [{"name": "earth_on_minecraft:machine/fault", "volume": 0.72}],
+        "subtitle": "subtitles.earth_core.machine.fault",
+        "sounds": [{"name": "earth_core:machine/fault", "volume": 0.72}],
     }
     sounds["machine.complete"] = {
-        "subtitle": "subtitles.earth_on_minecraft.machine.complete",
-        "sounds": [{"name": "earth_on_minecraft:machine/complete", "volume": 0.62}],
+        "subtitle": "subtitles.earth_core.machine.complete",
+        "sounds": [{"name": "earth_core:machine/complete", "volume": 0.62}],
     }
     (ASSETS / "sounds.json").write_text(json.dumps(sounds, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     contact_sheet = render_contact_sheet(profiles)
