@@ -10,7 +10,11 @@
       "all": "earth_on_minecraft:che/analytical_chemistry"
     }
   ],
-  "item_requires": [],
+  "item_requires": [
+    {
+      "cond": "xp_level>=12"
+    }
+  ],
   "unlocks": [
     {
       "item": "earth_on_minecraft:sulfanilamide"
@@ -46,5 +50,6 @@
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.med.sulfa_drugs",
   "desc_key": "lore.earth_on_minecraft.med.sulfa_drugs.desc",
-  "icon": "earth_on_minecraft:sulfanilamide"
+  "icon": "earth_on_minecraft:sulfanilamide",
+  "study_ticks": 90
 }

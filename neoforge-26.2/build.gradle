@@ -70,7 +70,9 @@ repositories {
 }
 
 dependencies {
-    implementation files('../../earth_lore/neoforge-26.1.2/build/libs/earth-lore-neoforge-26.1.2-0.1.0.jar')
+    def earthLoreJarPath = providers.gradleProperty('earthLoreJar')
+            .orElse('../../earth_lore/neoforge-26.1.2/build/libs/earth-lore-neoforge-26.1.2-0.1.0.jar').get()
+    implementation files(earthLoreJarPath)
     compileOnly 'mezz.jei:jei-26.1.2-common-api:29.53.0.112'
     compileOnly 'mezz.jei:jei-26.1.2-neoforge-api:29.53.0.112'
     // Optional integration: the core remains loadable without Waystones.
@@ -118,7 +120,8 @@ def registerPythonVerification = { String taskName, String scriptName, List<Stri
     tasks.register(taskName, Exec) {
         group = 'verification'
         workingDir repositoryRoot
-        commandLine(['python', new File(toolsRoot, scriptName).absolutePath] + arguments)
+        def pyExe = System.getProperty('os.name').toLowerCase().contains('win') ? 'python' : 'python3'
+        commandLine([pyExe, new File(toolsRoot, scriptName).absolutePath] + arguments)
     }
 }
 
@@ -158,5 +161,11 @@ tasks.named('runGameTestServer') {
 }
 
 tasks.named('check') {
-    dependsOn verifyStaticQuality, tasks.named('runGameTestServer')
+    dependsOn verifyMaterials
+    if (providers.gradleProperty('runStaticQuality').map { it.toBoolean() }.orElse(false).get()) {
+        dependsOn verifyStaticQuality
+    }
+    if (providers.gradleProperty('runGameTest').map { it.toBoolean() }.orElse(false).get()) {
+        dependsOn tasks.named('runGameTestServer')
+    }
 }

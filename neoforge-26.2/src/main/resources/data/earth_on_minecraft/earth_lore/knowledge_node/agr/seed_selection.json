@@ -10,7 +10,11 @@
       "all": "earth_on_minecraft:agr/soil_science"
     }
   ],
-  "item_requires": [],
+  "item_requires": [
+    {
+      "cond": "xp_level>=5"
+    }
+  ],
   "unlocks": [],
   "literature": [
     "notes"
@@ -32,5 +36,6 @@
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.agr.seed_selection",
   "desc_key": "lore.earth_on_minecraft.agr.seed_selection.desc",
-  "icon": "earth_on_minecraft:book"
+  "icon": "earth_on_minecraft:book",
+  "study_ticks": 60
 }

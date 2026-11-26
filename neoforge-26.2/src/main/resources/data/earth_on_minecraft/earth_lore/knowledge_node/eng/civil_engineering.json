@@ -10,7 +10,11 @@
       "all": "earth_on_minecraft:mat/binders"
     }
   ],
-  "item_requires": [],
+  "item_requires": [
+    {
+      "cond": "xp_level>=5"
+    }
+  ],
   "unlocks": [
     {
       "item": "earth_on_minecraft:road"
@@ -63,5 +67,6 @@
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.eng.civil_engineering",
   "desc_key": "lore.earth_on_minecraft.eng.civil_engineering.desc",
-  "icon": "earth_on_minecraft:road"
+  "icon": "earth_on_minecraft:road",
+  "study_ticks": 60
 }

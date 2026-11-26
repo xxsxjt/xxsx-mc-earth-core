@@ -13,6 +13,9 @@
   "item_requires": [
     {
       "made": "earth_on_minecraft:copper_power_cable"
+    },
+    {
+      "cond": "xp_level>=5"
     }
   ],
   "unlocks": [
@@ -40,5 +43,6 @@
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.che.chlor_alkali",
   "desc_key": "lore.earth_on_minecraft.che.chlor_alkali.desc",
-  "icon": "earth_on_minecraft:salt"
+  "icon": "earth_on_minecraft:salt",
+  "study_ticks": 60
 }

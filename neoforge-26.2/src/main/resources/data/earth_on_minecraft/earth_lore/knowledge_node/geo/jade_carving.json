@@ -10,6 +10,9 @@
   "item_requires": [
     {
       "made": "earth_on_minecraft:gem_cut"
+    },
+    {
+      "cond": "xp_level>=12"
     }
   ],
   "unlocks": [
@@ -40,5 +43,6 @@
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.geo.jade_carving",
   "desc_key": "lore.earth_on_minecraft.geo.jade_carving.desc",
-  "icon": "earth_on_minecraft:gem_carving_tool"
+  "icon": "earth_on_minecraft:gem_carving_tool",
+  "study_ticks": 90
 }

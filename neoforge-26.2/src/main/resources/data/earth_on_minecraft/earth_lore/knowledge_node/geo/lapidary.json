@@ -10,6 +10,9 @@
   "item_requires": [
     {
       "hold": "earth_on_minecraft:gem_rough"
+    },
+    {
+      "cond": "xp_level>=5"
     }
   ],
   "unlocks": [
@@ -46,5 +49,6 @@
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.geo.lapidary",
   "desc_key": "lore.earth_on_minecraft.geo.lapidary.desc",
-  "icon": "earth_on_minecraft:gem_cut"
+  "icon": "earth_on_minecraft:gem_cut",
+  "study_ticks": 60
 }

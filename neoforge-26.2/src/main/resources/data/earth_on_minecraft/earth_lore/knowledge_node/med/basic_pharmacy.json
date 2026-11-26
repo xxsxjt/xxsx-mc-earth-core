@@ -10,7 +10,11 @@
       "all": "earth_on_minecraft:che/organic_chemistry"
     }
   ],
-  "item_requires": [],
+  "item_requires": [
+    {
+      "cond": "xp_level>=5"
+    }
+  ],
   "unlocks": [
     {
       "item": "earth_on_minecraft:salicylic_acid"
@@ -121,5 +125,6 @@
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.med.basic_pharmacy",
   "desc_key": "lore.earth_on_minecraft.med.basic_pharmacy.desc",
-  "icon": "earth_on_minecraft:salicylic_acid"
+  "icon": "earth_on_minecraft:salicylic_acid",
+  "study_ticks": 60
 }

@@ -137,4 +137,37 @@ class EarthLoreIntegrationTest {
             assertEquals(g, LoreIntegration.fromLoreGrade(LoreIntegration.toLoreGrade(g)));
         }
     }
+
+    @Test
+    void tieredNodesHaveValidStudyTicksAndRequirements() throws IOException {
+        Path nodesRoot = RESOURCES.resolve(Path.of("data", "earth_on_minecraft", "earth_lore", "knowledge_node"));
+        int tieredChecked = 0;
+        try (var walk = Files.walk(nodesRoot)) {
+            for (Path file : walk.filter(p -> p.toString().endsWith(".json")).toList()) {
+                JsonObject obj = JsonParser.parseString(Files.readString(file, StandardCharsets.UTF_8)).getAsJsonObject();
+                int tier = obj.get("tier").getAsInt();
+                if (tier >= 3) {
+                    tieredChecked++;
+                    assertTrue(obj.has("study_ticks"), "Tier 3+ node must define custom study_ticks: " + file.getFileName());
+                    int ticks = obj.get("study_ticks").getAsInt();
+                    assertTrue(ticks >= 60 && ticks <= 24000, "study_ticks out of bounds for " + file.getFileName());
+                    JsonArray reqs = obj.getAsJsonArray("item_requires");
+                    assertTrue(reqs != null && !reqs.isEmpty(), "Tier 3+ node must have item_requires: " + file.getFileName());
+                    boolean hasXpCond = false;
+                    for (JsonElement el : reqs) {
+                        JsonObject reqObj = el.getAsJsonObject();
+                        if (reqObj.has("cond")) {
+                            String condStr = reqObj.get("cond").getAsString();
+                            var parsed = com.xxsx.earthlore.data.LoreCondition.parse(condStr);
+                            assertEquals(com.xxsx.earthlore.data.LoreCondition.Kind.XP_LEVEL, parsed.kind(),
+                                    "Expected XP_LEVEL condition on " + file.getFileName());
+                            hasXpCond = true;
+                        }
+                    }
+                    assertTrue(hasXpCond, "Tier 3+ node must carry xp_level requirement: " + file.getFileName());
+                }
+            }
+        }
+        assertEquals(36, tieredChecked, "Expected 36 Tier 3..6 nodes (20+8+5+3)");
+    }
 }
