@@ -13,6 +13,9 @@
   "item_requires": [
     {
       "made": "earth_on_minecraft:survey_stake"
+    },
+    {
+      "cond": "xp_level>=5"
     }
   ],
   "unlocks": [
@@ -40,5 +43,6 @@
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.geo.economic_geology",
   "desc_key": "lore.earth_on_minecraft.geo.economic_geology.desc",
-  "icon": "earth_on_minecraft:sample_bag"
+  "icon": "earth_on_minecraft:sample_bag",
+  "study_ticks": 60
 }

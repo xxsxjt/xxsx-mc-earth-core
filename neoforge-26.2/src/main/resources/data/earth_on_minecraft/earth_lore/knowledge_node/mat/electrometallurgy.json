@@ -16,6 +16,9 @@
   "item_requires": [
     {
       "made": "earth_on_minecraft:copper_power_cable"
+    },
+    {
+      "cond": "xp_level>=12"
     }
   ],
   "unlocks": [
@@ -58,5 +61,6 @@
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.electrometallurgy",
   "desc_key": "lore.earth_on_minecraft.mat.electrometallurgy.desc",
-  "icon": "earth_on_minecraft:aluminium"
+  "icon": "earth_on_minecraft:aluminium",
+  "study_ticks": 90
 }

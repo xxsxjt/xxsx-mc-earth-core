@@ -22,7 +22,11 @@
       "all": "earth_on_minecraft:med/veterinary"
     }
   ],
-  "item_requires": [],
+  "item_requires": [
+    {
+      "cond": "xp_level>=20"
+    }
+  ],
   "unlocks": [
     {
       "capstone": "earth_lore:med"
@@ -52,5 +56,6 @@
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.med.pharmacy_mastery",
   "desc_key": "lore.earth_on_minecraft.med.pharmacy_mastery.desc",
-  "icon": "earth_on_minecraft:aspirin"
+  "icon": "earth_on_minecraft:aspirin",
+  "study_ticks": 130
 }

@@ -7,7 +7,11 @@
       "all": "earth_on_minecraft:agr/fermentation"
     }
   ],
-  "item_requires": [],
+  "item_requires": [
+    {
+      "cond": "xp_level>=5"
+    }
+  ],
   "unlocks": [
     {
       "item": "earth_on_minecraft:beer"
@@ -78,5 +82,6 @@
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.agr.brewing",
   "desc_key": "lore.earth_on_minecraft.agr.brewing.desc",
-  "icon": "earth_on_minecraft:beer"
+  "icon": "earth_on_minecraft:beer",
+  "study_ticks": 60
 }

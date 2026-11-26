@@ -10,6 +10,9 @@
   "item_requires": [
     {
       "made": "minecraft:glass"
+    },
+    {
+      "cond": "xp_level>=5"
     }
   ],
   "unlocks": [
@@ -37,5 +40,6 @@
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.mat.optical_glass",
   "desc_key": "lore.earth_on_minecraft.mat.optical_glass.desc",
-  "icon": "earth_on_minecraft:book"
+  "icon": "earth_on_minecraft:book",
+  "study_ticks": 60
 }

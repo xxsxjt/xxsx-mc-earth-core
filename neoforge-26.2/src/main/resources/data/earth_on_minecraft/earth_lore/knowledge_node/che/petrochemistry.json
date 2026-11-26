@@ -10,7 +10,11 @@
       "all": "earth_on_minecraft:che/organic_chemistry"
     }
   ],
-  "item_requires": [],
+  "item_requires": [
+    {
+      "cond": "xp_level>=5"
+    }
+  ],
   "unlocks": [
     {
       "item": "earth_on_minecraft:steam_cracker"
@@ -42,5 +46,6 @@
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.che.petrochemistry",
   "desc_key": "lore.earth_on_minecraft.che.petrochemistry.desc",
-  "icon": "earth_on_minecraft:glass_bottle"
+  "icon": "earth_on_minecraft:glass_bottle",
+  "study_ticks": 60
 }

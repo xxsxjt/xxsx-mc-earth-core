@@ -31,7 +31,11 @@
       "all": "earth_on_minecraft:agr/seed_selection"
     }
   ],
-  "item_requires": [],
+  "item_requires": [
+    {
+      "cond": "xp_level>=28"
+    }
+  ],
   "unlocks": [
     {
       "capstone": "earth_lore:agr"
@@ -61,5 +65,6 @@
   "fail_codes": [],
   "name_key": "lore.earth_on_minecraft.agr.agronomy",
   "desc_key": "lore.earth_on_minecraft.agr.agronomy.desc",
-  "icon": "earth_on_minecraft:bread"
+  "icon": "earth_on_minecraft:bread",
+  "study_ticks": 180
 }
