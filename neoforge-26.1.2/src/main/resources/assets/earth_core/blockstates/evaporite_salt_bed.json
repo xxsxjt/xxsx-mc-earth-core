@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "earth_core:block/evaporite_salt_bed"
+    }
+  }
+}

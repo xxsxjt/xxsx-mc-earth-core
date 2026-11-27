@@ -1,0 +1,18 @@
+{
+  "discipline": "earth_lore:che",
+  "tier": 0,
+  "requires": [],
+  "gate": "soft",
+  "literature": [
+    "commonsense"
+  ],
+  "teachers": [],
+  "research": {
+    "items": [],
+    "ticks": 0
+  },
+  "fail_codes": [],
+  "name_key": "lore.earth_core.che.matter_basics",
+  "desc_key": "lore.earth_core.che.matter_basics.desc",
+  "icon": "earth_core:evaporite_salt_bed"
+}

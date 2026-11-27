@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "earth_core:block/redstone_mineral_ore"
+    }
+  }
+}

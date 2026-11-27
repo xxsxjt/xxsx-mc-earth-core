@@ -1,39 +1,7 @@
-# Gradle
-build/
 .gradle/
-run/
-**/runs/
-!docs/quality/runs/
-!docs/quality/runs/*.md
-!gradle/wrapper/gradle-wrapper.jar
-
-# IDE
-*.iml
+build/
+runs/
+out/
 .idea/
-.ipr
-.iws
-.vscode/
-.classpath
-.project
-.settings/
-
-# OS
-*.DS_Store
-Thumbs.db
-
-# Logs
-logs/
-*.log
-**/__pycache__/
-*.pyc
-
-# Local generated previews and raw AI outputs
-tmp/
-output/
-texture-backups/
-art/blockbench.zip
-
-# Personal helper scripts or local secrets
-local/
-*.local.*
-providers.json
+*.iml
+neoforge-26.1.2/libs/

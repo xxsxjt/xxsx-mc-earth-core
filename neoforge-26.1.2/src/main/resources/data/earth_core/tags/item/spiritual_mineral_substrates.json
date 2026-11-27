@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:cinnabar_vein",
+    "earth_core:lapis_lazuli_ore",
+    "earth_core:auriferous_quartz_vein",
+    "earth_core:limestone_calcite_bed"
+  ]
+}

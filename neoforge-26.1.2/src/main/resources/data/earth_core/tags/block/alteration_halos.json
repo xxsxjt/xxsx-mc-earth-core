@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:magnetite_tuff_halo",
+    "earth_core:chalcopyrite_granite_halo",
+    "earth_core:auriferous_quartz_calcite_halo",
+    "earth_core:kimberlite_tuff_halo",
+    "earth_core:bituminous_sandstone_halo",
+    "earth_core:anthracite_deepslate_halo"
+  ]
+}

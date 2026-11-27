@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:book",
+    "minecraft:compass",
+    "minecraft:flint"
+  ],
+  "result": {
+    "id": "earth_core:field_geology_notebook",
+    "count": 1
+  }
+}

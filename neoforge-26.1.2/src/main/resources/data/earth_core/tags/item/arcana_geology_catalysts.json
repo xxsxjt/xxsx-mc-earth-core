@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "earth_core:auriferous_quartz_vein",
+    "earth_core:emerald_beryl_vein",
+    "earth_core:rare_earth_carbonatite",
+    "earth_core:lapis_lazuli_ore"
+  ]
+}

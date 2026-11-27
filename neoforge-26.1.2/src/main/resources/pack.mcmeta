@@ -1,0 +1,13 @@
+{
+  "pack": {
+    "description": "The Earth Core resources and data",
+    "min_format": [
+      88,
+      0
+    ],
+    "max_format": [
+      107,
+      1
+    ]
+  }
+}

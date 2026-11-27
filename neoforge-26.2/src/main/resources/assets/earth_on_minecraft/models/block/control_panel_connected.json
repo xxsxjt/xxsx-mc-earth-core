@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "earth_on_minecraft:block/control_panel_connected",
-    "side": "earth_on_minecraft:block/industrial_machine_casing_assembled",
-    "top": "earth_on_minecraft:block/industrial_machine_casing_assembled"
-  }
-}

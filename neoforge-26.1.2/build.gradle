@@ -1,0 +1,66 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+
+version = '0.3.0'
+group = 'com.xxsx.earth.core'
+base.archivesName = 'earth-core-neoforge-26.1.2'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+
+neoForge {
+    version = '26.1.2.124'
+
+    runs {
+        server {
+            server()
+            gameDirectory = project.file('runs/server')
+            programArgument('--nogui')
+        }
+    }
+
+    mods {
+        earth_core {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.10.2'
+}
+
+configurations {
+    testCompileClasspath.extendsFrom compileClasspath
+    testRuntimeClasspath.extendsFrom runtimeClasspath
+}
+
+tasks.named('test', Test) {
+    useJUnitPlatform()
+}
+
+jar {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+    from('../LICENSE') { into 'META-INF' }
+    manifest {
+        attributes([
+            'Specification-Title'   : 'earth_core',
+            'Specification-Vendor'  : 'xxsx',
+            'Specification-Version' : '1',
+            'Implementation-Title'  : project.name,
+            'Implementation-Version': project.jar.archiveVersion,
+            'Implementation-Vendor' : 'xxsx'
+        ])
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
