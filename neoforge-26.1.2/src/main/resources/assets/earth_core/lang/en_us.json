@@ -1,8 +1,5 @@
 {
   "itemGroup.earth_core.main": "Earth: Core Foundation",
-  "tooltip.earth_core.geology_hammer": "Right-click a deposit block to assay live finite reserve, grade factor, and mineral family.",
-  "tooltip.earth_core.ore_scanner": "Queries EarthCoreApi to locate the nearest natural deposit within 48 blocks.",
-  "tooltip.earth_core.field_geology_notebook": "Displays Earth Core physical constants, local Kelvin temperature, and registered deposits.",
   "msg.earth_core.hammer_assay": "[Geology Hammer] %s | Family: %s | Reserve: %d / %d | Grade: %.2f",
   "msg.earth_core.hammer_non_deposit": "[Geology Hammer] Host rock %s (not a finite-reserve deposit).",
   "msg.earth_core.scanner_hit": "[Ore Scanner] Detected %s (%d blocks away at %d,%d,%d, reserve %d)",

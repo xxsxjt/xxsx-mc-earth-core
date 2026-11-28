@@ -14,5 +14,5 @@
   "fail_codes": [],
   "name_key": "lore.earth_core.som.human_physiology_anchor",
   "desc_key": "lore.earth_core.som.human_physiology_anchor.desc",
-  "icon": "earth_core:field_geology_notebook"
+  "icon": "minecraft:writable_book"
 }

@@ -1,8 +1,5 @@
 {
   "itemGroup.earth_core.main": "地球：核心基座",
-  "tooltip.earth_core.geology_hammer": "右键矿床方块化验实时有限储量、品位系数与矿物族类。",
-  "tooltip.earth_core.ore_scanner": "调用 EarthCoreApi 扫描 48 格内最近的原生矿床方位、埋深与储量。",
-  "tooltip.earth_core.field_geology_notebook": "查看地球核心标准物理常数、区域环境开尔文温度与矿床目录。",
   "msg.earth_core.hammer_assay": "[地质锤] %s | 矿物族：%s | 实时储量：%d / %d | 品位系数：%.2f",
   "msg.earth_core.hammer_non_deposit": "[地质锤] 该方块为普通围岩：%s（非有限储量矿床）。",
   "msg.earth_core.scanner_hit": "[矿床探测仪] 发现 %s（距离 %d 格，坐标 %d,%d,%d，储量 %d）",

@@ -14,5 +14,5 @@
   "fail_codes": [],
   "name_key": "lore.earth_core.phy.thermal_basics",
   "desc_key": "lore.earth_core.phy.thermal_basics.desc",
-  "icon": "earth_core:field_geology_notebook"
+  "icon": "minecraft:campfire"
 }

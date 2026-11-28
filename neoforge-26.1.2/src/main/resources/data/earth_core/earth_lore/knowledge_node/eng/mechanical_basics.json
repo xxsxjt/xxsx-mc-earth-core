@@ -14,5 +14,5 @@
   "fail_codes": [],
   "name_key": "lore.earth_core.eng.mechanical_basics",
   "desc_key": "lore.earth_core.eng.mechanical_basics.desc",
-  "icon": "earth_core:ore_scanner"
+  "icon": "minecraft:blast_furnace"
 }

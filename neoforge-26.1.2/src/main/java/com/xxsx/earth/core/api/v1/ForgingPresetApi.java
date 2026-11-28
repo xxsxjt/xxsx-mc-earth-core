@@ -106,8 +106,9 @@ public final class ForgingPresetApi {
 
     public MaterialProfile resolvePresetByKey(String path) {
         String p = path == null ? "" : path.toLowerCase();
-        if (p.contains("astral") || p.contains("jade")) return defaultPresets.get("astral_jade");
-        if (p.contains("spirit_iron") || p.contains("spirit_sword") || p.contains("flying_sword")) return defaultPresets.get("spirit_iron");
+        if (p.contains("astral") || p.contains("jade") || p.contains("gather_orb")) return defaultPresets.get("astral_jade");
+        if (p.contains("spirit_iron") || p.contains("spirit_sword") || p.contains("flying_sword")
+                || p.contains("wind_fan") || p.contains("stone_seal") || p.contains("lantern_rod")) return defaultPresets.get("spirit_iron");
         if (p.contains("netherite")) return defaultPresets.get("netherite");
         if (p.contains("diamond")) return defaultPresets.get("diamond");
         if (p.contains("gold")) return defaultPresets.get("gold");
