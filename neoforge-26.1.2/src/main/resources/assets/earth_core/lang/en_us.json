@@ -1,8 +1,5 @@
 {
   "itemGroup.earth_core.main": "Earth: Core Foundation",
-  "item.earth_core.geology_hammer": "Geology Hammer",
-  "item.earth_core.ore_scanner": "Mineral Ore Scanner",
-  "item.earth_core.field_geology_notebook": "Earth Core Field Compendium",
   "tooltip.earth_core.geology_hammer": "Right-click a deposit block to assay live finite reserve, grade factor, and mineral family.",
   "tooltip.earth_core.ore_scanner": "Queries EarthCoreApi to locate the nearest natural deposit within 48 blocks.",
   "tooltip.earth_core.field_geology_notebook": "Displays Earth Core physical constants, local Kelvin temperature, and registered deposits.",
@@ -90,5 +87,13 @@
   "lore.earth_core.agr.soil_and_cycles": "Soil Nutrients & Agronomy Basics",
   "lore.earth_core.agr.soil_and_cycles.desc": "Understanding phosphorite, limestone, and topsoil nutrient cycles bridging geography and agronomy.",
   "lore.earth_core.som.human_physiology_anchor": "Terrestrial Environment & Physiology",
-  "lore.earth_core.som.human_physiology_anchor.desc": "Shared anchor linking ambient climate/pressure with human physiology addons."
+  "lore.earth_core.som.human_physiology_anchor.desc": "Shared anchor linking ambient climate/pressure with human physiology addons.",
+  "tooltip.earth_core.deposit_summary": "Family: %s · Host: %s · Base Reserve: %s",
+  "tooltip.earth_core.deposit_grade": "Ore Grade Factor: x%s (prospect with Earth: Geography tools)",
+  "tooltip.earth_core.solution_header": "Solution · %s mB · %s °C",
+  "tooltip.earth_core.solution_pure": "Pure Solvent: %s",
+  "tooltip.earth_core.solution_solute": "  • Solute %s: %s",
+  "tooltip.earth_core.solution_solvent": "  • Solvent %s: %s",
+  "solute.minecraft.water": "Water",
+  "solute.earth_xuanxue.spirit_qi": "Spirit Qi"
 }

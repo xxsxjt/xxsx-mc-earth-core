@@ -15,4 +15,12 @@ public final class EarthCoreComponents {
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<MaterialBatch>> MATERIAL_BATCH =
             DATA_COMPONENTS.registerComponentType("material_batch", builder ->
                     builder.persistent(MaterialBatch.CODEC).networkSynchronized(MaterialBatch.STREAM_CODEC));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<SolutionComposition>> SOLUTION_COMPOSITION =
+            DATA_COMPONENTS.registerComponentType("solution_composition", builder ->
+                    builder.persistent(SolutionComposition.CODEC).networkSynchronized(SolutionComposition.STREAM_CODEC));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<MaterialComposition>> MATERIAL_COMPOSITION =
+            DATA_COMPONENTS.registerComponentType("material_composition", builder ->
+                    builder.persistent(MaterialComposition.CODEC).networkSynchronized(MaterialComposition.STREAM_CODEC));
 }

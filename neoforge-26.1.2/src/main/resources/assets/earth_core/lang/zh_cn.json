@@ -1,8 +1,5 @@
 {
   "itemGroup.earth_core.main": "地球：核心基座",
-  "item.earth_core.geology_hammer": "地质锤",
-  "item.earth_core.ore_scanner": "矿床探测仪",
-  "item.earth_core.field_geology_notebook": "地球核心野外手册",
   "tooltip.earth_core.geology_hammer": "右键矿床方块化验实时有限储量、品位系数与矿物族类。",
   "tooltip.earth_core.ore_scanner": "调用 EarthCoreApi 扫描 48 格内最近的原生矿床方位、埋深与储量。",
   "tooltip.earth_core.field_geology_notebook": "查看地球核心标准物理常数、区域环境开尔文温度与矿床目录。",
@@ -90,5 +87,13 @@
   "lore.earth_core.agr.soil_and_cycles": "土壤养分与农业基础",
   "lore.earth_core.agr.soil_and_cycles.desc": "认识磷灰石、石灰岩与表土养分循环，衔接生命科学与地理学土壤肥力接口。",
   "lore.earth_core.som.human_physiology_anchor": "地球环境与人体适应基础",
-  "lore.earth_core.som.human_physiology_anchor.desc": "连接气温、气压与人体生理机能的基础锚点，供硬核人类生理模组挂载。"
+  "lore.earth_core.som.human_physiology_anchor.desc": "连接气温、气压与人体生理机能的基础锚点，供硬核人类生理模组挂载。",
+  "tooltip.earth_core.deposit_summary": "矿族：%s · 围岩：%s · 默认储量：%s",
+  "tooltip.earth_core.deposit_grade": "矿石品位系数：×%s（需使用「地球：地理学」地质锤/矿床探测图勘探）",
+  "tooltip.earth_core.solution_header": "溶液容器 · %s mB · %s °C",
+  "tooltip.earth_core.solution_pure": "纯溶剂：%s（不含溶质）",
+  "tooltip.earth_core.solution_solute": "  • 溶质 %s：%s",
+  "tooltip.earth_core.solution_solvent": "  • 溶剂 %s：%s",
+  "solute.minecraft.water": "净水",
+  "solute.earth_xuanxue.spirit_qi": "天地灵气"
 }

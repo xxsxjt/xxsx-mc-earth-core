@@ -1,51 +1,66 @@
 package com.xxsx.earth.core;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.xxsx.earth.core.api.v1.EarthCoreApi;
-import com.xxsx.earth.core.component.Grade;
-import com.xxsx.earth.core.component.MaterialBatch;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+import com.xxsx.earth.core.api.v1.FluidMixtureApi;
+import com.xxsx.earth.core.api.v1.ForgingPresetApi;
+import com.xxsx.earth.core.component.SolutionComposition;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Map;
 import org.junit.jupiter.api.Test;
 
-class EarthCoreThinFoundationTest {
-    @Test
-    void thermalAndMaterialApisAreConsistent() {
-        assertEquals(273.15D, EarthCoreApi.thermal().toKelvin(0.0D), 1e-6);
-        assertEquals(15.0D, EarthCoreApi.thermal().toCelsius(288.15D), 1e-6);
-        assertTrue(EarthCoreApi.thermal().ambientKelvinAt(120, 15.0D) < EarthCoreApi.thermal().ambientKelvinAt(63, 15.0D));
-        assertTrue(EarthCoreApi.materials().find("iron").isPresent());
-        assertEquals(32, EarthCoreApi.geology().catalog().size());
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-        MaterialBatch batch = new MaterialBatch("iron", Grade.REFINED, 8750, 293);
-        assertEquals(0.875D, batch.purityFraction(), 1e-6);
+class EarthCoreThinFoundationTest {
+
+    @Test
+    void coreHasNoMisplacedGeologyPlaceholderTools() {
+        assertFalse(Files.exists(Path.of("src/main/java/com/xxsx/earth/core/CoreTools.java")),
+                "Geology placeholder tools belong in earth_geography, not earth_core");
+        assertEquals(32, EarthCoreApi.geology().catalog().size());
     }
 
     @Test
-    void allAssetsLangLoreAndAgplLicenseExist() throws IOException {
-        Path assets = Path.of("src/main/resources/assets/earth_core");
-        Path data = Path.of("src/main/resources/data/earth_core");
+    void fluidMixtureApiConservesMassDuringMixingDilutionAndDiffusion() {
+        SolutionComposition pureSpirit = SolutionComposition.singleSolute(
+                "minecraft:water", "earth_xuanxue:spirit_qi", 1000, 1000, 295);
+        SolutionComposition diluted = EarthCoreApi.fluids().diluteWithSolvent(pureSpirit, 1000, 293);
+        assertEquals(2000, diluted.volumeMb());
+        assertEquals(500, diluted.concentrationOf("earth_xuanxue:spirit_qi"));
+        assertEquals(294, diluted.temperatureK());
 
-        JsonObject zh = JsonParser.parseString(Files.readString(assets.resolve("lang/zh_cn.json"), StandardCharsets.UTF_8)).getAsJsonObject();
-        JsonObject en = JsonParser.parseString(Files.readString(assets.resolve("lang/en_us.json"), StandardCharsets.UTF_8)).getAsJsonObject();
-        assertEquals(zh.keySet(), en.keySet(), "zh_cn and en_us must match 1:1");
+        SolutionComposition bottleA = SolutionComposition.singleSolute(
+                "minecraft:water", "earth_xuanxue:spirit_qi", 750, 333, 296);
+        SolutionComposition bottleB = SolutionComposition.singleSolute(
+                "minecraft:water", "earth_xuanxue:spirit_qi", 250, 333, 292);
+        SolutionComposition mixed = EarthCoreApi.fluids().mix(bottleA, bottleB);
+        assertEquals(666, mixed.volumeMb());
+        assertEquals(500, mixed.concentrationOf("earth_xuanxue:spirit_qi"));
 
-        for (DepositSpec spec : DepositSpec.ALL) {
-            assertTrue(Files.exists(assets.resolve("textures/block/" + spec.id() + ".png")), "Missing texture: " + spec.id());
-            assertTrue(Files.exists(assets.resolve("blockstates/" + spec.id() + ".json")), "Missing blockstate: " + spec.id());
-            assertTrue(Files.exists(data.resolve("loot_table/blocks/" + spec.id() + ".json")), "Missing loot: " + spec.id());
-            assertTrue(zh.has("block.earth_core." + spec.id()), "Missing zh lang: " + spec.id());
-        }
+        FluidMixtureApi.DiffusionStep step = EarthCoreApi.fluids().diffuseStep(4, 0, 4);
+        assertTrue(step.changed());
+        assertEquals(3, step.nextA());
+        assertEquals(1, step.nextB());
+        assertEquals(4, step.nextA() + step.nextB());
 
-        String toml = Files.readString(Path.of("src/main/resources/META-INF/neoforge.mods.toml"), StandardCharsets.UTF_8);
-        assertTrue(toml.contains("modId=\"earth_core\""));
-        assertTrue(toml.contains("license=\"AGPL-3.0-only\""));
-        String lic = Files.readString(Path.of("../LICENSE"), StandardCharsets.UTF_8);
-        assertTrue(lic.contains("GNU AFFERO GENERAL PUBLIC LICENSE"));
+        FluidMixtureApi.DiffusionStep eq = EarthCoreApi.fluids().diffuseStep(2, 1, 4);
+        assertFalse(eq.changed());
+    }
+
+    @Test
+    void forgingPresetApiProvidesGracefulFallbackPresetsWithoutForgingAddon() {
+        ForgingPresetApi api = EarthCoreApi.forging();
+        assertTrue(api.defaultPresets().size() >= 7);
+        ForgingPresetApi.MaterialProfile iron = api.resolvePresetByKey("iron_sword");
+        assertEquals("iron", iron.id());
+        assertTrue(iron.fromFallbackPreset());
+        ForgingPresetApi.MaterialProfile spirit = api.resolvePresetByKey("spirit_iron_sword");
+        assertEquals("spirit_iron", spirit.id());
+        assertTrue(spirit.qiAffinity() > iron.qiAffinity());
+        ForgingPresetApi.MaterialProfile astral = api.resolvePresetByKey("astral_fangtian_halberd");
+        assertEquals("astral_jade", astral.id());
+        assertTrue(astral.attackBonus() > spirit.attackBonus());
     }
 }

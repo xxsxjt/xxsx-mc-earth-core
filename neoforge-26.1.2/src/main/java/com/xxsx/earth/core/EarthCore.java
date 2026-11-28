@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 @Mod(EarthCore.MODID)
 public final class EarthCore {
     public static final String MODID = "earth_core";
-    public static final String VERSION = "0.3.0";
+    public static final String VERSION = "0.4.0";
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public EarthCore(IEventBus modBus) {
@@ -19,7 +19,9 @@ public final class EarthCore {
         EarthCoreContent.ITEMS.register(modBus);
         EarthCoreContent.BLOCK_ENTITIES.register(modBus);
         EarthCoreContent.CREATIVE_TABS.register(modBus);
-        LOGGER.info("[earth_core] loaded thin foundation v{} ({} deposits, 3 starter tools, EarthCoreApi v1)",
-                VERSION, EarthCoreApi.geology().catalog().size());
+        LOGGER.info("[earth_core] loaded real foundation v{} ({} deposits, FluidMixtureApi, ForgingPresetApi[{} presets], AddonCompatApi)",
+                VERSION,
+                EarthCoreApi.geology().catalog().size(),
+                EarthCoreApi.forging().defaultPresets().size());
     }
 }

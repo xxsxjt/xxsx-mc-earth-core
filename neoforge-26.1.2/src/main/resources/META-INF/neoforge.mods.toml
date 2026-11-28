@@ -4,10 +4,10 @@ license="AGPL-3.0-only"
 
 [[mods]]
 modId="earth_core"
-version="0.3.0"
+version="0.4.0"
 displayName="地球：核心 (Earth: Core)"
 logoFile="logo.png"
-description='''地球系列统一瘦核心基座（The Earth Core）：提供全系列共享 API（EarthCoreApi v1：矿床有限储量、开尔文热工学、材料物理属性与现实支撑接口）、共享数据组件（Grade/MaterialBatch）、32 类基础真实矿床与围岩蚀变晕方块、3 件基础野外工具及 8 项学科根学识节点。工业机器、化工产线与社会聚落已全部解耦至独立学科模组。
+description='''地球系列统一瘦核心基座（The Earth Core）：提供全系列共享 API（EarthCoreApi v1：矿床有限储量、开尔文热工学、材料物理属性与现实支撑接口）、共享数据组件（Grade/MaterialBatch）、32 类基础真实矿床与围岩蚀变晕方块、通用液体互溶/溶液成分引擎、金属锻造与缺附属默认预设引擎、Waystones/聚落牌软兼容层及 8 项学科根学识节点。工业机器、化工产线与社会聚落已全部解耦至独立学科模组。
 Lean unified foundation for the Earth Series: EarthCoreApi v1 (finite mineral deposit reserves, Kelvin thermodynamics, material properties, realistic support), shared data components, 32 natural deposit & alteration halo blocks, 3 core field starter tools, and 8 foundational earth_lore root anchors.'''
 authors="xxsx"
 logoBlur=false
